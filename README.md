@@ -53,7 +53,7 @@ Competències Específiques (CE) i sabers desenvolupats (LOMLOE):
 │   │   └── 📄 package.json
 │   └── 📄 plantilles_memoria_tecnica.md
 └── 📄 llista_materials.md
-´´´
+```
 
 ---
 
