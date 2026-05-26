@@ -53,3 +53,121 @@ Competències Específiques (CE) i sabers desenvolupats (LOMLOE):
 │   │   └── 📄 package.json
 │   └── 📄 plantilles_memoria_tecnica.md
 └── 📄 llista_materials.md
+
+---
+
+## 🎓 Context educatiu
+
+- **Matèria:** Tecnologia
+- **Nivell:** 4t d'ESO
+- **Normativa:** Decret 107/2022, d'1 d'agost (Comunitat Valenciana) - LOMLOE
+- **Durada:** Anual (105 sessions, 3h/setmana aprox.)
+- **Metodologia:** Aprenentatge Basat en Projectes (ABP) i Aprenentatge Servei (ApS)
+
+---
+
+## 🛠️ Tecnologies i eines
+
+### Maquinari requerit (Hardware):
+- **Taller:** Fusta de palets (marcatge HT), serres, trepants, polidores.
+- **Control i IoT:** Placa ESP32 o Arduino UNO amb mòdul WiFi.
+- **Sensors:** Humitat de sòl, Temperatura/Humitat (DHT11/DHT22), Llum (LDR).
+- **Servidor local:** Raspberry Pi 4 (o similar).
+- **Energia:** Kit placa solar 12V, controlador de càrrega, bateria, bomba d'aigua 12V.
+- **Fabricació digital:** Impressora 3D (PLA/PETG).
+
+### Programari principal (Software):
+- **Disseny 3D:** Tinkercad / FreeCAD.
+- **Programació microcontroladors:** Arduino IDE (C++).
+- **Desenvolupament Web:** HTML5, CSS, Vanilla JS, Node.js (Backend).
+
+---
+
+## 🚀 Fases del projecte (Temporalització Anual)
+
+### Fase 1: Taller, Fusta i Xarxes (1r Trimestre - 35 sessions)
+- Reciclatge de fusta, construcció de caixons i estudi de l'economia circular.
+- Introducció a xarxes locals i servidors (preparació de la Raspberry).
+- Disseny CAD i impressió 3D per a carcasses de protecció.
+
+### Fase 2: Màquines i Fonaments de Robòtica (2n Trimestre - 35 sessions)
+- Estudi de mecanismes i pneumàtica/hidràulica aplicats al reg.
+- Iniciació a l'electrònica i programació (Arduino/C++).
+- Connexió bàsica de sensors i actuadors a l'aula.
+
+### Fase 3: Instal·lacions i Integració IoT (3r Trimestre - 35 sessions)
+- Instal·lacions d'habitatges aplicades al Kit Solar de l'hort.
+- Muntatge final: integració del codi de reg automàtic.
+- Connexió WiFi, configuració del Dashboard i presentació a l'institut.
+
+---
+
+## 📊 Avaluació
+
+El projecte utilitza avaluació contínua i formativa mitjançant:
+
+- Rúbriques específiques per a les diferents fases (taller, codi, disseny 3D).
+- Avaluació de la Memòria Tècnica del projecte.
+- Funcionament real del producte (Hort regant correctament).
+- Autoavaluació, coavaluació entre iguals i presentació final (Fira de la Ciència / Hall del centre).
+
+---
+
+## 📖 Guia d'ús
+
+### Per al professorat:
+- Revisar l'`auditoria_curricular.md` per justificar la cobertura de sabers bàsics.
+- Adaptar les Situacions d'Aprenentatge (SAs) segons l'equipament disponible al taller.
+- Consultar els esquemes de connexió abans de muntar l'ESP32.
+
+### Per a l'alumnat:
+- Començar per la carpeta `/alumnado/` i les guies de seguretat del taller.
+- Seguir l'estructura de la memòria tècnica des del primer dia.
+- Utilitzar els codis base d'Arduino i HTML per anar modificant-los.
+
+---
+
+## 🎯 Competències desenvolupades
+
+### Competències tècniques:
+- Ús segur d'eines de fabricació manual i digital (3D).
+- Lògica de programació i estructures de control.
+- Muntatge de circuits elèctrics i hidràulics.
+- Tractament i visualització de dades digitals.
+
+### Competències transversals:
+- Treball col·laboratiu i assumpció de rols.
+- Consciència ecosocial, sostenibilitat i disseny ètic.
+- Resolució de problemes i *troubleshooting*.
+
+---
+
+## 🔄 Adaptabilitat
+
+El projecte està dissenyat per ser flexible:
+
+- Es pot realitzar sense la part IoT (només reg amb temporitzador clàssic).
+- S'hi pot afegir complexitat mecànica (tendals motoritzats per a hivernacles).
+- El Dashboard pot allotjar-se en la Raspberry o en serveis gratuïts d'Internet (ThingSpeak, Blynk).
+
+---
+
+## 📚 Referències curriculars
+
+- Basat en la normativa educativa espanyola (LOMLOE).
+- Decret 107/2022 de la Generalitat Valenciana (Currículum de 4t ESO - Tecnologia).
+- Integració amb els Objectius de Desenvolupament Sostenible (ODS 7, 11, 12, 13).
+
+---
+
+## 🤝 Contribucions i Llicència
+
+Aquest material educatiu ha estat creat en el marc del Màster de Professorat (Didàctica II - UPV) i es distribueix sota llicència **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**, permetent la seua adaptació i ús a les aules.
+
+---
+
+## 📞 Contacte
+
+- **Matèria:** Tecnologia (4t ESO)
+- **Autors:** Equip Smart Hort (Andrea, Rocio, Jesús, Rubén, Víctor)
+- **Universitat:** Universitat Politècnica de València (UPV) - Màster en Professorat (MUPES)
