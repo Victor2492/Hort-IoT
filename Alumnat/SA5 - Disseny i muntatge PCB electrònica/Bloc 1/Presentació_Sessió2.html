@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sesión 2: Componentes Electrónicos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb; /* Azul eléctrico */
+            --accent: #f59e0b; /* Naranja */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --pcb-green: #059669;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px;
+            background: var(--dark);
+            color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 { margin: 0; font-size: 2.5rem; }
+        .subtitle { color: var(--accent); font-weight: bold; margin-top: 10px; }
+
+        /* Grid de Componentes */
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            border-top: 5px solid var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .card h2 {
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+        }
+
+        .real-look {
+            background: #e2e8f0;
+            height: 150px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 80px;
+            color: #64748b;
+        }
+
+        .symbol-box {
+            background: #fffbeb;
+            border: 2px dashed var(--accent);
+            padding: 15px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        .symbol-img {
+            max-width: 100%;
+            height: 60px;
+            object-fit: contain;
+        }
+        
+        /* Dibujo CSS simple de símbolos para no depender de imágenes externas */
+        .css-symbol {
+            display: inline-block;
+            stroke: black;
+            stroke-width: 2;
+        }
+
+        .desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .analogy {
+            background: #dbeafe;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Sección de Regulador específica */
+        .regulator-section {
+            grid-column: 1 / -1;
+            background: var(--dark);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            margin-top: 40px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .pinout {
+            background: white;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Botón de acción */
+        .btn-check {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: var(--pcb-green);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 10px;
+            margin-top: 40px;
+            transition: background 0.2s;
+        }
+        .btn-check:hover { background: #047857; }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1><i class="fa-solid fa-microchip"></i> El "Lego" de la Electrónica</h1>
+        <div class="subtitle">Sesión 2: Componentes y Simbología</div>
+        <p>Para construir nuestra placa de riego, necesitamos conocer a los 4 protagonistas.</p>
+    </header>
+
+    <div class="component-grid">
+        
+        <!-- 1. RESISTENCIA -->
+        <div class="card">
+            <div class="real-look" style="color: #d97706;">
+                <i class="fa-solid fa-timeline"></i> <!-- Representación abstracta -->
+            </div>
+            <h2>1. La Resistencia</h2>
+            <div class="desc">Es el freno de la electricidad. Se opone al paso de la corriente para proteger otros componentes.</div>
+            <div class="symbol-box">
+                <!-- SVG Symbol Resistor IEEE -->
+                <svg width="100" height="40" viewBox="0 0 100 40">
+                    <line x1="0" y1="20" x2="20" y2="20" stroke="black" stroke-width="2"/>
+                    <polyline points="20,20 25,10 35,30 45,10 55,30 65,10 75,30 80,20" fill="none" stroke="black" stroke-width="2"/>
+                    <line x1="80" y1="20" x2="100" y2="20" stroke="black" stroke-width="2"/>
+                    <text x="35" y="5" font-family="Arial" font-size="10">R</text>
+                </svg>
+                <div style="font-size: 12px; color: #666;">Símbolo (Zig-Zag)</div>
+            </div>
+            <div class="analogy">
+                <strong><i class="fa-solid fa-lightbulb"></i> Analogía:</strong> Es como pisar una manguera. Sale menos agua y con menos fuerza.
+            </div>
+        </div>
+
+        <!-- 2. CONDENSADOR -->
+        <div class="card">
+            <div class="real-look" style="color: #3b82f6;">
+                <i class="fa-solid fa-battery-quarter"></i>
+            </div>
+            <h2>2. El Condensador</h2>
+            <div class="desc">Almacena pequeñas cantidades de energía y las suelta rápido. Estabiliza el voltaje.</div>
+            <div class="symbol-box">
+                <!-- SVG Symbol Capacitor -->
+                <svg width="100" height="40" viewBox="0 0 100 40">
+                    <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="2"/>
+                    <line x1="40" y1="5" x2="40" y2="35" stroke="black" stroke-width="2"/>
+                    <path d="M50 5 Q45 20 50 35" fill="none" stroke="black" stroke-width="2"/> 
+                    <line x1="50" y1="20" x2="80" y2="20" stroke="black" stroke-width="2"/>
+                    <text x="20" y="15" font-family="Arial" font-size="12">+</text>
+                </svg>
+                <div style="font-size: 12px; color: #666;">Símbolo (Electrolítico)</div>
+            </div>
+            <div class="analogy">
+                <strong><i class="fa-solid fa-lightbulb"></i> Analogía:</strong> Un pequeño depósito de agua de reserva para cuando hay cortes breves.
+            </div>
+        </div>
+
+        <!-- 3. DIODO -->
+        <div class="card">
+            <div class="real-look" style="color: #ef4444;">
+                <i class="fa-solid fa-play"></i>
+            </div>
+            <h2>3. El Diodo</h2>
+            <div class="desc">Una válvula de una sola vía. Deja pasar la corriente solo en una dirección.</div>
+            <div class="symbol-box">
+                <!-- SVG Symbol Diode -->
+                <svg width="100" height="40" viewBox="0 0 100 40">
+                    <line x1="10" y1="20" x2="40" y2="20" stroke="black" stroke-width="2"/>
+                    <polygon points="40,10 40,30 60,20" fill="none" stroke="black" stroke-width="2"/>
+                    <line x1="60" y1="10" x2="60" y2="30" stroke="black" stroke-width="2"/>
+                    <line x1="60" y1="20" x2="90" y2="20" stroke="black" stroke-width="2"/>
+                </svg>
+                <div style="font-size: 12px; color: #666;">Símbolo</div>
+            </div>
+            <div class="analogy">
+                <strong><i class="fa-solid fa-lightbulb"></i> Analogía:</strong> Una válvula anti-retorno. Si intentas meter agua al revés, se bloquea.
+            </div>
+        </div>
+
+        <!-- 4. REGULADOR 7805 -->
+        <div class="regulator-section">
+            <div style="flex: 1;">
+                <h2 style="color: white; font-size: 2rem;">4. El Jefe: Regulador LM7805</h2>
+                <p>Este es el componente CLAVE de nuestra placa. Su trabajo es coger los 12V inestables de la batería solar y convertirlos en 5V perfectos para el cerebro (Arduino).</p>
+                <p><i class="fa-solid fa-triangle-exclamation" style="color: var(--accent);"></i> <strong>¡Cuidado!</strong> Se calienta mucho porque la energía que sobra la convierte en calor.</p>
+            </div>
+            <div class="pinout">
+                <h3 style="margin-top: 0; border-bottom: 2px solid #ccc;">Pinout (Patillaje)</h3>
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <i class="fa-solid fa-microchip" style="font-size: 50px;"></i>
+                    <ul style="list-style: none; padding: 0;">
+                        <li><strong>Pin 1:</strong> Entrada (12V)</li>
+                        <li><strong>Pin 2:</strong> Tierra (GND)</li>
+                        <li><strong>Pin 3:</strong> Salida (5V)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="#" class="btn-check" onclick="alert('¡Hora de abrir la ficha de actividades!')">
+        <i class="fa-solid fa-pencil"></i> Ir a la Ficha de Actividades
+    </a>
+
+</div>
+
+</body>
+</html>
