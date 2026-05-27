@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Control y Potencia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #111827;
+            --text-color: #f3f4f6;
+            --primary: #3b82f6; /* Azul señal */
+            --danger: #ef4444; /* Rojo potencia */
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Slide Container */
+        .slide-deck {
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 40px;
+        }
+
+        .slide {
+            background: #1f2937;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid #374151;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide h2 {
+            font-family: 'Chakra Petch', sans-serif;
+            font-size: 2.5rem;
+            margin-top: 0;
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .content {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .text-col { flex: 1; font-size: 1.2rem; line-height: 1.6; }
+        .vis-col { flex: 1; display: flex; justify-content: center; }
+
+        /* Visualizations */
+        .vs-badge {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--warning);
+            margin: 0 20px;
+        }
+
+        .component-box {
+            background: #374151;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+        }
+
+        .arduino { border-color: var(--primary); }
+        .valve { border-color: var(--danger); }
+
+        .big-icon { font-size: 80px; margin-bottom: 10px; display: block; }
+
+        /* Transistor Diagram */
+        .transistor-diagram {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #111827;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .t-pin {
+            position: absolute;
+            background: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: black;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        /* Danger Animation */
+        .kickback {
+            animation: shake 0.5s infinite;
+            color: var(--danger);
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+
+        .warning-box {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid var(--danger);
+            color: #fca5a5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header style="text-align: center; margin-top: 40px;">
+        <h1 style="font-family: 'Chakra Petch'; font-size: 3rem; margin: 0;">CONTROL Y POTENCIA</h1>
+        <p style="color: var(--primary); font-size: 1.5rem;">Cómo controlar bestias con cerebros pequeños</p>
+    </header>
+
+    <div class="slide-deck">
+
+        <!-- SLIDE 1: EL PROBLEMA -->
+        <div class="slide">
+            <h2>1. El Problema: David vs Goliat</h2>
+            <div class="content">
+                <div class="text-col">
+                    <p>Tenemos un problema grave de compatibilidad.</p>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 20px;">
+                            <strong style="color: var(--primary);">DAVID (Arduino):</strong><br>
+                            Funciona a <strong>5V</strong>.<br>
+                            Solo tiene fuerza para dar <strong>0.04 Amperios</strong> (40mA).
+                        </li>
+                        <li>
+                            <strong style="color: var(--danger);">GOLIAT (Válvula):</strong><br>
+                            Necesita <strong>12V</strong>.<br>
+                            Necesita mucha fuerza: <strong>0.5 - 1 Amperio</strong>.
+                        </li>
+                    </ul>
+                    <div class="warning-box">
+                        <i class="fa-solid fa-skull-crossbones" style="font-size: 30px;"></i>
+                        <div>Si conectas la válvula directa al Arduino... ¡El chip se quema por exceso de esfuerzo!</div>
+                    </div>
+                </div>
+                <div class="vis-col">
+                    <div class="component-box arduino">
+                        <i class="fa-solid fa-microchip big-icon" style="color: var(--primary);"></i>
+                        Arduino
+                    </div>
+                    <div class="vs-badge">VS</div>
+                    <div class="component-box valve">
+                        <i class="fa-solid fa-faucet big-icon" style="color: var(--danger);"></i>
+                        Válvula
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 2: LA SOLUCIÓN -->
+        <div class="slide">
+            <h2>2. La Solución: El Transistor</h2>
+            <div class="content">
+                <div class="text-col">
+                    <p>Necesitamos un intermediario. Un <strong>interruptor electrónico</strong>.</p>
+                    <p>El Transistor (o MOSFET) funciona como un grifo:</p>
+                    <ol>
+                        <li>Con una fuerza mínima en la llave (Señal del Arduino)...</li>
+                        <li>...dejamos pasar un caudal enorme de agua (Corriente de la batería a la válvula).</li>
+                    </ol>
+                    <p style="color: var(--success); font-weight: bold;">El Arduino no mueve la válvula. El Arduino solo da la orden.</p>
+                </div>
+                <div class="vis-col">
+                    <div class="transistor-diagram">
+                        <i class="fa-solid fa-bolt" style="font-size: 100px; color: #4b5563;"></i>
+                        <div class="t-pin" style="left: -10px; top: 85px;">G (Gate)</div>
+                        <div class="t-pin" style="right: -10px; top: 20px;">D (Drain)</div>
+                        <div class="t-pin" style="right: -10px; bottom: 20px;">S (Source)</div>
+                        <div style="position: absolute; color: var(--primary); left: 10px; top: 60px; font-size: 0.8rem;">Señal Arduino</div>
+                        <div style="position: absolute; color: var(--danger); right: 10px; top: -10px; font-size: 0.8rem;">A la Válvula (-)</div>
+                        <div style="position: absolute; color: #9ca3af; right: 10px; bottom: -10px; font-size: 0.8rem;">A Tierra (GND)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: EL PELIGRO OCULTO -->
+        <div class="slide">
+            <h2>3. El Enemigo Invisible (Inducción)</h2>
+            <div class="content">
+                <div class="vis-col">
+                    <i class="fa-solid fa-magnet kickback" style="font-size: 120px;"></i>
+                </div>
+                <div class="text-col">
+                    <p>La electroválvula funciona con un imán (bobina). Cuando cortamos la corriente de golpe (cerramos el riego), el imán se "enfada".</p>
+                    <p><strong>El contragolpe inductivo:</strong> La bobina suelta toda la energía acumulada en forma de un pico de voltaje inverso (¡hasta 100V!) que viaja hacia atrás.</p>
+                    <p>Si ese rayo llega al transistor o al Arduino... <strong>Game Over.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: EL GUARDAESPALDAS -->
+        <div class="slide">
+            <h2>4. El Guardaespaldas: El Diodo</h2>
+            <div class="content">
+                <div class="text-col">
+                    <p>Para evitar el desastre, colocamos un <strong>Diodo en Antiparalelo</strong>.</p>
+                    <ul>
+                        <li>Se coloca al revés junto a la válvula.</li>
+                        <li>Normalmente no hace nada (está bloqueado).</li>
+                        <li>Cuando aparece el "rayo inverso", el diodo se abre y se come la energía, protegiendo al resto del circuito.</li>
+                    </ul>
+                </div>
+                <div class="vis-col">
+                    <div style="background: white; padding: 20px; border-radius: 10px;">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Flyback_diode_generic.svg/320px-Flyback_diode_generic.svg.png" alt="Esquema diodo volante" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
