@@ -35,10 +35,10 @@
 | **Assignatura** | Tecnologia — 4t ESO |
 | **Marc normatiu** | Decret 107/2022, DOGV 5/8/2022 (LOMLOE, CV) |
 | **Nre. de sessions** | 12 sessions × 55 min |
-| **Temporalització** | 1r–2n trimestre (flexible) |
+| **Temporalització** | 1r trimestre |
 | **Agrupament** | Grups de 3–4 alumnes (1 caixó per grup) |
 | **Espai** | Aula de Tecnologia / Taller |
-| **SA relacionades** | SA2 (Reixes 3D) · SA3 (Automatització Arduino) |
+| **SA relacionades** | SA3 (Reixes 3D) · SA6-7 (Automatització Arduino) |
 | **Cost aproximat** | 19–22 € per caixó (fusta gratuïta) |
 
 ### Producte final esperat
@@ -57,7 +57,7 @@
 | **CE2** | Organització i gestió de projectes (planificació, rols, memòria) | Mitjà |
 | **CE3** | Fabricació i producció (fusteria, eines, materials) | **Molt alt** |
 | **CE4** | Sostenibilitat i impacte ambiental (economia circular, ODS) | Alt |
-| **CE5** | Tecnologia digital (preparació passacables, connexió SA3) | Baix-Mitjà |
+| **CE5** | Tecnologia digital (preparació passacables, connexió SA6) | Baix-Mitjà |
 
 ### 2.2 Criteris d'avaluació principals
 
@@ -407,7 +407,7 @@ Plan C: Rols alternatius: documentació fotogràfica de la resta de grups
 
 ```
 SA1-Caixons/
-├── DOSSIER_ALUMNAT_SA1_Caixons.md     ← Dossier de l'alumnat (aquest repositori)
+├── DOSSIER_ALUMNAT_SA2_Caixons.md     ← Dossier de l'alumnat (aquest repositori)
 ├── GUIA_DOCENT_SA1_Caixons.md         ← Aquesta guia
 ├── SA_Hort_Caixons_Fusta_Reciclada.docx   ← SA completa (35 sessions)
 ├── SA_Condensada_12Sessions.docx          ← SA condensada (12 sessions)
@@ -431,15 +431,14 @@ SA1-Caixons/
 
 | Versió | Data | Canvis |
 |--------|------|--------|
-| 1.0 | Set. 2024 | Versió inicial (35 sessions) |
-| 2.0 | Oct. 2024 | Versió condensada (12 sessions). Afegida SA2 i SA3. |
+| 1.0 | Set. 2025 | Versió condensada (12 sessions). |
 
 ---
 
 <div align="center">
 
 **📚 Guia del Docent · Departament de Tecnologia**
-**Situació d'Aprenentatge: Hort Escolar Tecnològic · SA1**
-*Document d'ús intern. Curs 2024–2025*
+**Situació d'Aprenentatge: Hort Escolar Tecnològic · SA2**
+*Document d'ús intern. Curs 2025–2026*
 
 </div>
