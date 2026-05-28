@@ -55,9 +55,9 @@ Dissenyarem una REIXA MODULAR de drenatge impresa en 3D (PLA):
 ### Connexió entre SA
 
 ```
-SA1: Caixó de fusta  ──►  SA2: Reixa 3D  ──►  SA3: Automatització
+SA2: Caixó de fusta  ──►  SA3: Reixa 3D  ──►  SA6-7: Automatització
   (parets, base)         (drenatge precís)       (sensors, reg)
-                              ↑ AQUÍ ESTEM
+                              ↑ ACÍ ESTEM
 ```
 
 ---
@@ -649,8 +649,8 @@ Adhesió:           Skirt (3 línies)
 
 <div align="center">
 
-**🖨️ Departament de Tecnologia · IES · Comunitat Valenciana · Curs 2024–2025**
+**🖨️ Departament de Tecnologia · IES Tirant Lo Blanc (Gandia) · Comunitat Valenciana · Curs 2025–2026**
 
-*Situació d'Aprenentatge: Disseny i Impressió 3D – SA2*
+*Situació d'Aprenentatge: Disseny i Impressió 3D – SA3*
 
 </div>
