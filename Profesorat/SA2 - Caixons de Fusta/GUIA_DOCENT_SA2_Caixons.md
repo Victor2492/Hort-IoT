@@ -1,4 +1,4 @@
-# 📚 Guia del Docent — SA1: Caixons de Fusta Reciclada
+# 📚 Guia del Docent — SA2: Caixons de Fusta Reciclada
 
 ![Assignatura](https://img.shields.io/badge/Assignatura-Tecnologia-2C5F2D?style=flat-square)
 ![Nivell](https://img.shields.io/badge/Nivell-4t%20ESO-0077B6?style=flat-square)
