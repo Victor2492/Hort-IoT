@@ -7,7 +7,7 @@
 ![Llengua](https://img.shields.io/badge/Llengua-Valenciana-CE3A2C?style=flat-square)
 
 > **Situació d'Aprenentatge:** *Disseny i Impressió 3D – Reixes de Drenatge per a l'Hort Escolar*
-> Dissenyarem amb TinkerCAD i imprimirem en 3D les reixes modulars de drenatge per als caixons de la SA1.
+> Dissenyarem amb TinkerCAD i imprimirem en 3D les reixes modulars de drenatge per als caixons de la SA anterior.
 
 ---
 
