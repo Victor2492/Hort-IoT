@@ -1,4 +1,4 @@
-# 📚 Guia del Docent — SA2: Disseny i Impressió 3D
+# 📚 Guia del Docent — SA3: Disseny i Impressió 3D
 
 ![Assignatura](https://img.shields.io/badge/Assignatura-Tecnologia-006494?style=flat-square)
 ![Nivell](https://img.shields.io/badge/Nivell-4t%20ESO-0077B6?style=flat-square)
@@ -7,7 +7,7 @@
 ![Versió](https://img.shields.io/badge/Versi%C3%B3-1.0-52B788?style=flat-square)
 
 > **Document d'ús intern** del Departament de Tecnologia.
-> Conté la planificació completa, configuració del software, gestió d'impressores, rúbriques i orientacions per a la implementació de la SA2.
+> Conté la planificació completa, configuració del software, gestió d'impressores, rúbriques i orientacions per a la implementació de la SA.
 
 ---
 
