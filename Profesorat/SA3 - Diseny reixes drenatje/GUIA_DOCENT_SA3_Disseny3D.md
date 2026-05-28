@@ -546,8 +546,8 @@ Sessió extra conjunta (opcional, 30 min):
 ### Arxius d'aquest repositori
 
 ```
-SA2-Disseny3D/
-├── DOSSIER_ALUMNAT_SA2_Disseny3D.md       ← Dossier de l'alumnat
+SA3-Disseny3D/
+├── DOSSIER_ALUMNAT_SA3_Disseny3D.md       ← Dossier de l'alumnat
 ├── GUIA_DOCENT_SA2_Disseny3D.md           ← Aquesta guia
 ├── SA_Disseny3D_Impressio_Reixes.docx     ← SA completa (14 sessions)
 ├── Presentacio_3D_Impressio_Reixes.pptx   ← PowerPoint de classe
@@ -564,15 +564,15 @@ SA2-Disseny3D/
 ```
 hort-escolar-tecnologic/
 ├── README.md                    ← Presentació general del projecte
-├── SA1-Caixons/
-│   ├── DOSSIER_ALUMNAT_SA1_Caixons.md
-│   ├── GUIA_DOCENT_SA1_Caixons.md
+├── SA2-Caixons/
+│   ├── DOSSIER_ALUMNAT_SA2_Caixons.md
+│   ├── GUIA_DOCENT_SA2_Caixons.md
 │   └── recursos/
-├── SA2-Disseny3D/
-│   ├── DOSSIER_ALUMNAT_SA2_Disseny3D.md
-│   ├── GUIA_DOCENT_SA2_Disseny3D.md
+├── SA3-Disseny3D/
+│   ├── DOSSIER_ALUMNAT_SA3_Disseny3D.md
+│   ├── GUIA_DOCENT_SA3_Disseny3D.md
 │   └── recursos/
-├── SA3-Automatitzacio/          ← Pendent
+├── SA6-Automatitzacio/          
 │   └── ...
 └── docs/
     └── fotos-hort/
@@ -581,7 +581,7 @@ hort-escolar-tecnologic/
 ### README.md recomanat per al repositori
 
 ```markdown
-# 🌱 Hort Escolar Tecnològic — IES [Nom del centre]
+# 🌱 Hort Escolar Tecnològic — IES Tirant Lo Blanc
 
 Projecte interdisciplinari de Tecnologia 4t ESO.
 Comunitat Valenciana | LOMLOE | Curs 2024–2025
@@ -590,13 +590,13 @@ Comunitat Valenciana | LOMLOE | Curs 2024–2025
 
 | SA | Títol | Sessions | Estat |
 |----|-------|:---:|:---:|
-| SA1 | Caixons de Fusta Reciclada | 12 | ✅ Activa |
-| SA2 | Disseny i Impressió 3D | 14 | ✅ Activa |
-| SA3 | Automatització amb Arduino | TBD | 🔄 En desenvolupament |
+| SA2 | Caixons de Fusta Reciclada | 12 | ✅ Activa |
+| SA3 | Disseny i Impressió 3D | 14 | ✅ Activa |
+
 
 ## Connexió entre SA
 
-SA1 (caixó físic) → SA2 (reixa de drenatge 3D) → SA3 (sensors + reg automàtic)
+SA2 (caixó físic) → SA3 (reixa de drenatge 3D) → SA6 (sensors + reg automàtic)
 
 ## Llicència
 CC BY-SA 4.0 — Ús lliure amb atribució per a fins educatius.
@@ -617,14 +617,14 @@ CC BY-SA 4.0 — Ús lliure amb atribució per a fins educatius.
 
 | Versió | Data | Canvis |
 |--------|------|--------|
-| 1.0 | Nov. 2024 | Versió inicial. 14 sessions. |
+| 1.0 | Set. 2025 | Versió inicial. 14 sessions. |
 
 ---
 
 <div align="center">
 
 **📚 Guia del Docent · Departament de Tecnologia**
-**Situació d'Aprenentatge: Disseny i Impressió 3D · SA2**
-*Document d'ús intern. Curs 2024–2025*
+**Situació d'Aprenentatge: Disseny i Impressió 3D · SA3**
+*Document d'ús intern. Curs 2025–2026*
 
 </div>
