@@ -38,13 +38,13 @@
 | **Temporalització** | 2n trimestre (flexible, paral·lel a SA3) |
 | **Agrupament** | Individual per al disseny CAD · Parelles per al laminat · Grup per a la validació |
 | **Espai** | Aula d'informàtica + Taller (impressores) |
-| **SA relacionades** | SA1 (Caixons de fusta) · SA3 (Automatització Arduino) |
+| **SA relacionades** | SA2 (Caixons de fusta) · SA (Automatització Arduino) |
 | **Cost aproximat** | 5–6 € per caixó complet (4 mòduls de PLA) |
-| **Prerequisit** | SA1 completada (caixons construïts amb passacables) |
+| **Prerequisit** | SA2 completada (caixons construïts amb passacables) |
 
 ### Producte final esperat
 
-> Un **joc de 4 mòduls de reixa de drenatge** impresos en 3D (PLA), que encaixen entre si i cobreixen la base del caixó de la SA1, amb forats hexagonals (≥40% àrea de drenatge), potes standoff i canal guia per al sensor d'humitat.
+> Un **joc de 4 mòduls de reixa de drenatge** impresos en 3D (PLA), que encaixen entre si i cobreixen la base del caixó de la SA2, amb forats hexagonals (≥40% àrea de drenatge), potes standoff i canal guia per al sensor d'humitat.
 
 ---
 
