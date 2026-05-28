@@ -15,14 +15,14 @@ El projecte s'estructura en **3 blocs de treball** consecutius. Cada pas s'ha de
 ### BLOC 1: Entendre i Simular (Càlculs i Laboratori Virtual)
 *L'objectiu d'este bloc és resoldre les matemàtiques del circuit i testejar el disseny en entorns digitals assegurant que no es faça malbé cap component real.*
 
-* **Sessió 1 i 2: Energia i Dimensionament.** Diferenciació entre Potència ($P=V\times I$) i Energia total acumulada ($E=P\times Tiempo$)[cite: 37, 38]. [cite_start]Calcularem el consum diari de l'electrovàlvula i el microcontrolador per a triar la placa solar adequada, aplicant un coeficient de seguretat de 1.3 per als dies ennuvolats d'hivern[cite: 88, 97].
+* **Sessió 1 i 2: Energia i Dimensionament.** Diferenciació entre Potència ($P=V\times I$) i Energia total acumulada ($E=P\times Tiempo$).Calcularem el consum diari de l'electrovàlvula i el microcontrolador per a triar la placa solar adequada, aplicant un coeficient de seguretat de 1.3 per als dies ennuvolats d'hivern.
 * **Sessió 3: Control i Potència.** Resolució del problema "David vs Goliat": com un microcontrolador de 5V pot obrir una vàlvula de 12V utilitzant un Transistor com a interruptor elèctric i un Díode de protecció per a evitar el contracop inductiu.
 
 
 ### BLOC 2: Disseny Físic i Planificació de Pistes
 *Passem del món abstracte a la planificació geomètrica de la placa física.*
 
-* **Sessió 4: Laboratori Virtual (TinkerCAD).** Aprenentatge del muntatge de circuits bàsics utilitzant la Llei d'Ohm per a protegir un LED calculant la seua resistència necessària[cite: 170, 172]. [cite_start]Ús del multímetre virtual per a mesurar voltatge en paral·lel i corrent en sèrie[cite: 186, 194].
+* **Sessió 4: Laboratori Virtual (TinkerCAD).** Aprenentatge del muntatge de circuits bàsics utilitzant la Llei d'Ohm per a protegir un LED calculant la seua resistència necessària. Ús del multímetre virtual per a mesurar voltatge en paral·lel i corrent en sèrie[cite: 186, 194].
 * **Sessió 5: Domant l'Energia (De 12V a 5V).** Simulació de l'etapa de regulació utilitzant el component LM7805 [cite: 219] [cite_start]acompanyat de condensadors de filtratge de 100 µF i 10 µF per a netejar el soroll elèctric[cite: 225, 226]. [cite_start]S'inclou un repte extra de muntar un LED d'estat a l'eixida de 5V[cite: 254, 255, 257].
 * **Sessió 6: Disseny de la PCB de Prototipatge.** Estudi de la distribució espacial dels components sobre la placa perforada. Dibuixareu l'esquema de les pistes inferiors (*wiring*) sobre paper quadriculat per a traçar els camins de coure evitant curtcircuits.
 
@@ -48,16 +48,5 @@ L'avaluació d'esta SA no es farà mitjançant exàmens tradicionals, sinó mitj
 | **CE 6.5**<br>*Seguretat, sostenibilitat i treball col·laboratiu.* | **20%** | Ús estricte dels EPIs (ulleres de protecció), gestió correcta del soldador (350ºC), manteniment de l'orde al taller, i bona coordinació en parella (rols de muntador i supervisor). | **1. Taula de Cotejo (Checklist) al Taller:** Observació directa del docent durant les sessions 7, 8 i 9 mesurant actitud, seguretat i neteja. |
 
 ---
-
-## 📋 Exemple de Taula de Cotejo (Sessió de Taller - CE 6.5)
-*Açò és el que el docent observarà durant les sessions pràctiques per a posar-vos el 20% de la nota:*
-
-| Ítem d'Observació (Seguretat i Actitud) | Assolit (Sí/No) | Observacions |
-| :--- | :---: | :--- |
-| Porta les ulleres de seguretat posades durant el procés de soldadura i tall. | | |
-| Deixa el soldador exclusivament al seu suport (mai sobre la taula). | | |
-| Manté la taula lliure d'abrics, motxilles i elements innecessaris. | | |
-| Es coordina amb la seua parella, alternant rols i ajudant-se mútuament. | | |
-| Recull, neteja la zona de treball i desendolla els equips 5 minuts abans d'acabar. | | |
 
 > **Ànim, enginyers i enginyeres! Anem a donar-li energia a eixe hort!** 🚀
