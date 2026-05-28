@@ -38,7 +38,7 @@
 | **Temporalització** | 1r trimestre (flexible) |
 | **Agrupament** | Individual per al disseny CAD · Parelles per al laminat · Grup per a la validació |
 | **Espai** | Aula d'informàtica + Taller (impressores) |
-| **SA relacionades** | SA2 (Caixons de fusta) · SA (Automatització Arduino) |
+| **SA relacionades** | SA2 (Caixons de fusta) · SA6-7 (Automatització Arduino) |
 | **Cost aproximat** | 5–6 € per caixó complet (4 mòduls de PLA) |
 | **Prerequisit** | SA2 completada (caixons construïts amb passacables) |
 
