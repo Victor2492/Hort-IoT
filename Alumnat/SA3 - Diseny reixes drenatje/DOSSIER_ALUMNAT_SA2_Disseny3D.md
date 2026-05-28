@@ -4,7 +4,7 @@
 ![Nivell](https://img.shields.io/badge/Nivell-4t%20ESO-0077B6?style=flat-square)
 ![Sessions](https://img.shields.io/badge/Sessions-14-9B59B6?style=flat-square)
 ![Software](https://img.shields.io/badge/Software-TinkerCAD%20%2B%20Cura-F4A261?style=flat-square)
-![Llengua](https://img.shields.io/badge/Llengua-Valencian%C3%A0-CE3A2C?style=flat-square)
+![Llengua](https://img.shields.io/badge/Llengua-Valenciana-CE3A2C?style=flat-square)
 
 > **Situació d'Aprenentatge:** *Disseny i Impressió 3D – Reixes de Drenatge per a l'Hort Escolar*
 > Dissenyarem amb TinkerCAD i imprimirem en 3D les reixes modulars de drenatge per als caixons de la SA1.
