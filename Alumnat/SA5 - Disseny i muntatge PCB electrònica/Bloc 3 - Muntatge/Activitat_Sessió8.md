@@ -1,6 +1,6 @@
-# 📸 Activitat Final Sessió 7: Mostra la teua PCB!
+# 📸 Activitat Final Sessió 8: Mostra la teua PCB!
 
-Ha arribat el moment de vore el resultat final del vostre treball. Després de dissenyar, muntar i (si escau) soldar, volem comprovar com ha quedat la vostra placa!
+Ha arribat el moment de vore el resultat final del vostre treball. Després de dissenyar, muntar i soldar, volem comprovar com ha quedat la vostra placa!
 
 **Instruccions:**
 1. Fes una fotografia clara, enfocada i ben il·luminada de la teua PCB. 
