@@ -1,10 +1,10 @@
-# 🌱 Dossier de l'Alumnat — SA1: Caixons de Fusta Reciclada
+# 🌱 Dossier de l'Alumnat — SA2: Caixons de Fusta Reciclada
 
 ![Assignatura](https://img.shields.io/badge/Assignatura-Tecnologia-2C5F2D?style=flat-square&logo=leaf)
 ![Nivell](https://img.shields.io/badge/Nivell-4t%20ESO-0077B6?style=flat-square)
 ![Sessions](https://img.shields.io/badge/Sessions-12-E8A020?style=flat-square)
 ![Comunitat](https://img.shields.io/badge/CV-LOMLOE-5D4037?style=flat-square)
-![Llengua](https://img.shields.io/badge/Llengua-Valencian%C3%A0-CE3A2C?style=flat-square)
+![Llengua](https://img.shields.io/badge/Llengua-Valenciana-CE3A2C?style=flat-square)
 
 > **Situació d'Aprenentatge:** *Hort Escolar Tecnològic*
 > Construirem caixons de cultiu amb fusta reciclada, preparats per a sensors IoT i reg automatitzat.
