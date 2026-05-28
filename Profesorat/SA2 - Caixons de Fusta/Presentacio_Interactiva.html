@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Caixons de Fusta Reciclada · Hort Escolar Tecnològic · 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════════════════════════
+   ROOT & RESET
+════════════════════════════════════════════════════════════ */
+:root{
+  --ink:    #1A2E1A;
+  --forest: #2C5F2D;
+  --moss:   #4E8B4E;
+  --sage:   #7AB87A;
+  --mist:   #C8E6C9;
+  --cream:  #F4F8F0;
+  --terra:  #5D4037;
+  --sand:   #C4A882;
+  --amber:  #E8A020;
+  --ember:  #D4611A;
+  --sky:    #1565C0;
+  --lila:   #7B5EA7;
+  --white:  #FFFFFF;
+  --dim:    rgba(26,46,26,.55);
+  --glow:   rgba(78,139,78,.35);
+  --r: 14px;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--ink)}
+body{font-family:'Syne',sans-serif;color:var(--white);cursor:default;user-select:none}
+
+/* ════════════════════════════════════════════════════════════
+   GRAIN OVERLAY
+════════════════════════════════════════════════════════════ */
+body::before{
+  content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity:.4;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE ENGINE
+════════════════════════════════════════════════════════════ */
+.deck{width:100vw;height:100vh;position:relative}
+.slide{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:clamp(20px,4vh,56px) clamp(20px,5vw,72px);
+  opacity:0;pointer-events:none;
+  transition:opacity .55s var(--ease), transform .55s var(--ease);
+  transform:translateY(28px);
+  will-change:opacity,transform;
+  overflow:hidden;
+}
+.slide.active{opacity:1;pointer-events:all;transform:translateY(0)}
+.slide.out{opacity:0;transform:translateY(-28px)}
+
+/* ════════════════════════════════════════════════════════════
+   NAV BAR
+════════════════════════════════════════════════════════════ */
+#nav{
+  position:fixed;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:10px;z-index:1000;
+  background:rgba(26,46,26,.75);backdrop-filter:blur(16px);
+  border:1px solid rgba(78,139,78,.3);border-radius:999px;
+  padding:8px 18px;
+}
+.ndot{
+  width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.25);
+  cursor:pointer;transition:all .3s;
+}
+.ndot.on{background:var(--sage);transform:scale(1.35)}
+#nbtn-prev,#nbtn-next{
+  background:none;border:none;color:var(--sage);font-size:1.1rem;
+  cursor:pointer;padding:2px 6px;opacity:.7;transition:opacity .2s;
+  font-family:'Syne',sans-serif;
+}
+#nbtn-prev:hover,#nbtn-next:hover{opacity:1}
+#ncount{font-size:.72rem;color:rgba(255,255,255,.45);min-width:36px;text-align:center}
+
+/* Progress bar */
+#prog{
+  position:fixed;top:0;left:0;height:3px;
+  background:linear-gradient(90deg,var(--moss),var(--sage));
+  transition:width .5s var(--ease);z-index:1000;
+}
+
+/* ════════════════════════════════════════════════════════════
+   BACKGROUNDS
+════════════════════════════════════════════════════════════ */
+.bg-dark{background:radial-gradient(ellipse 120% 80% at 60% 50%,#1F3F1F 0%,var(--ink) 70%)}
+.bg-cream{background:linear-gradient(155deg,#F4F8F0 0%,#E8F2E4 100%);color:var(--ink)}
+.bg-terra{background:linear-gradient(155deg,#3E2723 0%,#5D4037 60%,#4E342E 100%)}
+.bg-forest{background:radial-gradient(ellipse 110% 90% at 50% 50%,var(--forest) 0%,#1A3A1A 100%)}
+.bg-night{background:linear-gradient(160deg,#0D1F0D 0%,#162B16 50%,#0A1A0A 100%)}
+.bg-sand{background:linear-gradient(155deg,#FFF8F0 0%,#F5EBE0 100%);color:var(--ink)}
+.bg-sky{background:linear-gradient(155deg,#0D1B2A 0%,#1A2E4A 60%,#0D1B2A 100%)}
+
+/* ════════════════════════════════════════════════════════════
+   TYPOGRAPHY
+════════════════════════════════════════════════════════════ */
+.display{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2.4rem,6.5vw,5.2rem);
+  line-height:1.05;font-weight:900;
+}
+.display-sm{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,3.8vw,3rem);
+  font-weight:700;line-height:1.15;
+}
+.eyebrow{
+  font-size:.72rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--sage);margin-bottom:.6rem;
+}
+.eyebrow-amber{color:var(--amber)}
+.eyebrow-ember{color:var(--ember)}
+.eyebrow-sky{color:#64B5F6}
+.lead{font-size:clamp(.95rem,1.8vw,1.15rem);line-height:1.65;opacity:.8;font-weight:400}
+
+/* ════════════════════════════════════════════════════════════
+   STAGGER ANIMATIONS
+════════════════════════════════════════════════════════════ */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.slide.active .fade-up{opacity:1;transform:none}
+.slide.active .fade-up:nth-child(1){transition-delay:.05s}
+.slide.active .fade-up:nth-child(2){transition-delay:.15s}
+.slide.active .fade-up:nth-child(3){transition-delay:.25s}
+.slide.active .fade-up:nth-child(4){transition-delay:.35s}
+.slide.active .fade-up:nth-child(5){transition-delay:.45s}
+.slide.active .fade-up:nth-child(6){transition-delay:.55s}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 0 — PORTADA
+════════════════════════════════════════════════════════════ */
+#s0{background:radial-gradient(ellipse 130% 100% at 70% 50%,#1F3F1F 0%,#0A180A 100%)}
+.cover-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:1100px;width:100%}
+.cover-left .tag{
+  display:inline-block;background:rgba(78,139,78,.2);border:1px solid rgba(78,139,78,.4);
+  color:var(--sage);font-size:.72rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:5px 14px;border-radius:999px;margin-bottom:1.4rem;
+}
+.cover-left h1{margin-bottom:.5rem}
+.cover-left h1 em{color:var(--sage);font-style:normal}
+.cover-left .sub{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:clamp(1rem,2vw,1.35rem);color:var(--sand);margin-bottom:2rem;
+}
+.pill-row{display:flex;flex-wrap:wrap;gap:.5rem}
+.pill{
+  padding:5px 13px;border-radius:999px;font-size:.72rem;font-weight:600;
+  border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.06);
+  transition:background .25s,border-color .25s;
+}
+.pill:hover{background:rgba(78,139,78,.25);border-color:var(--sage)}
+.cover-right{display:flex;justify-content:center;align-items:center}
+.leaf-svg{animation:leafFloat 5s ease-in-out infinite}
+@keyframes leafFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-18px) rotate(3deg)}}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 1 — PER QUÈ? (flip cards)
+════════════════════════════════════════════════════════════ */
+.flip-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;
+  max-width:1100px;width:100%;margin-top:1.2rem;
+}
+.flip-card{perspective:900px;height:160px;cursor:pointer}
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;transition:transform .55s var(--ease);
+}
+.flip-card:hover .flip-inner,.flip-card.flipped .flip-inner{transform:rotateY(180deg)}
+.flip-front,.flip-back{
+  position:absolute;inset:0;border-radius:var(--r);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  padding:1.2rem;text-align:center;
+}
+.flip-front{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12)}
+.flip-back{transform:rotateY(180deg);padding:1rem}
+.flip-icon{font-size:2rem;margin-bottom:.5rem}
+.flip-title{font-size:.88rem;font-weight:700}
+.flip-body{font-size:.78rem;line-height:1.5;opacity:.85;font-family:'Syne',sans-serif}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 2 — 12 SESSIONS (grid interactiu)
+════════════════════════════════════════════════════════════ */
+.session-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;
+  max-width:1100px;width:100%;margin-top:1rem;
+}
+.sess-card{
+  border-radius:10px;padding:.85rem;cursor:pointer;
+  border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.05);
+  transition:all .3s var(--ease);position:relative;overflow:hidden;
+}
+.sess-card::before{
+  content:'';position:absolute;inset:0;opacity:0;
+  transition:opacity .3s;
+}
+.sess-card:hover::before,.sess-card.open::before{opacity:1}
+.sess-card:hover,.sess-card.open{transform:translateY(-3px);border-color:rgba(255,255,255,.25)}
+.sess-num{
+  font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:3px 8px;border-radius:999px;display:inline-block;margin-bottom:.5rem;
+}
+.sess-t{font-size:.8rem;font-weight:700;margin-bottom:.3rem}
+.sess-body{
+  font-size:.72rem;line-height:1.45;opacity:.75;
+  max-height:0;overflow:hidden;transition:max-height .4s var(--ease);
+}
+.sess-card.open .sess-body{max-height:120px}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 3 — LA FUSTA (taula interactiva)
+════════════════════════════════════════════════════════════ */
+.wood-table{width:100%;max-width:960px;border-collapse:collapse;margin-top:.8rem}
+.wood-table th{
+  background:rgba(255,255,255,.08);padding:.65rem 1rem;
+  font-size:.75rem;font-weight:700;text-align:left;letter-spacing:.08em;text-transform:uppercase;
+  border-bottom:2px solid rgba(78,139,78,.4);
+}
+.wood-table td{
+  padding:.65rem 1rem;font-size:.82rem;border-bottom:1px solid rgba(255,255,255,.07);
+  transition:background .2s;vertical-align:middle;
+}
+.wood-table tr{cursor:pointer;transition:background .2s}
+.wood-table tr:hover td{background:rgba(255,255,255,.06)}
+.wood-table tr.sel td{background:rgba(78,139,78,.18)}
+.badge-ok{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(78,139,78,.2);color:#81C784;border-radius:999px;
+  padding:3px 10px;font-size:.75rem;font-weight:700;
+}
+.badge-ko{background:rgba(212,97,26,.2);color:#FF8A65}
+.badge-warn{background:rgba(232,160,32,.2);color:#FFD54F}
+.wood-detail{
+  background:rgba(78,139,78,.12);border:1px solid rgba(78,139,78,.3);
+  border-radius:10px;padding:1rem 1.2rem;margin-top:.8rem;max-width:960px;
+  font-size:.85rem;line-height:1.6;min-height:60px;
+  transition:opacity .3s;opacity:0;
+}
+.wood-detail.vis{opacity:1}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 4 — EL CAIXÓ (SVG interactiu)
+════════════════════════════════════════════════════════════ */
+.box-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;max-width:1100px;width:100%}
+.hotspot{cursor:pointer;transition:opacity .2s}
+.hotspot:hover{opacity:.85}
+.tooltip-box{
+  position:absolute;background:rgba(20,40,20,.95);border:1px solid var(--sage);
+  border-radius:8px;padding:.6rem .9rem;font-size:.78rem;line-height:1.5;
+  max-width:220px;pointer-events:none;opacity:0;transition:opacity .25s;
+  z-index:100;color:var(--white);
+}
+.box-specs{display:flex;flex-direction:column;gap:.7rem}
+.spec-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:.6rem .8rem;border-radius:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);font-size:.85rem;
+}
+.spec-val{font-weight:700;color:var(--sage);font-size:.95rem}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 5 — CAPES (animació seqüencial)
+════════════════════════════════════════════════════════════ */
+.layers-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;max-width:1000px;width:100%}
+.layer-svg-wrap{position:relative}
+.layer-item{
+  display:flex;align-items:center;gap:.9rem;padding:.55rem .8rem;
+  border-radius:8px;margin-bottom:.4rem;cursor:pointer;
+  border:1px solid transparent;transition:all .3s;
+  opacity:.45;transform:translateX(-12px);
+}
+.layer-item.show{opacity:1;transform:none}
+.layer-item:hover,.layer-item.hl{
+  background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);
+}
+.layer-dot{width:18px;height:18px;border-radius:4px;flex-shrink:0}
+.layer-name{font-size:.85rem;font-weight:700}
+.layer-desc{font-size:.75rem;opacity:.65;margin-top:1px}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 6 — PROCÉS (8 passos animats)
+════════════════════════════════════════════════════════════ */
+.process-wrap{width:100%;max-width:1100px}
+.process-track{
+  display:flex;gap:.6rem;margin-bottom:1.2rem;overflow-x:auto;padding-bottom:4px;
+  scrollbar-width:none;
+}
+.proc-pip{
+  flex-shrink:0;width:36px;height:36px;border-radius:50%;border:2px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;
+  cursor:pointer;transition:all .3s;color:rgba(255,255,255,.4);
+}
+.proc-pip.done{background:var(--forest);border-color:var(--sage);color:var(--white)}
+.proc-pip.cur{background:var(--moss);border-color:var(--sage);color:var(--white);
+  box-shadow:0 0 0 4px rgba(78,139,78,.25)}
+.proc-card{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);padding:1.4rem 1.6rem;min-height:180px;
+}
+.proc-num{
+  font-size:3rem;font-family:'Playfair Display',serif;font-weight:900;
+  line-height:1;margin-bottom:.3rem;
+}
+.proc-title{font-size:1.3rem;font-weight:700;margin-bottom:.6rem}
+.proc-body{font-size:.88rem;line-height:1.65;opacity:.8;margin-bottom:1rem}
+.proc-epi{
+  display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(212,97,26,.15);border:1px solid rgba(212,97,26,.3);
+  color:#FF8A65;border-radius:999px;padding:4px 12px;font-size:.75rem;font-weight:600;
+}
+.proc-nav{display:flex;gap:.8rem;margin-top:1.2rem}
+.btn{
+  padding:.6rem 1.4rem;border-radius:999px;font-family:'Syne',sans-serif;
+  font-size:.85rem;font-weight:700;border:none;cursor:pointer;transition:all .25s;
+}
+.btn-ghost{background:rgba(255,255,255,.08);color:var(--white);border:1px solid rgba(255,255,255,.2)}
+.btn-ghost:hover{background:rgba(255,255,255,.15)}
+.btn-green{background:var(--forest);color:var(--white);border:1px solid var(--sage)}
+.btn-green:hover{background:var(--moss)}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 7 — SEGURETAT (checklist interactiu)
+════════════════════════════════════════════════════════════ */
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;max-width:1000px;width:100%;margin-top:.8rem}
+.safety-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);padding:1rem 1.1rem;
+}
+.safety-card h3{font-size:.9rem;font-weight:700;margin-bottom:.7rem;display:flex;align-items:center;gap:.5rem}
+.check-row{
+  display:flex;align-items:flex-start;gap:.6rem;padding:.4rem 0;
+  border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;
+  font-size:.8rem;line-height:1.4;transition:color .2s;
+}
+.check-row:last-child{border-bottom:none}
+.chk{
+  width:18px;height:18px;border-radius:4px;flex-shrink:0;margin-top:1px;
+  border:2px solid rgba(255,255,255,.3);background:transparent;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.65rem;transition:all .25s;
+}
+.check-row.done .chk{background:var(--moss);border-color:var(--moss)}
+.check-row.done .chk::after{content:'✓';color:white}
+.check-row.done{opacity:.55;text-decoration:line-through}
+.safety-warn{
+  background:rgba(212,97,26,.1);border:1px solid rgba(212,97,26,.3);
+  border-radius:10px;padding:.8rem 1rem;margin-top:.6rem;font-size:.78rem;line-height:1.5;
+  color:#FFAB91;
+}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 8 — SENSORS & ARDUINO
+════════════════════════════════════════════════════════════ */
+.arduino-layout{display:grid;grid-template-columns:1fr 1fr;gap:2rem;max-width:1100px;width:100%}
+.code-block{
+  background:#0D1F0D;border:1px solid rgba(78,139,78,.3);border-radius:var(--r);
+  padding:1.2rem 1.4rem;font-family:'Fira Code',monospace;font-size:.8rem;line-height:1.75;
+  position:relative;overflow:hidden;
+}
+.code-block::before{
+  content:'Arduino · setup.ino';position:absolute;top:0;left:0;right:0;
+  background:rgba(78,139,78,.15);padding:6px 14px;font-size:.7rem;
+  color:var(--sage);letter-spacing:.08em;border-bottom:1px solid rgba(78,139,78,.2);
+}
+.code-block pre{margin-top:1.6rem;white-space:pre-wrap}
+.c-comment{color:#4A7C59}
+.c-kw{color:#81C784}
+.c-num{color:#64B5F6}
+.c-str{color:#FFD54F}
+.c-fn{color:#A5D6A7}
+.cursor{
+  display:inline-block;width:2px;height:1em;background:var(--sage);
+  animation:blink .7s step-end infinite;vertical-align:text-bottom;
+}
+@keyframes blink{50%{opacity:0}}
+.sensor-cards{display:flex;flex-direction:column;gap:.8rem}
+.sensor-pill{
+  display:flex;align-items:center;gap:.9rem;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+  border-radius:10px;padding:.8rem 1rem;cursor:pointer;transition:all .3s;
+}
+.sensor-pill:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2)}
+.sensor-pill.active{border-color:var(--sage);background:rgba(78,139,78,.12)}
+.sensor-icon{
+  width:40px;height:40px;border-radius:8px;
+  display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;
+}
+.sensor-name{font-size:.85rem;font-weight:700}
+.sensor-desc{font-size:.75rem;opacity:.6;margin-top:2px}
+.sensor-detail{
+  margin-top:.8rem;padding:.9rem 1rem;border-radius:10px;
+  background:rgba(21,101,192,.12);border:1px solid rgba(21,101,192,.3);
+  font-size:.82rem;line-height:1.6;display:none;color:#90CAF9;
+}
+.sensor-detail.vis{display:block}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 9 — COMPOST (cicle animat)
+════════════════════════════════════════════════════════════ */
+.compost-layout{display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;max-width:1050px;width:100%}
+.cycle-svg{flex-shrink:0}
+.compost-lists{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.comp-box{
+  background:rgba(255,255,255,.04);border-radius:var(--r);padding:1rem;
+  border:1px solid rgba(255,255,255,.1);
+}
+.comp-box h3{font-size:.85rem;font-weight:700;margin-bottom:.6rem;display:flex;align-items:center;gap:.4rem}
+.comp-item{
+  display:flex;align-items:flex-start;gap:.5rem;
+  font-size:.78rem;line-height:1.4;padding:.3rem 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.comp-item:last-child{border-bottom:none}
+.comp-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:4px}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 10 — AVALUACIÓ (barres animades)
+════════════════════════════════════════════════════════════ */
+.eval-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:1000px;width:100%;margin-top:.8rem}
+.eval-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);padding:1.2rem;
+}
+.eval-pct{
+  font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;line-height:1;
+  margin-bottom:.3rem;
+}
+.eval-title{font-size:.95rem;font-weight:700;margin-bottom:.6rem}
+.eval-bar-wrap{height:6px;background:rgba(255,255,255,.1);border-radius:3px;margin-bottom:.8rem;overflow:hidden}
+.eval-bar{height:100%;border-radius:3px;width:0;transition:width 1s var(--ease) .3s}
+.eval-items{list-style:none}
+.eval-items li{font-size:.78rem;opacity:.7;padding:.25rem 0;border-bottom:1px solid rgba(255,255,255,.04);display:flex;gap:.4rem}
+.eval-items li::before{content:'→';opacity:.5}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 11 — QUIZ
+════════════════════════════════════════════════════════════ */
+.quiz-wrap{width:100%;max-width:760px}
+.quiz-prog{
+  height:4px;background:rgba(255,255,255,.1);border-radius:2px;margin-bottom:1.4rem;overflow:hidden;
+}
+.quiz-prog-bar{height:100%;background:linear-gradient(90deg,var(--moss),var(--sage));transition:width .4s var(--ease)}
+.quiz-q{font-size:1.1rem;font-weight:700;margin-bottom:1.2rem;line-height:1.4}
+.quiz-opts{display:flex;flex-direction:column;gap:.6rem}
+.quiz-opt{
+  padding:.85rem 1.1rem;border-radius:10px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);
+  font-size:.9rem;font-family:'Syne',sans-serif;color:var(--white);
+  text-align:left;transition:all .25s;
+}
+.quiz-opt:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+.quiz-opt.correct{background:rgba(78,139,78,.25);border-color:var(--sage);color:#A5D6A7}
+.quiz-opt.wrong{background:rgba(212,97,26,.2);border-color:var(--ember);color:#FF8A65}
+.quiz-fb{
+  margin-top:.9rem;padding:.8rem 1rem;border-radius:10px;font-size:.85rem;line-height:1.5;
+  display:none;
+}
+.quiz-fb.ok{background:rgba(78,139,78,.15);border:1px solid rgba(78,139,78,.3);color:#A5D6A7;display:block}
+.quiz-fb.ko{background:rgba(212,97,26,.1);border:1px solid rgba(212,97,26,.3);color:#FF8A65;display:block}
+.quiz-score{
+  font-family:'Playfair Display',serif;font-size:4rem;font-weight:900;
+  text-align:center;margin:1rem 0;
+}
+.quiz-score span{color:var(--sage)}
+
+/* ════════════════════════════════════════════════════════════
+   SLIDE 12 — FINAL
+════════════════════════════════════════════════════════════ */
+.final-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:1000px;width:100%}
+.final-checks{display:flex;flex-direction:column;gap:.6rem}
+.final-chk{
+  display:flex;align-items:center;gap:.8rem;padding:.7rem 1rem;
+  border-radius:8px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);font-size:.9rem;
+  opacity:0;transform:translateX(-16px);transition:all .4s var(--ease);
+}
+.slide.active .final-chk{opacity:1;transform:none}
+.final-chk:nth-child(1){transition-delay:.1s}
+.final-chk:nth-child(2){transition-delay:.2s}
+.final-chk:nth-child(3){transition-delay:.3s}
+.final-chk:nth-child(4){transition-delay:.4s}
+.final-chk:nth-child(5){transition-delay:.5s}
+.final-chk:nth-child(6){transition-delay:.6s}
+.final-chk:nth-child(7){transition-delay:.7s}
+.chk-ico{
+  width:28px;height:28px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;flex-shrink:0;
+}
+
+/* ════════════════════════════════════════════════════════════
+   TOUCH / SWIPE hint
+════════════════════════════════════════════════════════════ */
+#hint{
+  position:fixed;bottom:70px;left:50%;transform:translateX(-50%);
+  font-size:.72rem;color:rgba(255,255,255,.3);pointer-events:none;
+  transition:opacity .5s;
+}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="hint">← → per navegar · toca per interactuar</div>
+
+<div class="deck" id="deck">
+
+<!-- ══ SLIDE 0: PORTADA ══════════════════════════════════════════════════════ -->
+<section class="slide bg-dark" id="s0">
+<div class="cover-wrap">
+  <div class="cover-left">
+    <div class="tag fade-up">TECNOLOGIA · 4t ESO · COMUNITAT VALENCIANA</div>
+    <h1 class="display fade-up">Caixons de<br><em>Fusta Reciclada</em></h1>
+    <p class="cover-left sub fade-up">per a l'Hort Escolar Automatitzat</p>
+    <div class="pill-row fade-up">
+      <span class="pill">♻️ Economia circular</span>
+      <span class="pill">🌱 Sostenibilitat</span>
+      <span class="pill">🔧 Fusteria</span>
+      <span class="pill">🤖 Sensors IoT</span>
+      <span class="pill">💧 Reg automatitzat</span>
+    </div>
+  </div>
+  <div class="cover-right fade-up">
+    <svg class="leaf-svg" width="260" height="280" viewBox="0 0 260 280">
+      <defs>
+        <radialGradient id="gLeaf" cx="40%" cy="40%">
+          <stop offset="0%" stop-color="#6AAF6A"/>
+          <stop offset="100%" stop-color="#1F4F20"/>
+        </radialGradient>
+        <radialGradient id="gWood" cx="50%" cy="30%">
+          <stop offset="0%" stop-color="#8D6E63"/>
+          <stop offset="100%" stop-color="#3E2723"/>
+        </radialGradient>
+      </defs>
+      <!-- Wood plank -->
+      <rect x="30" y="160" width="200" height="28" rx="4" fill="url(#gWood)"/>
+      <rect x="30" y="192" width="200" height="28" rx="4" fill="#5D4037"/>
+      <rect x="30" y="224" width="200" height="28" rx="4" fill="#4E342E"/>
+      <!-- Grain lines -->
+      <line x1="50" y1="160" x2="50" y2="252" stroke="rgba(0,0,0,.15)" stroke-width="1.5"/>
+      <line x1="90" y1="160" x2="88" y2="252" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+      <line x1="150" y1="160" x2="152" y2="252" stroke="rgba(0,0,0,.12)" stroke-width="1.5"/>
+      <line x1="200" y1="160" x2="198" y2="252" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+      <!-- Big leaf -->
+      <path d="M130 10 C80 40 40 100 60 155 C80 195 130 155 130 155 C130 155 180 195 200 155 C220 100 180 40 130 10Z" fill="url(#gLeaf)" opacity=".95"/>
+      <!-- Leaf vein -->
+      <path d="M130 10 L130 155" stroke="rgba(255,255,255,.25)" stroke-width="2" fill="none"/>
+      <path d="M130 60 C110 75 90 90 80 108" stroke="rgba(255,255,255,.18)" stroke-width="1.5" fill="none"/>
+      <path d="M130 80 C150 93 168 106 178 122" stroke="rgba(255,255,255,.18)" stroke-width="1.5" fill="none"/>
+      <path d="M130 105 C113 116 98 128 92 142" stroke="rgba(255,255,255,.14)" stroke-width="1.2" fill="none"/>
+      <!-- Glow -->
+      <circle cx="130" cy="80" r="50" fill="rgba(78,139,78,.12)" filter="blur(20px)"/>
+    </svg>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 1: PER QUÈ ══════════════════════════════════════════════════════ -->
+<section class="slide bg-forest" id="s1">
+<div style="max-width:1100px;width:100%">
+  <div class="fade-up"><p class="eyebrow">El projecte</p></div>
+  <h2 class="display-sm fade-up" style="margin-bottom:.3rem">Per què fem caixons<br>de fusta reciclada?</h2>
+  <p class="lead fade-up" style="margin-bottom:.8rem;max-width:600px">Toca cada targeta per descobrir el motiu. Clica-la per girar-la.</p>
+  <div class="flip-grid fade-up" id="flipGrid">
+    <!-- targetes generades per JS -->
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 2: PLANIFICACIÓ ══════════════════════════════════════════════════ -->
+<section class="slide bg-dark" id="s2">
+<div style="max-width:1100px;width:100%">
+  <div class="fade-up"><p class="eyebrow">El camí</p></div>
+  <h2 class="display-sm fade-up" style="margin-bottom:.2rem">12 sessions al llarg del curs</h2>
+  <p class="lead fade-up" style="margin-bottom:.8rem;font-size:.9rem">Fes clic en cada bloc per veure els detalls.</p>
+  <div class="session-grid fade-up" id="sessGrid"></div>
+</div>
+</section>
+
+<!-- ══ SLIDE 3: LA FUSTA ══════════════════════════════════════════════════════ -->
+<section class="slide bg-terra" id="s3">
+<div style="max-width:960px;width:100%">
+  <div class="fade-up"><p class="eyebrow eyebrow-amber">Materials</p></div>
+  <h2 class="display-sm fade-up" style="margin-bottom:.3rem">La fusta reciclada:<br>com triar bé?</h2>
+  <p class="lead fade-up" style="margin-bottom:.6rem;font-size:.88rem">Fes clic en una fila per a obtenir més informació.</p>
+  <table class="wood-table fade-up" id="woodTable">
+    <thead><tr>
+      <th>Material</th><th>Apte?</th><th>Com identificar-lo</th>
+    </tr></thead>
+    <tbody id="woodBody"></tbody>
+  </table>
+  <div class="wood-detail" id="woodDetail">Selecciona una fila per veure els detalls...</div>
+</div>
+</section>
+
+<!-- ══ SLIDE 4: EL CAIXÓ ══════════════════════════════════════════════════════ -->
+<section class="slide bg-night" id="s4">
+<div class="box-layout">
+  <div style="position:relative" class="fade-up">
+    <div class="tooltip-box" id="boxTooltip"></div>
+    <svg id="boxSvg" viewBox="0 0 420 340" width="100%" style="max-width:460px">
+      <defs>
+        <linearGradient id="gFront" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#8D6E63"/><stop offset="100%" stop-color="#5D4037"/>
+        </linearGradient>
+        <linearGradient id="gRight" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#A1887F"/><stop offset="100%" stop-color="#795548"/>
+        </linearGradient>
+        <linearGradient id="gTop" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#BCAAA4"/><stop offset="100%" stop-color="#8D6E63"/>
+        </linearGradient>
+      </defs>
+      <!-- Shadow -->
+      <ellipse cx="210" cy="308" rx="145" ry="16" fill="#000" opacity=".25"/>
+      <!-- FRONT face -->
+      <polygon id="hp-front" class="hotspot" points="60,175 60,275 210,318 210,218" fill="url(#gFront)" stroke="#3E2723" stroke-width="1.5"
+        data-tip="Paret frontal: llistons de fusta reciclada (palet HT) llimats i tractats amb oli de llinosa. Gruix mínim 22mm."/>
+      <!-- RIGHT face -->
+      <polygon id="hp-right" class="hotspot" points="210,218 210,318 360,275 360,175" fill="url(#gRight)" stroke="#3E2723" stroke-width="1.5"
+        data-tip="Paret lateral: llistons en posició horitzontal. Col·locats de baix a dalt i cargolats als muntants verticals."/>
+      <!-- TOP face -->
+      <polygon id="hp-top" class="hotspot" points="60,175 210,132 360,175 210,218" fill="url(#gTop)" stroke="#3E2723" stroke-width="1.5"
+        data-tip="Interior del caixó: visible el substrat (terra+perlita+compost). Deixar 5cm de marge fins al cantell per a regar sense vessar."/>
+      <!-- Lath lines front -->
+      <line x1="60" y1="193" x2="210" y2="236" stroke="#6D4C41" stroke-width=".9" opacity=".7"/>
+      <line x1="60" y1="211" x2="210" y2="254" stroke="#6D4C41" stroke-width=".9" opacity=".7"/>
+      <line x1="60" y1="229" x2="210" y2="272" stroke="#6D4C41" stroke-width=".9" opacity=".7"/>
+      <line x1="60" y1="247" x2="210" y2="290" stroke="#6D4C41" stroke-width=".9" opacity=".7"/>
+      <!-- Lath lines right -->
+      <line x1="210" y1="236" x2="360" y2="193" stroke="#8D6E63" stroke-width=".8" opacity=".5"/>
+      <line x1="210" y1="254" x2="360" y2="211" stroke="#8D6E63" stroke-width=".8" opacity=".5"/>
+      <line x1="210" y1="272" x2="360" y2="229" stroke="#8D6E63" stroke-width=".8" opacity=".5"/>
+      <!-- Legs -->
+      <rect x="57" y="274" width="11" height="20" fill="#4E342E" rx="2"/>
+      <rect x="199" y="316" width="11" height="16" fill="#3E2723" rx="2"/>
+      <rect x="349" y="274" width="11" height="20" fill="#4E342E" rx="2"/>
+      <rect x="199" y="215" width="11" height="20" fill="#2E1B12" rx="2"/>
+      <!-- Metal angle -->
+      <polygon id="hp-angle" class="hotspot" points="60,175 78,168 78,178 68,182" fill="#B0BEC5" opacity=".9"
+        data-tip="Angle metàl·lic de reforç: 8 unitats als 4 cantons interiors. Garanteixen la rigidesa i eviten que el caixó s'obra."/>
+      <!-- Sensor hole -->
+      <g id="hp-sensor" class="hotspot" data-tip="Passacables del sensor d'humitat: forat Ø22mm, costat curt, a 5cm de la base interior. Tub PVC Ø20mm + tap de goma.">
+        <ellipse cx="84" cy="253" rx="7" ry="5" fill="#1565C0" opacity=".9"/>
+        <circle cx="84" cy="253" r="3" fill="#42A5F5"/>
+      </g>
+      <!-- Reg hole -->
+      <g id="hp-reg" class="hotspot" data-tip="Entrada reg per degoteig: forat Ø12mm, costat curt, a 8cm del cantell superior. Per on entra el tub de degoteig connectat a la bomba.">
+        <ellipse cx="160" cy="222" rx="5" ry="3.5" fill="#D4611A" opacity=".9"/>
+        <circle cx="160" cy="222" r="2" fill="#FF8A65"/>
+      </g>
+      <!-- Cable hole -->
+      <g id="hp-cable" class="hotspot" data-tip="Passacables elèctric: forat Ø22mm al costat llarg, a 5cm del cantell superior. Per als cables d'alimentació i dades del sensor.">
+        <ellipse cx="290" cy="185" rx="6" ry="4.5" fill="#7B5EA7" opacity=".9"/>
+        <circle cx="290" cy="185" r="2.5" fill="#B39DDB"/>
+      </g>
+      <!-- Base gap visible -->
+      <rect x="100" y="283" width="25" height="5" fill="#A1887F" opacity=".8"/>
+      <rect x="128" y="283" width="7" height="5" fill="#EFEBE9" opacity=".5"/>
+      <!-- Labels -->
+      <text x="72" y="254" font-size="7" fill="#64B5F6" font-weight="700" font-family="Syne,sans-serif">① Sensor</text>
+      <text x="152" y="213" font-size="7" fill="#FF8A65" font-weight="700" font-family="Syne,sans-serif">② Reg</text>
+      <text x="296" y="177" font-size="7" fill="#CE93D8" font-weight="700" font-family="Syne,sans-serif">③ Cable</text>
+      <!-- Dimension annotations -->
+      <line x1="44" y1="178" x2="44" y2="278" stroke="rgba(255,255,255,.3)" stroke-width=".8" marker-start="url(#da)" marker-end="url(#da)"/>
+      <text x="12" y="230" font-size="9" fill="rgba(255,255,255,.55)" font-weight="700" font-family="Syne,sans-serif" transform="rotate(-90,12,230)">25–35cm</text>
+      <line x1="62" y1="318" x2="210" y2="332" stroke="rgba(255,255,255,.3)" stroke-width=".8"/>
+      <line x1="210" y1="332" x2="358" y2="318" stroke="rgba(255,255,255,.3)" stroke-width=".8"/>
+      <text x="210" y="342" text-anchor="middle" font-size="9" fill="rgba(255,255,255,.55)" font-weight="700" font-family="Syne,sans-serif">40–60cm</text>
+      <line x1="52" y1="173" x2="208" y2="130" stroke="rgba(255,255,255,.3)" stroke-width=".8"/>
+      <text x="118" y="143" font-size="9" fill="rgba(255,255,255,.55)" font-weight="700" font-family="Syne,sans-serif" transform="rotate(-18,118,143)">80–120cm</text>
+    </svg>
+  </div>
+  <div class="box-specs fade-up">
+    <p class="eyebrow eyebrow-sky" style="margin-bottom:.8rem">Especificacions tècniques</p>
+    <div class="spec-row"><span>📏 Longitud</span><span class="spec-val">80–120 cm</span></div>
+    <div class="spec-row"><span>📏 Amplada</span><span class="spec-val">40–60 cm</span></div>
+    <div class="spec-row"><span>📏 Alçada</span><span class="spec-val">25–35 cm</span></div>
+    <div class="spec-row"><span>📏 Gruix paret</span><span class="spec-val">≥ 22 mm</span></div>
+    <div class="spec-row"><span>📏 Potes</span><span class="spec-val">10–15 cm</span></div>
+    <div class="spec-row"><span>🔩 Separació base</span><span class="spec-val">1–1,5 cm</span></div>
+    <p style="font-size:.75rem;opacity:.5;margin-top:.5rem">Passa el ratolí sobre el caixó per descobrir cada part.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 5: CAPES ═════════════════════════════════════════════════════════ -->
+<section class="slide bg-dark" id="s5">
+<div class="layers-wrap">
+  <div class="layer-svg-wrap fade-up">
+    <svg id="layerSvg" viewBox="0 0 280 340" width="280">
+      <!-- Box outline -->
+      <rect x="20" y="20" width="240" height="295" rx="4" fill="#2A1810" stroke="#5D4037" stroke-width="2"/>
+      <rect x="20" y="20" width="14" height="295" fill="#5D4037"/>
+      <rect x="246" y="20" width="14" height="295" fill="#5D4037"/>
+      <rect x="20" y="297" width="240" height="18" fill="#5D4037"/>
+      <!-- Layers (built from bottom up) -->
+      <g id="layer-gravel"><rect x="34" y="263" width="212" height="35" fill="#78909C" opacity=".9"/>
+        <text x="140" y="284" text-anchor="middle" font-size="9" fill="white" font-weight="700" font-family="Syne,sans-serif">GRAVETA VOLCÀNICA (3-5cm)</text></g>
+      <g id="layer-geo" opacity="0"><rect x="34" y="250" width="212" height="14" fill="#66BB6A" opacity=".85"/>
+        <text x="140" y="260" text-anchor="middle" font-size="8" fill="white" font-weight="700" font-family="Syne,sans-serif">GEOTÈXTIL (100g/m²)</text></g>
+      <g id="layer-terra" opacity="0"><rect x="34" y="192" width="212" height="59" fill="#795548" opacity=".9"/>
+        <text x="140" y="225" text-anchor="middle" font-size="10" fill="white" font-weight="700" font-family="Syne,sans-serif">TERRA HORTÍCOLA (60%)</text></g>
+      <g id="layer-perlita" opacity="0"><rect x="34" y="162" width="212" height="31" fill="#BDBDBD" opacity=".85"/>
+        <text x="140" y="181" text-anchor="middle" font-size="9" fill="#37474F" font-weight="700" font-family="Syne,sans-serif">PERLITA (20%)</text></g>
+      <g id="layer-compost" opacity="0"><rect x="34" y="125" width="212" height="38" fill="#4CAF50" opacity=".8"/>
+        <text x="140" y="148" text-anchor="middle" font-size="10" fill="white" font-weight="700" font-family="Syne,sans-serif">COMPOST MADUR (20%)</text></g>
+      <g id="layer-marge" opacity="0"><rect x="34" y="102" width="212" height="24" fill="#E8F5E9" opacity=".2"/>
+        <text x="140" y="116" text-anchor="middle" font-size="8" fill="#A5D6A7" font-family="Syne,sans-serif">↕ 5cm marge (per a regar)</text></g>
+      <!-- Holes -->
+      <circle cx="34" cy="220" r="6" fill="#1565C0" opacity=".9"/>
+      <circle cx="34" cy="130" r="5" fill="#D4611A" opacity=".9"/>
+      <!-- Legs -->
+      <rect x="28" y="314" width="16" height="16" fill="#4E342E" rx="2"/>
+      <rect x="236" y="314" width="16" height="16" fill="#4E342E" rx="2"/>
+    </svg>
+  </div>
+  <div>
+    <p class="eyebrow" style="margin-bottom:.6rem">Secció transversal</p>
+    <h2 class="display-sm" style="margin-bottom:1rem;font-size:1.8rem">Construcció per capes<br><span style="color:var(--sage)">de baix a dalt</span></h2>
+    <div id="layerList"></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 6: PROCÉS ════════════════════════════════════════════════════════ -->
+<section class="slide bg-forest" id="s6">
+<div class="process-wrap">
+  <p class="eyebrow fade-up">Fabricació</p>
+  <h2 class="display-sm fade-up" style="margin-bottom:1rem">El procés en 8 passos</h2>
+  <div class="process-track fade-up" id="procTrack"></div>
+  <div class="proc-card fade-up" id="procCard">
+    <div class="proc-num" id="pNum"></div>
+    <div class="proc-title" id="pTitle"></div>
+    <div class="proc-body" id="pBody"></div>
+    <div class="proc-epi" id="pEpi"></div>
+  </div>
+  <div class="proc-nav fade-up">
+    <button class="btn btn-ghost" onclick="procNav(-1)">← Anterior</button>
+    <button class="btn btn-green" onclick="procNav(1)">Següent pas →</button>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 7: SEGURETAT ═════════════════════════════════════════════════════ -->
+<section class="slide bg-sand" id="s7">
+<div style="max-width:1000px;width:100%">
+  <p class="eyebrow eyebrow-ember fade-up" style="color:var(--ember)">IMPORTANT</p>
+  <h2 class="display-sm fade-up" style="margin-bottom:.2rem;color:var(--ink)">Normes de seguretat</h2>
+  <p class="lead fade-up" style="color:var(--terra);margin-bottom:.8rem;font-size:.88rem">Marca cada element com a comprovat fent clic.</p>
+  <div class="safety-grid fade-up" id="safetyGrid"></div>
+</div>
+</section>
+
+<!-- ══ SLIDE 8: SENSORS & ARDUINO ════════════════════════════════════════════ -->
+<section class="slide bg-night" id="s8">
+<div class="arduino-layout">
+  <div class="fade-up">
+    <p class="eyebrow eyebrow-sky">Connexió SA original · Automatització</p>
+    <h2 class="display-sm" style="font-size:1.7rem;margin-bottom:1rem">El caixó intel·ligent</h2>
+    <div class="sensor-cards" id="sensorCards"></div>
+    <div class="sensor-detail" id="sensorDetail"></div>
+  </div>
+  <div class="fade-up">
+    <p style="font-size:.75rem;color:var(--sage);font-weight:700;margin-bottom:.5rem;letter-spacing:.1em">▶ EXEMPLE DE CODI ARDUINO</p>
+    <div class="code-block">
+      <pre id="codeOut"></pre>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 9: COMPOST ═══════════════════════════════════════════════════════ -->
+<section class="slide bg-forest" id="s9">
+<div class="compost-layout">
+  <div class="cycle-svg fade-up">
+    <svg id="cycleSvg" viewBox="0 0 280 280" width="280" height="280">
+      <defs>
+        <marker id="cArrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="rgba(122,184,122,.6)"/>
+        </marker>
+      </defs>
+      <!-- Circle path -->
+      <circle cx="140" cy="140" r="108" fill="none" stroke="rgba(78,139,78,.2)" stroke-width="2" stroke-dasharray="8,6"/>
+      <!-- Cycle nodes -->
+      <!-- 0° top -->
+      <g id="cn0" class="cycle-node" style="cursor:pointer">
+        <circle cx="140" cy="32" r="30" fill="#5D4037" stroke="#8D6E63" stroke-width="2"/>
+        <text x="140" y="28" text-anchor="middle" font-size="16" font-family="Syne,sans-serif">🍂</text>
+        <text x="140" y="42" text-anchor="middle" font-size="7.5" fill="white" font-weight="700" font-family="Syne,sans-serif">Residus</text>
+      </g>
+      <!-- 72° -->
+      <g id="cn1" class="cycle-node" style="cursor:pointer">
+        <circle cx="243" cy="105" r="30" fill="#827717" stroke="#AFB42B" stroke-width="2"/>
+        <text x="243" y="101" text-anchor="middle" font-size="16" font-family="Syne,sans-serif">🦠</text>
+        <text x="243" y="115" text-anchor="middle" font-size="7.5" fill="white" font-weight="700" font-family="Syne,sans-serif">Microorgs.</text>
+      </g>
+      <!-- 144° -->
+      <g id="cn2" class="cycle-node" style="cursor:pointer">
+        <circle cx="199" cy="223" r="30" fill="#E65100" stroke="#FF6D00" stroke-width="2"/>
+        <text x="199" y="219" text-anchor="middle" font-size="16" font-family="Syne,sans-serif">🌡️</text>
+        <text x="199" y="233" text-anchor="middle" font-size="7.5" fill="white" font-weight="700" font-family="Syne,sans-serif">Calor</text>
+      </g>
+      <!-- 216° -->
+      <g id="cn3" class="cycle-node" style="cursor:pointer">
+        <circle cx="81" cy="223" r="30" fill="#2E7D32" stroke="#43A047" stroke-width="2"/>
+        <text x="81" y="219" text-anchor="middle" font-size="16" font-family="Syne,sans-serif">🌿</text>
+        <text x="81" y="233" text-anchor="middle" font-size="7.5" fill="white" font-weight="700" font-family="Syne,sans-serif">Compost</text>
+      </g>
+      <!-- 288° -->
+      <g id="cn4" class="cycle-node" style="cursor:pointer">
+        <circle cx="37" cy="105" r="30" fill="#1B5E20" stroke="#388E3C" stroke-width="2"/>
+        <text x="37" y="101" text-anchor="middle" font-size="16" font-family="Syne,sans-serif">🌱</text>
+        <text x="37" y="115" text-anchor="middle" font-size="7.5" fill="white" font-weight="700" font-family="Syne,sans-serif">Substrat</text>
+      </g>
+      <!-- Center -->
+      <circle cx="140" cy="140" r="36" fill="rgba(78,139,78,.15)" stroke="rgba(78,139,78,.3)" stroke-width="1.5"/>
+      <text x="140" y="136" text-anchor="middle" font-size="9" fill="var(--sage)" font-weight="700" font-family="Syne,sans-serif">CICLE</text>
+      <text x="140" y="150" text-anchor="middle" font-size="9" fill="var(--sage)" font-weight="700" font-family="Syne,sans-serif">3-6 mesos</text>
+    </svg>
+  </div>
+  <div>
+    <p class="eyebrow">Interdisciplinar · Biologia</p>
+    <h2 class="display-sm" style="font-size:1.75rem;margin-bottom:.8rem">El compostador escolar</h2>
+    <div class="compost-lists fade-up" id="compostLists"></div>
+    <p style="font-size:.78rem;opacity:.6;margin-top:.8rem;font-style:italic">
+      💡 Opció tec: sensor DHT22 al compostador → registrar temperatura i humitat → gràfiques Arduino
+    </p>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 10: AVALUACIÓ ════════════════════════════════════════════════════ -->
+<section class="slide bg-dark" id="s10">
+<div style="max-width:1000px;width:100%">
+  <p class="eyebrow fade-up">Com s'avalua</p>
+  <h2 class="display-sm fade-up" style="margin-bottom:1rem">Criteris d'avaluació</h2>
+  <div class="eval-layout fade-up" id="evalLayout"></div>
+  <div style="background:rgba(78,139,78,.12);border:1px solid rgba(78,139,78,.3);border-radius:10px;padding:.8rem 1.2rem;max-width:1000px;margin-top:.5rem;" class="fade-up">
+    <p style="font-size:.83rem;color:var(--sage)">💡 <strong>Important:</strong> la memòria tècnica és obligatòria. Sense lliurament, no s'avalua el caixó.</p>
+  </div>
+</div>
+</section>
+
+<!-- ══ SLIDE 11: QUIZ ═════════════════════════════════════════════════════════ -->
+<section class="slide bg-forest" id="s11">
+<div class="quiz-wrap">
+  <p class="eyebrow fade-up">Comprova el que has aprés</p>
+  <div class="quiz-prog fade-up"><div class="quiz-prog-bar" id="qProg"></div></div>
+  <div id="qBox" class="fade-up"></div>
+</div>
+</section>
+
+<!-- ══ SLIDE 12: FINAL ════════════════════════════════════════════════════════ -->
+<section class="slide bg-dark" id="s12">
+<div class="final-wrap">
+  <div>
+    <p class="eyebrow">Endavant!</p>
+    <h1 class="display" style="margin-bottom:.8rem">Ara és el<br><span style="color:var(--sage)">vostre torn.</span></h1>
+    <p class="lead" style="max-width:400px;margin-bottom:1.5rem">Dissenyeu, construïu, automatitzeu. El millor projecte és el que et deixa les mans brutes i la ment oberta.</p>
+    <div style="display:flex;gap:.8rem">
+      <button class="btn btn-green" onclick="goTo(0)">↑ Tornar a l'inici</button>
+      <button class="btn btn-ghost" onclick="goTo(11)">← Quiz</button>
+    </div>
+  </div>
+  <div class="final-checks" id="finalChecks"></div>
+</div>
+</section>
+
+</div><!-- /deck -->
+
+<!-- NAV -->
+<div id="nav">
+  <button id="nbtn-prev" onclick="navStep(-1)">←</button>
+  <div id="dotContainer" style="display:flex;gap:7px"></div>
+  <span id="ncount"></span>
+  <button id="nbtn-next" onclick="navStep(1)">→</button>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════════════════════
+const FLIPS = [
+  { icon:'♻️', title:'Economia Circular', color:'#2C5F2D',
+    back:'Palets i mobles en desús es transformen en caixons funcionals per a l\'hort. Cost de fusta: 0€. Evitem que acaben a l\'abocador.', backBg:'rgba(44,95,45,.85)' },
+  { icon:'🌱', title:'Connexió Natura-Tecnologia', color:'#4E8B4E',
+    back:'Els caixons que construïm avui seran els recipients on viviran les plantes que regarem amb el sistema automatitzat de sensors.', backBg:'rgba(78,139,78,.8)' },
+  { icon:'🤖', title:'Preparats per a IoT', color:'#1565C0',
+    back:'Cada caixó porta passacables i suports per a sensor d\'humitat, tub de reg per degoteig i cablejat. Tot previst des del principi.', backBg:'rgba(21,101,192,.8)' },
+  { icon:'🔧', title:'Aprendre Fent', color:'#5D4037',
+    back:'Mesura, tall, unió, tractament de fusta... Competències reals de fusteria i gestió de projectes que cap manual pot substituir.', backBg:'rgba(93,64,55,.85)' },
+  { icon:'🔬', title:'Interdisciplinar', color:'#7B5EA7',
+    back:'Matemàtiques (mesures i escala), Biologia (compost), Dibuix Tècnic (plànols), Física (materials), Llengua (memòria oral).', backBg:'rgba(123,94,167,.8)' },
+  { icon:'🌍', title:'ODS 12 i 13', color:'#E8A020',
+    back:'Producció responsable i acció climàtica. Reduïm residus, la petjada de carboni i demostrem que la tecnologia pot ser sostenible.', backBg:'rgba(212,140,0,.85)' },
+];
+
+const SESSIONS = [
+  { num:'S1-S2', color:'#2C5F2D', bg:'rgba(44,95,45,.2)', t:'Investigació i disseny',
+    body:'Economia circular, ODS, propietats de la fusta, marcatge HT/MB. Disseny del caixó: plànol acotat (3 vistes). Llista de materials. Diagrama de Gantt.' },
+  { num:'S3', color:'#4E8B4E', bg:'rgba(78,139,78,.2)', t:'Aprovisionament',
+    body:'Visita a l\'ecoparc, fusteria o magatzem del centre. Selecció i classificació de fustes per marcatge i estat. Inventari de peces.' },
+  { num:'S4', color:'#E8A020', bg:'rgba(232,160,32,.2)', t:'Preparació fusta',
+    body:'Desmuntatge de palets. Extracció de claus. Llimat G80+G120. Tractament amb oli de llinosa cru (2 capes, 24h entre capes).' },
+  { num:'S5-S6', color:'#5D4037', bg:'rgba(93,64,55,.2)', t:'Construcció del caixó',
+    body:'Mesura, marcat. Forats passacables (Ø22mm sensor, Ø12mm reg). Tall. Pre-forat Ø3mm. Muntatge laterals, angles metàl·lics, base, potes.' },
+  { num:'S7', color:'#28828F', bg:'rgba(40,130,143,.2)', t:'Passacables i qualitat',
+    body:'Instal·lació tubs PVC + taps de goma. Verificació dimensional (diagonals ±2mm). Checklist revisió creuada entre grups.' },
+  { num:'S8', color:'#7B5EA7', bg:'rgba(123,94,167,.2)', t:'Substrat i plantació',
+    body:'Graveta 3-5cm + geotèxtil anti-arrels. Mescla substrat: 60% terra + 20% perlita + 20% compost. Plantar llavors/plàntules.' },
+  { num:'S9-S10', color:'#1565C0', bg:'rgba(21,101,192,.2)', t:'Integració tecnológica',
+    body:'Sensor capacitiu d\'humitat v1.2. Connexió Arduino/ESP32. Tub de reg per degoteig + bomba 5V. Primera automatització.' },
+  { num:'S11', color:'#33691E', bg:'rgba(51,105,30,.2)', t:'Compost (Biologia)',
+    body:'Sessió conjunta amb Biologia. Construcció compostador amb fusta sobrant. Residus vàlids i proporcions. Sensor DHT22 opcional.' },
+  { num:'S12', color:'#8D6E63', bg:'rgba(141,110,99,.2)', t:'Memòria i presentació',
+    body:'Memòria tècnica: portada, plànol, fotos del procés, pressupost comparatiu, reflexió. Presentació oral 5 min. Coavaluació.' },
+];
+
+const WOOD_ROWS = [
+  { mat:'Palet EPAL marcat HT', apte:'ok', ident:'Logo IPPC + lletres HT gravades a la fusta. Tractament tèrmic, 100% segur.', detail:'✅ APTE per a hort. El tractament tèrmic (HT = Heat Treated) escalfa la fusta a +56°C durant 30min per eliminar plagues. Cap producte químic residual. Busca el marcatge IPPC amb el codi del país, número d\'empresa i les lletres HT. Molts palets de supermercats, distribuïdores i centres logístics en tenen.' },
+  { mat:'Palet marcat MB', apte:'ko', ident:'Lletres MB gravades al bloc central del palet.', detail:'⛔ PROHIBIT. MB = Methyl Bromide (bromur de metil), un fumigant pesticide molt tòxic. Persisteix a la fusta i pot passar al substrat i a les plantes. Descartar immediatament. Informar al responsable de residus del centre.' },
+  { mat:'Fusta massissa de mobles', apte:'ok', ident:'Sense color verdós, sense laca groga brillant. Llimar la primera capa.', detail:'✅ APTE. Taules, taulons, estanteries de fusta macissa (roure, pi, faig...) son perfectes. Llimar per eliminar restes de vernís o pintura. Evitar si hi ha capes gruixudes de pintura vella amb plom (cases velles). MDF i aglomerat NO.' },
+  { mat:'MDF / Tauler aglomerat', apte:'ko', ident:'Tall llis i uniforme, dens, no es veuen fibres de fusta.', detail:'⛔ PROHIBIT. El MDF i l\'aglomerat contenen formaldehid (resines de urea-formaldehid) que s\'allibera en contacte prolongat amb humitat. A més, es dissolen amb l\'aigua i perden completament l\'estructura. Visibles per la seva superfície llisa i uniforme i el cantell en capes.' },
+  { mat:'Fusta verdosa (construcció)', apte:'ko', ident:'Color verd brillant o verdós. Molt comú en fusta de jardineria vella.', detail:'⛔ PROHIBIT. El color verd indica tractament CCA (Coure-Crom-Arsènic), un preservant molt eficaç però extremament tòxic. L\'arsènic i el crom s\'alliberen al substrat i contaminen les plantes. Utilitzada en decks, tanques i estructures exteriors fins als anys 2000-2010.' },
+  { mat:'Canyes i bambú', apte:'warn', ident:'Tiges buides, lleugers, de color marró o verd groguenc.', detail:'⚠ APTES AMB LIMITACIONS. Excelents per a reforços visuals, suports de plantes i decoració exterior del caixó. No són adequades com a parets principals perquè no suporten el pes del substrat. Combinar amb llistons de fusta sòlida per a l\'estructura portant.' },
+];
+
+const LAYERS = [
+  { id:'layer-gravel',  color:'#78909C', name:'① Graveta volcànica', desc:'3-5 cm al fons. Permet el drenatge lliure de l\'excés d\'aigua.' },
+  { id:'layer-geo',     color:'#66BB6A', name:'② Geotèxtil anti-arrels', desc:'Cobrir fons i parets. 100g/m². Evita que les arrels trenquen la fusta.' },
+  { id:'layer-terra',   color:'#795548', name:'③ Terra hortícola (60%)', desc:'Base del substrat. Terra lleugera, sense terrossos ni pedres grans.' },
+  { id:'layer-perlita', color:'#BDBDBD', name:'④ Perlita (20%)', desc:'Millorar aeració i drenatge. Evita la compactació del substrat.' },
+  { id:'layer-compost', color:'#4CAF50', name:'⑤ Compost madur (20%)', desc:'Aporta nutrients naturals. Produït al compostador escolar (S11).' },
+  { id:'layer-marge',   color:'rgba(200,230,200,.5)', name:'⑥ Marge de reg', desc:'Deixar 5 cm lliures fins al cantell superior per a regar sense vessar.' },
+];
+
+const STEPS = [
+  { n:'01', color:'#2C5F2D', t:'Selecció i verificació de fusta',
+    body:'Buscar el marcatge IPPC + HT als palets. Classificar per estat: B (bo), R (regular, llimar), D (descartar). Apartar tot el que siga MB, MDF o de color verd (CCA).',
+    epi:'🧤 Guants · Guia visual marcatges' },
+  { n:'02', color:'#4E8B4E', t:'Desmuntatge de palets',
+    body:'Inserir peu de cabra entre el llistó i el bloc. Cops suaus i progressius, des d\'un extrem fins a l\'altre. Extreure tots els claus i grapes amb tenalles. Recordar: "lentament i sense forçar".',
+    epi:'🥽 Ulleres + 🧤 guants de cuir + 👟 calçat tancat' },
+  { n:'03', color:'#E8A020', t:'Llimat i tractament de la fusta',
+    body:'Paper de vidre gra 80 per a grans rugositats. Gra 120 per a l\'acabat final. SEMPRE en la direcció de la fibra. Aplicar oli de llinosa cru amb drap. Mínim 1 capa, deixar 24h. 2ª capa opcional.',
+    epi:'😷 Mascareta FFP2 + 🧤 guants nitrile + 🥽 ulleres' },
+  { n:'04', color:'#5D4037', t:'Mesura, marcat i forats passacables',
+    body:'Trasllat de dimensions del plànol amb cinta mètrica + llapis + esquadra. Forats passacables PRIMER: Ø22mm sensor (5cm base), Ø22mm cable (5cm cantell), Ø12mm reg (8cm cantell). "Mesura 2 vegades, talla 1."',
+    epi:'🥽 Ulleres + 🧤 guants + 👟 calçat tancat' },
+  { n:'05', color:'#28828F', t:'Tall de peces',
+    body:'Serradora circular: EXCLUSIVAMENT el docent. L\'alumnat fixa la peça amb mordassa i vigila la línia de tall. Serra de mà: l\'alumne pot usar-la amb la peça ben fixada. Verificar dimensions després de cada tall.',
+    epi:'🥽 Ulleres + 🧤 guants + 😷 mascareta + 👟 calçat' },
+  { n:'06', color:'#7B5EA7', t:'Pre-forat i muntatge dels laterals',
+    body:'Pre-forar sempre amb Ø3mm els punts d\'unió per evitar que la fusta es fenda. Cargolar els 4 laterals amb cargols galvanitzats 4,5×45mm. Col·locar angles metàl·lics als 4 cantons interiors. Verificar quadratura: les 2 diagonals han de ser iguals (±2mm).',
+    epi:'🥽 Ulleres + 🧤 guants' },
+  { n:'07', color:'#1565C0', t:'Base, potes i passacables',
+    body:'Base: llistons horitzontals amb 1-1,5cm de separació (drenatge). Potes: 4 llistons 5×5cm als cantons, 12cm d\'alçada. Verificar horitzontalitat amb nivell. Instal·lar tubs PVC als passacables + taps de goma (3cm sobresortint).',
+    epi:'🥽 Ulleres + 🧤 guants + nivell de bombolla' },
+  { n:'08', color:'#2E7D32', t:'Drenatge, geotèxtil i substrat',
+    body:'Capa 3-5cm graveta volcànica al fons. Geotèxtil anti-arrels cobrint tot l\'interior (fons + 4 parets). Fixar amb grapadora als cantells superiors. Mesclar substrat: 60% terra + 20% perlita + 20% compost. Omplir fins a 5cm del cantell. Plantar!',
+    epi:'🧤 Guants de jardineria + pala' },
+];
+
+const SAFETY_DATA = [
+  { title:'🥽 EPI Obligatoris', color:'#D4611A', items:[
+    'Ulleres de protecció (sempre al taller)','Guants de cuir o nitrile (sempre)','Mascareta FFP2 (llimat i tractaments)','Calçat tancat (no sandàlies mai)','Roba ajustada + cabells recollits',
+  ]},
+  { title:'⚡ Eines Elèctriques', color:'#1565C0', items:[
+    'Serradora circular: DOCENT exclusivament','Trepant: peça fixada amb mordassa sempre','Tornavís elèctric: pre-forar prèviament','Serra de mà: alumne, peça fixada sempre','Pirogravadora: suport metàl·lic quan no s\'usa',
+  ]},
+  { title:'🗂️ Ordre i Neteja', color:'#4E8B4E', items:[
+    'Eines al seu lloc fixe després de cada ús','Escombrar encenalls i pols al final de sessió','No córrer ni jugar al taller mai','Taula de treball lliure i neta sempre','Desconnectar totes les eines en acabar',
+  ]},
+  { title:'🆘 En Cas d\'Accident', color:'#C62828', items:[
+    'Avisar el docent IMMEDIATAMENT','No intentar netejar l\'accident sol','No extreure mai objectes clavats','Botiquí: taula del docent. Emergència: 112','Comunicar qualsevol incident, per petit que siga',
+  ]},
+];
+
+const SENSORS = [
+  { icon:'💧', color:'#1565C0', name:'Sensor d\'humitat del sòl', desc:'Capacitiu v1.2 · Pin analògic A0', detail:'Funciona mesurant la capacitància elèctrica del sòl: quan hi ha més aigua, la capacitància és major. Rang de valors: 0 (mullat) → 1023 (sec). Alimentació: 3,3V o 5V. Connectar VCC→5V, GND→GND, AOUT→A0. Inserir al substrat fins a la marca de profunditat (uns 5cm).' },
+  { icon:'💦', color:'#2C5F2D', name:'Tub de reg per degoteig', desc:'Ø4mm · Bomba mini 5V · Cabal regulable', detail:'Connectar la bomba submersible mini (5V, màx. 200mA) al pin digital 7 de l\'Arduino a través d\'un transistor NPN o mòdul relé. Introduir el tub Ø4mm per l\'entrada del passacables superior. Ajustar el cabal amb el regulador fins a obtenir un degoteig uniforme sense acumulació.' },
+  { icon:'📡', color:'#7B5EA7', name:'WiFi → Núvol (opcional)', desc:'ESP32 · Thingspeak / MQTT', detail:'Substituir l\'Arduino Uno per un ESP32 (mateix preu, afegeix WiFi i Bluetooth). Connectar a la xarxa WiFi del centre i enviar les lectures de humitat cada minut a Thingspeak (gratuït fins a 3 milions de missatges/any). Crear un dashboard accessible des del mòbil per monitoritzar l\'hort en temps real.' },
+];
+
+const CODE_LINES = [
+  { t:'comment', v:'// Reg automàtic per sensor d\'humitat' },
+  { t:'kw',      v:'const int' },
+  { t:'plain',   v:' sensorPin = ' },
+  { t:'num',     v:'A0' },
+  { t:'plain',   v:'; ' },
+  { t:'comment', v:'// Pin sensor' },
+  { t:'br' },
+  { t:'kw',      v:'const int' },
+  { t:'plain',   v:' bombaPin = ' },
+  { t:'num',     v:'7' },
+  { t:'plain',   v:';   ' },
+  { t:'comment', v:'// Relé / transistor' },
+  { t:'br' },
+  { t:'kw',      v:'const int' },
+  { t:'plain',   v:' LLINDAR = ' },
+  { t:'num',     v:'650' },
+  { t:'plain',   v:'; ' },
+  { t:'comment', v:'// 0=mullat, 1023=sec' },
+  { t:'br' },{ t:'br' },
+  { t:'kw',      v:'void' },
+  { t:'plain',   v:' ' },
+  { t:'fn',      v:'loop' },
+  { t:'plain',   v:'() {' },
+  { t:'br' },
+  { t:'plain',   v:'  ' },
+  { t:'kw',      v:'int' },
+  { t:'plain',   v:' h = ' },
+  { t:'fn',      v:'analogRead' },
+  { t:'plain',   v:'(sensorPin);' },
+  { t:'br' },
+  { t:'plain',   v:'  ' },
+  { t:'kw',      v:'if' },
+  { t:'plain',   v:' (h > LLINDAR) {' },
+  { t:'br' },
+  { t:'plain',   v:'    ' },
+  { t:'fn',      v:'digitalWrite' },
+  { t:'plain',   v:'(bombaPin, ' },
+  { t:'kw',      v:'HIGH' },
+  { t:'plain',   v:');' },
+  { t:'br' },
+  { t:'plain',   v:'    ' },
+  { t:'fn',      v:'delay' },
+  { t:'plain',   v:'(' },
+  { t:'num',     v:'5000' },
+  { t:'plain',   v:'); ' },
+  { t:'comment', v:'// regar 5s' },
+  { t:'br' },
+  { t:'plain',   v:'    ' },
+  { t:'fn',      v:'digitalWrite' },
+  { t:'plain',   v:'(bombaPin, ' },
+  { t:'kw',      v:'LOW' },
+  { t:'plain',   v:');' },
+  { t:'br' },
+  { t:'plain',   v:'  }' },
+  { t:'br' },
+  { t:'plain',   v:'  ' },
+  { t:'fn',      v:'delay' },
+  { t:'plain',   v:'(' },
+  { t:'num',     v:'60000' },
+  { t:'plain',   v:'); ' },
+  { t:'comment', v:'// espera 1 minut' },
+  { t:'br' },
+  { t:'plain',   v:'}' },
+];
+
+const COMPOST_SI  = ['Restes fruita i verdura del menjador','Posos de cafè i bosses de te','Restes de plantes de l\'hort','Cartó i paper trossejat','Serradures del taller (fusta no tractada)','Fulles seques del pati'];
+const COMPOST_NO  = ['Carns, peixos i marisc','Productes làctics i ous','Olis i greixos de cuina','Restes amb pesticides','Excrements d\'animals','Fusta tractada (CCA, MB, vernís)'];
+
+const EVAL_BLOCS = [
+  { pct:40, color:'#5D4037', barColor:'#A1887F', t:'Fabricació del caixó', items:['Qualitat construcció (resistència, unions)','Ajust a les dimensions del plànol','Tractament fusta i sostenibilitat','Passacables i drenatge executats','Seguretat i EPI (observació continuada)'] },
+  { pct:20, color:'#2C5F2D', barColor:'#66BB6A', t:'Investigació i disseny', items:['Plànol acotat (3 vistes, escala, cotes)','Llista de materials i pressupost','Diagrama de Gantt','Justificació decisions disseny'] },
+  { pct:20, color:'#1565C0', barColor:'#64B5F6', t:'Integració tecnológica', items:['Passacables correctament executats','Sensor humitat instal·lat i calibrat','Tub de reg connectat i provat','Primera automatització funcionant'] },
+  { pct:20, color:'#7B5EA7', barColor:'#CE93D8', t:'Memòria + Actitud', items:['Memòria tècnica (procés + fotos)','Presentació oral clara','Treball cooperatiu i rols','Ordre i neteja al taller'] },
+];
+
+const QUIZ_DATA = [
+  { q:'Quin marcatge has de buscar en un palet perquè siga apte per a un hort?', opts:['MB (Methyl Bromide)','HT (Heat Treated)','CCA (Coure-Crom-Arsènic)','DB (Debarked) sense res més'], ans:1,
+    fb:'✓ Correcte! HT significa tractament tèrmic, completament segur. MB és bromur de metil, un pesticida tòxic que persisteix a la fusta.' },
+  { q:'Per a qué serveix el geotèxtil a l\'interior del caixó?', opts:['Per decorar les parets interiors','Per retenir la humitat a la superfície','Evitar que les arrels trenquen la fusta i que caiga substrat','Per aïllar tèrmicament el substrat'], ans:2,
+    fb:'✓ Exacte! El geotèxtil anti-arrels impedeix que les arrels deterioren la fusta i que el substrat caiga per les juntes de drenatge de la base.' },
+  { q:'A quina distància de la base interior cal fer el forat del sensor d\'humitat?', opts:['A 2 cm de la base','A 5 cm de la base','A 10 cm de la base','A la meitat de la paret'], ans:1,
+    fb:'✓ Perfecte! 5 cm de la base interior permet que el sensor quede immers al substrat a la profunditat adequada per a mesurar la humitat de les arrels.' },
+  { q:'Quina proporció de compost afegim al substrat dels caixons?', opts:['50% compost, 50% terra','Cap, el compost és per a jardins','~20% compost + 60% terra + 20% perlita','100% compost madur'], ans:2,
+    fb:'✓ Molt bé! La mescla 60/20/20 equilibra nutrients (compost), drenatge (perlita) i estructura (terra). Massa compost podria acidificar el substrat.' },
+  { q:'Quin és el primer pas ABANS de muntar el caixó que mai s\'ha d\'oblidar?', opts:['Pintar-lo per fora per protegir-lo','Fer els forats passacables (sensors i reg)','Omplir-lo de substrat per provar el pes','Numerar cada peça amb un retolador'], ans:1,
+    fb:'✓ Exacte! Els forats passacables per a sensors i tubs de reg s\'han de fer ABANS del muntatge. Si els oblides, hauràs de desfer-ho tot per fer-los després.' },
+];
+
+const FINAL_ITEMS = [
+  { ico:'📐', c:'#4E8B4E', t:'Plànol tècnic acotat (3 vistes)' },
+  { ico:'🔍', c:'#5D4037', t:'Visita a l\'ecoparc i inventari' },
+  { ico:'🔨', c:'#E8A020', t:'Caixó de fusta reciclada construït' },
+  { ico:'⚡', c:'#1565C0', t:'Passacables per a sensors i reg' },
+  { ico:'💧', c:'#2C5F2D', t:'Sensor humitat + reg automatitzat' },
+  { ico:'🌿', c:'#33691E', t:'Compostador escolar en marxa' },
+  { ico:'📄', c:'#7B5EA7', t:'Memòria tècnica entregada' },
+];
+
+// ════════════════════════════════════════════════════════════
+// RENDER FUNCTIONS
+// ════════════════════════════════════════════════════════════
+function renderFlips(){
+  const g = document.getElementById('flipGrid');
+  g.innerHTML = FLIPS.map((f,i)=>`
+    <div class="flip-card" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-front" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.12)">
+          <div class="flip-icon">${f.icon}</div>
+          <div class="flip-title" style="color:var(--white)">${f.title}</div>
+          <div style="font-size:.65rem;opacity:.4;margin-top:.4rem">toca per girar →</div>
+        </div>
+        <div class="flip-back" style="background:${f.backBg};border:1px solid rgba(255,255,255,.2)">
+          <div class="flip-body" style="color:var(--white)">${f.back}</div>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function renderSessions(){
+  const g = document.getElementById('sessGrid');
+  g.innerHTML = SESSIONS.map((s,i)=>`
+    <div class="sess-card" style="--hb:${s.bg}" onclick="toggleSess(this,${i})">
+      <div class="sess-num" style="background:${s.color};color:white">${s.num}</div>
+      <div class="sess-t">${s.t}</div>
+      <div class="sess-body">${s.body}</div>
+    </div>`).join('');
+  // CSS for hover bg
+  document.querySelectorAll('.sess-card').forEach(c=>{
+    c.addEventListener('mouseenter',()=>c.style.background=c.style.getPropertyValue('--hb')||'rgba(255,255,255,.08)');
+    c.addEventListener('mouseleave',e=>{if(!c.classList.contains('open'))c.style.background='rgba(255,255,255,.05)'});
+  });
+}
+function toggleSess(el,i){
+  document.querySelectorAll('.sess-card').forEach((c,j)=>{
+    if(j!==i){c.classList.remove('open');c.style.background='rgba(255,255,255,.05)'}
+  });
+  el.classList.toggle('open');
+  el.style.background = el.classList.contains('open') ? SESSIONS[i].bg : 'rgba(255,255,255,.05)';
+}
+
+function renderWoodTable(){
+  const b = document.getElementById('woodBody');
+  b.innerHTML = WOOD_ROWS.map((r,i)=>`
+    <tr onclick="woodClick(${i})">
+      <td><strong>${r.mat}</strong></td>
+      <td>${r.apte==='ok'?'<span class="badge-ok">✓ SÍ</span>':r.apte==='ko'?'<span class="badge-ko">✗ NO</span>':'<span class="badge-warn">⚠ Parcial</span>'}</td>
+      <td>${r.ident}</td>
+    </tr>`).join('');
+}
+function woodClick(i){
+  document.querySelectorAll('#woodBody tr').forEach((r,j)=>r.classList.toggle('sel',j===i));
+  const d = document.getElementById('woodDetail');
+  d.textContent = WOOD_ROWS[i].detail;
+  d.classList.add('vis');
+}
+
+function renderLayers(){
+  const list = document.getElementById('layerList');
+  list.innerHTML = LAYERS.map((l,i)=>`
+    <div class="layer-item" id="li${i}" onclick="hlLayer(${i})">
+      <div class="layer-dot" style="background:${l.color}"></div>
+      <div>
+        <div class="layer-name">${l.name}</div>
+        <div class="layer-desc">${l.desc}</div>
+      </div>
+    </div>`).join('');
+}
+function hlLayer(i){
+  document.querySelectorAll('.layer-item').forEach((el,j)=>el.classList.toggle('hl',j===i));
+}
+
+// Animate layers when slide 5 becomes active
+function animateLayers(){
+  LAYERS.forEach((l,i)=>{
+    setTimeout(()=>{
+      const svgEl = document.getElementById(l.id);
+      const listEl = document.getElementById('li'+i);
+      if(svgEl){ svgEl.style.transition='opacity .5s'; svgEl.style.opacity='1'; }
+      if(listEl) listEl.classList.add('show');
+    }, i*300);
+  });
+}
+function resetLayers(){
+  LAYERS.forEach(l=>{
+    const svgEl = document.getElementById(l.id);
+    if(svgEl){ svgEl.style.opacity = l.id==='layer-gravel' ? '1' : '0'; }
+  });
+  document.querySelectorAll('.layer-item').forEach(el=>el.classList.remove('show','hl'));
+  // First layer always visible
+  const li0 = document.getElementById('li0');
+  if(li0) li0.classList.add('show');
+}
+
+let procIdx = 0;
+function renderProc(){
+  const track = document.getElementById('procTrack');
+  track.innerHTML = STEPS.map((s,i)=>`
+    <div class="proc-pip ${i<procIdx?'done':i===procIdx?'cur':''}" onclick="procGo(${i})">${i<procIdx?'✓':s.n}</div>`).join('');
+  const s = STEPS[procIdx];
+  document.getElementById('pNum').textContent = s.n;
+  document.getElementById('pNum').style.color = s.color;
+  document.getElementById('pTitle').textContent = s.t;
+  document.getElementById('pBody').textContent = s.body;
+  document.getElementById('pEpi').textContent = s.epi;
+  document.getElementById('procCard').style.borderColor = s.color+'55';
+}
+function procNav(dir){
+  procIdx = Math.max(0, Math.min(7, procIdx+dir));
+  renderProc();
+}
+function procGo(i){ procIdx=i; renderProc(); }
+
+function renderSafety(){
+  const g = document.getElementById('safetyGrid');
+  g.innerHTML = SAFETY_DATA.map(sec=>`
+    <div class="safety-card">
+      <h3 style="color:${sec.color}">${sec.title}</h3>
+      ${sec.items.map(it=>`
+        <div class="check-row" onclick="toggleCheck(this)">
+          <div class="chk"></div><span>${it}</span>
+        </div>`).join('')}
+    </div>`).join('');
+}
+function toggleCheck(el){el.classList.toggle('done')}
+
+function renderSensors(){
+  const c = document.getElementById('sensorCards');
+  c.innerHTML = SENSORS.map((s,i)=>`
+    <div class="sensor-pill" onclick="sensorClick(${i})">
+      <div class="sensor-icon" style="background:${s.color}20">${s.icon}</div>
+      <div><div class="sensor-name">${s.name}</div><div class="sensor-desc">${s.desc}</div></div>
+    </div>`).join('');
+}
+function sensorClick(i){
+  document.querySelectorAll('.sensor-pill').forEach((p,j)=>p.classList.toggle('active',j===i));
+  const d = document.getElementById('sensorDetail');
+  d.textContent = SENSORS[i].detail;
+  d.classList.add('vis');
+}
+
+// Typewriter code
+let codeTimer = null;
+function typeCode(){
+  const out = document.getElementById('codeOut');
+  out.innerHTML = '<span class="cursor"></span>';
+  let idx = 0;
+  function next(){
+    if(idx >= CODE_LINES.length){ out.innerHTML = buildCode(); return; }
+    const l = CODE_LINES[idx++];
+    out.innerHTML = buildCode(idx) + '<span class="cursor"></span>';
+    out.scrollTop = out.scrollHeight;
+    codeTimer = setTimeout(next, l.t==='br' ? 60 : 28);
+  }
+  next();
+}
+function buildCode(upTo){
+  const lines = upTo != null ? CODE_LINES.slice(0, upTo) : CODE_LINES;
+  return lines.map(l=>{
+    if(l.t==='br') return '\n';
+    const cls = {comment:'c-comment',kw:'c-kw',num:'c-num',str:'c-str',fn:'c-fn',plain:''}[l.t]||'';
+    return cls ? `<span class="${cls}">${l.v}</span>` : l.v;
+  }).join('');
+}
+
+function renderCompost(){
+  const lists = document.getElementById('compostLists');
+  lists.innerHTML = `
+    <div class="comp-box">
+      <h3 style="color:#81C784">✅ SÍ — Residus vàlids</h3>
+      ${COMPOST_SI.map(i=>`<div class="comp-item"><div class="comp-dot" style="background:#4CAF50"></div>${i}</div>`).join('')}
+    </div>
+    <div class="comp-box">
+      <h3 style="color:#FF8A65">🚫 NO — Prohibit</h3>
+      ${COMPOST_NO.map(i=>`<div class="comp-item"><div class="comp-dot" style="background:#EF5350"></div>${i}</div>`).join('')}
+    </div>`;
+  // Animate cycle nodes
+  document.querySelectorAll('.cycle-node').forEach((n,i)=>{
+    n.addEventListener('click',()=>{
+      n.querySelector('circle').style.transform = 'scale(1.15)';
+      n.querySelector('circle').style.transformOrigin = '50% 50%';
+      setTimeout(()=>n.querySelector('circle').style.transform='',300);
+    });
+  });
+}
+
+function renderEval(){
+  const g = document.getElementById('evalLayout');
+  g.innerHTML = EVAL_BLOCS.map(b=>`
+    <div class="eval-card" style="border-top:4px solid ${b.color}">
+      <div class="eval-pct" style="color:${b.color}">${b.pct}%</div>
+      <div class="eval-title">${b.t}</div>
+      <div class="eval-bar-wrap"><div class="eval-bar" style="background:${b.barColor};width:0%"></div></div>
+      <ul class="eval-items">${b.items.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`).join('');
+}
+function animateBars(){
+  document.querySelectorAll('.eval-bar').forEach((bar,i)=>{
+    setTimeout(()=>bar.style.width = EVAL_BLOCS[i].pct+'%', i*120+200);
+  });
+}
+
+// ─── QUIZ ──────────────────────────────────────────────────────────────────
+let qIdx=0, qScore=0, qAnswered=false;
+function renderQuiz(){
+  const box = document.getElementById('qBox');
+  if(qIdx >= QUIZ_DATA.length){
+    box.innerHTML = `
+      <div class="quiz-score">Resultat: <span>${qScore}</span>/${QUIZ_DATA.length}</div>
+      <p style="text-align:center;opacity:.7;margin-bottom:1.5rem">${qScore===QUIZ_DATA.length?'🌟 Perfecte! Estàs llest per construir!':qScore>=3?'👍 Molt bé! Repassa els conceptes que t\'han fallat.':'📖 Torna a repassar les diapositives anteriors.'}</p>
+      <div style="text-align:center">
+        <button class="btn btn-green" onclick="resetQuiz()">Tornar a intentar-ho</button>
+        <button class="btn btn-ghost" style="margin-left:.6rem" onclick="navStep(1)">Seguir →</button>
+      </div>`;
+    document.getElementById('qProg').style.width = '100%';
+    return;
+  }
+  const q = QUIZ_DATA[qIdx];
+  document.getElementById('qProg').style.width = ((qIdx/QUIZ_DATA.length)*100)+'%';
+  box.innerHTML = `
+    <div class="quiz-q">${qIdx+1}/${QUIZ_DATA.length}. ${q.q}</div>
+    <div class="quiz-opts">
+      ${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="answerQ(${i})">${o}</button>`).join('')}
+    </div>
+    <div class="quiz-fb" id="qFb"></div>`;
+  qAnswered = false;
+}
+function answerQ(i){
+  if(qAnswered) return;
+  qAnswered = true;
+  const q = QUIZ_DATA[qIdx];
+  const opts = document.querySelectorAll('.quiz-opt');
+  opts[i].classList.add(i===q.ans?'correct':'wrong');
+  opts[q.ans].classList.add('correct');
+  opts.forEach(o=>o.style.pointerEvents='none');
+  const fb = document.getElementById('qFb');
+  if(i===q.ans){ qScore++; fb.className='quiz-fb ok'; }
+  else { fb.className='quiz-fb ko'; }
+  fb.textContent = q.fb;
+  setTimeout(()=>{ qIdx++; renderQuiz(); }, 2200);
+}
+function resetQuiz(){ qIdx=0; qScore=0; qAnswered=false; renderQuiz(); }
+
+function renderFinal(){
+  const g = document.getElementById('finalChecks');
+  g.innerHTML = FINAL_ITEMS.map(f=>`
+    <div class="final-chk">
+      <div class="chk-ico" style="background:${f.c}22;color:${f.c}">${f.ico}</div>
+      <span style="font-size:.9rem">${f.t}</span>
+    </div>`).join('');
+}
+
+// ════════════════════════════════════════════════════════════
+// SLIDE ENGINE
+// ════════════════════════════════════════════════════════════
+const TOTAL = 13;
+let cur = 0, prev = -1;
+
+function buildNav(){
+  const dc = document.getElementById('dotContainer');
+  dc.innerHTML = Array.from({length:TOTAL},(_,i)=>`<div class="ndot" onclick="goTo(${i})"></div>`).join('');
+}
+
+function goTo(n){
+  if(n<0||n>=TOTAL) return;
+  const slides = document.querySelectorAll('.slide');
+  if(prev>=0) slides[prev].classList.remove('active','out');
+  slides[cur].classList.add('out');
+  slides[cur].classList.remove('active');
+  prev=cur; cur=n;
+  slides[cur].classList.add('active');
+  slides[cur].classList.remove('out');
+  document.querySelectorAll('.ndot').forEach((d,i)=>d.classList.toggle('on',i===cur));
+  document.getElementById('ncount').textContent = `${cur+1}/${TOTAL}`;
+  document.getElementById('prog').style.width = ((cur/(TOTAL-1))*100)+'%';
+  onSlideEnter(cur);
+  setTimeout(()=>{ if(prev>=0) slides[prev].classList.remove('out'); },600);
+}
+
+function navStep(dir){ goTo(cur+dir); }
+
+function onSlideEnter(n){
+  if(n===5){ resetLayers(); setTimeout(animateLayers,400); }
+  if(n===8){ clearTimeout(codeTimer); setTimeout(typeCode,600); }
+  if(n===10){ setTimeout(animateBars,400); }
+  if(n===11){ setTimeout(renderQuiz,200); }
+  if(n===0) document.getElementById('hint').style.opacity='1';
+  else document.getElementById('hint').style.opacity='0';
+}
+
+// Keyboard
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ') navStep(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp') navStep(-1);
+});
+
+// Touch/swipe
+let tx=0, ty=0;
+document.addEventListener('touchstart',e=>{ tx=e.touches[0].clientX; ty=e.touches[0].clientY; },{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=tx-e.changedTouches[0].clientX;
+  const dy=ty-e.changedTouches[0].clientY;
+  if(Math.abs(dx)>Math.abs(dy) && Math.abs(dx)>40) navStep(dx>0?1:-1);
+},{passive:true});
+
+// ════════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════════
+renderFlips();
+renderSessions();
+renderWoodTable();
+renderLayers();
+renderProc();
+renderSafety();
+renderSensors();
+renderCompost();
+renderEval();
+renderFinal();
+buildNav();
+goTo(0);
+setTimeout(()=>document.getElementById('hint').style.opacity='0', 5000);
+</script>
+</body>
+</html>
