@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tutorial TinkerCAD — Reixa de Drenatge 3D · Pas a Pas</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0D1B2A;--ink:#112233;--cyan:#00B4D8;--cyan2:#0077B6;--sky:#90E0EF;
+  --amber:#F4A261;--ember:#E76F51;--sage:#52B788;--white:#FFFFFF;
+  --card:#132235;--muted:#7CAFC2;--warn:#FDE68A;--err:#FCA5A5;
+  --r:12px;--ease:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Syne',sans-serif;background:var(--navy);color:var(--white);min-height:100vh}
+
+/* ── HEADER ─── */
+header{
+  background:var(--ink);border-bottom:2px solid var(--cyan2);
+  padding:0 clamp(16px,4vw,48px);
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:100;height:56px;
+}
+.brand{font-size:.85rem;font-weight:700;color:var(--sky);letter-spacing:.05em}
+.prog-wrap{display:flex;align-items:center;gap:.7rem}
+.prog-bar{width:160px;height:6px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden}
+.prog-fill{height:100%;background:linear-gradient(90deg,var(--cyan),var(--sage));border-radius:3px;transition:width .4s var(--ease)}
+.prog-txt{font-size:.72rem;color:var(--muted)}
+
+/* ── SIDEBAR ─── */
+.layout{display:flex;min-height:calc(100vh - 56px)}
+.sidebar{
+  width:240px;flex-shrink:0;background:var(--ink);
+  border-right:1px solid rgba(255,255,255,.07);
+  padding:1.2rem 0;position:sticky;top:56px;
+  height:calc(100vh - 56px);overflow-y:auto;
+}
+.sidebar-title{font-size:.65rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--muted);padding:.4rem 1.2rem .8rem}
+.slink{
+  display:flex;align-items:center;gap:.6rem;padding:.55rem 1.2rem;
+  font-size:.8rem;cursor:pointer;border-left:3px solid transparent;
+  transition:all .2s;color:rgba(255,255,255,.5);
+}
+.slink:hover{background:rgba(255,255,255,.04);color:var(--white)}
+.slink.active{border-left-color:var(--cyan);color:var(--cyan);background:rgba(0,180,216,.06)}
+.slink.done{color:var(--sage)}
+.slink .snum{
+  width:22px;height:22px;border-radius:50%;border:1.5px solid currentColor;
+  display:flex;align-items:center;justify-content:center;font-size:.65rem;
+  font-weight:700;flex-shrink:0;
+}
+.slink.done .snum{background:var(--sage);border-color:var(--sage);color:var(--white)}
+.slink.done .snum::after{content:'✓'}
+.slink.done .stxt{display:none}
+
+/* ── MAIN ─── */
+main{flex:1;padding:clamp(16px,3vw,40px);max-width:900px}
+
+/* ── STEP CARD ─── */
+.step-card{
+  background:var(--card);border-radius:var(--r);border:1px solid rgba(255,255,255,.07);
+  margin-bottom:2rem;overflow:hidden;scroll-margin-top:72px;
+}
+.step-header{
+  display:flex;align-items:center;gap:1rem;padding:1rem 1.4rem;
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.step-badge{
+  width:36px;height:36px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:.9rem;font-weight:800;flex-shrink:0;
+}
+.step-meta{flex:1}
+.step-tag{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:2px}
+.step-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700}
+.step-session{font-size:.72rem;color:var(--muted);background:rgba(255,255,255,.05);
+  padding:3px 10px;border-radius:999px;white-space:nowrap}
+.step-body{padding:1.4rem}
+
+/* ── VISUAL MOCKUP ─── */
+.mockup{
+  background:#0A1828;border:1px solid rgba(0,180,216,.2);border-radius:8px;
+  margin:1rem 0;overflow:hidden;
+}
+.mockup-bar{
+  background:#091322;padding:6px 12px;display:flex;align-items:center;gap:.5rem;
+  border-bottom:1px solid rgba(0,180,216,.15);font-size:.72rem;color:var(--muted);
+}
+.mockup-dot{width:10px;height:10px;border-radius:50%}
+.mockup-svg{padding:1rem;display:block;width:100%}
+
+/* ── INSTRUCTIONS ─── */
+.inst-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.inst-item{
+  display:flex;gap:.8rem;padding:.7rem .9rem;
+  background:rgba(255,255,255,.03);border-radius:8px;cursor:pointer;
+  border:1px solid rgba(255,255,255,.05);transition:all .2s;
+}
+.inst-item:hover{background:rgba(0,180,216,.06);border-color:rgba(0,180,216,.2)}
+.inst-item.checked{background:rgba(82,183,136,.08);border-color:rgba(82,183,136,.25);opacity:.7}
+.inst-chk{
+  width:20px;height:20px;border-radius:4px;border:2px solid rgba(255,255,255,.25);
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;transition:all .25s;margin-top:1px;
+}
+.inst-item.checked .inst-chk{background:var(--sage);border-color:var(--sage);color:white}
+.inst-item.checked .inst-chk::after{content:'✓'}
+.inst-txt{font-size:.88rem;line-height:1.5}
+.inst-txt strong{color:var(--cyan)}
+.inst-item.checked .inst-txt{text-decoration:line-through;opacity:.55}
+
+/* ── TIPS ─── */
+.tip{
+  display:flex;gap:.7rem;padding:.7rem 1rem;border-radius:8px;
+  margin:.6rem 0;font-size:.85rem;line-height:1.5;
+}
+.tip-info{background:rgba(0,119,182,.12);border:1px solid rgba(0,119,182,.3);color:#90CAF9}
+.tip-warn{background:rgba(244,162,97,.1);border:1px solid rgba(244,162,97,.3);color:var(--warn)}
+.tip-ok  {background:rgba(82,183,136,.1);border:1px solid rgba(82,183,136,.3);color:#86EFAC}
+.tip-err {background:rgba(231,111,81,.1);border:1px solid rgba(231,111,81,.3);color:var(--err)}
+.tip-ico{font-size:1.1rem;flex-shrink:0;margin-top:1px}
+
+/* ── CODE ─── */
+.code{
+  background:#060F18;border:1px solid rgba(0,180,216,.2);border-radius:8px;
+  font-family:'Fira Code',monospace;font-size:.8rem;padding:.9rem 1.1rem;
+  margin:.6rem 0;line-height:1.7;overflow-x:auto;
+}
+.kw{color:#81C784}.num{color:#64B5F6}.str{color:#FFD54F}.cm{color:#4A7C59}
+
+/* ── FORMULA ─── */
+.formula{
+  background:rgba(0,119,182,.1);border:1px solid rgba(0,119,182,.3);
+  border-radius:8px;padding:1rem 1.2rem;margin:.6rem 0;font-family:'Fira Code',monospace;
+  font-size:.88rem;color:#90CAF9;
+}
+.formula .result{color:var(--sage);font-weight:700;font-size:1rem}
+
+/* ── COMPARE ─── */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:.8rem 0}
+.cmp-col{background:rgba(255,255,255,.03);border-radius:8px;padding:.9rem;border:1px solid rgba(255,255,255,.07)}
+.cmp-head{font-size:.78rem;font-weight:700;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem}
+
+/* ── PARAMS TABLE ─── */
+.ptable{width:100%;border-collapse:collapse;margin:.6rem 0;font-size:.85rem}
+.ptable th{background:rgba(0,119,182,.2);color:var(--sky);text-align:left;padding:.5rem .7rem;font-size:.75rem;letter-spacing:.05em}
+.ptable td{padding:.5rem .7rem;border-bottom:1px solid rgba(255,255,255,.06);vertical-align:top}
+.ptable tr:nth-child(even) td{background:rgba(255,255,255,.025)}
+.pval{color:var(--amber);font-weight:700;font-family:'Fira Code',monospace}
+
+/* ── STEP COMPLETE BTN ─── */
+.step-footer{padding:1rem 1.4rem;border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-between}
+.btn-done{
+  padding:.55rem 1.3rem;border-radius:999px;border:none;cursor:pointer;
+  font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;
+  background:var(--cyan2);color:white;transition:all .25s;
+}
+.btn-done:hover{background:var(--cyan)}
+.btn-done.done{background:var(--sage)}
+.step-pct{font-size:.75rem;color:var(--muted)}
+
+/* ── FINAL BOX ─── */
+.final-box{
+  background:linear-gradient(135deg,rgba(0,119,182,.2),rgba(82,183,136,.1));
+  border:1px solid rgba(0,180,216,.3);border-radius:var(--r);
+  padding:2rem;text-align:center;margin-bottom:2rem;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="brand">🖨️ Tutorial TinkerCAD — Reixa de Drenatge 3D · 4t ESO</span>
+  <div class="prog-wrap">
+    <div class="prog-bar"><div class="prog-fill" id="progFill" style="width:0%"></div></div>
+    <span class="prog-txt" id="progTxt">0 / 10 passos</span>
+  </div>
+</header>
+
+<div class="layout">
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-title">Passos del tutorial</div>
+</nav>
+
+<main id="main"></main>
+</div>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// DATA
+// ════════════════════════════════════════════════════════════
+const STEPS = [
+  {
+    id:'s0', tag:'Preparació', session:'S4 · Sessió 1',
+    title:'Crea el teu compte TinkerCAD', color:'#00B4D8',
+    instructions:[
+      {t:'Obre el navegador i ves a <strong>tinkercad.com</strong>'},
+      {t:'Fes clic a <strong>"Sign Up"</strong> (registra\'t) a la cantonada superior dreta.'},
+      {t:'Selecciona <strong>"Students"</strong> i demana al docent el codi de classe.'},
+      {t:'Si el docent ha creat comptes, inicia sessió amb les credencials rebudes.'},
+      {t:'Un cop dins, fes clic a <strong>"Create new design"</strong> (Crea un nou disseny).'},
+      {t:'Anomena el projecte: <strong>Reixa_4tESO_GrupX</strong> (substitueix X pel teu número de grup).'},
+    ],
+    tips:[
+      {type:'info', ico:'ℹ️', t:'TinkerCAD funciona directament al navegador. No cal instal·lar res. Funciona millor amb Chrome o Edge.'},
+      {type:'warn', ico:'⚠️', t:'Mai tanqueu la pestanya sense guardar! TinkerCAD guarda automàticament, però comprova que aparega "All changes saved" a dalt.'},
+    ],
+    mockup:'m0',
+  },
+  {
+    id:'s1', tag:'Interfície', session:'S4 · Sessió 1',
+    title:'Conèixer la interfície de TinkerCAD', color:'#0077B6',
+    instructions:[
+      {t:'Observa el <strong>viewport</strong> (àrea 3D central) amb la quadrícula de referència.'},
+      {t:'A la dreta: el <strong>panell de formes</strong> (Basic Shapes). Fes scroll per veure totes les formes disponibles.'},
+      {t:'A dalt a la dreta: botons <strong>Group</strong> (Ctrl+G) i <strong>Ungroup</strong> (Ctrl+Shift+G).'},
+      {t:'Prova a rotar la vista: clic dret + arrossegar. Zoom: roda del ratolí.'},
+      {t:'Localitza els botons <strong>Home view</strong> (casa) i <strong>Fit all</strong> per tornar a la vista inicial.'},
+      {t:'Activa la vista <strong>"Ortographic"</strong> al menú superior per a una vista sense perspectiva.'},
+    ],
+    tips:[
+      {type:'info', ico:'🖱️', t:'Tecles de vista: F = fit all · H = home · Ctrl+Z = desfer · Ctrl+Y = refer. Molt importants!'},
+      {type:'ok',   ico:'✅', t:'L\'eix Z (blau) = alçada. X (roig) = amplada. Y (verd) = fondària. Recorda: la reixa es col·locarà amb Z apuntant cap amunt.'},
+    ],
+    mockup:'m1',
+  },
+  {
+    id:'s2', tag:'Base', session:'S4-S5 · Sessió 1-2',
+    title:'Crear la base rectangular del mòdul', color:'#F4A261',
+    instructions:[
+      {t:'Al panell dret, arrossega un <strong>Box</strong> (cub) al viewport. Es crearà un cub per defecte.'},
+      {t:'Fes clic al cub per seleccionar-lo. Apareixeran els controls de mida (quadrats blancs).'},
+      {t:'Al panell inferior o fent doble clic, edita les dimensions: <strong>X = 190 mm · Y = 90 mm · Z = 4 mm</strong>.'},
+      {t:'Assegura\'t que el cub queda sobre la quadrícula (Z base = 0). Si no, canvia Z position a <strong>0</strong>.'},
+      {t:'Renombra la peça: fes doble clic al nom "Box" al panell d\'objectes → escriu <strong>"Base"</strong>.'},
+    ],
+    tips:[
+      {type:'warn', ico:'📐', t:'Comprova que les unitats siguen mil·límetres (mm). A TinkerCAD: menú superior → unitats → mm.'},
+      {type:'info', ico:'💡', t:'Per introduir les dimensions exactes: selecciona la peça i utilitza el panell de la cantonada inferior dreta on apareix W/D/H.'},
+    ],
+    mockup:'m2',
+    formula:{left:'Dimensions de la base', right:'190 mm × 90 mm × 4 mm', note:'4 d\'aquests mòduls cobriran la base de 80×40cm del caixó'},
+  },
+  {
+    id:'s3', tag:'Forats', session:'S5 · Sessió 2',
+    title:'Crear el primer forat hexagonal', color:'#52B788',
+    instructions:[
+      {t:'Al panell de formes, cerca <strong>"Polygon"</strong> i arrossega\'l al viewport.'},
+      {t:'Selecciona el polígon. Al panell de propietats: <strong>Sides = 6</strong> (hexàgon), <strong>Diameter = 10 mm</strong>.'},
+      {t:'Ajusta l\'alçada (Z): <strong>6 mm</strong> (ha de travessar la base de 4mm per ambdós costats).'},
+      {t:'Canvia el tipus a <strong>"Hole"</strong>: al panell superior, fes clic al selector i tria "Hole" (es posa transparent/fosc).'},
+      {t:'Posiciona el primer hexàgon: <strong>X = 13 mm, Y = 13 mm, Z = -1 mm</strong> (centrat a la base).'},
+      {t:'Comprova que l\'hexàgon "travessa" visualment la base (ha de sobresortir per dalt i per baix).'},
+    ],
+    tips:[
+      {type:'info', ico:'🔷', t:'Per qué hexàgons? El patró hexagonal té la millor relació resistència/àrea de drenatge. Igual que les bresques de les abelles!'},
+      {type:'warn', ico:'⚠️', t:'El "Hole" no és un forat real fins que no apliques Group (Ctrl+G) amb la base. Per ara, la base segueix sencera.'},
+    ],
+    mockup:'m3',
+  },
+  {
+    id:'s4', tag:'Patró', session:'S6 · Sessió 3',
+    title:'Crear el patró de forats (Smart Duplicate)', color:'#9B59B6',
+    instructions:[
+      {t:'Selecciona l\'hexàgon forat i fes <strong>Ctrl+D</strong> (duplica en el mateix lloc).'},
+      {t:'Sense clicar a cap altre lloc, <strong>mou el nou hexàgon 13 mm en X</strong> (camp X del panell).'},
+      {t:'Fes <strong>Ctrl+D</strong> de nou → apareixerà un altre hexàgon desplaçat 13 mm més. Repeteix fins a tenir 12 hexàgons en la primera fila.'},
+      {t:'Per la <strong>segona fila (alternada)</strong>: duplica el primer hexàgon i desplaça <strong>Y = +11,25 mm, X = +6,5 mm</strong>.'},
+      {t:'Repeteix el Smart Duplicate per la segunda fila fins a tenir 11 hexàgons.'},
+      {t:'Continua fins a tenir <strong>almenys 6 files</strong> que cobreixin tota la base de 90mm en Y.'},
+      {t:'Selecciona <strong>tots els hexàgons</strong> (Ctrl+A) i comprova que tots siguen tipus "Hole".'},
+    ],
+    tips:[
+      {type:'info', ico:'💡', t:'Smart Duplicate: TinkerCAD recorda l\'últim desplaçament. Si l\'últim desplaçament era 13mm en X, cada Ctrl+D suma 13mm automàticament.'},
+      {type:'warn', ico:'⚠️', t:'Deixa mínim 2mm de paret entre hexàgons i 3mm als extrems. Si els hexàgons queden massa junts, redueix el diàmetre a 9mm.'},
+    ],
+    mockup:'m4',
+    formula:{left:'Àrea de drenatge objectiu', right:'>40% de 190×90mm = >6.840mm²', note:'Càlcul: nº forats × àrea hexàgon (Ø10mm ≈ 86,6mm²) ÷ 17.100mm²'},
+  },
+  {
+    id:'s5', tag:'Boolean', session:'S6 · Sessió 3',
+    title:'Aplicar l\'operació boolean (Group)', color:'#E76F51',
+    instructions:[
+      {t:'Selecciona tots els objectes: <strong>Ctrl+A</strong> (selecciona tot el viewport).'},
+      {t:'Aplica l\'agrupació: <strong>Ctrl+G</strong> o botó "Group" a dalt a la dreta.'},
+      {t:'✨ En uns segons, els forats s\'apliquen a la base. Hauries de veure la reixa hexagonal!'},
+      {t:'Rota la vista per comprovar que els forats travessen completament la base pels dos costats.'},
+      {t:'Si alguns forats no apareixen: desagrupa (Ctrl+Shift+G), selecciona els hexàgons afectats i verifica que siguen "Hole".'},
+      {t:'Si la peça queda sencera (sense forats): comprova que la base NO sigui "Hole" (ha de ser sòlida).'},
+    ],
+    tips:[
+      {type:'ok',   ico:'🎉', t:'Si veus els forats hexagonals, enhorabona! Has completat l\'operació boolean, el concepte central del modelat 3D per substracció.'},
+      {type:'err',  ico:'❌', t:'Error comú: la base convertida a Hole per error. Si tota la peça desapareix, desagrupa i verifica que la base siga "Solid" (grisa, no transparent).'},
+    ],
+    mockup:'m5',
+  },
+  {
+    id:'s6', tag:'Detalls', session:'S7 · Sessió 4',
+    title:'Potes, connector i canal del sensor', color:'#00B4D8',
+    instructions:[
+      {t:'<strong>POTES</strong>: Afegeix 4 cilindres Ø8mm × 5mm als 4 cantons inferiors (Z = -5mm a -0mm). No cal convertir-los en forat, han de ser sòlids.'},
+      {t:'Selecciona les 4 potes + la base → Group (Ctrl+G). Ara la base té potes integrades.'},
+      {t:'<strong>CONNECTOR MACHO</strong>: Afegeix un Box 5×3×2mm al centre del costat curt. Posiciona a Z = 4mm (sobre la base).'},
+      {t:'<strong>CONNECTOR FEMELLA</strong>: Afegeix un Box 5,2×3×2,2mm al costat llarg oposat → converteix a "Hole". Posiciona exactament simètric.'},
+      {t:'<strong>CANAL DEL SENSOR</strong>: Afegeix un Box 3,5×90×4mm → converteix a "Hole". Posiciona centrat al costat llarg (X=93mm), travessant la base de punta a punta.'},
+      {t:'Agrupa tot (Ctrl+A → Ctrl+G). Verifica visualment cada element.'},
+    ],
+    tips:[
+      {type:'warn', ico:'🔩', t:'Tolerància del connector: la ranura femella ha de ser 0,2mm més gran que el tab macho (5,2mm vs 5mm). Sense tolerància, les peces no encaixen.'},
+      {type:'info', ico:'📡', t:'El canal del sensor és opcional per a grups avançats. Si no hi arriben, es pot perforar manualment al filament PLA amb un dremel o trepant fi.'},
+    ],
+    mockup:'m6',
+  },
+  {
+    id:'s7', tag:'Text', session:'S7 · Sessió 4',
+    title:'Personalització: text en relleu', color:'#F4A261',
+    instructions:[
+      {t:'Al panell de formes, cerca <strong>"Text"</strong> i arrossega\'l al viewport.'},
+      {t:'Fes doble clic → edita el text: escriu <strong>"4B-G1"</strong> (o el teu curs i grup).'},
+      {t:'Mida del text: ajusta a uns <strong>8mm d\'alçada</strong>. Depth (profunditat/relleu): <strong>0,5mm</strong>.'},
+      {t:'Assegura\'t que el text sigui <strong>sòlid</strong> (no Hole). Ha de sobresortir de la base.'},
+      {t:'Posiciona el text sobre la base a <strong>Z = 4mm</strong> (sobre la superfície). No ha de travessar la base.'},
+      {t:'Group (Ctrl+G) el text amb la base. El relleu queda integrat a la peça.'},
+    ],
+    tips:[
+      {type:'ok',   ico:'🎨', t:'El text en relleu és una de les millors parts de la impressió 3D: la capa final de la impressora dibuixa les lletres. Quedarà perfecte!'},
+      {type:'warn', ico:'⚠️', t:'No facis el text massa gran (>40% de la superfície) ni el posicis sobre forats. Comprova que no bloqueja el drenatge.'},
+    ],
+    mockup:'m7',
+  },
+  {
+    id:'s8', tag:'Verificació', session:'S8 · Sessió 5',
+    title:'Verificació dimensional i exportació STL', color:'#52B788',
+    instructions:[
+      {t:'Selecciona tota la peça i comprova les dimensions totals al panell inferior: <strong>X ≈ 195mm, Y ≈ 90mm, Z ≈ 9mm</strong>.'},
+      {t:'Utilitza la <strong>vista ortogràfica</strong> (front, top, right) per verificar cadascuna de les cotes del teu plànol a mà.'},
+      {t:'Compta el número de forats i calcula l\'àrea de drenatge. Ha de ser <strong>>40%</strong>.'},
+      {t:'Verifica el connector: ha de sobresortir 2mm del costat curt i la ranura ha de ser visible al costat oposat.'},
+      {t:'Exporta el fitxer: menú superior <strong>"Export"</strong> (botó taronja) → selecciona <strong>".STL"</strong>.'},
+      {t:'Desa l\'arxiu com: <strong>"Reixa_4BESO_Grup1.stl"</strong>. Comparteix-lo amb el docent per email o Google Classroom.'},
+    ],
+    tips:[
+      {type:'info', ico:'📁', t:'L\'arxiu STL és el "plànol" que entén la impressora 3D. Conté la malla triangular de la superfície de la peça.'},
+      {type:'ok',   ico:'✅', t:'Abans d\'exportar: gira la vista per tots els angles i comprova visualment que tot sembla correcte. Un STL incorrecte no es pot imprimir bé.'},
+    ],
+    mockup:'m8',
+    params:[
+      {p:'Dimensions totals',v:'~195 × 90 × 9 mm'},
+      {p:'Nº forats hex.',v:'≥70 forats'},
+      {p:'Àrea drenatge',v:'>40% superfície'},
+      {p:'Connector tab',v:'5 × 3 × 2 mm'},
+      {p:'Connector ranura',v:'5.2 × 3 × 2.2 mm'},
+      {p:'Potes standoff',v:'4 × Ø8 × 5 mm'},
+      {p:'Text relleu',v:'0.5 mm positiu'},
+      {p:'Format sortida',v:'STL ASCII o binari'},
+    ],
+  },
+  {
+    id:'s9', tag:'Laminat', session:'S9-S10 · Sessió 6-7',
+    title:'Laminat amb Ultimaker Cura', color:'#9B59B6',
+    instructions:[
+      {t:'Obre <strong>Ultimaker Cura</strong> (descarregar a ultimaker.com, gratuït). Configura la teva impressora.'},
+      {t:'Arrossega el fitxer STL a Cura. La peça apareixerà a la plataforma virtual.'},
+      {t:'Orienta la peça: la cara plana (base) ha de tocar el llit (Plate). Usa "Lay Flat" si cal.'},
+      {t:'Configura els paràmetres (veure taula a sota). Mira l\'estimació de temps i pes.'},
+      {t:'Fes clic a <strong>"Preview"</strong> per veure les capes. Comprova que la primera capa és sòlida i els forats s\'omplen des de la 2a capa.'},
+      {t:'<strong>"Slice"</strong> → guarda el G-code al SD o USB de la impressora.'},
+    ],
+    tips:[
+      {type:'warn', ico:'🌡️', t:'Cada marca de PLA té la seva temperatura òptima. Comença amb 205°C/55°C i ajusta si la primera capa no adhereix bé.'},
+      {type:'info', ico:'⏱️', t:'Cura estima el temps molt bé. Si l\'estimació és >4h per mòdul, puja la velocitat a 60mm/s o augmenta l\'altura de capa a 0,25mm.'},
+    ],
+    mockup:'m9',
+    params:[
+      {p:'Altura de capa',v:'0.20 mm'},
+      {p:'Infill',v:'20% Gyroid'},
+      {p:'Parets (walls)',v:'3 línies'},
+      {p:'Temperatura broqueta',v:'205°C (±5°C)'},
+      {p:'Temperatura llit',v:'55°C (PLA)'},
+      {p:'Velocitat',v:'50 mm/s'},
+      {p:'Suports',v:'No (None)'},
+      {p:'Adhesió base',v:'Skirt (3 línies)'},
+    ],
+  },
+];
+
+// ════════════════════════════════════════════════════════════
+// SVG MOCKUPS
+// ════════════════════════════════════════════════════════════
+const MOCKUPS = {
+  m0:`<svg viewBox="0 0 600 200" class="mockup-svg">
+    <rect width="600" height="200" fill="#060F18"/>
+    <!-- Browser bar -->
+    <rect width="600" height="32" fill="#0A1828"/>
+    <circle cx="16" cy="16" r="5" fill="#EF5350"/><circle cx="30" cy="16" r="5" fill="#FFA726"/><circle cx="44" cy="16" r="5" fill="#66BB6A"/>
+    <rect x="80" y="6" width="440" height="20" rx="10" fill="#1A2F45"/>
+    <text x="300" y="20" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">https://www.tinkercad.com</text>
+    <!-- TinkerCAD page -->
+    <rect x="0" y="32" width="600" height="168" fill="#1A2F45"/>
+    <text x="300" y="85" text-anchor="middle" font-size="28" fill="#00B4D8" font-family="Georgia,serif" font-weight="700">TinkerCAD</text>
+    <rect x="200" y="100" width="90" height="30" rx="15" fill="#00B4D8"/>
+    <text x="245" y="120" text-anchor="middle" font-size="12" fill="white" font-family="Syne,sans-serif" font-weight="700">Sign Up</text>
+    <rect x="310" y="100" width="90" height="30" rx="15" fill="transparent" stroke="#00B4D8" stroke-width="1.5"/>
+    <text x="355" y="120" text-anchor="middle" font-size="12" fill="#00B4D8" font-family="Syne,sans-serif">Log In</text>
+    <text x="300" y="165" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Demana el codi de classe al docent → selecciona "Students"</text>
+  </svg>`,
+
+  m1:`<svg viewBox="0 0 600 240" class="mockup-svg">
+    <rect width="600" height="240" fill="#060F18"/>
+    <!-- Top bar -->
+    <rect width="600" height="36" fill="#091322"/>
+    <rect x="8" y="8" width="120" height="20" rx="4" fill="#0A1D2E"/>
+    <text x="68" y="22" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">Reixa_4tESO_Grup1</text>
+    <rect x="480" y="8" width="55" height="20" rx="4" fill="#00B4D8"/>
+    <text x="507" y="22" text-anchor="middle" font-size="9" fill="white" font-family="Syne,sans-serif">Export</text>
+    <!-- Viewport -->
+    <rect x="0" y="36" width="470" height="204" fill="#0D1B2A"/>
+    <!-- Grid -->
+    ${Array.from({length:12},(_,i)=>`<line x1="${i*40}" y1="36" x2="${i*40}" y2="240" stroke="#1A3A5C" stroke-width="0.5"/>`).join('')}
+    ${Array.from({length:6},(_,i)=>`<line x1="0" y1="${36+i*34}" x2="470" y2="${36+i*34}" stroke="#1A3A5C" stroke-width="0.5"/>`).join('')}
+    <!-- Axis indicator -->
+    <line x1="420" y1="180" x2="460" y2="180" stroke="#EF5350" stroke-width="2"/><text x="463" y="184" font-size="9" fill="#EF5350">X</text>
+    <line x1="420" y1="180" x2="420" y2="140" stroke="#66BB6A" stroke-width="2"/><text x="412" y="135" font-size="9" fill="#66BB6A">Y</text>
+    <line x1="420" y1="180" x2="400" y2="200" stroke="#64B5F6" stroke-width="2"/><text x="393" y="207" font-size="9" fill="#64B5F6">Z</text>
+    <!-- Dummy box in viewport -->
+    <polygon points="150,80 290,60 290,140 150,160" fill="#34566B" stroke="#00B4D8" stroke-width="1.5"/>
+    <polygon points="150,80 290,60 370,100 230,120" fill="#4A7A8A" stroke="#00B4D8" stroke-width="1.5"/>
+    <polygon points="290,60 370,100 370,180 290,140" fill="#2A5060" stroke="#00B4D8" stroke-width="1.5"/>
+    <!-- Right panel -->
+    <rect x="470" y="36" width="130" height="204" fill="#091322"/>
+    <text x="535" y="58" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">Basic Shapes</text>
+    ${[['Box','#34566B'],['Cylinder','#2A5060'],['Polygon','#2C5F3A'],['Sphere','#4A3060'],['Text','#5C4020']].map(([n,c],i)=>`
+      <rect x="478" y="${70+i*28}" width="114" height="22" rx="4" fill="${c}" stroke="rgba(255,255,255,.1)" stroke-width="0.5"/>
+      <text x="535" y="${85+i*28}" text-anchor="middle" font-size="9" fill="white" font-family="Syne,sans-serif">${n}</text>`).join('')}
+  </svg>`,
+
+  m2:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">TinkerCAD — Base rectangular 190×90×4mm</text>
+    <!-- Viewport -->
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    ${Array.from({length:12},(_,i)=>`<line x1="${i*40}" y1="36" x2="${i*40}" y2="220" stroke="#1A3A5C" stroke-width="0.5"/>`).join('')}
+    ${Array.from({length:5},(_,i)=>`<line x1="0" y1="${36+i*37}" x2="460" y2="${36+i*37}" stroke="#1A3A5C" stroke-width="0.5"/>`).join('')}
+    <!-- Base box isometric -->
+    <polygon points="60,120 340,100 340,115 60,135" fill="#34566B" stroke="#00B4D8" stroke-width="1.5"/>
+    <polygon points="340,100 420,130 420,145 340,115" fill="#2A5060" stroke="#00B4D8" stroke-width="1.5"/>
+    <polygon points="60,100 340,80 420,110 140,130" fill="#4A7A8A" stroke="#00B4D8" stroke-width="1.5"/>
+    <!-- Handles -->
+    <rect x="184" y="74" width="10" height="10" fill="white" stroke="#00B4D8" stroke-width="1"/>
+    <rect x="56" y="128" width="10" height="10" fill="white" stroke="#00B4D8" stroke-width="1"/>
+    <rect x="416" y="107" width="10" height="10" fill="white" stroke="#00B4D8" stroke-width="1"/>
+    <!-- Dimensions -->
+    <line x1="60" y1="150" x2="340" y2="150" stroke="#F4A261" stroke-width="1.5"/>
+    <text x="200" y="165" text-anchor="middle" font-size="11" fill="#F4A261" font-family="Syne,sans-serif" font-weight="700">190 mm</text>
+    <line x1="340" y1="150" x2="420" y2="165" stroke="#F4A261" stroke-width="1.5"/>
+    <text x="395" y="178" font-size="11" fill="#F4A261" font-family="Syne,sans-serif" font-weight="700">90mm</text>
+    <line x1="44" y1="100" x2="44" y2="135" stroke="#F4A261" stroke-width="1.5"/>
+    <text x="10" y="122" font-size="9" fill="#F4A261" font-family="Syne,sans-serif" font-weight="700">4mm</text>
+    <!-- Right: properties panel -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    <text x="530" y="58" text-anchor="middle" font-size="9" fill="#F4A261" font-family="Syne,sans-serif" font-weight="700">Dimensions</text>
+    ${[['W (X)','190.0 mm'],['D (Y)','90.0 mm'],['H (Z)','4.0 mm'],['Pos X','0.0 mm'],['Pos Y','0.0 mm'],['Pos Z','0.0 mm']].map(([l,v],i)=>`
+      <rect x="465" y="${68+i*26}" width="125" height="22" rx="3" fill="${i<3?'#1A3A5C':'#0F2030'}"/>
+      <text x="475" y="${83+i*26}" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">${l}</text>
+      <text x="580" y="${83+i*26}" text-anchor="end" font-size="9" fill="${i<3?'#F4A261':'#4A7C90'}" font-family="Fira Code,monospace">${v}</text>`).join('')}
+  </svg>`,
+
+  m3:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Primer forat hexagonal — tipus "Hole"</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Base -->
+    <polygon points="60,130 340,110 340,125 60,145" fill="#34566B" stroke="#00B4D8" stroke-width="1"/>
+    <polygon points="340,110 420,140 420,155 340,125" fill="#2A5060" stroke="#00B4D8" stroke-width="1"/>
+    <polygon points="60,110 340,90 420,120 140,140" fill="#4A7A8A" stroke="#00B4D8" stroke-width="1"/>
+    <!-- Hexagon hole on top (transparent/dashed) -->
+    <polygon points="155,80 173,70 191,80 191,100 173,110 155,100" fill="rgba(0,180,216,.15)" stroke="#00B4D8" stroke-width="1.5" stroke-dasharray="4,3"/>
+    <text x="173" y="94" text-anchor="middle" font-size="9" fill="#00B4D8" font-family="Syne,sans-serif">Hole</text>
+    <!-- Arrow pointing to hole -->
+    <line x1="250" y1="75" x2="195" y2="88" stroke="#F4A261" stroke-width="1.5" marker-end="url(#arr)"/>
+    <defs><marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6Z" fill="#F4A261"/></marker></defs>
+    <text x="290" y="72" font-size="9" fill="#F4A261" font-family="Syne,sans-serif">Ø10mm · 6 costats</text>
+    <!-- Solid vs Hole toggle -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    <text x="530" y="55" text-anchor="middle" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">Tipus de forma:</text>
+    <rect x="468" y="60" width="55" height="30" rx="4" fill="#34566B" stroke="#7CAFC2" stroke-width="0.8"/>
+    <text x="495" y="79" text-anchor="middle" font-size="9" fill="white" font-family="Syne,sans-serif">Solid</text>
+    <rect x="530" y="60" width="62" height="30" rx="4" fill="#1A2F45" stroke="#00B4D8" stroke-width="2"/>
+    <text x="561" y="79" text-anchor="middle" font-size="9" fill="#00B4D8" font-family="Syne,sans-serif">● Hole</text>
+    ${[['Sides (costats)','6'],['Diameter','10 mm'],['Height','6 mm'],['Pos Z','-1 mm']].map(([l,v],i)=>`
+      <rect x="468" y="${100+i*24}" width="124" height="20" rx="3" fill="#1A3A5C"/>
+      <text x="474" y="${114+i*24}" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">${l}</text>
+      <text x="586" y="${114+i*24}" text-anchor="end" font-size="9" fill="#F4A261" font-family="Fira Code,monospace">${v}</text>`).join('')}
+  </svg>`,
+
+  m4:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Patró hexagonal — Smart Duplicate (Ctrl+D)</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Base with hex pattern (top view) -->
+    <rect x="50" y="50" width="360" height="155" rx="3" fill="#1E3A4A" stroke="#00B4D8" stroke-width="1.5"/>
+    <!-- Row 1 -->
+    ${[65,98,131,164,197,230,263,296,329,362].map(x=>`<polygon points="${x},65 ${x+8},60 ${x+16},65 ${x+16},75 ${x+8},80 ${x},75" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Row 2 (offset) -->
+    ${[81,114,147,180,213,246,279,312,345].map(x=>`<polygon points="${x},84 ${x+8},79 ${x+16},84 ${x+16},94 ${x+8},99 ${x},94" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Row 3 -->
+    ${[65,98,131,164,197,230,263,296,329,362].map(x=>`<polygon points="${x},103 ${x+8},98 ${x+16},103 ${x+16},113 ${x+8},118 ${x},113" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Row 4 -->
+    ${[81,114,147,180,213,246,279,312,345].map(x=>`<polygon points="${x},122 ${x+8},117 ${x+16},122 ${x+16},132 ${x+8},137 ${x},132" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Row 5 -->
+    ${[65,98,131,164,197,230,263,296,329,362].map(x=>`<polygon points="${x},141 ${x+8},136 ${x+16},141 ${x+16},151 ${x+8},156 ${x},151" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Row 6 -->
+    ${[81,114,147,180,213,246,279,312,345].map(x=>`<polygon points="${x},160 ${x+8},155 ${x+16},160 ${x+16},170 ${x+8},175 ${x},170" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Dimensions -->
+    <line x1="50" y1="215" x2="410" y2="215" stroke="#F4A261" stroke-width="1.5"/>
+    <text x="230" y="213" text-anchor="middle" font-size="11" fill="#F4A261" font-family="Syne,sans-serif" font-weight="700">190 mm</text>
+    <!-- Spacing label -->
+    <line x1="65" y1="70" x2="98" y2="70" stroke="#9B59B6" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="81" y="66" text-anchor="middle" font-size="8" fill="#9B59B6" font-family="Syne,sans-serif">13mm</text>
+    <!-- Right panel -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    <text x="530" y="55" text-anchor="middle" font-size="9" fill="#9B59B6" font-weight="700" font-family="Syne,sans-serif">Smart Duplicate</text>
+    <text x="530" y="72" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">1. Selecciona hex</text>
+    <text x="530" y="89" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">2. Ctrl+D</text>
+    <text x="530" y="106" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">3. Mou +13mm X</text>
+    <text x="530" y="123" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">4. Ctrl+D (×12)</text>
+    <text x="530" y="140" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">5. Fila 2: +6.5X +11.25Y</text>
+    <rect x="465" y="158" width="124" height="24" rx="4" fill="#2C1A4A"/>
+    <text x="527" y="174" text-anchor="middle" font-size="10" fill="#9B59B6" font-weight="700" font-family="Syne,sans-serif">+60-70 forats</text>
+  </svg>`,
+
+  m5:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Ctrl+G → Boolean aplicat! Apareixen els forats</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Isometric result with holes -->
+    <!-- Base solid -->
+    <polygon points="60,130 340,110 340,120 60,140" fill="#34566B" stroke="#00B4D8" stroke-width="1"/>
+    <polygon points="340,110 410,135 410,145 340,120" fill="#2A5060" stroke="#00B4D8" stroke-width="1"/>
+    <!-- Top face with holes -->
+    <polygon points="60,110 340,90 410,115 130,135" fill="#4A7A8A" stroke="#00B4D8" stroke-width="1"/>
+    <!-- Holes on top face -->
+    ${[[100,116],[130,114],[160,112],[190,110],[220,108],[250,106],[280,104],[310,102],
+       [115,123],[145,121],[175,119],[205,117],[235,115],[265,113],[295,111],[325,109]].map(([x,y])=>
+      `<ellipse cx="${x}" cy="${y}" rx="7" ry="4" fill="#091322" stroke="#00B4D8" stroke-width="0.8"/>`).join('')}
+    <!-- Success badge -->
+    <rect x="140" y="155" width="180" height="28" rx="14" fill="#1A4A2A" stroke="#52B788" stroke-width="1.5"/>
+    <text x="230" y="173" text-anchor="middle" font-size="11" fill="#52B788" font-weight="700" font-family="Syne,sans-serif">✓ Boolean aplicat!</text>
+    <!-- Right: Group button -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    <text x="530" y="70" text-anchor="middle" font-size="9" fill="#7CAFC2" font-family="Syne,sans-serif">Selecciona tot (Ctrl+A)</text>
+    <rect x="475" y="80" width="110" height="36" rx="6" fill="#00B4D8"/>
+    <text x="530" y="103" text-anchor="middle" font-size="14" fill="white" font-weight="700" font-family="Syne,sans-serif">Group ⌘G</text>
+    <text x="530" y="135" text-anchor="middle" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">→ Els Holes s'apliquen</text>
+    <text x="530" y="150" text-anchor="middle" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">a tots els sòlids</text>
+    <rect x="475" y="165" width="110" height="28" rx="4" fill="#1A2F45" stroke="#52B788" stroke-width="1"/>
+    <text x="530" y="183" text-anchor="middle" font-size="9" fill="#52B788" font-family="Syne,sans-serif">Ungroup: Ctrl+Shift+G</text>
+  </svg>`,
+
+  m6:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Potes standoff + connector macho-femella + canal sensor</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Base with holes -->
+    <polygon points="60,120 340,100 340,112 60,132" fill="#34566B" stroke="#00B4D8" stroke-width="1"/>
+    <polygon points="340,100 410,125 410,137 340,112" fill="#2A5060" stroke="#00B4D8" stroke-width="1"/>
+    <polygon points="60,100 340,80 410,105 130,125" fill="#4A7A8A" stroke="#00B4D8" stroke-width="1"/>
+    <!-- Holes on top -->
+    ${[[90,106],[115,104],[140,102],[165,100],[190,98],[215,96],[240,94],[265,92],[290,90],[315,88]].map(([x,y])=>
+      `<ellipse cx="${x}" cy="${y}" rx="6" ry="3.5" fill="#091322" stroke="#00B4D8" stroke-width="0.7"/>`).join('')}
+    <!-- Legs (standoffs) - 4 corners -->
+    <rect x="57" y="132" width="10" height="12" fill="#52B788" stroke="#2D9060" stroke-width="1" rx="2"/>
+    <rect x="332" y="112" width="10" height="12" fill="#52B788" stroke="#2D9060" stroke-width="1" rx="2"/>
+    <rect x="407" y="137" width="10" height="12" fill="#52B788" stroke="#2D9060" stroke-width="1" rx="2"/>
+    <rect x="57" y="112" width="10" height="12" fill="#52B788" stroke="#2D9060" stroke-width="1" rx="2"/>
+    <!-- Connector tab (macho) -->
+    <rect x="198" y="96" width="8" height="5" fill="#F4A261" stroke="#E8823A" stroke-width="1"/>
+    <text x="215" y="97" font-size="8" fill="#F4A261" font-family="Syne,sans-serif">Tab macho</text>
+    <!-- Canal sensor -->
+    <rect x="130" y="94" width="180" height="3" fill="rgba(0,180,216,.3)" stroke="#00B4D8" stroke-width="0.8"/>
+    <text x="220" y="91" text-anchor="middle" font-size="7" fill="#00B4D8" font-family="Syne,sans-serif">Canal sensor (Hole)</text>
+    <!-- Leg label -->
+    <line x1="62" y1="148" x2="62" y2="165" stroke="#52B788" stroke-width="1"/>
+    <text x="45" y="175" font-size="8" fill="#52B788" font-family="Syne,sans-serif">Pota 5mm</text>
+    <!-- Right panel -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    ${[['Potes (x4)','Cil. Ø8×5mm · sòlid','#52B788'],['Tab macho','Box 5×3×2mm · sòlid','#F4A261'],['Ranura fem.','Box 5.2×3×2.2 · Hole','#E76F51'],['Canal sensor','Box 3.5×90×4 · Hole','#00B4D8']].map(([t,d,c],i)=>`
+      <rect x="465" y="${45+i*40}" width="128" height="34" rx="4" fill="#0F2030" stroke="${c}" stroke-width="0.8"/>
+      <text x="473" y="${62+i*40}" font-size="9" fill="${c}" font-weight="700" font-family="Syne,sans-serif">${t}</text>
+      <text x="473" y="${74+i*40}" font-size="7.5" fill="#7CAFC2" font-family="Syne,sans-serif">${d}</text>`).join('')}
+  </svg>`,
+
+  m7:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Text en relleu — personalització del mòdul</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Base top view -->
+    <rect x="50" y="55" width="360" height="140" rx="4" fill="#1E3A4A" stroke="#00B4D8" stroke-width="1.5"/>
+    <!-- Hex holes -->
+    ${[[70,70],[100,70],[130,70],[160,70],[190,70],[220,70],[260,70],[290,70],[320,70],[350,70],
+       [85,90],[115,90],[145,90],[175,90],[205,90],[235,90],[275,90],[305,90],[335,90],
+       [70,110],[100,110],[130,110],[160,110]].map(([x,y])=>
+      `<polygon points="${x},${y} ${x+6},${y-4} ${x+12},${y} ${x+12},${y+8} ${x+6},${y+12} ${x},${y+8}" fill="#091322" stroke="#00B4D8" stroke-width="0.6"/>`).join('')}
+    <!-- Text label on top -->
+    <rect x="185" y="130" width="140" height="30" rx="4" fill="#F4A261" opacity=".15" stroke="#F4A261" stroke-width="1"/>
+    <text x="255" y="150" text-anchor="middle" font-size="14" fill="#F4A261" font-weight="700" font-family="Syne,sans-serif">4B-G1</text>
+    <text x="255" y="168" text-anchor="middle" font-size="8" fill="#F4A261" font-family="Syne,sans-serif">relleu 0,5mm (sòlid)</text>
+    <!-- Right: TinkerCAD text properties -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    <text x="530" y="55" text-anchor="middle" font-size="9" fill="#F4A261" font-weight="700" font-family="Syne,sans-serif">Text Shape</text>
+    ${[['Text','4B-G1'],['Height','8 mm'],['Depth','0.5 mm'],['Pos Z','4 mm'],['Tipus','Solid (gris)']].map(([l,v],i)=>`
+      <rect x="465" y="${63+i*26}" width="128" height="22" rx="3" fill="#1A3A5C"/>
+      <text x="471" y="${78+i*26}" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">${l}</text>
+      <text x="585" y="${78+i*26}" text-anchor="end" font-size="8.5" fill="#F4A261" font-family="Fira Code,monospace">${v}</text>`).join('')}
+    <rect x="465" y="203" width="128" height="0"/>
+  </svg>`,
+
+  m8:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Exportació STL — peça completa verificada</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Final piece isometric -->
+    <polygon points="70,130 320,105 320,117 70,142" fill="#34566B" stroke="#52B788" stroke-width="2"/>
+    <polygon points="320,105 400,135 400,147 320,117" fill="#2A5060" stroke="#52B788" stroke-width="2"/>
+    <polygon points="70,108 320,83 400,113 150,138" fill="#4A7A8A" stroke="#52B788" stroke-width="2"/>
+    <!-- Holes -->
+    ${[[100,112],[130,110],[160,108],[190,106],[220,104],[250,102],[280,100],[310,98]].map(([x,y])=>
+      `<ellipse cx="${x}" cy="${y}" rx="7" ry="4" fill="#091322" stroke="#52B788" stroke-width="0.8"/>`).join('')}
+    ${[[115,121],[145,119],[175,117],[205,115],[235,113],[265,111],[295,109]].map(([x,y])=>
+      `<ellipse cx="${x}" cy="${y}" rx="7" ry="4" fill="#091322" stroke="#52B788" stroke-width="0.8"/>`).join('')}
+    <!-- Legs -->
+    <rect x="67" y="142" width="8" height="10" fill="#52B788" rx="2"/>
+    <rect x="314" y="117" width="8" height="10" fill="#52B788" rx="2"/>
+    <rect x="67" y="120" width="8" height="10" fill="#52B788" rx="2"/>
+    <!-- Text label -->
+    <text x="200" y="97" text-anchor="middle" font-size="8" fill="#F4A261" font-family="Syne,sans-serif" font-weight="700">4B-G1</text>
+    <!-- Export button -->
+    <rect x="280" y="160" width="100" height="30" rx="15" fill="#00B4D8"/>
+    <text x="330" y="180" text-anchor="middle" font-size="11" fill="white" font-weight="700" font-family="Syne,sans-serif">Export STL</text>
+    <!-- Check marks -->
+    <text x="80" y="175" font-size="9" fill="#52B788" font-family="Syne,sans-serif">✓ Dimensions OK</text>
+    <text x="80" y="190" font-size="9" fill="#52B788" font-family="Syne,sans-serif">✓ Forats >40%</text>
+    <text x="80" y="205" font-size="9" fill="#52B788" font-family="Syne,sans-serif">✓ Connector OK</text>
+    <!-- Right -->
+    <rect x="460" y="36" width="140" height="184" fill="#091322"/>
+    <rect x="465" y="42" width="128" height="28" rx="6" fill="#00B4D8"/>
+    <text x="529" y="60" text-anchor="middle" font-size="12" fill="white" font-weight="700" font-family="Syne,sans-serif">Export</text>
+    <text x="529" y="88" text-anchor="middle" font-size="8.5" fill="#7CAFC2" font-family="Syne,sans-serif">Format: .STL</text>
+    <text x="529" y="103" text-anchor="middle" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">Nom fitxer:</text>
+    <text x="529" y="116" text-anchor="middle" font-size="7.5" fill="#F4A261" font-family="Fira Code,monospace">Reixa_4B_G1.stl</text>
+    <rect x="465" y="125" width="128" height="22" rx="4" fill="#1A4A2A" stroke="#52B788" stroke-width="1"/>
+    <text x="529" y="140" text-anchor="middle" font-size="9" fill="#52B788" font-family="Syne,sans-serif">✓ Sense errors</text>
+  </svg>`,
+
+  m9:`<svg viewBox="0 0 600 220" class="mockup-svg">
+    <rect width="600" height="220" fill="#060F18"/>
+    <rect width="600" height="36" fill="#091322"/>
+    <text x="300" y="22" text-anchor="middle" font-size="10" fill="#7CAFC2" font-family="Syne,sans-serif">Ultimaker Cura — Vista de capes (Layer View)</text>
+    <rect x="0" y="36" width="460" height="184" fill="#0D1B2A"/>
+    <!-- Cura UI mockup -->
+    <!-- Left toolbar -->
+    <rect x="0" y="36" width="36" height="184" fill="#091322"/>
+    ${['↕','✋','🔍','📐'].map((t,i)=>`<text x="18" y="${65+i*32}" text-anchor="middle" font-size="14" fill="#7CAFC2">${t}</text>`).join('')}
+    <!-- Main viewport: layer preview -->
+    <rect x="36" y="36" width="380" height="184" fill="#0D1B2A"/>
+    <!-- Sliced layers visualization -->
+    ${Array.from({length:20},(_,i)=>{
+      const y = 195-i*7; const w = 280; const x = 100;
+      const col = i<2 ? '#00B4D8' : i<18 ? '#F4A261' : '#52B788';
+      return `<rect x="${x}" y="${y}" width="${w}" height="5" rx="1" fill="${col}" opacity="${0.4+i*0.03}"/>`;
+    }).join('')}
+    <!-- Current layer indicator -->
+    <line x1="95" y1="118" x2="385" y2="118" stroke="#52B788" stroke-width="1.5" stroke-dasharray="5,3"/>
+    <text x="100" y="113" font-size="9" fill="#52B788" font-family="Syne,sans-serif">Capa actual: 12/20</text>
+    <!-- Right: settings -->
+    <rect x="416" y="36" width="184" height="184" fill="#091322"/>
+    <text x="508" y="55" text-anchor="middle" font-size="9" fill="#9B59B6" font-weight="700" font-family="Syne,sans-serif">Paràmetres PLA</text>
+    ${[['Layer Height','0.20 mm'],['Infill','20% Gyroid'],['Walls','3 lines'],['Nozzle','205°C'],['Bed','55°C'],['Speed','50mm/s'],['Supports','None']].map(([l,v],i)=>`
+      <rect x="420" y="${62+i*22}" width="176" height="18" rx="2" fill="${i%2===0?'#1A3A5C':'#0F2030'}"/>
+      <text x="426" y="${75+i*22}" font-size="8" fill="#7CAFC2" font-family="Syne,sans-serif">${l}</text>
+      <text x="590" y="${75+i*22}" text-anchor="end" font-size="8.5" fill="#9B59B6" font-family="Fira Code,monospace">${v}</text>`).join('')}
+    <!-- Estimate bar -->
+    <rect x="420" y="218" width="0" height="0"/>
+  </svg>`,
+};
+
+// ════════════════════════════════════════════════════════════
+// RENDER
+// ════════════════════════════════════════════════════════════
+const completed = new Set();
+let stepChecks = {};
+
+function buildSidebar() {
+  const sb = document.getElementById('sidebar');
+  STEPS.forEach((s,i) => {
+    const el = document.createElement('div');
+    el.className = 'slink';
+    el.id = 'sl'+i;
+    el.innerHTML = `<div class="snum">${i+1}</div><span class="stxt">${s.title}</span>`;
+    el.onclick = () => document.getElementById(s.id).scrollIntoView({behavior:'smooth'});
+    sb.appendChild(el);
+  });
+}
+
+function buildSteps() {
+  const main = document.getElementById('main');
+  STEPS.forEach((s,i) => {
+    stepChecks[i] = 0;
+    const el = document.createElement('div');
+    el.className = 'step-card';
+    el.id = s.id;
+    el.innerHTML = `
+      <div class="step-header">
+        <div class="step-badge" style="background:${s.color}20;border:2px solid ${s.color};color:${s.color}">${i+1}</div>
+        <div class="step-meta">
+          <div class="step-tag">${s.tag}</div>
+          <div class="step-title">${s.title}</div>
+        </div>
+        <div class="step-session">${s.session}</div>
+      </div>
+      <div class="step-body">
+        <div class="mockup">
+          <div class="mockup-bar">
+            <div class="mockup-dot" style="background:#EF5350"></div>
+            <div class="mockup-dot" style="background:#FFA726"></div>
+            <div class="mockup-dot" style="background:#66BB6A"></div>
+            <span>TinkerCAD · Pas ${i+1}: ${s.title}</span>
+          </div>
+          ${MOCKUPS[s.mockup]||''}
+        </div>
+        ${s.formula ? `<div class="formula"><strong>${s.formula.left}:</strong> <span class="result">${s.formula.right}</span><br><small style="opacity:.6">${s.formula.note}</small></div>` : ''}
+        <ul class="inst-list" id="il${i}">
+          ${s.instructions.map((ins,j)=>`
+            <li class="inst-item" onclick="toggleCheck(${i},${j},this)">
+              <div class="inst-chk"></div>
+              <span class="inst-txt">${ins.t}</span>
+            </li>`).join('')}
+        </ul>
+        ${s.tips.map(t=>`<div class="tip tip-${t.type}"><span class="tip-ico">${t.ico}</span><span>${t.t}</span></div>`).join('')}
+        ${s.params ? `
+          <table class="ptable">
+            <thead><tr><th>Paràmetre</th><th>Valor recomanat</th></tr></thead>
+            <tbody>${s.params.map(p=>`<tr><td>${p.p}</td><td class="pval">${p.v}</td></tr>`).join('')}</tbody>
+          </table>` : ''}
+      </div>
+      <div class="step-footer">
+        <span class="step-pct" id="pct${i}">0 / ${s.instructions.length} completats</span>
+        <button class="btn-done" id="bd${i}" onclick="markDone(${i})">Marcar pas com a completat</button>
+      </div>`;
+    main.appendChild(el);
+  });
+
+  // Final box
+  main.insertAdjacentHTML('beforeend', `
+    <div class="final-box" id="finalBox" style="display:none">
+      <div style="font-size:2.5rem;margin-bottom:.8rem">🎉</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--cyan);margin-bottom:.5rem">Tutorial completat!</h2>
+      <p style="opacity:.7;margin-bottom:1.2rem">Has aprés a modelar una reixa 3D completa. El teu STL està llest per a imprimir.</p>
+      <p style="color:var(--sage);font-size:.95rem">Següent pas: obri <strong>Ultimaker Cura</strong>, importa el fitxer STL i configura els paràmetres de laminat.</p>
+    </div>`);
+}
+
+function toggleCheck(stepIdx, itemIdx, el) {
+  el.classList.toggle('checked');
+  const total = STEPS[stepIdx].instructions.length;
+  const done = document.querySelectorAll(`#il${stepIdx} .inst-item.checked`).length;
+  stepChecks[stepIdx] = done;
+  document.getElementById(`pct${stepIdx}`).textContent = `${done} / ${total} completats`;
+  updateProgress();
+}
+
+function markDone(i) {
+  completed.has(i) ? completed.delete(i) : completed.add(i);
+  const btn = document.getElementById('bd'+i);
+  const sl  = document.getElementById('sl'+i);
+  if (completed.has(i)) {
+    btn.textContent = '✓ Completat!'; btn.classList.add('done');
+    sl.classList.add('done'); sl.classList.remove('active');
+    // Check all items
+    document.querySelectorAll(`#il${i} .inst-item`).forEach(el => el.classList.add('checked'));
+    stepChecks[i] = STEPS[i].instructions.length;
+    document.getElementById(`pct${i}`).textContent = `${STEPS[i].instructions.length} / ${STEPS[i].instructions.length} completats`;
+  } else {
+    btn.textContent = 'Marcar pas com a completat'; btn.classList.remove('done');
+    sl.classList.remove('done');
+  }
+  updateProgress();
+  if (completed.size === STEPS.length) document.getElementById('finalBox').style.display = 'block';
+}
+
+function updateProgress() {
+  const pct = Math.round((completed.size / STEPS.length) * 100);
+  document.getElementById('progFill').style.width = pct+'%';
+  document.getElementById('progTxt').textContent = `${completed.size} / ${STEPS.length} passos`;
+}
+
+// Active sidebar link on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = STEPS.findIndex(s => s.id === e.target.id);
+      document.querySelectorAll('.slink').forEach((el,i) => el.classList.toggle('active', i===idx && !completed.has(idx)));
+    }
+  });
+}, { threshold:.3 });
+
+buildSidebar();
+buildSteps();
+STEPS.forEach(s => { const el = document.getElementById(s.id); if(el) observer.observe(el); });
+</script>
+</body>
+</html>

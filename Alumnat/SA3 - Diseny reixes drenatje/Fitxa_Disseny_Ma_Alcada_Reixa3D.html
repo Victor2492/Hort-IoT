@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fitxa de Disseny a Mà Alçada — Reixa de Drenatge 3D</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cyan:#006494;--cyan-l:#E0F4FF;--amber:#B5590C;--amber-l:#FFF3E0;
+  --gris:#263238;--gris2:#546E7A;--grisClar:#ECEFF1;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Syne',sans-serif;background:#F5F5F5;color:var(--gris);font-size:11pt}
+@media print{body{background:white}html{zoom:.82}.no-print{display:none}}
+
+.page{
+  width:210mm;min-height:297mm;background:white;margin:0 auto;
+  padding:10mm 12mm;display:flex;flex-direction:column;gap:4mm;
+}
+
+.hdr{background:var(--cyan);color:white;border-radius:3mm;
+  padding:4mm 6mm;display:flex;justify-content:space-between;align-items:center;}
+.hdr h1{font-size:14pt;font-weight:800;line-height:1.2}
+.hdr .sub{font-size:8pt;opacity:.8;margin-top:1mm}
+.badge{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4);
+  padding:2px 8px;border-radius:999px;font-size:8pt;font-weight:700;white-space:nowrap}
+
+.id-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm}
+.id-field{border:1.5px solid #CCC;border-radius:2mm;padding:3mm 4mm}
+.id-field label{font-size:7.5pt;font-weight:700;color:var(--gris2);text-transform:uppercase;
+  letter-spacing:.05em;display:block;margin-bottom:1mm}
+.id-field .line{border-bottom:1px solid #AAA;height:6mm}
+
+.sec{font-size:9pt;font-weight:800;color:white;padding:2mm 4mm;border-radius:2mm;
+  text-transform:uppercase;letter-spacing:.05em;margin-bottom:2mm;display:block}
+.sec-cyan{background:var(--cyan)}.sec-amber{background:var(--amber)}.sec-gris{background:var(--gris)}
+
+.ref-box{border:1.5px solid var(--cyan);border-radius:2mm;overflow:hidden;margin-bottom:2mm}
+.ref-title{background:var(--cyan-l);border-bottom:1px solid var(--cyan);
+  font-size:8pt;font-weight:700;color:var(--cyan);padding:2mm 3mm}
+
+.draw-grid{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.draw-box{border:1.5px solid #333;border-radius:2mm;overflow:hidden;position:relative}
+.draw-title{background:#F5F5F5;border-bottom:1px solid #DDD;font-size:8pt;font-weight:700;
+  color:var(--gris);padding:2mm 3mm;display:flex;justify-content:space-between;align-items:center}
+.draw-area{position:relative}
+.draw-area svg{display:block;width:100%}
+.draw-hint{position:absolute;bottom:4px;left:50%;transform:translateX(-50%);
+  font-size:7pt;color:var(--gris2);opacity:.55;white-space:nowrap;pointer-events:none}
+
+table{width:100%;border-collapse:collapse;font-size:8.5pt}
+th{background:var(--cyan);color:white;padding:2mm 3mm;text-align:left;font-size:7.5pt}
+td{padding:2mm 3mm;border-bottom:1px solid #E0E0E0;vertical-align:top}
+tr:nth-child(even) td{background:var(--cyan-l)}
+.val{font-weight:700;color:var(--cyan)}
+
+.calc{background:var(--amber-l);border:1.5px solid var(--amber);border-radius:2mm;padding:3mm 4mm;margin-bottom:2mm}
+.calc-title{font-size:8pt;font-weight:800;color:var(--amber);margin-bottom:2mm}
+.calc-row{font-size:8pt;margin-bottom:1.5mm;font-family:'Fira Code',monospace;line-height:1.5}
+.calc-val{color:var(--amber);font-weight:700}
+.fill{border-bottom:1px solid #999;min-width:20mm;display:inline-block;vertical-align:bottom}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:4mm}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3mm}
+
+.check-col{display:flex;flex-direction:column;gap:1.5mm}
+.check-item{display:flex;align-items:flex-start;gap:2mm;font-size:8pt;
+  padding:1.5mm 0;border-bottom:1px solid #F0F0F0}
+.check-item:last-child{border-bottom:none}
+.chk{width:4mm;height:4mm;border:1.5px solid #AAA;border-radius:1mm;flex-shrink:0;margin-top:.5mm}
+
+.notes-line{border-bottom:1px solid #DDD;height:5mm;margin-bottom:1mm}
+
+footer{text-align:center;font-size:7pt;color:var(--gris2);
+  border-top:1px solid #DDD;padding-top:2mm;margin-top:auto}
+
+.btn-print{
+  position:fixed;bottom:16px;right:16px;
+  background:var(--cyan);color:white;border:none;border-radius:999px;
+  padding:10px 20px;font-family:'Syne',sans-serif;font-size:.85rem;font-weight:700;
+  cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,.2);z-index:100;
+}
+.btn-print:hover{background:#005580}
+</style>
+</head>
+<body>
+
+<button class="btn-print no-print" onclick="window.print()">🖨️ Imprimir</button>
+
+<div class="page">
+
+<!-- HEADER -->
+<div class="hdr">
+  <div>
+    <h1>Fitxa de Disseny a Mà Alçada</h1>
+    <div class="sub">Reixa de Drenatge 3D per a Caixó d'Hort &middot; Tecnologia 4t ESO &middot; Comunitat Valenciana</div>
+  </div>
+  <div class="badge">Sessions S2&ndash;S3</div>
+</div>
+
+<!-- IDENTIFICACIÓ -->
+<div class="id-row">
+  <div class="id-field"><label>Nom i cognoms</label><div class="line"></div></div>
+  <div class="id-field"><label>Grup / Curs</label><div class="line"></div></div>
+  <div class="id-field"><label>Data</label><div class="line"></div></div>
+</div>
+
+<!-- REFERÈNCIA TÈCNICA -->
+<div class="ref-box">
+  <div class="ref-title">&#128208; Refer&egrave;ncia: especificacions del m&ograve;dul de reixa &mdash; ESCALA 1:2 (1&nbsp;cm&nbsp;=&nbsp;20&nbsp;mm)</div>
+  <svg viewBox="0 0 580 148" style="width:100%;display:block;background:#FAFCFF">
+    <defs>
+      <marker id="a1" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto">
+        <path d="M0,0 L5,2.5 L0,5Z" fill="#006494"/>
+      </marker>
+      <marker id="a2" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
+        <path d="M5,0 L0,2.5 L5,5Z" fill="#006494"/>
+      </marker>
+      <marker id="b1" markerWidth="5" markerHeight="5" refX="5" refY="2.5" orient="auto">
+        <path d="M0,0 L5,2.5 L0,5Z" fill="#B5590C"/>
+      </marker>
+      <marker id="b2" markerWidth="5" markerHeight="5" refX="0" refY="2.5" orient="auto">
+        <path d="M5,0 L0,2.5 L5,5Z" fill="#B5590C"/>
+      </marker>
+    </defs>
+
+    <!-- ── VISTA EN PLANTA ─────────────────────────────────── -->
+    <text x="8" y="11" font-size="8" fill="#006494" font-weight="700" font-family="Syne,sans-serif">VISTA EN PLANTA (des de dalt)</text>
+    <rect x="8" y="15" width="210" height="99" rx="2" fill="#E8F4FF" stroke="#006494" stroke-width="1.5"/>
+
+    <!-- Hexagon holes pre-computed -->
+    <polygon points="30.3,23.5 30.3,28.5 26.0,31.0 21.7,28.5 21.7,23.5 26.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="43.3,23.5 43.3,28.5 39.0,31.0 34.7,28.5 34.7,23.5 39.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="56.3,23.5 56.3,28.5 52.0,31.0 47.7,28.5 47.7,23.5 52.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="69.3,23.5 69.3,28.5 65.0,31.0 60.7,28.5 60.7,23.5 65.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="82.3,23.5 82.3,28.5 78.0,31.0 73.7,28.5 73.7,23.5 78.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="95.3,23.5 95.3,28.5 91.0,31.0 86.7,28.5 86.7,23.5 91.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="108.3,23.5 108.3,28.5 104.0,31.0 99.7,28.5 99.7,23.5 104.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="121.3,23.5 121.3,28.5 117.0,31.0 112.7,28.5 112.7,23.5 117.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="134.3,23.5 134.3,28.5 130.0,31.0 125.7,28.5 125.7,23.5 130.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="147.3,23.5 147.3,28.5 143.0,31.0 138.7,28.5 138.7,23.5 143.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="160.3,23.5 160.3,28.5 156.0,31.0 151.7,28.5 151.7,23.5 156.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="173.3,23.5 173.3,28.5 169.0,31.0 164.7,28.5 164.7,23.5 169.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="186.3,23.5 186.3,28.5 182.0,31.0 177.7,28.5 177.7,23.5 182.0,21.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="36.8,34.8 36.8,39.8 32.5,42.3 28.2,39.8 28.2,34.8 32.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="49.8,34.8 49.8,39.8 45.5,42.3 41.2,39.8 41.2,34.8 45.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="62.8,34.8 62.8,39.8 58.5,42.3 54.2,39.8 54.2,34.8 58.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="75.8,34.8 75.8,39.8 71.5,42.3 67.2,39.8 67.2,34.8 71.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="88.8,34.8 88.8,39.8 84.5,42.3 80.2,39.8 80.2,34.8 84.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="101.8,34.8 101.8,39.8 97.5,42.3 93.2,39.8 93.2,34.8 97.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="114.8,34.8 114.8,39.8 110.5,42.3 106.2,39.8 106.2,34.8 110.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="127.8,34.8 127.8,39.8 123.5,42.3 119.2,39.8 119.2,34.8 123.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="140.8,34.8 140.8,39.8 136.5,42.3 132.2,39.8 132.2,34.8 136.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="153.8,34.8 153.8,39.8 149.5,42.3 145.2,39.8 145.2,34.8 149.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="166.8,34.8 166.8,39.8 162.5,42.3 158.2,39.8 158.2,34.8 162.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="179.8,34.8 179.8,39.8 175.5,42.3 171.2,39.8 171.2,34.8 175.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="192.8,34.8 192.8,39.8 188.5,42.3 184.2,39.8 184.2,34.8 188.5,32.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="30.3,46.0 30.3,51.0 26.0,53.5 21.7,51.0 21.7,46.0 26.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="43.3,46.0 43.3,51.0 39.0,53.5 34.7,51.0 34.7,46.0 39.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="56.3,46.0 56.3,51.0 52.0,53.5 47.7,51.0 47.7,46.0 52.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="69.3,46.0 69.3,51.0 65.0,53.5 60.7,51.0 60.7,46.0 65.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="82.3,46.0 82.3,51.0 78.0,53.5 73.7,51.0 73.7,46.0 78.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="95.3,46.0 95.3,51.0 91.0,53.5 86.7,51.0 86.7,46.0 91.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="108.3,46.0 108.3,51.0 104.0,53.5 99.7,51.0 99.7,46.0 104.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="121.3,46.0 121.3,51.0 117.0,53.5 112.7,51.0 112.7,46.0 117.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="134.3,46.0 134.3,51.0 130.0,53.5 125.7,51.0 125.7,46.0 130.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="147.3,46.0 147.3,51.0 143.0,53.5 138.7,51.0 138.7,46.0 143.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="160.3,46.0 160.3,51.0 156.0,53.5 151.7,51.0 151.7,46.0 156.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="173.3,46.0 173.3,51.0 169.0,53.5 164.7,51.0 164.7,46.0 169.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="186.3,46.0 186.3,51.0 182.0,53.5 177.7,51.0 177.7,46.0 182.0,43.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="36.8,57.3 36.8,62.3 32.5,64.8 28.2,62.3 28.2,57.3 32.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="49.8,57.3 49.8,62.3 45.5,64.8 41.2,62.3 41.2,57.3 45.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="62.8,57.3 62.8,62.3 58.5,64.8 54.2,62.3 54.2,57.3 58.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="75.8,57.3 75.8,62.3 71.5,64.8 67.2,62.3 67.2,57.3 71.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="88.8,57.3 88.8,62.3 84.5,64.8 80.2,62.3 80.2,57.3 84.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="101.8,57.3 101.8,62.3 97.5,64.8 93.2,62.3 93.2,57.3 97.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="114.8,57.3 114.8,62.3 110.5,64.8 106.2,62.3 106.2,57.3 110.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="127.8,57.3 127.8,62.3 123.5,64.8 119.2,62.3 119.2,57.3 123.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="140.8,57.3 140.8,62.3 136.5,64.8 132.2,62.3 132.2,57.3 136.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="153.8,57.3 153.8,62.3 149.5,64.8 145.2,62.3 145.2,57.3 149.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="166.8,57.3 166.8,62.3 162.5,64.8 158.2,62.3 158.2,57.3 162.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="179.8,57.3 179.8,62.3 175.5,64.8 171.2,62.3 171.2,57.3 175.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="192.8,57.3 192.8,62.3 188.5,64.8 184.2,62.3 184.2,57.3 188.5,54.8" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="30.3,68.5 30.3,73.5 26.0,76.0 21.7,73.5 21.7,68.5 26.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="43.3,68.5 43.3,73.5 39.0,76.0 34.7,73.5 34.7,68.5 39.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="56.3,68.5 56.3,73.5 52.0,76.0 47.7,73.5 47.7,68.5 52.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="69.3,68.5 69.3,73.5 65.0,76.0 60.7,73.5 60.7,68.5 65.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="82.3,68.5 82.3,73.5 78.0,76.0 73.7,73.5 73.7,68.5 78.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="95.3,68.5 95.3,73.5 91.0,76.0 86.7,73.5 86.7,68.5 91.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="108.3,68.5 108.3,73.5 104.0,76.0 99.7,73.5 99.7,68.5 104.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="121.3,68.5 121.3,73.5 117.0,76.0 112.7,73.5 112.7,68.5 117.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="134.3,68.5 134.3,73.5 130.0,76.0 125.7,73.5 125.7,68.5 130.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="147.3,68.5 147.3,73.5 143.0,76.0 138.7,73.5 138.7,68.5 143.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="160.3,68.5 160.3,73.5 156.0,76.0 151.7,73.5 151.7,68.5 156.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="173.3,68.5 173.3,73.5 169.0,76.0 164.7,73.5 164.7,68.5 169.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="186.3,68.5 186.3,73.5 182.0,76.0 177.7,73.5 177.7,68.5 182.0,66.0" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="36.8,79.8 36.8,84.8 32.5,87.3 28.2,84.8 28.2,79.8 32.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="49.8,79.8 49.8,84.8 45.5,87.3 41.2,84.8 41.2,79.8 45.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="62.8,79.8 62.8,84.8 58.5,87.3 54.2,84.8 54.2,79.8 58.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="75.8,79.8 75.8,84.8 71.5,87.3 67.2,84.8 67.2,79.8 71.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="88.8,79.8 88.8,84.8 84.5,87.3 80.2,84.8 80.2,79.8 84.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="101.8,79.8 101.8,84.8 97.5,87.3 93.2,84.8 93.2,79.8 97.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="114.8,79.8 114.8,84.8 110.5,87.3 106.2,84.8 106.2,79.8 110.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="127.8,79.8 127.8,84.8 123.5,87.3 119.2,84.8 119.2,79.8 123.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="140.8,79.8 140.8,84.8 136.5,87.3 132.2,84.8 132.2,79.8 136.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="153.8,79.8 153.8,84.8 149.5,87.3 145.2,84.8 145.2,79.8 149.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="166.8,79.8 166.8,84.8 162.5,87.3 158.2,84.8 158.2,79.8 162.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="179.8,79.8 179.8,84.8 175.5,87.3 171.2,84.8 171.2,79.8 175.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="192.8,79.8 192.8,84.8 188.5,87.3 184.2,84.8 184.2,79.8 188.5,77.3" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="30.3,91.0 30.3,96.0 26.0,98.5 21.7,96.0 21.7,91.0 26.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="43.3,91.0 43.3,96.0 39.0,98.5 34.7,96.0 34.7,91.0 39.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="56.3,91.0 56.3,96.0 52.0,98.5 47.7,96.0 47.7,91.0 52.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="69.3,91.0 69.3,96.0 65.0,98.5 60.7,96.0 60.7,91.0 65.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="82.3,91.0 82.3,96.0 78.0,98.5 73.7,96.0 73.7,91.0 78.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="95.3,91.0 95.3,96.0 91.0,98.5 86.7,96.0 86.7,91.0 91.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="108.3,91.0 108.3,96.0 104.0,98.5 99.7,96.0 99.7,91.0 104.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="121.3,91.0 121.3,96.0 117.0,98.5 112.7,96.0 112.7,91.0 117.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="134.3,91.0 134.3,96.0 130.0,98.5 125.7,96.0 125.7,91.0 130.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="147.3,91.0 147.3,96.0 143.0,98.5 138.7,96.0 138.7,91.0 143.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="160.3,91.0 160.3,96.0 156.0,98.5 151.7,96.0 151.7,91.0 156.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="173.3,91.0 173.3,96.0 169.0,98.5 164.7,96.0 164.7,91.0 169.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/><polygon points="186.3,91.0 186.3,96.0 182.0,98.5 177.7,96.0 177.7,91.0 182.0,88.5" fill="none" stroke="#006494" stroke-width=".8"/>
+
+    <!-- Tab connector (centre costat curt superior) -->
+    <rect x="108" y="11" width="12" height="4" fill="#B5590C" stroke="#8B4A0A" stroke-width=".8" rx="1"/>
+    <text x="114" y="9" text-anchor="middle" font-size="6" fill="#B5590C" font-family="Syne,sans-serif">Tab</text>
+
+    <!-- Ranura connector (centre costat llarg dret) -->
+    <rect x="218" y="57" width="4" height="8" fill="none" stroke="#006494" stroke-width=".8" stroke-dasharray="2,1.5"/>
+    <text x="230" y="63" font-size="6" fill="#006494" font-family="Syne,sans-serif">Ranura</text>
+
+    <!-- Canal sensor -->
+    <rect x="8" y="63" width="210" height="3" fill="rgba(0,100,148,.2)" stroke="#006494" stroke-width=".6" stroke-dasharray="3,2"/>
+    <text x="113" y="60" text-anchor="middle" font-size="6" fill="#006494" font-family="Syne,sans-serif">Canal sensor &Oslash;3,5mm</text>
+
+    <!-- Cotes planta -->
+    <line x1="8" y1="122" x2="218" y2="122" stroke="#006494" stroke-width="1" marker-start="url(#a2)" marker-end="url(#a1)"/>
+    <text x="113" y="131" text-anchor="middle" font-size="8" fill="#006494" font-weight="700" font-family="Syne,sans-serif">190 mm</text>
+    <line x1="228" y1="15" x2="228" y2="114" stroke="#006494" stroke-width="1" marker-start="url(#a2)" marker-end="url(#a1)"/>
+    <text x="242" y="70" text-anchor="middle" font-size="8" fill="#006494" font-weight="700" font-family="Syne,sans-serif" transform="rotate(90,242,70)">90 mm</text>
+
+    <!-- ── ALÇAT (vista frontal) ───────────────────────────── -->
+    <text x="250" y="11" font-size="8" fill="#B5590C" font-weight="700" font-family="Syne,sans-serif">AL&Ccedil;AT (vista frontal)</text>
+    <!-- Base -->
+    <rect x="250" y="15" width="210" height="22" rx="1" fill="#FFF3E0" stroke="#B5590C" stroke-width="1.5"/>
+    <!-- Lath separator lines inside front view -->
+    <line x1="265" y1="18" x2="265" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="278" y1="18" x2="278" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="291" y1="18" x2="291" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="304" y1="18" x2="304" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="317" y1="18" x2="317" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="330" y1="18" x2="330" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="343" y1="18" x2="343" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="356" y1="18" x2="356" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="369" y1="18" x2="369" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="382" y1="18" x2="382" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="395" y1="18" x2="395" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="408" y1="18" x2="408" y2="42" stroke="#B5590C" stroke-width=".8"/><line x1="421" y1="18" x2="421" y2="42" stroke="#B5590C" stroke-width=".8"/>
+    <!-- Legs -->
+    <rect x="250" y="37" width="14" height="12" rx="1" fill="#FFE0C0" stroke="#B5590C" stroke-width="1.5"/>
+    <rect x="446" y="37" width="14" height="12" rx="1" fill="#FFE0C0" stroke="#B5590C" stroke-width="1.5"/>
+    <!-- Cotes alçat -->
+    <line x1="250" y1="60" x2="460" y2="60" stroke="#B5590C" stroke-width="1" marker-start="url(#b2)" marker-end="url(#b1)"/>
+    <text x="355" y="70" text-anchor="middle" font-size="8" fill="#B5590C" font-weight="700" font-family="Syne,sans-serif">190 mm</text>
+    <line x1="242" y1="15" x2="242" y2="37" stroke="#B5590C" stroke-width="1" marker-start="url(#b2)" marker-end="url(#b1)"/>
+    <text x="228" y="29" text-anchor="middle" font-size="7" fill="#B5590C" font-weight="700" font-family="Syne,sans-serif" transform="rotate(-90,228,29)">4mm</text>
+    <line x1="242" y1="37" x2="242" y2="49" stroke="#B5590C" stroke-width="1" marker-start="url(#b2)" marker-end="url(#b1)"/>
+    <text x="229" y="45" text-anchor="middle" font-size="7" fill="#B5590C" font-weight="700" font-family="Syne,sans-serif" transform="rotate(-90,229,45)">5mm</text>
+    <text x="277" y="44" font-size="6.5" fill="#B5590C" font-family="Syne,sans-serif">Pota</text>
+
+    <!-- ── DETALL HEX&Agrave;GON ──────────────────────────────── -->
+    <text x="480" y="11" font-size="8" fill="#263238" font-weight="700" font-family="Syne,sans-serif">DETALL HEX</text>
+    <!-- Regular hexagon Ø10mm -->
+    <polygon points="505,22 514,17 523,22 523,32 514,37 505,32" fill="none" stroke="#263238" stroke-width="1.5"/>
+    <!-- Diameter line -->
+    <line x1="505" y1="27" x2="523" y2="27" stroke="#546E7A" stroke-width=".8" stroke-dasharray="2,2"/>
+    <text x="514" y="25" text-anchor="middle" font-size="7" fill="#263238" font-weight="700" font-family="Syne,sans-serif">&Oslash;10mm</text>
+    <!-- Height -->
+    <line x1="527" y1="17" x2="527" y2="37" stroke="#546E7A" stroke-width=".8" marker-start="url(#a2)" marker-end="url(#a1)"/>
+    <text x="538" y="30" font-size="7" fill="#546E7A" font-family="Syne,sans-serif">11,5mm</text>
+    <!-- Spacing info -->
+    <text x="480" y="52" font-size="7" fill="#546E7A" font-family="Syne,sans-serif">Centres: 13mm horit.</text>
+    <text x="480" y="63" font-size="7" fill="#546E7A" font-family="Syne,sans-serif">Files alt.: 11,25mm</text>
+    <text x="480" y="74" font-size="7.5" fill="#006494" font-weight="700" font-family="Syne,sans-serif">Paret m&iacute;n.: &ge;2mm</text>
+    <!-- Module assembly (4 pieces) -->
+    <text x="480" y="90" font-size="7" fill="#263238" font-weight="700" font-family="Syne,sans-serif">4 m&ograve;duls = 1 caixa</text>
+    <rect x="480" y="95" width="44" height="22" rx="1" fill="#E8F4FF" stroke="#006494" stroke-width=".8"/>
+    <rect x="525" y="95" width="44" height="22" rx="1" fill="#E8F4FF" stroke="#006494" stroke-width=".8"/>
+    <rect x="480" y="118" width="44" height="22" rx="1" fill="#E8F4FF" stroke="#006494" stroke-width=".8"/>
+    <rect x="525" y="118" width="44" height="22" rx="1" fill="#E8F4FF" stroke="#006494" stroke-width=".8"/>
+    <text x="502" y="140" text-anchor="middle" font-size="6" fill="#006494" font-family="Syne,sans-serif">A</text>
+    <text x="547" y="140" text-anchor="middle" font-size="6" fill="#006494" font-family="Syne,sans-serif">B</text>
+    <text x="502" y="108" text-anchor="middle" font-size="6" fill="#006494" font-family="Syne,sans-serif">C</text>
+    <text x="547" y="108" text-anchor="middle" font-size="6" fill="#006494" font-family="Syne,sans-serif">D</text>
+  </svg>
+</div>
+
+<!-- ÀREES DE DIBUIX -->
+<span class="sec sec-cyan">&#9998; El teu disseny a mà alçada &mdash; escala 1:2 recomanada (1 cm = 20 mm)</span>
+<div class="draw-grid">
+
+  <!-- Vista en Planta -->
+  <div class="draw-box">
+    <div class="draw-title">
+      <span>VISTA EN PLANTA (des de dalt)</span>
+      <span style="font-size:7pt;color:#999">Escala 1:2 &middot; 1cm = 20mm</span>
+    </div>
+    <div class="draw-area">
+      <svg viewBox="0 0 280 200" style="width:100%;display:block;min-height:130px">
+        <!-- Graph paper -->
+        <line x1="5" y1="0" x2="5" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="10" y1="0" x2="10" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="15" y1="0" x2="15" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="20" y1="0" x2="20" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="25" y1="0" x2="25" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="30" y1="0" x2="30" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="35" y1="0" x2="35" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="40" y1="0" x2="40" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="45" y1="0" x2="45" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="50" y1="0" x2="50" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="55" y1="0" x2="55" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="60" y1="0" x2="60" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="65" y1="0" x2="65" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="70" y1="0" x2="70" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="75" y1="0" x2="75" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="80" y1="0" x2="80" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="85" y1="0" x2="85" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="90" y1="0" x2="90" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="95" y1="0" x2="95" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="100" y1="0" x2="100" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="105" y1="0" x2="105" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="110" y1="0" x2="110" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="115" y1="0" x2="115" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="120" y1="0" x2="120" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="125" y1="0" x2="125" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="130" y1="0" x2="130" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="135" y1="0" x2="135" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="140" y1="0" x2="140" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="145" y1="0" x2="145" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="150" y1="0" x2="150" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="155" y1="0" x2="155" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="160" y1="0" x2="160" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="165" y1="0" x2="165" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="170" y1="0" x2="170" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="175" y1="0" x2="175" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="180" y1="0" x2="180" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="185" y1="0" x2="185" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="190" y1="0" x2="190" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="195" y1="0" x2="195" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="200" y1="0" x2="200" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="205" y1="0" x2="205" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="210" y1="0" x2="210" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="215" y1="0" x2="215" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="220" y1="0" x2="220" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="225" y1="0" x2="225" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="230" y1="0" x2="230" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="235" y1="0" x2="235" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="240" y1="0" x2="240" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="245" y1="0" x2="245" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="250" y1="0" x2="250" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="255" y1="0" x2="255" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="260" y1="0" x2="260" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="265" y1="0" x2="265" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="270" y1="0" x2="270" y2="200" stroke="#E8F4FF" stroke-width=".4"/><line x1="275" y1="0" x2="275" y2="200" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="5" x2="280" y2="5" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="10" x2="280" y2="10" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="15" x2="280" y2="15" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="20" x2="280" y2="20" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="25" x2="280" y2="25" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="30" x2="280" y2="30" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="35" x2="280" y2="35" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="40" x2="280" y2="40" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="45" x2="280" y2="45" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="50" x2="280" y2="50" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="55" x2="280" y2="55" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="60" x2="280" y2="60" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="65" x2="280" y2="65" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="70" x2="280" y2="70" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="75" x2="280" y2="75" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="80" x2="280" y2="80" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="85" x2="280" y2="85" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="90" x2="280" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="95" x2="280" y2="95" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="100" x2="280" y2="100" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="105" x2="280" y2="105" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="110" x2="280" y2="110" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="115" x2="280" y2="115" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="120" x2="280" y2="120" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="125" x2="280" y2="125" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="130" x2="280" y2="130" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="135" x2="280" y2="135" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="140" x2="280" y2="140" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="145" x2="280" y2="145" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="150" x2="280" y2="150" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="155" x2="280" y2="155" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="160" x2="280" y2="160" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="165" x2="280" y2="165" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="170" x2="280" y2="170" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="175" x2="280" y2="175" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="180" x2="280" y2="180" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="185" x2="280" y2="185" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="190" x2="280" y2="190" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="195" x2="280" y2="195" stroke="#E8F4FF" stroke-width=".4"/>
+        <!-- Dashed guide border: 190mm wide × 90mm tall at 1:2 = 95px × 45px centred -->
+        <rect x="20" y="20" width="240" height="158" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="5,3"/>
+        <!-- Corner ticks -->
+        <line x1="20" y1="14" x2="20" y2="26" stroke="#006494" stroke-width="1"/>
+        <line x1="260" y1="14" x2="260" y2="26" stroke="#006494" stroke-width="1"/>
+        <line x1="20" y1="172" x2="20" y2="184" stroke="#006494" stroke-width="1"/>
+        <line x1="260" y1="172" x2="260" y2="184" stroke="#006494" stroke-width="1"/>
+        <!-- Scale bar: 50px = 100mm at 1:2 -->
+        <rect x="20" y="191" width="50" height="3" fill="#006494"/>
+        <text x="45" y="198" text-anchor="middle" font-size="6.5" fill="#006494" font-family="Syne,sans-serif">100 mm</text>
+        <!-- Dimension labels -->
+        <text x="140" y="11" text-anchor="middle" font-size="6.5" fill="#888" font-family="Syne,sans-serif">190 mm &#10230;</text>
+        <text x="8" y="105" text-anchor="middle" font-size="6.5" fill="#888" font-family="Syne,sans-serif" transform="rotate(-90,8,105)">90 mm</text>
+      </svg>
+      <div class="draw-hint">Dibuixa aquí la vista de dalt del mòdul (forats, connector, canal sensor)</div>
+    </div>
+  </div>
+
+  <!-- Alçat + Perfil (dreta) -->
+  <div style="display:flex;flex-direction:column;gap:3mm">
+    <div class="draw-box" style="flex:1">
+      <div class="draw-title">
+        <span>AL&Ccedil;AT (vista frontal, llarg)</span>
+        <span style="font-size:7pt;color:#999">Escala 1:1 &middot; 1cm = 10mm</span>
+      </div>
+      <div class="draw-area">
+        <svg viewBox="0 0 280 90" style="width:100%;display:block;min-height:58px">
+          <line x1="5" y1="0" x2="5" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="10" y1="0" x2="10" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="15" y1="0" x2="15" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="20" y1="0" x2="20" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="25" y1="0" x2="25" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="30" y1="0" x2="30" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="35" y1="0" x2="35" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="40" y1="0" x2="40" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="45" y1="0" x2="45" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="50" y1="0" x2="50" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="55" y1="0" x2="55" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="60" y1="0" x2="60" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="65" y1="0" x2="65" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="70" y1="0" x2="70" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="75" y1="0" x2="75" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="80" y1="0" x2="80" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="85" y1="0" x2="85" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="90" y1="0" x2="90" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="95" y1="0" x2="95" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="100" y1="0" x2="100" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="105" y1="0" x2="105" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="110" y1="0" x2="110" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="115" y1="0" x2="115" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="120" y1="0" x2="120" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="125" y1="0" x2="125" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="130" y1="0" x2="130" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="135" y1="0" x2="135" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="140" y1="0" x2="140" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="145" y1="0" x2="145" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="150" y1="0" x2="150" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="155" y1="0" x2="155" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="160" y1="0" x2="160" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="165" y1="0" x2="165" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="170" y1="0" x2="170" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="175" y1="0" x2="175" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="180" y1="0" x2="180" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="185" y1="0" x2="185" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="190" y1="0" x2="190" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="195" y1="0" x2="195" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="200" y1="0" x2="200" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="205" y1="0" x2="205" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="210" y1="0" x2="210" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="215" y1="0" x2="215" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="220" y1="0" x2="220" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="225" y1="0" x2="225" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="230" y1="0" x2="230" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="235" y1="0" x2="235" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="240" y1="0" x2="240" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="245" y1="0" x2="245" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="250" y1="0" x2="250" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="255" y1="0" x2="255" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="260" y1="0" x2="260" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="265" y1="0" x2="265" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="270" y1="0" x2="270" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="275" y1="0" x2="275" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="5" x2="280" y2="5" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="10" x2="280" y2="10" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="15" x2="280" y2="15" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="20" x2="280" y2="20" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="25" x2="280" y2="25" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="30" x2="280" y2="30" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="35" x2="280" y2="35" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="40" x2="280" y2="40" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="45" x2="280" y2="45" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="50" x2="280" y2="50" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="55" x2="280" y2="55" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="60" x2="280" y2="60" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="65" x2="280" y2="65" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="70" x2="280" y2="70" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="75" x2="280" y2="75" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="80" x2="280" y2="80" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="85" x2="280" y2="85" stroke="#E8F4FF" stroke-width=".4"/>
+          <!-- Guide: base 190mm → 190px at 1:1 but scaled to fit → use 1:2 guide 95px wide -->
+          <rect x="10" y="22" width="240" height="20" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="4,3"/>
+          <!-- Leg guides -->
+          <rect x="10" y="42" width="16" height="10" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="234" y="42" width="16" height="10" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="3,2"/>
+          <!-- Labels -->
+          <text x="130" y="14" text-anchor="middle" font-size="6.5" fill="#888" font-family="Syne,sans-serif">base 4mm &mdash; potes 5mm</text>
+          <text x="1" y="70" font-size="6" fill="#888" font-family="Syne,sans-serif" transform="rotate(-90,1,70)">alçada</text>
+          <text x="18" y="84" font-size="6.5" fill="#B5590C" font-family="Syne,sans-serif">Pota esq.</text>
+          <text x="218" y="84" font-size="6.5" fill="#B5590C" font-family="Syne,sans-serif">Pota dta.</text>
+        </svg>
+        <div class="draw-hint">Vista frontal: base + potes + separació entre llistons</div>
+      </div>
+    </div>
+    <div class="draw-box" style="flex:1">
+      <div class="draw-title">
+        <span>PERFIL (vista lateral, curt)</span>
+        <span style="font-size:7pt;color:#999">Escala 1:1 &middot; 1cm = 10mm</span>
+      </div>
+      <div class="draw-area">
+        <svg viewBox="0 0 280 90" style="width:100%;display:block;min-height:58px">
+          <line x1="5" y1="0" x2="5" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="10" y1="0" x2="10" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="15" y1="0" x2="15" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="20" y1="0" x2="20" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="25" y1="0" x2="25" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="30" y1="0" x2="30" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="35" y1="0" x2="35" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="40" y1="0" x2="40" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="45" y1="0" x2="45" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="50" y1="0" x2="50" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="55" y1="0" x2="55" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="60" y1="0" x2="60" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="65" y1="0" x2="65" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="70" y1="0" x2="70" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="75" y1="0" x2="75" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="80" y1="0" x2="80" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="85" y1="0" x2="85" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="90" y1="0" x2="90" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="95" y1="0" x2="95" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="100" y1="0" x2="100" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="105" y1="0" x2="105" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="110" y1="0" x2="110" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="115" y1="0" x2="115" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="120" y1="0" x2="120" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="125" y1="0" x2="125" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="130" y1="0" x2="130" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="135" y1="0" x2="135" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="140" y1="0" x2="140" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="145" y1="0" x2="145" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="150" y1="0" x2="150" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="155" y1="0" x2="155" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="160" y1="0" x2="160" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="165" y1="0" x2="165" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="170" y1="0" x2="170" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="175" y1="0" x2="175" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="180" y1="0" x2="180" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="185" y1="0" x2="185" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="190" y1="0" x2="190" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="195" y1="0" x2="195" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="200" y1="0" x2="200" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="205" y1="0" x2="205" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="210" y1="0" x2="210" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="215" y1="0" x2="215" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="220" y1="0" x2="220" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="225" y1="0" x2="225" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="230" y1="0" x2="230" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="235" y1="0" x2="235" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="240" y1="0" x2="240" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="245" y1="0" x2="245" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="250" y1="0" x2="250" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="255" y1="0" x2="255" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="260" y1="0" x2="260" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="265" y1="0" x2="265" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="270" y1="0" x2="270" y2="90" stroke="#E8F4FF" stroke-width=".4"/><line x1="275" y1="0" x2="275" y2="90" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="5" x2="280" y2="5" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="10" x2="280" y2="10" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="15" x2="280" y2="15" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="20" x2="280" y2="20" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="25" x2="280" y2="25" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="30" x2="280" y2="30" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="35" x2="280" y2="35" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="40" x2="280" y2="40" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="45" x2="280" y2="45" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="50" x2="280" y2="50" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="55" x2="280" y2="55" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="60" x2="280" y2="60" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="65" x2="280" y2="65" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="70" x2="280" y2="70" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="75" x2="280" y2="75" stroke="#C8E0F0" stroke-width=".8"/><line x1="0" y1="80" x2="280" y2="80" stroke="#E8F4FF" stroke-width=".4"/><line x1="0" y1="85" x2="280" y2="85" stroke="#E8F4FF" stroke-width=".4"/>
+          <!-- Guide: 90mm wide at 1:1 = 90px, centred -->
+          <rect x="60" y="22" width="160" height="20" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="4,3"/>
+          <rect x="60" y="42" width="16" height="10" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="3,2"/>
+          <rect x="204" y="42" width="16" height="10" fill="none" stroke="#C8E0F0" stroke-width="1" stroke-dasharray="3,2"/>
+          <text x="140" y="14" text-anchor="middle" font-size="6.5" fill="#888" font-family="Syne,sans-serif">90 mm d'amplada</text>
+          <!-- Connector tab indication -->
+          <rect x="134" y="15" width="12" height="4" fill="none" stroke="#B5590C" stroke-width=".8" stroke-dasharray="2,1.5"/>
+          <text x="140" y="13" text-anchor="middle" font-size="5.5" fill="#B5590C" font-family="Syne,sans-serif">tab</text>
+        </svg>
+        <div class="draw-hint">Vista lateral: amplada + tab connector + potes laterals</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TAULA ESPECIFICACIONS + CÀLCULS -->
+<div class="two-col" style="margin-top:1mm">
+  <div>
+    <span class="sec sec-amber" style="font-size:8pt">&#128203; Taula d'especificacions</span>
+    <table>
+      <thead><tr><th>Par&agrave;metre</th><th>Valor de disseny</th><th>Valor real mesurat</th></tr></thead>
+      <tbody>
+        <tr><td>Longitud base (X)</td><td class="val">190 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Amplada base (Y)</td><td class="val">90 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Gru&iuml;x base (Z)</td><td class="val">4 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Alçada potes</td><td class="val">5 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Di&agrave;metre hex&agrave;gon (&Oslash;)</td><td class="val">10 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Separaci&oacute; centres hex.</td><td class="val">13 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Paret m&iacute;nima entre forats</td><td class="val">&ge; 2 mm</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm</td></tr>
+        <tr><td>Tab connector (macho)</td><td class="val">5 &times; 3 &times; 2 mm</td><td><span class="fill"></span></td></tr>
+        <tr><td>Ranura connector (femella)</td><td class="val">5,2 &times; 3 &times; 2,2 mm</td><td><span class="fill"></span></td></tr>
+        <tr><td>N&ordm; total de forats</td><td class="val"><span class="fill">&nbsp;&nbsp;&nbsp;</span> forats</td><td><span class="fill">&nbsp;&nbsp;&nbsp;</span> forats</td></tr>
+        <tr><td>&Agrave;rea total drenatge</td><td class="val"><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm&sup2;</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm&sup2;</td></tr>
+        <tr><td>% &agrave;rea drenatge</td><td class="val">&ge; 40%</td><td><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;</span> %</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <span class="sec sec-amber" style="font-size:8pt">&#129518; C&agrave;lculs obligatoris</span>
+    <div class="calc">
+      <div class="calc-title">1. &Agrave;rea d'un hex&agrave;gon regular (&Oslash;10 mm)</div>
+      <div class="calc-row">A = (3&radic;3 / 2) &times; r&sup2;, on r = 5 mm</div>
+      <div class="calc-row">A = 2,598 &times; 25 = <span class="calc-val">86,6 mm&sup2;</span> (valor fix)</div>
+    </div>
+    <div class="calc">
+      <div class="calc-title">2. &Agrave;rea total de drenatge</div>
+      <div class="calc-row">A<sub>total</sub> = n&ordm; forats &times; 86,6 mm&sup2;</div>
+      <div class="calc-row">A<sub>total</sub> = <span class="fill">&nbsp;&nbsp;&nbsp;</span> &times; 86,6 = <span class="calc-val"><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm&sup2;</span></div>
+    </div>
+    <div class="calc">
+      <div class="calc-title">3. Percentatge de drenatge (&ge; 40%)</div>
+      <div class="calc-row">% = A<sub>total</sub> &divide; (190 &times; 90) &times; 100</div>
+      <div class="calc-row">% = <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> &divide; 17.100 &times; 100 = <span class="calc-val"><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;</span>%</span></div>
+      <div style="font-size:7.5pt;color:var(--amber);margin-top:2mm">&#9888; Si &lt; 40%: augmenta el n&ordm; de forats o redueix la separaci&oacute; a 12&nbsp;mm.</div>
+    </div>
+    <div class="calc">
+      <div class="calc-title">4. Estimaci&oacute; de massa de PLA (g)</div>
+      <div class="calc-row">Vol. apro&ccedil;. base s&ograve;lida = 190 &times; 90 &times; 4 = 68.400 mm&sup3;</div>
+      <div class="calc-row">Vol. forats = <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> &times; 86,6 &times; 4 = <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm&sup3;</div>
+      <div class="calc-row">Vol. net = 68.400 &minus; Vol. forats = <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> mm&sup3;</div>
+      <div class="calc-row">Massa &asymp; Vol. net &times; 1,24 / 1000 &asymp; <span class="calc-val"><span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;</span> g</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKLIST -->
+<span class="sec sec-gris" style="margin-top:1mm">&#10003; Checklist &mdash; signar abans de passar al TinkerCAD</span>
+<div class="three-col">
+  <div class="check-col">
+    <div class="check-item"><div class="chk"></div>Vista en planta dibuixada (des de dalt)</div>
+    <div class="check-item"><div class="chk"></div>Alçat dibuixat (vista frontal llarga)</div>
+    <div class="check-item"><div class="chk"></div>Perfil dibuixat (vista lateral curta)</div>
+    <div class="check-item"><div class="chk"></div>Escala indicada (1:2 planta · 1:1 alçat)</div>
+  </div>
+  <div class="check-col">
+    <div class="check-item"><div class="chk"></div>Totes les cotes en mm indicades</div>
+    <div class="check-item"><div class="chk"></div>Forats hexagonals representats</div>
+    <div class="check-item"><div class="chk"></div>Potes de suport dibuixades</div>
+    <div class="check-item"><div class="chk"></div>Tab i ranura connector indicats</div>
+  </div>
+  <div class="check-col">
+    <div class="check-item"><div class="chk"></div>Àrea de drenatge calculada i &ge; 40%</div>
+    <div class="check-item"><div class="chk"></div>Paret entre forats &ge; 2 mm verificada</div>
+    <div class="check-item"><div class="chk"></div>Rètol complet (nom, grup, data, escala)</div>
+    <div class="check-item"><div class="chk"></div><strong>Aprovat pel docent</strong> per passar al CAD</div>
+  </div>
+</div>
+
+<!-- OBSERVACIONS -->
+<div>
+  <span class="sec sec-gris" style="font-size:8pt">&#128221; Observacions i decisions de disseny</span>
+  <div style="border:1.5px solid #DDD;border-radius:2mm;padding:3mm 4mm">
+    <div style="font-size:7.5pt;color:var(--gris2);margin-bottom:2mm">
+      Justifica les decisions: per qu&egrave; aquest nombre de forats? Per qu&egrave; hex&agrave;gonal? Quines mides has modificat respecte a l'est&agrave;ndard? Raona els canvis.
+    </div>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+    <div class="notes-line"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  Fitxa de Disseny a M&agrave; Alçada &middot; Reixa de Drenatge 3D &middot; Tecnologia 4t ESO &middot; Comunitat Valenciana &middot; LOMLOE &middot; Curs 2024&ndash;2025
+  &nbsp;&middot;&nbsp; Imprimir en A4 (o A3 per a major espai de dibuix)
+</footer>
+
+</div><!-- /page -->
+</body>
+</html>
