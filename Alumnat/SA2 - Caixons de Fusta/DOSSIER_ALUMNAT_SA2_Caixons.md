@@ -49,7 +49,7 @@ Problema real → Solució tecnològica → Impacte al centre
 ### Connexió amb altres SA
 
 ```
-SA1: Caixons de fusta  →  SA2: Reixes de drenatge 3D  →  SA3: Automatització (Arduino/ESP32)
+SA2: Caixons de fusta  →  SA3: Reixes de drenatge 3D  →  SA6-7: Automatització (Arduino/ESP32)
        (aquest dossier)
 ```
 
@@ -327,7 +327,7 @@ void loop() {
 }
 ```
 
-> 💡 El codi complet d'automatització forma part de la SA3 (Arduino/ESP32). Aquí només provem el funcionament manual.
+> 💡 El codi complet d'automatització forma part d'altres SA (Arduino/ESP32). Ací només provem el funcionament manual.
 
 ---
 
@@ -524,7 +524,7 @@ Format del marcatge:
 
 <div align="center">
 
-**🌱 Departament de Tecnologia · IES · Comunitat Valenciana · Curs 2024–2025**
+**🌱 Departament de Tecnologia · IES Tirant Lo Blanc · Comunitat Valenciana · Curs 2025–2026**
 
 *Situació d'Aprenentatge: Hort Escolar Tecnològic*
 
