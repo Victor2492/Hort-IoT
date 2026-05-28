@@ -1,4 +1,4 @@
-# 🖨️ Dossier de l'Alumnat — SA2: Disseny i Impressió 3D
+# 🖨️ Dossier de l'Alumnat — SA3: Disseny i Impressió 3D
 
 ![Assignatura](https://img.shields.io/badge/Assignatura-Tecnologia-006494?style=flat-square&logo=cube)
 ![Nivell](https://img.shields.io/badge/Nivell-4t%20ESO-0077B6?style=flat-square)
