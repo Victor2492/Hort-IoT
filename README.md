@@ -1,4 +1,4 @@
-# 🌱💻 De la llavor al núvol: Sostenibilitat, Automatització i IoT a l'Hort Escolar
+# 🌱💻 De la llavor al núvol: Sostenibilitat, automatització i IoT a l'hort escolar
 
 ## 📋 Descripció del projecte
 
