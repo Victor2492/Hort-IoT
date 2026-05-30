@@ -35,6 +35,14 @@ El projecte s'estructura en **3 blocs de treball** consecutius. Cada pas s'ha de
 
 ---
 
+## 📝 Què heu d'entregar? (Entregables)
+
+1. **Portfolio d'Enginyeria (Format Digital):** Un document (PDF o Markdown) on estaran documentats tots els passos, càlculs i captures de pantalla de les vostres simulacions en Tinkercad.
+2. **Esquema de la Placa:** El plànol o esbós on heu planificat la posició dels components a la placa perforada.
+3. **El Producte Final:** La placa electrònica física correctament soldada i funcionant.
+
+---
+
 ## ⚖️ Avaluació i Qualificació
 
 L'avaluació d'esta SA no es farà mitjançant exàmens tradicionals, sinó mitjançant l'assoliment de les **Competències Específiques (CE)** de la matèria. La vostra nota reflectirà la vostra capacitat d'analitzar, dissenyar, construir i treballar amb seguretat.
