@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hort Intel·ligent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Mono:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  /* ── VARIABLES ──────────────────────────────────────────── */
+  :root {
+    --terra:    #1a1710;
+    --humus:    #232018;
+    --escorça:  #2e2a1f;
+    --pedra:    #3d3828;
+    --sorra:    #7a7055;
+    --palla:    #b5a97a;
+    --crema:    #e8dfc0;
+    --blanc:    #f5f0e4;
+    --verd:     #5c8a4a;
+    --verd-cl:  #8ab86e;
+    --verd-pal: #c8e0b8;
+    --blau:     #4a7fa5;
+    --blau-cl:  #7ab0d0;
+    --ambre:    #c8852a;
+    --ambre-cl: #e8b560;
+    --roig:     #a04040;
+    --roig-cl:  #d07070;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body:    'DM Sans', sans-serif;
+    --font-mono:    'DM Mono', monospace;
+    --r: 10px;
+    --gap: 1.2rem;
+  }
+
+  /* ── RESET + BASE ──────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--terra);
+    color: var(--crema);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* textura subtil de gra */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  /* ── LAYOUT ──────────────────────────────────────────────── */
+  .wrap { max-width: 1280px; margin: 0 auto; padding: 0 var(--gap); position: relative; z-index: 1; }
+
+  /* ── HEADER ─────────────────────────────────────────────── */
+  header {
+    padding: 2rem 0 1.4rem;
+    border-bottom: 1px solid var(--pedra);
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+  }
+  .header-left h1 {
+    font-family: var(--font-display);
+    font-size: 2rem; font-weight: 400;
+    color: var(--blanc); letter-spacing: -.02em;
+    line-height: 1.1;
+  }
+  .header-left h1 span { color: var(--verd-cl); }
+  .header-left p { color: var(--sorra); font-size: 13px; margin-top: .3rem; font-family: var(--font-mono); }
+
+  .header-right { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+
+  .estat-connexio {
+    display: flex; align-items: center; gap: .5rem;
+    font-family: var(--font-mono); font-size: 12px; color: var(--sorra);
+  }
+  .estat-connexio .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--sorra);
+    transition: background .4s;
+  }
+  .estat-connexio.ok .dot   { background: var(--verd-cl); box-shadow: 0 0 6px var(--verd); }
+  .estat-connexio.err .dot  { background: var(--roig-cl); }
+
+  #ultima-actualitzacio { font-family: var(--font-mono); font-size: 12px; color: var(--sorra); }
+
+  /* ── NAV PESTANYES ──────────────────────────────────────── */
+  nav {
+    display: flex; gap: .3rem;
+    padding: .8rem 0;
+    border-bottom: 1px solid var(--pedra);
+  }
+  nav button {
+    background: none; border: none; cursor: pointer;
+    padding: .4rem 1rem; border-radius: 6px;
+    font-family: var(--font-body); font-size: 13px; font-weight: 500;
+    color: var(--sorra); transition: all .2s;
+  }
+  nav button:hover   { color: var(--crema); background: var(--escorça); }
+  nav button.actiu   { color: var(--blanc); background: var(--pedra); }
+
+  /* ── PANELLS ─────────────────────────────────────────────── */
+  .panel { display: none; padding: var(--gap) 0 3rem; }
+  .panel.visible { display: block; animation: fadeUp .35s ease both; }
+  @keyframes fadeUp { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: none; } }
+
+  /* ── TARGETES METRICS ────────────────────────────────────── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--gap);
+    margin-bottom: calc(var(--gap) * 1.5);
+  }
+  .metric {
+    background: var(--humus);
+    border: 1px solid var(--pedra);
+    border-radius: var(--r);
+    padding: 1.1rem 1.2rem;
+    position: relative; overflow: hidden;
+    transition: border-color .2s, transform .2s;
+  }
+  .metric:hover { border-color: var(--sorra); transform: translateY(-2px); }
+  .metric::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: var(--accent, var(--verd));
+    border-radius: var(--r) var(--r) 0 0;
+  }
+  .metric-icon { font-size: 1.4rem; margin-bottom: .5rem; }
+  .metric-label { font-size: 11px; color: var(--sorra); text-transform: uppercase; letter-spacing: .08em; font-family: var(--font-mono); }
+  .metric-valor {
+    font-family: var(--font-display); font-size: 2rem; font-weight: 600;
+    color: var(--blanc); line-height: 1.1; margin: .2rem 0 .1rem;
+  }
+  .metric-unitat { font-size: 13px; color: var(--palla); }
+  .metric-sub { font-size: 11px; color: var(--sorra); margin-top: .3rem; font-family: var(--font-mono); }
+
+  /* ── SECCIÓ REG ──────────────────────────────────────────── */
+  .reg-status {
+    background: var(--humus);
+    border: 1px solid var(--pedra);
+    border-radius: var(--r);
+    padding: 1.2rem 1.4rem;
+    display: flex; align-items: center; gap: 1.2rem;
+    margin-bottom: var(--gap);
+    transition: border-color .3s;
+  }
+  .reg-status.actiu { border-color: var(--blau); background: color-mix(in srgb, var(--blau) 8%, var(--humus)); }
+  .reg-indicator {
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--pedra); flex-shrink: 0; transition: all .4s;
+  }
+  .reg-status.actiu .reg-indicator {
+    background: var(--blau-cl);
+    box-shadow: 0 0 10px var(--blau);
+    animation: pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+  .reg-info h3 { font-size: 15px; color: var(--blanc); font-weight: 500; }
+  .reg-info p  { font-size: 12px; color: var(--sorra); font-family: var(--font-mono); margin-top: .2rem; }
+
+  /* ── BARRA HUMITAT SOL ───────────────────────────────────── */
+  .humitat-barra-wrap { margin-bottom: calc(var(--gap) * 1.5); }
+  .humitat-barra-wrap label { font-size: 12px; color: var(--sorra); font-family: var(--font-mono); display: block; margin-bottom: .5rem; }
+  .barra-outer {
+    height: 12px; background: var(--pedra); border-radius: 6px; overflow: hidden;
+    position: relative;
+  }
+  .barra-inner {
+    height: 100%; background: linear-gradient(90deg, var(--ambre), var(--verd-cl));
+    border-radius: 6px; transition: width .8s ease;
+  }
+  .barra-llindars {
+    position: relative; height: 16px; margin-top: 2px;
+    font-family: var(--font-mono); font-size: 10px; color: var(--sorra);
+  }
+  .llindar-marca {
+    position: absolute; top: 0;
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .llindar-marca::before {
+    content: ''; display: block;
+    width: 1px; height: 6px; background: var(--sorra); margin-bottom: 2px;
+  }
+
+  /* ── GRÀFICS ─────────────────────────────────────────────── */
+  .grafics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--gap);
+    margin-bottom: var(--gap);
+  }
+  @media (max-width: 700px) { .grafics-grid { grid-template-columns: 1fr; } }
+
+  .card-grafic {
+    background: var(--humus); border: 1px solid var(--pedra);
+    border-radius: var(--r); padding: 1.2rem;
+  }
+  .card-grafic h3 {
+    font-size: 13px; font-family: var(--font-mono);
+    color: var(--palla); margin-bottom: 1rem;
+    text-transform: uppercase; letter-spacing: .06em;
+  }
+  .card-grafic canvas { max-height: 220px; }
+
+  /* ── SELECTOR TEMPS ─────────────────────────────────────── */
+  .temps-selector {
+    display: flex; gap: .4rem; margin-bottom: var(--gap); flex-wrap: wrap;
+  }
+  .temps-btn {
+    background: var(--escorça); border: 1px solid var(--pedra);
+    border-radius: 6px; padding: .35rem .8rem;
+    font-family: var(--font-mono); font-size: 12px; color: var(--sorra);
+    cursor: pointer; transition: all .2s;
+  }
+  .temps-btn:hover { color: var(--crema); border-color: var(--sorra); }
+  .temps-btn.actiu { background: var(--pedra); color: var(--blanc); border-color: var(--palla); }
+
+  /* ── TAULA HISTORIAL REG ─────────────────────────────────── */
+  .taula-wrap {
+    background: var(--humus); border: 1px solid var(--pedra);
+    border-radius: var(--r); overflow: hidden;
+  }
+  .taula-cap {
+    padding: 1rem 1.2rem; border-bottom: 1px solid var(--pedra);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .taula-cap h3 { font-family: var(--font-mono); font-size: 13px; color: var(--palla); text-transform: uppercase; letter-spacing: .06em; }
+  .taula-cap span { font-family: var(--font-mono); font-size: 11px; color: var(--sorra); }
+
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    text-align: left; padding: .6rem 1.2rem;
+    font-family: var(--font-mono); font-size: 11px; color: var(--sorra);
+    text-transform: uppercase; letter-spacing: .06em;
+    border-bottom: 1px solid var(--pedra);
+    background: var(--escorça);
+  }
+  tbody tr { border-bottom: 1px solid color-mix(in srgb, var(--pedra) 60%, transparent); }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--escorça); }
+  tbody td { padding: .65rem 1.2rem; font-size: 13px; }
+  td.mono { font-family: var(--font-mono); font-size: 12px; }
+  td.verd { color: var(--verd-cl); font-family: var(--font-mono); }
+  td.blau { color: var(--blau-cl); font-family: var(--font-mono); }
+
+  /* ── ESTATS BUITS / LOADING ─────────────────────────────── */
+  .buit {
+    text-align: center; padding: 3rem 1rem;
+    font-family: var(--font-mono); font-size: 13px; color: var(--sorra);
+  }
+  .loading-dots::after {
+    content: ''; animation: dots 1.2s steps(4, end) infinite;
+  }
+  @keyframes dots {
+    0%   { content: ''; }
+    25%  { content: '.'; }
+    50%  { content: '..'; }
+    75%  { content: '...'; }
+    100% { content: ''; }
+  }
+
+  /* ── STATS DIA ───────────────────────────────────────────── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--gap); margin-bottom: var(--gap);
+  }
+  .stat-card {
+    background: var(--humus); border: 1px solid var(--pedra);
+    border-radius: var(--r); padding: 1rem 1.2rem;
+  }
+  .stat-card h4 { font-family: var(--font-mono); font-size: 11px; color: var(--sorra); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .6rem; }
+  .stat-row { display: flex; justify-content: space-between; align-items: baseline; padding: .2rem 0; border-bottom: 1px solid color-mix(in srgb, var(--pedra) 50%, transparent); }
+  .stat-row:last-child { border: none; }
+  .stat-row span:first-child { font-size: 12px; color: var(--sorra); }
+  .stat-row span:last-child  { font-family: var(--font-mono); font-size: 13px; color: var(--crema); }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <h1>🌿 Hort <span>Intel·ligent</span></h1>
+      <p id="ultima-actualitzacio">carregant<span class="loading-dots"></span></p>
+    </div>
+    <div class="header-right">
+      <div class="estat-connexio" id="estat-connexio">
+        <div class="dot"></div>
+        <span id="estat-text">connectant...</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAV -->
+  <nav>
+    <button class="actiu" onclick="canviarPanel('temps-real', this)">Temps real</button>
+    <button onclick="canviarPanel('grafics', this)">Gràfics</button>
+    <button onclick="canviarPanel('historial-reg', this)">Historial reg</button>
+    <button onclick="canviarPanel('estadistiques', this)">Estadístiques</button>
+  </nav>
+
+  <!-- PANEL 1: TEMPS REAL -->
+  <div id="panel-temps-real" class="panel visible">
+
+    <!-- Estat reg -->
+    <div class="reg-status" id="reg-status">
+      <div class="reg-indicator"></div>
+      <div class="reg-info">
+        <h3 id="reg-titol">Reg aturat</h3>
+        <p id="reg-subtitol">Esperant lectures del sensor...</p>
+      </div>
+    </div>
+
+    <!-- Mètriques principals -->
+    <div class="metrics-grid">
+      <div class="metric" style="--accent: var(--verd)">
+        <div class="metric-icon">🌱</div>
+        <div class="metric-label">Humitat sòl</div>
+        <div class="metric-valor" id="m-humitat-sol">—</div>
+        <div class="metric-unitat">%</div>
+        <div class="metric-sub" id="m-humitat-sol-estat">—</div>
+      </div>
+      <div class="metric" style="--accent: var(--ambre)">
+        <div class="metric-icon">🌡️</div>
+        <div class="metric-label">Temperatura</div>
+        <div class="metric-valor" id="m-temp">—</div>
+        <div class="metric-unitat">°C</div>
+        <div class="metric-sub" id="m-temp-sub">—</div>
+      </div>
+      <div class="metric" style="--accent: var(--blau)">
+        <div class="metric-icon">💧</div>
+        <div class="metric-label">Humitat ambient</div>
+        <div class="metric-valor" id="m-humitat-amb">—</div>
+        <div class="metric-unitat">%</div>
+      </div>
+      <div class="metric" style="--accent: var(--ambre-cl)">
+        <div class="metric-icon">☀️</div>
+        <div class="metric-label">Irradiació solar</div>
+        <div class="metric-valor" id="m-lux">—</div>
+        <div class="metric-unitat">lux</div>
+        <div class="metric-sub" id="m-lux-sub">—</div>
+      </div>
+      <div class="metric" style="--accent: var(--blau-cl)">
+        <div class="metric-icon">💨</div>
+        <div class="metric-label">Vent</div>
+        <div class="metric-valor" id="m-vent">—</div>
+        <div class="metric-unitat">km/h</div>
+        <div class="metric-sub" id="m-vent-sub">—</div>
+      </div>
+      <div class="metric" style="--accent: var(--blau)">
+        <div class="metric-icon">🌧️</div>
+        <div class="metric-label">Pluja</div>
+        <div class="metric-valor" id="m-pluja">—</div>
+        <div class="metric-unitat">mm</div>
+        <div class="metric-sub">Acumulat avui</div>
+      </div>
+      <div class="metric" style="--accent: var(--verd-cl)">
+        <div class="metric-icon">🚿</div>
+        <div class="metric-label">Litres totals</div>
+        <div class="metric-valor" id="m-litres">—</div>
+        <div class="metric-unitat">L</div>
+        <div class="metric-sub">Total acumulat</div>
+      </div>
+    </div>
+
+    <!-- Barra humitat sòl -->
+    <div class="humitat-barra-wrap">
+      <label>Nivell d'humitat del sòl</label>
+      <div class="barra-outer">
+        <div class="barra-inner" id="barra-humitat" style="width:0%"></div>
+      </div>
+      <div class="barra-llindars">
+        <div class="llindar-marca" id="marca-baix" style="left:60%">sec</div>
+        <div class="llindar-marca" id="marca-alt"  style="left:75%">òptim</div>
+      </div>
+    </div>
+
+  </div><!-- /panel-temps-real -->
+
+  <!-- PANEL 2: GRÀFICS -->
+  <div id="panel-grafics" class="panel">
+    <div class="temps-selector">
+      <button class="temps-btn actiu" onclick="canviarPeriode(6,this)">6h</button>
+      <button class="temps-btn" onclick="canviarPeriode(24,this)">24h</button>
+      <button class="temps-btn" onclick="canviarPeriode(72,this)">3 dies</button>
+      <button class="temps-btn" onclick="canviarPeriode(168,this)">7 dies</button>
+      <button class="temps-btn" onclick="canviarPeriode(720,this)">30 dies</button>
+    </div>
+    <div class="grafics-grid">
+      <div class="card-grafic">
+        <h3>Humitat del sòl (%)</h3>
+        <canvas id="graf-humitat-sol"></canvas>
+      </div>
+      <div class="card-grafic">
+        <h3>Temperatura (°C)</h3>
+        <canvas id="graf-temp"></canvas>
+      </div>
+      <div class="card-grafic">
+        <h3>Irradiació solar (lux)</h3>
+        <canvas id="graf-lux"></canvas>
+      </div>
+      <div class="card-grafic">
+        <h3>Pluja (mm) i Vent (km/h)</h3>
+        <canvas id="graf-meteo"></canvas>
+      </div>
+    </div>
+  </div><!-- /panel-grafics -->
+
+  <!-- PANEL 3: HISTORIAL REG -->
+  <div id="panel-historial-reg" class="panel">
+    <div class="taula-wrap">
+      <div class="taula-cap">
+        <h3>Historial de reg</h3>
+        <span id="reg-total-litres"></span>
+      </div>
+      <div id="taula-reg-contingut">
+        <div class="buit">Carregant<span class="loading-dots"></span></div>
+      </div>
+    </div>
+  </div><!-- /panel-historial-reg -->
+
+  <!-- PANEL 4: ESTADÍSTIQUES -->
+  <div id="panel-estadistiques" class="panel">
+    <div class="stats-grid" id="stats-contingut">
+      <div class="buit">Carregant<span class="loading-dots"></span></div>
+    </div>
+  </div><!-- /panel-estadistiques -->
+
+</div><!-- /wrap -->
+
+<script>
+// ── CONFIGURACIÓ ────────────────────────────────────────────
+const API = ''; // buit = mateix servidor (Raspberry Pi serveix el frontend)
+const INTERVAL_ACTUALITZACIO = 30000; // 30 seg
+
+// ── ESTAT ───────────────────────────────────────────────────
+let grafics    = {};
+let horesGrafic = 6;
+let panelActiu = 'temps-real';
+
+// ── UTILS ───────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const fmt = (v, dec=1) => v != null ? Number(v).toFixed(dec) : '—';
+const horaLocal = iso => {
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleTimeString('ca', {hour:'2-digit', minute:'2-digit'});
+};
+const dataLocal = iso => {
+  const d = new Date(iso);
+  return isNaN(d) ? iso : d.toLocaleString('ca', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+};
+
+function classificarHumitat(v) {
+  if (v == null) return '—';
+  if (v < 30)  return '🔴 molt sec';
+  if (v < 60)  return '🟠 sec — reg recomanat';
+  if (v < 75)  return '🟡 adequat';
+  return '🟢 humit';
+}
+function classificarLux(v) {
+  if (v == null) return '—';
+  if (v < 1000)  return 'núvol / interior';
+  if (v < 20000) return 'dia ennuvolat';
+  if (v < 60000) return 'sol directe parcial';
+  return 'sol fort';
+}
+function classificarVent(v) {
+  if (v == null) return '—';
+  if (v < 5)  return 'calma';
+  if (v < 20) return 'brisa lleugera';
+  if (v < 40) return 'vent moderat';
+  return '⚠️ vent fort';
+}
+
+// ── CONNEXIÓ / ÚLTIMA ACTUALITZACIÓ ─────────────────────────
+function marcarConnexio(ok) {
+  const el = $('estat-connexio');
+  el.className = 'estat-connexio ' + (ok ? 'ok' : 'err');
+  $('estat-text').textContent = ok ? 'connectat' : 'sense connexió';
+}
+function actualitzarHoraSync(iso) {
+  if (!iso) return;
+  const d = new Date(iso);
+  $('ultima-actualitzacio').textContent = 'última sync: ' + dataLocal(iso);
+}
+
+// ── FETCH GENÈRIC ────────────────────────────────────────────
+async function get(endpoint) {
+  const r = await fetch(API + endpoint);
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+
+// ── PANELLS ──────────────────────────────────────────────────
+function canviarPanel(nom, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('visible'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('actiu'));
+  $('panel-' + nom).classList.add('visible');
+  btn.classList.add('actiu');
+  panelActiu = nom;
+  if (nom === 'grafics')        carregarGrafics();
+  if (nom === 'historial-reg')  carregarHistorialReg();
+  if (nom === 'estadistiques')  carregarEstadistiques();
+}
+
+// ── TEMPS REAL ───────────────────────────────────────────────
+async function actualitzarTempsReal() {
+  try {
+    const d = await get('/api/dades/ultim');
+    marcarConnexio(true);
+    actualitzarHoraSync(d.data_hora);
+
+    $('m-humitat-sol').textContent   = fmt(d.humitat_sol, 0);
+    $('m-humitat-sol-estat').textContent = classificarHumitat(d.humitat_sol);
+    $('m-temp').textContent          = fmt(d.temperatura);
+    $('m-temp-sub').textContent      = d.humitat_amb != null ? `${fmt(d.humitat_amb,0)}% humitat` : '—';
+    $('m-humitat-amb').textContent   = fmt(d.humitat_amb, 0);
+    $('m-lux').textContent           = d.lux != null ? Math.round(d.lux) : '—';
+    $('m-lux-sub').textContent       = classificarLux(d.lux);
+    $('m-vent').textContent          = fmt(d.vent_kmh, 1);
+    $('m-vent-sub').textContent      = classificarVent(d.vent_kmh);
+    $('m-pluja').textContent         = fmt(d.pluja_mm, 1);
+    $('m-litres').textContent        = fmt(d.litres_totals, 1);
+
+    // Barra humitat
+    const pct = d.humitat_sol != null ? Math.min(100, Math.max(0, d.humitat_sol)) : 0;
+    $('barra-humitat').style.width = pct + '%';
+
+    // Estat reg
+    const regEl = $('reg-status');
+    if (d.reg_actiu) {
+      regEl.classList.add('actiu');
+      $('reg-titol').textContent    = 'Reg en curs';
+      $('reg-subtitol').textContent = `Humitat actual: ${fmt(d.humitat_sol,0)}% · Bomba activa`;
+    } else {
+      regEl.classList.remove('actiu');
+      $('reg-titol').textContent    = 'Reg aturat';
+      $('reg-subtitol').textContent = `Humitat actual: ${fmt(d.humitat_sol,0)}% · ${classificarHumitat(d.humitat_sol)}`;
+    }
+  } catch(e) {
+    marcarConnexio(false);
+    console.error('Error actualitzant:', e);
+  }
+}
+
+// ── GRÀFICS ──────────────────────────────────────────────────
+const colorGrafic = (hex, alfa=0.15) => hex + Math.round(alfa*255).toString(16).padStart(2,'0');
+
+function optionsGrafic(yLabel='') {
+  return {
+    responsive: true, maintainAspectRatio: true,
+    animation: { duration: 400 },
+    plugins: { legend: { display: false }, tooltip: {
+      backgroundColor: '#2e2a1f', titleColor: '#e8dfc0', bodyColor: '#b5a97a',
+      borderColor: '#3d3828', borderWidth: 1,
+      callbacks: { title: items => items[0].label }
+    }},
+    scales: {
+      x: { grid: { color: '#2e2a1f' }, ticks: { color: '#7a7055', font: { family: "'DM Mono'", size: 10 }, maxTicksLimit: 8 }},
+      y: { grid: { color: '#2e2a1f' }, ticks: { color: '#7a7055', font: { family: "'DM Mono'", size: 10 }},
+           title: { display: !!yLabel, text: yLabel, color: '#7a7055', font: { size: 10 }}}
+    }
+  };
+}
+
+function creaGrafic(id, color, opts = {}) {
+  const ctx = $(id).getContext('2d');
+  if (grafics[id]) grafics[id].destroy();
+  grafics[id] = new Chart(ctx, {
+    type: opts.type || 'line',
+    data: { labels: [], datasets: [{ data: [], borderColor: color, backgroundColor: colorGrafic(color, .12),
+      borderWidth: 1.5, pointRadius: 0, tension: 0.3, fill: true, ...opts.dataset }] },
+    options: { ...optionsGrafic(), ...opts.options }
+  });
+  return grafics[id];
+}
+
+function creaGraficDoble(id, color1, color2, label1, label2) {
+  const ctx = $(id).getContext('2d');
+  if (grafics[id]) grafics[id].destroy();
+  grafics[id] = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [],
+      datasets: [
+        { label: label1, data: [], backgroundColor: colorGrafic(color1, .5), borderColor: color1, borderWidth: 1, yAxisID: 'y' },
+        { label: label2, data: [], type: 'line', data: [], borderColor: color2, backgroundColor: 'transparent',
+          borderWidth: 1.5, pointRadius: 0, tension: 0.3, yAxisID: 'y1' }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: true, animation: { duration: 400 },
+      plugins: { legend: { labels: { color: '#b5a97a', font: { family: "'DM Mono'", size: 10 }, boxWidth: 12 } },
+        tooltip: { backgroundColor: '#2e2a1f', titleColor: '#e8dfc0', bodyColor: '#b5a97a', borderColor: '#3d3828', borderWidth: 1 }},
+      scales: {
+        x:  { grid: { color: '#2e2a1f' }, ticks: { color: '#7a7055', font: { family: "'DM Mono'", size: 10 }, maxTicksLimit: 8 }},
+        y:  { grid: { color: '#2e2a1f' }, ticks: { color: color1,  font: { family: "'DM Mono'", size: 10 }}, position: 'left',  title: { display: true, text: label1, color: color1, font: { size: 10 }}},
+        y1: { grid: { drawOnChartArea: false }, ticks: { color: color2, font: { family: "'DM Mono'", size: 10 }}, position: 'right', title: { display: true, text: label2, color: color2, font: { size: 10 }}}
+      }
+    }
+  });
+  return grafics[id];
+}
+
+async function carregarGrafics() {
+  try {
+    const interval = horesGrafic <= 24 ? 15 : horesGrafic <= 72 ? 60 : 240;
+    const dades = await get(`/api/dades/historic?hores=${horesGrafic}&interval=${interval}`);
+
+    const labels = dades.map(d => horaLocal(d.data_hora));
+
+    // Humitat sòl
+    if (!grafics['graf-humitat-sol']) creaGrafic('graf-humitat-sol', '#8ab86e');
+    grafics['graf-humitat-sol'].data.labels = labels;
+    grafics['graf-humitat-sol'].data.datasets[0].data = dades.map(d => d.humitat_sol);
+    grafics['graf-humitat-sol'].update();
+
+    // Temperatura
+    if (!grafics['graf-temp']) creaGrafic('graf-temp', '#e8b560');
+    grafics['graf-temp'].data.labels = labels;
+    grafics['graf-temp'].data.datasets[0].data = dades.map(d => d.temperatura);
+    grafics['graf-temp'].update();
+
+    // Lux
+    if (!grafics['graf-lux']) creaGrafic('graf-lux', '#c8852a');
+    grafics['graf-lux'].data.labels = labels;
+    grafics['graf-lux'].data.datasets[0].data = dades.map(d => d.lux);
+    grafics['graf-lux'].update();
+
+    // Pluja + Vent
+    if (!grafics['graf-meteo']) creaGraficDoble('graf-meteo', '#4a7fa5', '#7ab0d0', 'Pluja (mm)', 'Vent (km/h)');
+    grafics['graf-meteo'].data.labels = labels;
+    grafics['graf-meteo'].data.datasets[0].data = dades.map(d => d.pluja_mm);
+    grafics['graf-meteo'].data.datasets[1].data = dades.map(d => d.vent_kmh);
+    grafics['graf-meteo'].update();
+
+  } catch(e) { console.error('Error gràfics:', e); }
+}
+
+function canviarPeriode(hores, btn) {
+  document.querySelectorAll('.temps-btn').forEach(b => b.classList.remove('actiu'));
+  btn.classList.add('actiu');
+  horesGrafic = hores;
+  carregarGrafics();
+}
+
+// ── HISTORIAL REG ─────────────────────────────────────────────
+async function carregarHistorialReg() {
+  try {
+    const dades = await get('/api/reg/historic?limit=100');
+    const cont = $('taula-reg-contingut');
+
+    if (!dades.length) {
+      cont.innerHTML = '<div class="buit">Encara no hi ha events de reg registrats</div>';
+      return;
+    }
+
+    const litresTotals = dades.reduce((s, r) => s + (r.litres || 0), 0);
+    $('reg-total-litres').textContent = `Total: ${litresTotals.toFixed(1)} L`;
+
+    cont.innerHTML = `
+      <table>
+        <thead>
+          <tr>
+            <th>Data i hora</th>
+            <th>Durada</th>
+            <th>Litres</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${dades.map(r => `
+            <tr>
+              <td class="mono">${dataLocal(r.data_hora)}</td>
+              <td class="blau">${fmt(r.durada_min, 1)} min</td>
+              <td class="verd">${fmt(r.litres, 2)} L</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>`;
+  } catch(e) {
+    $('taula-reg-contingut').innerHTML = '<div class="buit">Error carregant dades</div>';
+  }
+}
+
+// ── ESTADÍSTIQUES ─────────────────────────────────────────────
+async function carregarEstadistiques() {
+  try {
+    const s = await get('/api/stats');
+    const sens = s.sensors || {};
+    const reg  = s.reg || {};
+
+    $('stats-contingut').innerHTML = `
+      <div class="stat-card">
+        <h4>🌡️ Temperatura (24h)</h4>
+        <div class="stat-row"><span>Màxima</span><span>${fmt(sens.temp_max)}°C</span></div>
+        <div class="stat-row"><span>Mínima</span><span>${fmt(sens.temp_min)}°C</span></div>
+        <div class="stat-row"><span>Mitjana</span><span>${fmt(sens.temp_mitja)}°C</span></div>
+      </div>
+      <div class="stat-card">
+        <h4>🌱 Sòl i ambient (24h)</h4>
+        <div class="stat-row"><span>Humitat sòl mitja</span><span>${fmt(sens.humitat_sol_mitja)}%</span></div>
+        <div class="stat-row"><span>Llum màxima</span><span>${sens.lux_max ? Math.round(sens.lux_max) : '—'} lux</span></div>
+        <div class="stat-row"><span>Vent mitja</span><span>${fmt(sens.vent_mitja)} km/h</span></div>
+      </div>
+      <div class="stat-card">
+        <h4>🌧️ Precipitació (24h)</h4>
+        <div class="stat-row"><span>Pluja total</span><span>${fmt(sens.pluja_total_mm, 2)} mm</span></div>
+        <div class="stat-row"><span>Lectures</span><span>${sens.lectures_avui || 0}</span></div>
+      </div>
+      <div class="stat-card">
+        <h4>🚿 Reg (24h)</h4>
+        <div class="stat-row"><span>Cicles avui</span><span>${reg.cicles_reg || 0}</span></div>
+        <div class="stat-row"><span>Litres avui</span><span>${fmt(reg.litres_avui, 2)} L</span></div>
+        <div class="stat-row"><span>Litres totals</span><span>${fmt(reg.litres_totals, 1)} L</span></div>
+      </div>
+    `;
+  } catch(e) {
+    $('stats-contingut').innerHTML = '<div class="buit">Error carregant estadístiques</div>';
+  }
+}
+
+// ── INICIALITZACIÓ ────────────────────────────────────────────
+actualitzarTempsReal();
+setInterval(actualitzarTempsReal, INTERVAL_ACTUALITZACIO);
+</script>
+</body>
+</html>
