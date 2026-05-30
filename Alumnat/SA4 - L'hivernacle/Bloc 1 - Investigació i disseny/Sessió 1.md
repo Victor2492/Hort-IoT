@@ -10,7 +10,7 @@ Ens organitzarem assumint rols professionals i registrarem cada errada, repte i 
 
 Després d'haver construït la base del nostre hort a les sessions anteriors, hui definim l'abast real del nostre projecte per a aquest trimestre. Treballarem en la intersecció entre l'enginyeria, la física dels fluids i l'arquitectura sostenible, prenent com a referència els edificis bioclimàtics més avançats del món. El nostre repte serà dissenyar i construir una coberta utilitzant canyes, on integrarem un sistema de ventilació hidràulic autònom. A més, establirem la nova estructura organitzativa que mantindrem durant les pròximes setmanes per a garantir l'èxit del nostre prototip.
 
-### "Edificis que respiren: Arquitectura Bioclimàtica i Fluids"
+### "Edificis que respiren: Arquitectura bioclimàtica i fluids"
 Ací teniu disponible la presentació que hem analitzat a classe. Aquest document és la vostra guia de referència visual i estableix els condicionants del projecte. Ens ajudarà a entendre com aprofitarem l'efecte hivernacle a favor nostre, què estableix la Llei de Pascal i per què serà absolutament vital dissenyar una comporta hidràulica per alliberar l'excés de calor i salvar les nostres plantes.
 
 ### El Portfolio
