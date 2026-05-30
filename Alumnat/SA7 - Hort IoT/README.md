@@ -76,7 +76,7 @@ Benvingut/da al projecte **Hort Intel·ligent**. Al llarg d'aquest tercer trimes
     * **Al iniciar (`setup`):** S'executa una sola vegada quan connectem la placa per a configurar el sistema.
     * **Siempre (`loop`):** Execució de codi seqüencial de dalt a baix que es repeteix indefinidament en bucle mentre la placa tingui corrent elèctric.
 * **Enunciat de l'activitat (Pràctica Inicial):** Munta en TinkerCAD un circuit format per una placa Arduino UNO, una resistència limitadora de $220\,\Omega$ connectada en sèrie al terminal ànode de la teva llum LED (pata llarga), i tanca el circuit cap a terra (GND). Programa el pin digital 13 perquè s'encengui durant 1 segon, s'apague durant 1 segon, i repeteixi aquesta acció de forma contínua.
-[imatges/exemple1.png]
+![imatges/exemple1.png]
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
