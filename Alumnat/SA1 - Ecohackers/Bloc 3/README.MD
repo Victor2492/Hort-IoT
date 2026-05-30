@@ -1,1 +1,1 @@
-![Título o descripción de tu infografía](Misión_Ecohackers__Rediseña_el_Futuro.png)
+![Título o descripción de tu infografía](Missió_Ecohackers__Redissenya_el_Futur.png)
