@@ -35,6 +35,13 @@ El projecte s'estructura en **3 blocs de treball** consecutius. Cada pas s'ha de
 
 ---
 
+### BLOC 4: Tancament i Posada en Servei (Aula / Hort)
+*Avaluem el que hem fet i reflexionem sobre el nostre impacte.*
+
+- **Sessió 10 i 11: Revisió i Ètica Tecnològica.** Si heu acabat, muntarem el sistema a l'hort. Farem una reflexió final sobre els residus electrònics (E-waste) i entregareu el Portfolio finalitzat.
+
+---
+
 ## 📝 Què heu d'entregar? (Entregables)
 
 1. **Portfolio d'Enginyeria (Format Digital):** Un document (PDF o Markdown) on estaran documentats tots els passos, càlculs i captures de pantalla de les vostres simulacions en Tinkercad.
