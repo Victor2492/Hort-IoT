@@ -20,7 +20,7 @@ El projecte s'estructura sota una metodologia teoricopràctica incremental basan
 
 El projecte culmina amb la transferència tecnològica real del codi desenvolupat pels grups a un autòmat programable físic interconnectat amb un servidor basat en Raspberry Pi, mostrant l'aplicabilitat real del seu aprenentatge en entorns IoT, Dashboards en temps real i l'anàlisi de Big Data crític.
 
-### 1.2. Taula Descriptiva Síntesi de les Sessions
+### 1.2. Taula Descriptiva Síntetitzada de les Sessions
 | Codi Sessió | Tipus d'Agrupament | Durada | Objectiu Principal / Lliurable |
 | :--- | :--- | :--- | :--- |
 | **S01** | Gran grup | 55 min | Presentació socioambiental de l'hort i entorn TinkerCAD. |
