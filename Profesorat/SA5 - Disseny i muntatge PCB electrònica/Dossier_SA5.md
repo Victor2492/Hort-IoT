@@ -4,21 +4,76 @@ Aquesta guia proporciona al professorat l'estructura didàctica pas a pas per a 
 
 ---
 
-## 1. Seqüenciació Didàctica (Pas a Pas)
+"""# 🚀 Desenvolupament de les Sessions (Consells per al Docent)
 
-### 💻 BLOC 1: Fonaments i Simulació (Sessions 1 - 5)
-L'objectiu d'aquest bloc és establir les bases teòriques i validar els dissenys en un entorn segur abans de gastar material fungible.
-* **Sessions 1 i 2 (Càlcul Energètic):** Introduir els conceptes de Potència i Energia utilitzant les fórmules $P=V\times I$[cite: 3] i $E=P\times Tiempo$[cite: 3]. L'alumnat ha de dimensionar la placa solar aplicant un marge de seguretat de 1.3 per a l'hivern[cite: 3].
-* **Sessió 3 (Control i Potència):** Explicar la funció del transistor com a interruptor per a resoldre el problema de connectar un microcontrolador de baixa potència a una vàlvula de major consum[cite: 5]. Introduir el concepte del díode volant (antiparal·lel) per a protegir el circuit[cite: 5].
-* **Sessió 4 (TinkerCAD Bàsic):** Ús del laboratori virtual per a muntar un circuit bàsic (Pila 9V, Resistència, LED)[cite: 6]. Ensenyar l'ús del multímetre[cite: 6]: voltatge es mesura en paral·lel[cite: 6] i corrent/intensitat en sèrie[cite: 6].
-* **Sessió 5 (L'Etapa de Regulació):** Muntar virtualment el circuit integrat regulador LM7805[cite: 4, 7] per a passar de 12V a 5V[cite: 7]. Assegurar que els alumnes instal·len els condensadors de filtratge (100 µF i 10 µF)[cite: 7]. Sol·licitar el repte extra on s'ha d'afegir un LED verd a l'eixida de 5V com a indicador d'estat[cite: 7, 8].
+El projecte s'estructura en **3 blocs de treball consecutius més un bloc de tancament**. Cada pas s'ha de registrar a la *Memòria d'Enginyeria* de l'alumnat.
 
-### 📝 BLOC 2: Disseny de Prototipatge (Sessió 6)
-* **Sessió 6 (Plànol de Pistes):** A l'aula ordinària, repartir paper quadriculat. L'alumnat ha de projectar com situarà els components físics a la placa perforada per a evitar que els cables i les pistes de coure inferiors es creuen. El docent ha de validar aquest plànol ("visat d'enginyeria") abans de permetre'ls passar al taller.
+---
 
-### 🛠️ BLOC 3: Fabricació i Validació (Sessions 7 - 9)
-* **Sessions 7 i 8 (Soldadura):** Organitzar l'aula en parelles. Remarcar les normes de seguretat (ús d'ulleres i prevenció davant els 350ºC de la punta del soldador). Seguir la norma de "muntar de baix cap a dalt" (primer resistències i sòcols, després components alts com condensadors i bornes).
-* **Sessió 9 (Control de Qualitat):** Aplicar la "Prova de Fum". Abans de col·locar el microcontrolador, el docent supervisa com l'alumnat connecta la font de 12V a la PCB i mesura amb el multímetre que a l'eixida del regulador hi haja exactament 5V.
+## 📘 BLOC 1: Entendre i Simular (Càlculs i Laboratori Virtual)
+L'objectiu d'este bloc és resoldre les matemàtiques del circuit i testejar el disseny en entorns digitals assegurant que no es faça malbé cap component real.
+
+### 🗓️ Sessions 1 i 2: Energia i Dimensionament
+* **Teoria:** Diferenciació entre Potència ($P = V \times I$) i Energia total acumulada ($E = P \times \text{Temps}$).
+* **Pràctica:** Calcularem el consum diari de l'electrovàlvula i el microcontrolador per a triar la placa solar adequada, aplicant un coeficient de seguretat de `1.3` per als dies ennuvolats d'hivern.
+
+### 🗓️ Sessió 3: Control i Potència
+* **Conceptes:** Resolució del problema *"David vs Goliat"*: com un microcontrolador de 5V pot obrir una vàlvula de 12V utilitzant un **Transistor** com a interruptor elèctric i un **Díode de protecció** per a evitar el contracop inductiu.
+
+---
+
+## 📐 BLOC 2: Disseny Físic i Planificació de Pistes
+Passem del món abstracte a la planificació geomètrica de la placa física.
+
+### 🗓️ Sessió 4: Laboratori Virtual (TinkerCAD)
+* **Aprenentatge:** Muntatge de circuits bàsics utilitzant la **Llei d'Ohm** per a protegir un LED calculant la seua resistència necessària.
+* **Instrumentació:** Ús del multímetre virtual per a mesurar voltatge en paral·lel i corrent en sèrie.
+
+### 🗓️ Sessió 5: Domant l'Energia (De 12V a 5V)
+* **Simulació:** Etapa de regulació utilitzant el component `LM7805` acompanyat de condensadors de filtratge de `100 µF` i `10 µF` per a netejar el soroll elèctric.
+* **Repte Extra:** Muntar un LED d'estat a l'eixida de 5V.
+
+### 🗓️ Sessió 6: Disseny de la PCB de Prototipatge
+* **Teoria:** Estudi de la distribució espacial dels components sobre la placa perforada.
+* **Disseny:** L'alumnat dibuixarà l'esquema de les pistes inferiors (*wiring*) sobre paper quadriculat per a traçar els camins de coure evitant curtcircuits.
+
+> [!TIP]
+> **Consell docent:** Reviseu aquests dissenys de pistes sobre paper abans de permetre'ls entrar al taller i començar a soldar.
+
+---
+
+## 🛠️ BLOC 3: Fabricació Real i Control de Qualitat al Taller
+Mans a l'obra. Treballarem en parelles alternant els rols de **Muntador/a** i **Supervisor/a**.
+
+### 🗓️ Sessions 7 i 8: Soldadura I (Perfil Baix)
+* **Seguretat:** Formació en seguretat, ergonomia i tècnica de soldadura tova.
+* **Pràctica:** Soldadura dels components que van més apegats a la placa (resistències, díodes i el sòcol del xip).
+
+> [!WARNING]
+> **Consell docent:** Exigiu el compliment estricte de la normativa de seguretat del taller i l'ús obligatori d'ulleres de protecció durant tota la sessió.
+
+### 🗓️ Sessions 9 i 10: Soldadura II (Potència)
+* **Pràctica:** Soldadura dels components més alts (regulador, transistor, condensadors i bornes de connexió) i creació de les pistes d'estany unint els punts a la part inferior.
+
+### 🗓️ Sessió 11: Control de Qualitat (QC)
+* **Fases de verificació:**
+  1. Inspecció visual detallada de les soldadures.
+  2. Prova de continuïtat sonora amb el multímetre per a detectar possibles curtcircuits.
+  3. **"Prova de Fum":** Alimentar la placa a 12V i mesurar exactament 5V a l'eixida de regulació *abans* de connectar el microcontrolador per evitar avaries.
+
+---
+
+## 🌾 BLOC 4: Tancament i Posada en Servei (Aula / Hort)
+Avaluem el que hem fet i reflexionem sobre el nostre impacte.
+
+### 🗓️ Sessions 12 i 13: Revisió i Ètica Tecnològica
+* **Integració:** Si les plaques funcionen correctament, realitzarem el muntatge final del sistema d'automatització directament a l'hort.
+* **Reflexió:** Debat final sobre els residus electrònics (*E-waste*) i l'obsolescència programada.
+* **Lliurament:** Entrega final de la *Memòria d'Enginyeria / Portfolio* finalitzat.
+
+> [!TIP]
+> **Consell docent:** Si alguna placa ha fallat en el Control de Qualitat de la sessió 11, utilitzeu aquestes sessions finals amb eixos grups per fer *debugging*, diagnòstic d'errors i recuperació del circuit.
+"""
 
 ---
 
