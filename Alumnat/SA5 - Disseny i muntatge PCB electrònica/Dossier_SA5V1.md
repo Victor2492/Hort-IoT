@@ -29,16 +29,16 @@ El projecte s'estructura en **3 blocs de treball** consecutius. Cada pas s'ha de
 ### BLOC 3: Fabricació Real i Control de Qualitat al Taller
 *Mans a l'obra. Treballarem en parelles alternant els rols de Muntador i Supervisor.*
 
-* **Sessió 7: Soldadura I (Perfil Baix).** Formació en seguretat i tècnica. Soldadura dels components que van més apegats a la placa (resistències, díodes i el sòcol del xip).
-* **Sessió 8: Soldadura II (Potència).** Soldadura dels components més alts (regulador, transistor, condensadors i bornes) i creació de les pistes d'estany a la part inferior.
-* **Sessió 9: Control de Qualitat (QC).** Inspecció visual, prova de continuïtat sonora amb el multímetre per a detectar curtcircuits i, finalment, la "Prova de Fum": alimentar la placa a 12V i mesurar exactament 5V a l'eixida abans de connectar el microcontrolador.
+* **Sessió 7 i 8: Soldadura I (Perfil Baix).** Formació en seguretat i tècnica. Soldadura dels components que van més apegats a la placa (resistències, díodes i el sòcol del xip).
+* **Sessió 9 i 10: Soldadura II (Potència).** Soldadura dels components més alts (regulador, transistor, condensadors i bornes) i creació de les pistes d'estany a la part inferior.
+* **Sessió 11: Control de Qualitat (QC).** Inspecció visual, prova de continuïtat sonora amb el multímetre per a detectar curtcircuits i, finalment, la "Prova de Fum": alimentar la placa a 12V i mesurar exactament 5V a l'eixida abans de connectar el microcontrolador.
 
 ---
 
 ### BLOC 4: Tancament i Posada en Servei (Aula / Hort)
 *Avaluem el que hem fet i reflexionem sobre el nostre impacte.*
 
-- **Sessió 10 i 11: Revisió i Ètica Tecnològica.** Si heu acabat, muntarem el sistema a l'hort. Farem una reflexió final sobre els residus electrònics (E-waste) i entregareu el Portfolio finalitzat.
+- **Sessió 12 i 13: Revisió i Ètica Tecnològica.** Si heu acabat, muntarem el sistema a l'hort. Farem una reflexió final sobre els residus electrònics (E-waste) i entregareu el Portfolio finalitzat.
 
 ---
 
