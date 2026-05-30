@@ -1,7 +1,7 @@
 # DOSSIER DOCENT: SITUACIÓ D'APRENETATGE 7
 ## "HORT INTEL·LIGENT: SISTEMES DE CONTROL I IOT"
 
-**Centre Educatiu:** IES TIRANT LO BLANC 
+**Centre Educatiu:** IES TIRANT LO BLANC  
 **Nivell:** 4t d'Educació Secundària Obligatòria (ESO)  
 **Matèria:** Tecnologia  
 **Temporalització:** 3r Trimestre (27 Sessions)  
