@@ -63,6 +63,7 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 <img src="imatges/front-end3.png" alt="Esquema" width="600" height="400">
 <img src="imatges/front-end4.png" alt="Esquema" width="600" height="400">
 </p>
+
 🚀 *Prepareu-vos per a connectar la tecnologia amb la natura i dissenyar l'agricultura del futur!*
 
 ---
@@ -138,7 +139,9 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     * **Al iniciar (`setup`):** S'executa una sola vegada quan connectem la placa per a configurar el sistema.
     * **Siempre (`loop`):** Execució de codi seqüencial de dalt a baix que es repeteix indefinidament en bucle mentre la placa tingui corrent elèctric.
 * **Enunciat de l'activitat (Pràctica Inicial):** Munta en TinkerCAD un circuit format per una placa Arduino UNO, una resistència limitadora de $220\,\Omega$ connectada en sèrie al terminal ànode de la teva llum LED (pata llarga), i tanca el circuit cap a terra (GND). Programa el pin digital 13 perquè s'encengui durant 1 segon, s'apague durant 1 segon, i repeteixi aquesta acció de forma contínua.
-![Muntatge exmple 1](imatges/exemple1.png)
+<p align="center">
+<img src="imatges/exemple1.png" alt="Esquema" width="600" height="400">
+</p>
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
@@ -162,7 +165,9 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     $$R = \frac{V_{\text{placa}} - V_{\text{LED}}}{I} = \frac{5\text{V} - 2\text{V}}{0.02\text{A}} = 150\,\Omega$$
     Per seguretat, utilitzem el valor estàndard comercial immediat superior: $220\,\Omega$.
 * **Enunciat de l'activitat:** Dissenya i munta un circuit de control de trànsit (Semàfor). Connecta un LED Verd al pin digital D6, un LED Groc al pin D5 i un LED Roig al pin D4, tots equipats amb les seves respectives resistències de protecció de $220\,\Omega$ unides a GND. Modifica la lògica del programa de blocs perquè realitzi la seqüència: Verd actiu 3 segons $\rightarrow$ Groc actiu 1 segon $\rightarrow$ Roig actiu 3 segons. Desa el projecte a la teva plataforma utilitzant la nomenclatura: `Hort_NomCognom_EP2`.
-![Muntatge exmple 2](imatges/exemple2.png)
+<p align="center">
+<img src="imatges/exemple2.png" alt="Esquema" width="600" height="400">
+</p>
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
@@ -191,7 +196,9 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     Per a veure el que passa a l'interior del xip de l'autòmat utilitzarem el **Port Sèrie**, una via de comunicació de dades bidireccional entre la placa i el nostre ordinador. Mitjançant el bloc blau de sortida *imprimir en monitor serie* podrem obrir la finestra inferior de la plataforma i examinar els valors lectors en viu. Durant aquesta fase de simulació de l'hort, utilitzarem un potenciòmetre (resistència de tres terminals mecànicament variable) com a component simulador universal de condicions ambientals.
 * **Enunciat de l'activitat (Pràctica 1 - Oficial):** Connecta els pins dels extrems d'un potenciòmetre a les línies de +5V i GND de la teva protoboard. Enllaça la patilla lliscant central de control cap al pin d'entrada analògica A0 d'Arduino. Desenvolupa un programa que llegeixi el valor de l'entrada analògica cada 500 mil·lisegons i el transmeti directament cap al monitor sèrie. Lliura l'enllaç del projecte sota el nom `Hort_NomCognom_P1`.
 
-![Muntatge pràctica 1](imatges/practica1.png)
+<p align="center">
+<img src="imatges/practica1.png" alt="Esquema" width="600" height="400">
+</p>
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
@@ -209,7 +216,9 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     Per a prendre decisions en programació utilitzem les estructures de condició lògica **`if / else`** (Si... aleshores... si no...). Aquestes avaluen si es compleix una sentència de comparació lògica matemàtica basant-se en operadors elementals ($<, \le, =, \ne, >, \ge$). Si la condició és certa, el controlador executa els blocs niats en la secció superior; si és falsa, salta directament a executar les instruccions de la secció `else`.
 * **Enunciat de l'activitat (Pràctica 2 - Oficial - Parelles):** Dissenya una estació de monitorització tèrmica per al cultiu de l'hortalissa. Connecta un sensor TMP36 al pin analògic A2, i un LED Groc d'avís de gelades al pin digital D5 (amb resistència de $220\,\Omega$). Programa el sistema perquè realitzi una lectura contínua de temperatura. Si la temperatura mesurada cau per davall de **0 ºC** (perill de congelació del fruit), el sistema ha d'encendre immediatament el LED Groc i mostrar al monitor sèrie el text d'alerta: `TEMPERATURA BAIX ZERO: XX ºC`. En cas contrari, el LED ha de romandre apagat i el terminal imprimirà normalment: `Temperatura: XX ºC`. Anomena el teu projecte col·laboratiu com `Hort_NomsCognoms_P2`.
 
-![Muntatge pràctica 2](imatges/practica2.png)
+<p align="center">
+<img src="imatges/practica2.png" alt="Esquema" width="600" height="400">
+</p>
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
@@ -241,7 +250,10 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     * De **751 a 1023**: Sol directe / Exposició alta.
 * **Enunciat de l'activitat (Pràctica 3 - Oficial):** Construeix el muntatge d'un divisor de tensió unint una fotoresistència LDR de catàleg i una resistència fixa de $10\,\text{k}\Omega$. Acobla la sortida central d'unió directament a l'entrada analògica A3 d'Arduino. Afegeix un LED Groc connectat al pin digital D5. Programa un algorisme amb blocs anidats que classifiqui la irradiància mesurada en els 4 nivells definits, imprimint de manera clara pel monitor sèrie el text de format: `Llum: XXXX | Nivell: SOL DIRECTE`. Si es detecta una condició de nit (lectura de l'A3 inferior a 250), el programa ha de fer que el LED Groc de l'eixida parpellegi contínuament a intervals de 500 mil·lisegons com a avís de bloqueig tèrmic nocturn. Lliura l'URL amb el nom `Hort_NomCognom_P3`.
 
-![Muntatge pràctica 3](imatges/practica3.png)
+<p align="center">
+<img src="imatges/practica3.png" alt="Esquema" width="600" height="400">
+</p>
+
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
@@ -270,7 +282,10 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 * **Explicació Teòrica:** Els pluviòmetres d'estacions professionals utilitzen un mecanisme intern de balancí mecànic. Cada vegada que el dipòsit de pluja interior s'omple, el balancí bascula i buida l'aigua, tancant un contacte elèctric que envia un pols discret equivalent a $0.2794\,\text{mm}$ de pluja acumulada. Al nostre laboratori virtual simularem aquest sensor mitjançant un polsador. Crearem una **Variable Global** a la memòria, que anomenarem `mm`, per emmagatzemar la pluja total registrada de forma incremental. Atès que treballar amb decimals en la programació bàsica per blocs presenta certes restriccions operatives, establirem per regles de disseny que cada 4 basculacions s'acumula exactament $1\,\text{mm}$ net d'aigua sobre el cultiu.
 * **Enunciat de l'activitat (Pràctica 4 - Oficial - Parelles):** Connecta un polsador al pin digital d'entrada D3 utilitzant un circuit de resistència de configuració Pull-Down d'un valor de $1\,\text{k}\Omega$. Uneix un LED Blau al pin digital de sortida D6. Programa una lògica de blocs capaç de detectar el flanc de pujada del polsador (quan l'estat canvia de BAIX a ALT). Crea una variable per comptar les polsades totals. Cada vegada que aquest comptador registre 4 polsades completes, el programa incrementarà de forma automàtica la variable global `mm` en una unitat i reiniciarà el comptador parcial de polsades a zero. Transmet la informació al terminal sèrie sota el format: `Pulsació [N] -> Pluja acumulada: X.XX mm`. Si la variable de pluja `mm` supera el llindar crític de **5 mm** d'aigua acumulada, el LED Blau s'ha d'encendre fixament com a indicador de sòl completament saturat per precipitacions. Desa el fitxer com `Hort_NomsCognoms_P4`.
 
-![Muntatge pràctica 4](imatges/practica4.png)
+<p align="center">
+<img src="imatges/practica4.png" alt="Esquema" width="600" height="400">
+</p>
+
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
@@ -299,7 +314,10 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 * **Explicació Teòrica:** En tasques de manteniment del nostre hort intel·ligent, l'operador agrícola requereix mecanismes per activar un reg manual controlat durant un interval de temps fitxat sense esperar les ordres automatitzades dels sensors de camp. Això es programa creant bucles de comptatge temporitzat de seguretat. També és crític integrar sistemes amb prioritats per a permetre l'aturada instantània de seguretat en cas de detectar avaries a les canonades d'aigua de les línies del taller.
 * **Enunciat de l'activitat (Pràctica 5 - Oficial - Parelles):** Connecta un LED Verd que representarà l'actuador de la bomba de reg al pin digital de sortida D8. Connecta un polsador d'activació manual al pin D2 i un segon polsador de parada immediata d'emergència al pin D3 (ambdós configurats amb resistències independents de Pull-Down de $1\,\text{k}\Omega$). Desenvolupa un algorisme on, en prémer el botó de reg D2, la bomba (D8) s'activi contínuament durant un temps exacte de 10 segons concrets. No obstant això, la lògica interna del codi ha de revisar contínuament el sistema: si en qualsevol instant d'aquest interval l'operador prem el botó d'emergència D3, la bomba s'ha d'apagar immediatament de forma prioritària sense esperar que s'exhaureixin els 10 segons inicials de la consigna. Envia missatges informatius pel monitor sèrie amb el format: `Humitat: XX% | Reg: ACTIU/ATURAT`. Lliura el teu projecte virtual com `Hort_NomsCognoms_P5`.
 
-![Muntatge pràctica 5](imatges/practica5.png)
+<p align="center">
+<img src="imatges/practica5.png" alt="Esquema" width="600" height="400">
+</p>
+
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
@@ -331,7 +349,10 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 * **Explicació Teòrica:** Per a mesurar l'estat de la terra utilitzarem un sensor d'humitat de sòl virtual. Aquest element mesura la resistivitat elèctrica de l'entorn. Mitjançant el bloc verd de matemàtiques **`map` (mapejar)**, transformarem les lectures directes de l'ADC analògic cap a una escala lògica percentual que resulti entenedora per al productor de l'hort (on 0% representa aire sec total i 100% equival a saturació total d'aigua en un vas).
 * **Enunciat de l'activitat (Pràctica 6 - Oficial):** Connecta un sensor d'humitat de sòl virtual (`Soil Moisture Sensor`) de la biblioteca de components a l'entrada analògica A3 d'Arduino. Acobla un LED Verd al pin digital D7 (simulador de bomba) i un LED Roig d'alerta hídrica al pin digital D8. Programa en blocs l'etapa inicial de mapat de dades i implementa l'algorisme complet de control per histèresi descrit en la secció teòrica prèvia sobre el LED Verd (D7). Incorpora la següent mesura d'emergència: si el valor percentual d'humitat de la terra cau per davall d'un llindar de perill extrem de **20%**, el LED Roig (D8) ha d'executar un parpelleig d'alta velocitat (200ms encès / 200ms apagat) per alertar visualment de risc imminent de pèrdua de la plantació per sequera. Transmet les dades amb l'estructura de text: `Humitat: XX% | Reg: ACTIU/ATURAT`. Guarda el projecte com `Hort_NomCognom_P6`.
 
-![Muntatge pràctica 6](imatges/practica6.png)
+<p align="center">
+<img src="imatges/practica6.png" alt="Esquema" width="600" height="400">
+</p>
+
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
@@ -358,7 +379,10 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     * **Superior a 40 km/h** $\rightarrow$ Vent de caràcter fort. Activa un bloqueig total immediat per seguretat.
 * **Enunciat de l'activitat (Pràctica 7 - Oficial - Parelles):** Amplia el teu circuit acoblant un potenciòmetre calibrat que representarà l'anemòmetre a l'entrada analògica A4, i col·loca un LED Groc d'avís de vent fort en una eixida digital lliure. Programa un algorisme amb operadors lògics matemàtics per a realitzar la conversió de dades i classificar els estats imprimint per terminal el text exactament configurat com: `Vent: XX.X km/h | Força: BRISA`. Si la velocitat real mesurada de manera contínua supera el llindar crític establit en els **30 km/h**, s'ha d'encendre immediatament el LED Groc de l'eixida i executar una ordre prioritària que apague per complet el canal del reg automàtic (LED Verd), independentment de les peticions o percentatges actuals d'humitat del sòl de l'hort. Guarda el fitxer cooperatiu com `Hort_NomsCognoms_P7`.
 
-![Muntatge pràctica 7](imatges/practica7.png)
+<p align="center">
+<img src="imatges/practica7.png" alt="Esquema" width="600" height="400">
+</p>
+
 
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
