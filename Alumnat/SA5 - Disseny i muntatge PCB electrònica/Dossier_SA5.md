@@ -8,9 +8,9 @@ El vostre repte és dimensionar i construir una etapa de potència i regulació 
 
 ---
 
-## 📅 Els 3 Blocs de Treball i Sessions
+## 📅 Els 4 Blocs de Treball i Sessions
 
-El projecte s'estructura en **3 blocs de treball** consecutius. Cada pas s'ha de registrar a la vostra Memòria d'Enginyeria.
+El projecte s'estructura en **4 blocs de treball** consecutius. Cada pas s'ha de registrar a la vostra Memòria d'Enginyeria.
 
 ### BLOC 1: Entendre i Simular (Càlculs i Laboratori Virtual)
 *L'objectiu d'este bloc és resoldre les matemàtiques del circuit i testejar el disseny en entorns digitals assegurant que no es faça malbé cap component real.*
