@@ -1,4 +1,4 @@
-# 📊 AVALUACIÓ — ECOHACKERS: Missió Paperera 2.0
+# 📊 EVALUACIÓ — ECOHACKERS: Missió Paperera 2.0
 
 ## Tecnologia · 4t ESO
 
@@ -14,8 +14,8 @@
 6. Rúbrica de la presentació oral
 7. Rúbrica de la infografia de les 7R
 8. Llista de coteig del treball cooperatiu
-9. Autoavaluació
-10. Coavaluació
+9. Autoevaluació
+10. Coevaluació
 11. Càlcul de la qualificació final
 
 ---
