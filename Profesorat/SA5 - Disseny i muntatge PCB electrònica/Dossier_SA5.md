@@ -112,6 +112,18 @@ Avaluem el que hem fet i reflexionem sobre el nostre impacte.
 
 ---
 
+## ⚖️ Avaluació i Qualificació
+
+L'avaluació d'esta SA no es farà mitjançant exàmens tradicionals, sinó mitjançant l'assoliment de les **Competències Específiques (CE)** de la matèria. La nota reflectirà la capacitat d'analitzar, dissenyar, construir i treballar amb seguretat.
+
+### Taula de Ponderació i Instruments d'Avaluació
+
+| Competències Específiques (CE) | Pes | Què s'avalua? (Criteris) | Instruments d'Avaluació |
+| :--- | :---: | :--- | :--- |
+| **CE 1.1, 1.2 i 1.4**<br>*(Anàlisi i desenvolupament de solucions)* | **40%** | Resolució de càlculs d'energia ($E=P \times \text{Temps}$), dimensionament correcte del panell solar, càlcul de resistències i validació del circuit de 12V a 5V al simulador. | **1.** Activitats virtuals: Entregues de les captures de simulació a TinkerCAD i el repte extra.<br>**2.** Memòria d'Enginyeria: Documentació dels càlculs matemàtics justificats. |
+| **CE 2.1**<br>*(Disseny, planificació i creació de prototips)* | **40%** | Planificació espacial sobre plànol de la PCB. Execució material del prototip físic amb soldadures funcionals, netes i sense curtcircuits que supere la prova de control de qualitat (5V estables a l'eixida). | **1.** Memòria d'Enginyeria: Plànol de pistes de la Sessió 6.<br>**2.** Observació del Producte: Avaluació directa de la PCB soldada i el seu funcionament real. |
+| **CE 6.5**<br>*(Seguretat, sostenibilitat i treball col·laboratiu)* | **20%** | Ús estricte dels EPIs (ulleres de protecció), gestió correcta del soldador (350ºC), manteniment de l'orde al taller, i bona coordinació en parella (rols de muntador i supervisor). | **1.** Taula de Cotejo (*Checklist*) al Taller: Observació directa del docent durant les sessions 7, 8 i 9 mesurant actitud, seguretat i neteja. |
+
 ## 2. Instruments d'Avaluació
 
 ### A. Rúbrica d'Avaluació: Memòria d'Enginyeria i Producte (CE 1.1, 1.2, 1.4 i 2.1)
