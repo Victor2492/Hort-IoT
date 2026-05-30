@@ -100,6 +100,7 @@ Benvingut/da al projecte **Hort Intel·ligent**. Al llarg d'aquest tercer trimes
     $$R = \frac{V_{\text{placa}} - V_{\text{LED}}}{I} = \frac{5\text{V} - 2\text{V}}{0.02\text{A}} = 150\,\Omega$$
     Per seguretat, utilitzem el valor estàndard comercial immediat superior: $220\,\Omega$.
 * **Enunciat de l'activitat:** Dissenya i munta un circuit de control de trànsit (Semàfor). Connecta un LED Verd al pin digital D6, un LED Groc al pin D5 i un LED Roig al pin D4, tots equipats amb les seves respectives resistències de protecció de $220\,\Omega$ unides a GND. Modifica la lògica del programa de blocs perquè realitzi la seqüència: Verd actiu 3 segons $\rightarrow$ Groc actiu 1 segon $\rightarrow$ Roig actiu 3 segons. Desa el projecte a la teva plataforma utilitzant la nomenclatura: `Hort_NomCognom_EP2`.
+![Muntatge exmple 2](imatges/exemple2.png)
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
@@ -127,6 +128,7 @@ Benvingut/da al projecte **Hort Intel·ligent**. Al llarg d'aquest tercer trimes
     
     Per a veure el que passa a l'interior del xip de l'autòmat utilitzarem el **Port Sèrie**, una via de comunicació de dades bidireccional entre la placa i el nostre ordinador. Mitjançant el bloc blau de sortida *imprimir en monitor serie* podrem obrir la finestra inferior de la plataforma i examinar els valors lectors en viu. Durant aquesta fase de simulació de l'hort, utilitzarem un potenciòmetre (resistència de tres terminals mecànicament variable) com a component simulador universal de condicions ambientals.
 * **Enunciat de l'activitat (Pràctica 1 - Oficial):** Connecta els pins dels extrems d'un potenciòmetre a les línies de +5V i GND de la teva protoboard. Enllaça la patilla lliscant central de control cap al pin d'entrada analògica A0 d'Arduino. Desenvolupa un programa que llegeixi el valor de l'entrada analògica cada 500 mil·lisegons i el transmeti directament cap al monitor sèrie. Lliura l'enllaç del projecte sota el nom `Hort_NomCognom_P1`.
+![Muntatge pràctica 1](imatges/practica1.png)
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
