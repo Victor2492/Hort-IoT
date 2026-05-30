@@ -1,6 +1,6 @@
 ## Sessió 3
 
-### 🚶‍♂️ Eixida de camp: Enginyeria al món real
+### 🚶‍♂️ Eixida de camp: Jardí Botànic de València
 Hui abandonem el nostre "estudi de disseny" a l'aula. Un bon equip d'enginyeria no només teoritza sobre un paper o una pantalla, sinó que ix al món real per investigar com altres professionals (i la pròpia natura) resolen els problemes mecànics i estructurals.
 
 L'objectiu d'aquesta sessió és realitzar una eixida de camp per a estudiar in situ hivernacles i estructures bioclimàtiques reals. Volem veure l'escala real d'allò que nosaltres estem prototipant en miniatura.
