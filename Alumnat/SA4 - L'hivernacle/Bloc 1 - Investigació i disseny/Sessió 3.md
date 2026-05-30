@@ -5,7 +5,8 @@ Hui abandonem el nostre "estudi de disseny" a l'aula. Un bon equip d'enginyeria 
 
 L'objectiu d'aquesta sessió és realitzar una eixida de camp per a estudiar in situ hivernacles i estructures bioclimàtiques reals. Volem veure l'escala real d'allò que nosaltres estem prototipant en miniatura.
 
-![Vista de l'interior de l'hivernacle real visitat: estructura de metall, vegetació frondosa i elements de disseny com urnes i una escultura](image_0.png)
+<img width="900" height="500" alt="Jardí Botànic de València" src="https://github.com/user-attachments/assets/762e705f-e050-4d84-adfd-aaf314918f4d" />
+
 
 ### 🔍 L'art de l'observació tècnica
 Quan arribem a les instal·lacions, no farem una simple passejada turística. Portareu "les ulleres d'enginyeria" posades i tindreu la missió d'analitzar dos aspectes absolutament crítics per al nostre projecte:
