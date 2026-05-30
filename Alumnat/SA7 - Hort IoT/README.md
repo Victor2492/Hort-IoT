@@ -1,11 +1,65 @@
 # 🌿 MANUAL DE L'ALUMNAT: HORT INTEL·LIGENT IoT
 ## Sistemes de Control Ciberfísics i Programació per Blocs amb Arduino i TinkerCAD
 
-Benvingut/da al projecte **Hort Intel·ligent**. Al llarg d'aquest tercer trimestre, et convertiràs en dissenyador/a de tecnologies per a la transició ecològica. Aprendràs a dissenyar, cablejar i programar una estació meteorològica ciberfísica amb sistema de reg automatitzat, entenent com l'enginyeria ajuda a estalviar fins a un 50% d'aigua en entorns agrícoles reals com la comarca de la Safor.
+Benvinguts i benvingutes al projecte més important del trimestre! Durant les pròximes setmanes ens convertirem en enginyers i enginyeres de dades i de transició ecològica. El nostre repte serà dissenyar, programar i muntar una **estació meteorològica ciberfísica amb sistema de reg automatitzat** per a l'hort del nostre institut.
+
+A continuació, teniu les claus del projecte que durem a terme:
 
 ---
 
-## 1. TAULA DESCRIPTIVA SINTETITZADA DE LES SESSIONS
+### 1. 🌍 El Repte Ambiental: Per què fem això?
+* **L'aigua és un bé escàs:** Donada la situació climàtica actual de la nostra regió, l'agricultura necessita optimitzar l'ús de l'aigua d'una forma urgent.
+* **Estalvi del 50%:** Un sistema de reg a degoteig automatitzat i ben calibrat pot reduir el consum d'aigua a la meitat en condicions òptimes.
+* **Predicció del futur:** Mitjançant l'anàlisi de dades estadístiques, podrem augmentar la productivitat i predir el comportament del fruit a futur (la seua grandària, qualitat, nivells d'aigua interns, etc.).
+
+### 1.2. 🧠 Un Reg Intel·ligent i Multivariable
+A diferència dels regs tradicionals que funcionen només amb un temporitzador de temps fix, la nostra estació "pensarà" i decidirà quan i quant regar basant-se en **quatre factors ambientals simultanis**:
+1. ☀️ **El Sol:** Mesura de la lluminositat i irradiància.
+2. 💨 **El Vent:** Velocitat de l'aire per a evitar l'evaporació de l'aigua.
+3. 🌧️ **La Pluja:** Quantitat d'aigua caiguda per a no regar sobre moix.
+4. 🪵 **La Humitat del Sòl:** Saber si la terra està realment seca o xopa.
+
+### 1.3. 🛠️ Les nostres eines de treball
+
+#### A. Recursos Materials (El Maquinari)
+Treballarem amb els elements clau dels **sistemes de control**:
+* **Sensors:** S'encarreguen de recollir la informació de l'entorn (LDR, TMP36, polsadors...).
+* **Actuadors:** Els components que fan el treball físic (com engegar la bomba de reg o activar llums d'alerta LED).
+* **El Controlador (El "Cervell"):** Farem servir la placa **Arduino UNO WiFi REV 4**. Triem aquest model perquè té una gran potència de processament i compta amb **connexió WiFi integrada**, un requisit indispensable per a enviar dades a internet.
+
+#### B. Recursos Immaterials (El Programari i la Ciència)
+Per a fer funcionar el circuit necessitarem activar els nostres superpoders: la lògica, les lleis físiques de l'electromagnetisme, la computació i la programació.
+
+#### C. El Laboratori Virtual
+Abans de fer els muntatges reals al taller, farem servir la plataforma web **TinkerCAD**. Aquest entorn ens permetrà connectar components de forma virtual i programar el microcontrolador per blocs sense por a trencar o cremar cap component real.
+
+---
+
+### 👥 1.4. Com treballarem? (Fases i Agrupaments)
+* **Desenvolupament per fases:** El projecte es durà a terme de forma segmentada. Construirem tant els circuits com el codi de programació pas a pas per a mantindre l'ordre i assegurar l'èxit final de l'estació.
+* **Treball Cooperatiu Rotatiu:** Treballarem tant de forma **individual** com en **parelles** depenent de l'etapa. Per a potenciar la coeducació i el treball en equip, **les parelles canviaran en cada pràctica**. No es podrà repetir company/a fins que tothom haja treballat amb tothom a l'aula!
+
+---
+
+### 🏆 1.5. Criteris d'Avaluació: Les Dues Regles d'Or
+El codi de l'estació real de l'hort de l'institut s'integrarà unint les parts creades per vosaltres a classe. El/la docent escollirà els fragments basant-se en dos criteris estrictes:
+
+1. **Circuits nets i ordenats (Maquinari):** Tant la ubicació dels components com el traçat del cablejat a la protoboard han de ser polits, rectes i seguir de manera rigorosa el **codi de colors elèctric** (ex: Vermell per a línies positives de 5V, Negre per a línies de terra GND).
+2. **Codi estructurat i comentat (Programari):** La programació ha de ser ordenada, ha d'utilitzar una **nomenclatura descriptiva** per a les variables (prohibit posar noms com `variable1` o `cosa`) i ha d'incloure obligatòriament **blocs d'anotació (comentaris en gris)** que expliquen què fa cada secció del codi.
+
+---
+
+### 🌐 1.6. El Gran Final: Connexió a la Xarxa (IoT i Big Data)
+Una vegada construïda l'estació, enviarem totes les dades recollides per l'Arduino via WiFi cap a un servidor local muntat en una **Raspberry Pi**. 
+
+Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'historial del nostre hort, permetent-nos consultar gràfiques i analitzar paràmetres ambientals **en temps real a través d'una pàgina web** des de qualsevol dispositiu!
+
+---
+🚀 *Prepareu-vos per a connectar la tecnologia amb la natura i dissenyar l'agricultura del futur!*
+
+---
+
+## 2. TAULA DESCRIPTIVA SINTETITZADA DE LES SESSIONS
 
 | Sessió | Tipus d'Agrupament | Durada | Objectiu Principal / Lliurable Tècnic |
 | :--- | :--- | :--- | :--- |
@@ -41,7 +95,7 @@ Benvingut/da al projecte **Hort Intel·ligent**. Al llarg d'aquest tercer trimes
 
 ---
 
-## 2. PLANIFICACIÓ DETALLADA DE LES SESSIONS
+## 3. PLANIFICACIÓ DETALLADA DE LES SESSIONS
 
 ### SETMANA 1: FONAMENTS DE CONTROL I ENTORN VIRTUAL
 
@@ -366,7 +420,7 @@ Benvingut/da al projecte **Hort Intel·ligent**. Al llarg d'aquest tercer trimes
 
 ---
 
-## 3. RÚBRICA D'AVALUACIÓ PER A LES PRÀCTIQUES (TinkerCAD)
+## 4. RÚBRICA D'AVALUACIÓ PER A LES PRÀCTIQUES (TinkerCAD)
 
 Cadascuna de les 8 pràctiques oficials de simulació lliurades a través de les URL de TinkerCAD s'avaluarà utilitzant de forma estricta aquesta rúbrica analítica competencial adaptada al currículum LOMLOE de la GVA:
 
