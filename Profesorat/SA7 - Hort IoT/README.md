@@ -196,9 +196,7 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 * **Bloc de Proves Teòriques d'Evidència (28% de la nota final):**
     * *Prova Escrita Sistemes de Control (Sessió 5):* **28%**
 * **Bloc de Comunicació i Difusió (15% de la nota final):**
-    * *Exposició Oral Individual i Defensa Tècnica (Sessions 26-27):* **15%**
-* **Bloc d'Afers de Taller i Treball Cooperatiu (4% de la nota final):**
-    * *Cooperació i ordre:* **4%** (S'avalua l'actitud proactiva en el treball per parelles rotatives, respecte en els debats i el manteniment correcte de les normes de seguretat de l'aula).
+    * *Exposició Oral Individual i Defensa Tècnica (Sessions 26-27):* **19%**
 
 ---
 
