@@ -174,6 +174,7 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 
 * **Bloc de Pràctiques i Simulació Electrònica (53% de la nota final):**
     * *Pràctica 1 (Potenciòmetre i monitor sèrie):* **4%**
+        * Solució a: https://www.tinkercad.com/things/kxOIRsf138A-practica-1-sensor-de-humitat-ambient-simulat-amb-potenciometre *
     * *Pràctica 2 (Sensor TMP36 i alertes d'estat):* **4%**
     * *Pràctica 3 (LDR i divisor de tensió de llum):* **4%**
     * *Pràctica 4 (Pluviòmetre, variables i rebots):* **5%**
