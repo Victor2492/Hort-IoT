@@ -89,7 +89,7 @@
 
 ---
 
-# 4. Instruments d'avaluació
+# 4. Instruments d'evaluació
 
 | Instrument | Pes |
 |------------|------:|
