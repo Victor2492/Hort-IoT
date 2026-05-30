@@ -1,7 +1,7 @@
-# DOSSIER DOCENT: SITUACIÓ D'APRENETATGE (SA)
-## "HORT INTEL·LIGENT: IOT I SISTEMES DE CONTROL CIBERFÍSICS"
+# DOSSIER DOCENT: SITUACIÓ D'APRENETATGE 7
+## "HORT INTEL·LIGENT: SISTEMES DE CONTROL I IOT"
 
-**Centre Educatiu:** [Nom del Centre]  
+**Centre Educatiu:** IES TIRANT LO BLANC 
 **Nivell:** 4t d'Educació Secundària Obligatòria (ESO)  
 **Matèria:** Tecnologia  
 **Temporalització:** 3r Trimestre (27 Sessions)  
@@ -12,7 +12,7 @@
 ## 1. CONTEXT I JUSTIFICACIÓ
 
 ### 1.1. Descripció del Projecte i Repte
-Aquesta Situació d'Aprenentatge (SA), titulada **"Hort Intel·ligent"**, planteja a l'alumnat un repte tecnològic real i de forta base ecosocial: el disseny, programació i simulació d'una estació meteorològica ciberfísica integrada amb un sistema de reg automàtic optimitzat. 
+Aquesta Situació d'Aprenentatge, titulada **"Hort Intel·ligent"**, planteja a l'alumnat un repte tecnològic real i de forta base ecosocial: el disseny, programació i simulació d'una estació meteorològica ciberfísica integrada amb un sistema de reg automàtic optimitzat. 
 
 El nucli del projecte respon a les necessitats reals del sector agrícola de la comarca de la Safor (Gandia), on la gestió eficient de l'aigua i l'adaptació a les condicions de sequera i canvi climàtic són prioritàries. Mitjançant dades estadístiques, s'introdueix l'alumnat en com el reg a degoteig pot reduir el consum d'aigua un 50% en condicions òptimes, millorant alhora la productivitat i qualitat de la collita.
 
@@ -25,12 +25,12 @@ El projecte culmina amb la transferència tecnològica real del codi desenvolupa
 | :--- | :--- | :--- | :--- |
 | **S01** | Gran grup | 55 min | Presentació socioambiental de l'hort i entorn TinkerCAD. |
 | **S02** | Gran grup | 55 min | Teoria: Elements de control (Sensors, Controladors, Actuadors). |
-| **S03** | Gran grup i Individual | 55 min | Pràctica Inicial: Pampallugueig de LED (Pin 13). |
-| **S04** | Individual | 55 min | Pràctica 2: Disseny d'un Semàfor (Càlcul Llei d'Ohm). |
+| **S03** | Gran grup i Individual | 55 min | Exercici 1: Exemple pampallugueig de LED (Pin 13). |
+| **S04** | Individual | 55 min | Exercici 2: Disseny d'un Semàfor. |
 | **S05** | Individual | 55 min | Prova Escrita Temàtica: Sistemes de Control conceptuals. |
-| **S06** | Individual | 55 min | Pràctica 1 (Oficial): Senyals analògics i Monitor Sèrie amb Potenciòmetre. |
-| **S07** | Parelles | 55 min | Pràctica 2 (Oficial): Sensor de temperatura TMP36 i Alertes `if/else`. |
-| **S08 - S09** | Individual | 110 min | Pràctica 3 (Oficial): Mesura d'irradiància solar amb LDR i Divisor de Tensió. |
+| **S06** | Individual | 55 min | Pràctica 1: Senyals analògics i Monitor Sèrie amb Potenciòmetre. |
+| **S07** | Parelles | 55 min | Pràctica 2: Sensor de temperatura TMP36 i Alertes `if/else`. |
+| **S08 - S09** | Individual | 110 min | Pràctica 3: Mesura d'irradiància solar amb LDR i Divisor de Tensió. |
 | **S10 - S11** | Parelles | 110 min | Pràctica 4: Simulador de Pluviòmetre amb Polsador, Variables i Rebots. |
 | **S12 - S13** | Parelles | 110 min | Pràctica 5: Control de Reg Manual Temporitzat (`for` i `while`). |
 | **S14 - S15** | Individual | 110 min | Pràctica 6: Automatització de reg per Humitat de sòl amb Histèresi. |
@@ -60,10 +60,10 @@ Aquesta Situació d'Aprenentatge està directament vinculada amb el currículum 
 
 ### 2.2. Sabers Básics Tractats
 * **Bloc de Sistemes de Control i Robòtica:**
-    * Arquitectura d'un sistema de control de llarg obert i tancat.
+    * Arquitectura d'un sistema de control de llaç obert i tancat.
     * Característiques físiques i connexió d'actuadors i sensors (analògics i digitals).
     * El convertidor analògic-digital (ADC) de 10 bits d'Arduino (relació de 0-5V a valors 0-1023).
-* **Bloc de Programació i Computació Ciberfísica:**
+* **Bloc de Programació i Computació:**
     * Estructures de control seqüencials, condicionals (`if/else`, condicionals anidats) i iteratives (`for`, `while`).
     * Variables globals i locals. Mapeig de rangs analògics (`map()`).
     * Lògica d'histèresi aplicada a sistemes crítics.
@@ -202,7 +202,7 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 
 ---
 
-### 4.2. Escala d'Estimació per a l'Avaluació de Pràctiques (TinkerCAD)
+### 4.2. Rúbrica per a l'Avaluació de Pràctiques (TinkerCAD)
 Aquest instrument s'utilitza de manera sistemàtica per a corregir cadascuna de les 8 pràctiques d'estudi programades, adaptant els subcriteris de la GVA als requisits fixats.
 
 | Criteri de Qualitat de la Pràctica | Nivell 5 (65% - 80%) [Excel·lent] | Nivell 4 (50% - 65%) [Aconseguit] | Nivell 3 (25% - 45%) [En procés] | Nivell 2 (0% - 25%) [Iniciat] | Nivell 1 (0%) [No presentat] |
