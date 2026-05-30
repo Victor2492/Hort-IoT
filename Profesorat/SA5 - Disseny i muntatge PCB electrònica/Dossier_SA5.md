@@ -4,7 +4,42 @@ Aquesta guia proporciona al professorat l'estructura didàctica pas a pas per a 
 
 ---
 
-"""# 🚀 Desenvolupament de les Sessions (Consells per al Docent)
+## 📖 Context de la Situació d'Aprenentatge
+
+Aquesta Situació d'Aprenentatge (SA) actua com el "pont" entre la teoria dels circuits elèctrics i electrònics i l'aplicació real a l'Hort IoT. L'alumnat ja sap com programar un microcontrolador (o ho farà pròximament) i necessita una interfície física de potència per a poder connectar el cervell de 5V (Microcontrolador) als músculs de 12V (Placa Solar i Electrovàlvula).
+
+* **Matèria:** Tecnologia (4t ESO)
+* **Durada estimada:** 13 Sessions
+* **Agrupament recomanat:** Parelles al taller (Rol de Muntador/a i Rol de Supervisor/a, alternant-se)
+* **Espais:** Aula Ordinària, Aula Informàtica, Taller de Tecnologia, Hort
+
+---
+
+## 🎯 Objectius Pedagògics
+
+* **Transició Teoria-Pràctica:** Passar del càlcul de la Llei d'Ohm sobre el paper al disseny en simulador i, finalment, a la soldadura real.
+* **Gestió de Potència:** Comprendre com aïllar i regular diferents voltatges en un mateix circuit (12V per a potència vs. 5V per a control).
+* **Resolució de Problemes (*Troubleshooting*):** Fomentar l'autonomia de l'alumnat en el diagnòstic d'errors utilitzant el multímetre abans d'avisar el docent.
+
+---
+
+## 🛠️ Necessitats de Material i Maquinari
+
+Per a dur a terme aquesta SA amb èxit, necessitareu el següent material al taller **per cada parella**:
+
+- [x] `1x` Placa PCB perforada (prototipatge).
+- [x] `1x` Regulador de tensió (`LM7805` o mòdul *step-down*).
+- [x] `1x` Transistor (ex. `TIP120` o MOSFET) per controlar l'electrovàlvula.
+- [x] Díodes de protecció (ex. `1N4007`) i resistències adients.
+- [x] Sòcols per al microcontrolador (per no soldar-lo directament).
+- [x] Equip de soldadura: Soldador de llapis (tipus JBC), estany de bona qualitat i suport.
+- [x] Multímetre (mínim un per parella o grup).
+
+> [!NOTE]
+> **Recomanat:** Una font d'alimentació de laboratori regulable per a la Sessió 11 (Control de Qualitat).
+
+"""
+# 🚀 Desenvolupament de les Sessions (Consells per al Docent)
 
 El projecte s'estructura en **3 blocs de treball consecutius més un bloc de tancament**. Cada pas s'ha de registrar a la *Memòria d'Enginyeria* de l'alumnat.
 
