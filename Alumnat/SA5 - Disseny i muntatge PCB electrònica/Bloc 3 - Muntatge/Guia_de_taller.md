@@ -1,6 +1,4 @@
-Ací tens la guia traduïda al valencià i formatada en Markdown, llesta per a copiar i pegar:
 
-Markdown
 # 🛠️ Guia de Taller: Fabricació de la Placa de Control
 
 Benvinguts a la fase de fabricació. Ací és on els vostres dissenys en paper es converteixen en realitat. Durant les pròximes 3 sessions, convertirem un grapat de components solts en un dispositiu de control funcional.
