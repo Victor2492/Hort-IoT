@@ -1,5 +1,5 @@
 # 🌿 MANUAL DE L'ALUMNAT: HORT INTEL·LIGENT IoT
-## Sistemes de Control Ciberfísics i Programació per Blocs amb Arduino i TinkerCAD
+## 1. INTRODUCCIÓ
 
 Benvinguts i benvingutes al projecte més important del trimestre! Durant les pròximes setmanes ens convertirem en enginyers i enginyeres de dades i de transició ecològica. El nostre repte serà dissenyar, programar i muntar una **estació meteorològica ciberfísica amb sistema de reg automatitzat** per a l'hort del nostre institut.
 
@@ -7,7 +7,7 @@ A continuació, teniu les claus del projecte que durem a terme:
 
 ---
 
-### 1. 🌍 El Repte Ambiental: Per què fem això?
+### 1.1. 🌍 El Repte Ambiental: Per què fem això?
 * **L'aigua és un bé escàs:** Donada la situació climàtica actual de la nostra regió, l'agricultura necessita optimitzar l'ús de l'aigua d'una forma urgent.
 * **Estalvi del 50%:** Un sistema de reg a degoteig automatitzat i ben calibrat pot reduir el consum d'aigua a la meitat en condicions òptimes.
 * **Predicció del futur:** Mitjançant l'anàlisi de dades estadístiques, podrem augmentar la productivitat i predir el comportament del fruit a futur (la seua grandària, qualitat, nivells d'aigua interns, etc.).
@@ -26,6 +26,8 @@ Treballarem amb els elements clau dels **sistemes de control**:
 * **Sensors:** S'encarreguen de recollir la informació de l'entorn (LDR, TMP36, polsadors...).
 * **Actuadors:** Els components que fan el treball físic (com engegar la bomba de reg o activar llums d'alerta LED).
 * **El Controlador (El "Cervell"):** Farem servir la placa **Arduino UNO WiFi REV 4**. Triem aquest model perquè té una gran potència de processament i compta amb **connexió WiFi integrada**, un requisit indispensable per a enviar dades a internet.
+
+![Arduino](imatges/arduino.png)
 
 #### B. Recursos Immaterials (El Programari i la Ciència)
 Per a fer funcionar el circuit necessitarem activar els nostres superpoders: la lògica, les lleis físiques de l'electromagnetisme, la computació i la programació.
@@ -52,8 +54,14 @@ El codi de l'estació real de l'hort de l'institut s'integrarà unint les parts 
 ### 🌐 1.6. El Gran Final: Connexió a la Xarxa (IoT i Big Data)
 Una vegada construïda l'estació, enviarem totes les dades recollides per l'Arduino via WiFi cap a un servidor local muntat en una **Raspberry Pi**. 
 
+![Raspberry pi](imatges/raspberrypi.jpg)
+
 Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'historial del nostre hort, permetent-nos consultar gràfiques i analitzar paràmetres ambientals **en temps real a través d'una pàgina web** des de qualsevol dispositiu!
 
+<img src="imatges/front-end1.png" alt="Esquema" width="300" height="200">
+<img src="imatges/front-end2.png" alt="Esquema" width="300" height="200">
+<img src="imatges/front-end3.png" alt="Esquema" width="300" height="200">
+<img src="imatges/front-end4.png" alt="Esquema" width="300" height="200">
 ---
 🚀 *Prepareu-vos per a connectar la tecnologia amb la natura i dissenyar l'agricultura del futur!*
 
