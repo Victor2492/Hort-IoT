@@ -86,10 +86,10 @@ Competències Específiques (CE) i sabers desenvolupats (LOMLOE):
 
 ## 🚀 Fases del projecte (Temporalització Anual)
 
-### Fase 1: Taller, Fusta i Xarxes (1r Trimestre - 35 sessions)
+### Fase 1: Investigación, materiales y proyecto (1r Trimestre - 35 sessions)
+- Economía circular. Materiales y sostenibilidad en el entorno próximo.
 - Reciclatge de fusta, construcció de caixons i estudi de l'economia circular.
-- Introducció a xarxes locals i servidors (preparació de la Raspberry).
-- Disseny CAD i impressió 3D per a carcasses de protecció.
+- Disseny CAD i impressió 3D.
 
 ### Fase 2: Màquines i Fonaments de Robòtica (2n Trimestre - 35 sessions)
 - Estudi de mecanismes i pneumàtica/hidràulica aplicats al reg.
