@@ -44,7 +44,7 @@ Durant aquest bloc de construcció, el teu paper com a docent passa de ser "teò
 
 ### 📊 Avaluació del bloc 2 (rúbrica del professorat)
 
-Aquest bloc representa el 80% de la nota final del projecte. Avalua tant el resultat físic del prototip com la capacitat de comunicació de l'equip a la sessió final. S'aplicarà mitjançant l'observació directa al taller i l'exposició de la darrera classe.
+Aquest bloc representa el 80% de la nota final de la SA4. Avalua tant el resultat físic del prototip com la capacitat de comunicació de l'equip a la sessió final. S'aplicarà mitjançant l'observació directa al taller i l'exposició de la darrera classe.
 
 | Criteri d'avaluació i referència curricular | Excel·lent (4) | Bé (3) | En procés (2) | Cal millorar (1) |
 | :--- | :--- | :--- | :--- | :--- |
