@@ -2,7 +2,7 @@
 
 ## Sessió 5
 
-### 🪚 Del plànol a la realitat: Mecanització de les canyes
+### Mecanització de les canyes
 Hui inaugurem oficialment el Bloc 2 del nostre projecte i fem el salt definitiu: passem del paper i les maquetes de cartó a la construcció real. És el moment de posar-se l'equipament de treball i entrar al taller per començar a donar forma a l'esquelet del nostre hivernacle.
 
 En enginyeria, la fase de mecanització és crítica. Un error d'un parell de centímetres en tallar una canya pot provocar que l'estructura quede torta, que la finestra hidràulica no tanque bé o que tot el sistema col·lapse amb una ràfega de vent. Per això, hui aplicarem la regla d'or de qualsevol taller: "Mesurar dues vegades, tallar una".
