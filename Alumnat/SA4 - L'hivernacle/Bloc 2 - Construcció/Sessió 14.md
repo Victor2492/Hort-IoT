@@ -1,4 +1,4 @@
-## Sessió 9
+## Sessió 14
 
 ### 🧩 Integració de Sistemes: L'acoblament final al caixó de cultiu
 Heu superat amb èxit la mecanització de les canyes i la instal·lació del circuit hidràulic. La vostra coberta ja té forma, plàstic i moviment. Ara, ens enfrontem a un dels moments més crítics en qualsevol projecte d'enginyeria: la integració de sistemes.
