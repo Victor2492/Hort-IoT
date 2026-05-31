@@ -1,3 +1,5 @@
+# BLOC 2: CONSTRUCCIÓ AL TALLER
+
 # INTRODUCCIÓ: DONANT VIDA A L'HIVERNACLE
 
 En aquesta situació d'aprenentatge treballarem com un autèntic equip d'enginyeria bioclimàtica per donar vida al nostre Hort IoT. El nostre repte serà dissenyar i construir una "coberta intel·ligent" de canyes per als caixons de cultiu, capaç de regular la seua pròpia temperatura. No ens limitarem a lligar estructures naturals; explorarem la màgia de l'arquitectura bioclimàtica i aplicarem la Llei de Pascal per crear un mecanisme hidràulic. Aquest circuit d'aigua ens permetrà alçar una pesada finestra de ventilació utilitzant exclusivament la força transmissora dels fluids. 
