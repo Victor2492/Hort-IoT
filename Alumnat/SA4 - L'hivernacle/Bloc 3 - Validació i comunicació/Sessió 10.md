@@ -1,6 +1,6 @@
 # BLOC 3: VALIDACIÓ I COMUNICACIÓ
 
-## Sessió 10
+## Sessió 15
 
 ### 🎤 L'Auditoria Final: Defensa del prototip i lliurament del Portfolio
 Heu arribat al final d'aquesta situació d'aprenentatge. La vostra estructura de canyes està acoblada al caixó, el plàstic està tensat i el circuit hidràulic està purgat i operatiu. Però en el món real, un equip d'enginyeria no acaba la seua faena quan colla l'últim rebló; cal demostrar al client que el sistema funciona i lliurar-li tota la documentació tècnica. Hui és el dia de la defensa pública i l'auditoria final del vostre treball.
