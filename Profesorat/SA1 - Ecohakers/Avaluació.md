@@ -14,8 +14,8 @@
 6. Rúbrica de la presentació oral
 7. Rúbrica de la infografia de les 7R
 8. Llista de coteig del treball cooperatiu
-9. Autoevaluació
-10. Coevaluació
+9. Autoavaluació
+10. Coavaluació
 11. Càlcul de la qualificació final
 
 ---
