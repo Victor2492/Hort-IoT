@@ -1,4 +1,4 @@
-# 📊 EVALUACIÓ — ECOHACKERS: Missió Paperera 2.0
+# 📊 AVALUACIÓ — ECOHACKERS: Missió Paperera 2.0
 
 ## Tecnologia · 4t ESO
 
