@@ -3,6 +3,7 @@
 En aquesta situació d'aprenentatge treballarem com un autèntic equip d'enginyeria bioclimàtica per donar vida al nostre Hort IoT. El nostre repte serà dissenyar i construir una "coberta intel·ligent" de canyes per als caixons de cultiu, capaç de regular la seua pròpia temperatura. No ens limitarem a lligar estructures naturals; explorarem la màgia de l'arquitectura bioclimàtica i aplicarem la Llei de Pascal per crear un mecanisme hidràulic. Aquest circuit d'aigua ens permetrà alçar una pesada finestra de ventilació utilitzant exclusivament la força transmissora dels fluids. 
 
 Ens organitzarem assumint rols professionals i registrarem cada errada, repte i encert tècnic al nostre portfolio compartit. Aprendrem que en enginyeria fallar no és un error, sinó un pas essencial per a polir i perfeccionar el nostre prototip. El nostre camí culminarà deixant aquest mecanisme perfectament calibrat perquè un "cervell" electrònic prenga el control a final de curs. Estem a punt de transformar canyes, tubs de plàstic, aigua i física en pur moviment. Comencem l'aventura!
+<img width="1600" height="1066" alt="Hivernacle" src="https://github.com/user-attachments/assets/691ea0b1-8551-4775-b853-23ecaf199ea9" />
 
 ---
 
