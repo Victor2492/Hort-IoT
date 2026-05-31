@@ -1,0 +1,34 @@
+## Sessions 6 a 8
+
+### 🏗️ L'acoblament final: La pell de l'edifici i la injecció dels fluids
+Com que ja domineu les eines bàsiques de tall i lligam, agruparem aquestes tres sessions per a dur a terme el gruix de la feina al taller. Aquest és el moment de la veritat: el vostre esquelet de canyes està agafant forma, però un edifici no està complet sense la seua pell i el seu sistema nerviós.
+
+Durant aquest bloc de sessions ininterrompudes ens enfrontarem a tres grans reptes d'enginyeria consecutius: tensar la coberta plàstica, construir la finestra abatible de ventilació i, el moment més delicat de tots, instal·lar i purgar el circuit hidràulic. La física teòrica es convertirà finalment en moviment mecànic.
+
+### 💧 El repte de l'estanquitat i la compressibilitat
+L'objectiu principal d'aquestes sessions és que el sistema funcione a la perfecció. Per a això, haureu de parar especial atenció a dos aspectes tècnics:
+
+* **La pell de l'edifici:** El plàstic de l'hivernacle s'ha de col·locar molt tens sobre les canyes. Si queda solt, el vent el trencarà o l'aigua de la pluja farà bosses i afonarà l'estructura.
+* **El sagnat del circuit hidràulic:** Ací la Llei de Pascal no perdona. Quan connecteu el tub transparent entre les dues xeringues i l'òmpligueu d'aigua, no pot quedar ni una sola bombolla d'aire a l'interior. Per què? Perquè l'aigua és incompressible, però l'aire sí que es pot comprimir. Si deixeu aire al tub, quan premeu la xeringa mestra, estareu xafant l'aire en lloc d'espentar la finestra, perdent tota la vostra força mecànica.
+
+### 👥 Dinàmica de treball: Treball en cadena al taller
+L'organització serà vital per no perdre temps en aquestes sessions de feina intensa:
+
+* **Coordinació:** Mantindrà el ritme de treball i l'ordre lògic. Primer, forrar el caixó principal; segon, fabricar el marc de la finestra i col·locar la frontissa; tercer, ancorar les xeringues en l'angle que vau calcular al vostre prototip de cartó.
+* **Gestió de materials:** Subministrarà el plàstic, les tisores i les brides. A l'hora de muntar la hidràulica, prepararà un recipient amb aigua (pot portar colorant per fer l'efecte més visible i tècnic) i s'assegurarà de no banyar l'espai de treball.
+* **Seguretat i qualitat:** Serà "l'inspector/a" de la fase. Revisarà manualment la tensió del plàstic i supervisarà mil·limètricament la purga de l'aigua per garantir que no hi haja cap fuita a les connexions del tub i zero bombolles.
+* **Documentació:** El taller no es pot aturar, però el registre tampoc. Aquest rol haurà de capturar el moment precís en què s'injecta l'aigua al circuit i gravar els primers intents (reeixits o no) d'alçar la finestra automàticament.
+
+---
+
+## 🛠 Activitat a classe
+* **Folrat i tancament:** Talleu els patrons de plàstic i fixeu-los a l'estructura de canyes.
+* **Mecanisme d'obertura:** Uniu la vostra finestra a l'estructura principal amb un sistema de frontisses improvisades (podeu gastar brides soltes o fil d'aram gruixut que permeta el gir).
+* **Instal·lació hidràulica:** Fixeu el cos de la xeringa esclava fermament a l'estructura de canyes i el seu èmbol al marc de la finestra abatible. Connecteu els tubs, purgueu l'aire i feu la primera prova mecànica. S'alça la coberta? Teniu la palanca correcta?
+
+## 📸 Activitat per al portfolio
+Al llarg d'aquestes tres sessions, la persona responsable de documentació haurà d'actualitzar el portfolio afegint una secció anomenada **"Fase de Muntatge i Control de Fluids"**. 
+
+Aquesta secció és el cor de la vostra memòria i ha d'incloure obligatòriament:
+1. **Un vídeo curt** on es veja el mecanisme hidràulic obrint i tancant la finestra correctament.
+2. **Una taula o llista de "Troubleshooting" (Resolució de problemes):** Segur que l'estructura s'ha encallat, ha perdut aigua o el plàstic no quadrava a la primera. Expliqueu de forma professional quins errors de muntatge heu tingut i com l'equip ha sigut capaç de solucionar-los per fer-ho funcionar.
