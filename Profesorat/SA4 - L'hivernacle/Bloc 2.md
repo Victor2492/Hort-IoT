@@ -1,12 +1,3 @@
-Ací tens l'última part de la teua documentació convertida a codi Markdown. Com en el bloc anterior, he organitzat la informació amb títols clars, llistes i he convertit la rúbrica en una taula perfecta per a GitHub.
-
-Com que és la guia docent del segon bloc, pots guardar aquest contingut en un arxiu anomenat, per exemple, Guia_Docent_Bloc2.md o afegir-ho a un arxiu general per al professorat.
-
-Copia i enganxa aquest codi:
-
-Markdown
-
-
 # Guia docent - Bloc 2: Construcció i avaluació
 ## Situació d'aprenentatge 4: L'hivernacle (Hort IoT)
 
