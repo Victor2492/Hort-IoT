@@ -28,10 +28,7 @@ Tot l'equip participarà de forma activa i coordinada en l'exposició d'avui, as
 * **La Defensa:** Preneu la paraula i exposeu el vostre treball amb orgull. Escolteu amb respecte i atenció les presentacions de la resta de grups; segur que ells han resolt un mateix problema d'una forma totalment diferent i creativa.
 * **Avaluació:** La docent realitzarà l'auditoria final del mecanisme i vosaltres fareu una breu autoavaluació d'equip.
 
----
 
-## 🚀 El pròxim pas...
-Enhorabona, equip! Heu transformat fusta de palets, canyes, tubs, plàstic i aigua en un hivernacle funcional amb ventilació autònoma basada en la força dels fluids. Heu treballat com a vertaders enginyers i enginyeres mecàniques.
 
 Però l'Hort IoT no s'atura ací. Durant el pròxim trimestre us demanareu: *I si no haguérem d'anar físicament a polsar la xeringa perquè la finestra s'obriga? I si l'hort sabera per si mateix quan fa massa calor?*
 
