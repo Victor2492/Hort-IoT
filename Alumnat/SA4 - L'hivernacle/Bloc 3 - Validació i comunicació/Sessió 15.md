@@ -29,7 +29,3 @@ Tot l'equip participarà de forma activa i coordinada en l'exposició d'avui, as
 * **Avaluació:** La docent realitzarà l'auditoria final del mecanisme i vosaltres fareu una breu autoavaluació d'equip.
 
 
-
-Però l'Hort IoT no s'atura ací. Durant el pròxim trimestre us demanareu: *I si no haguérem d'anar físicament a polsar la xeringa perquè la finestra s'obriga? I si l'hort sabera per si mateix quan fa massa calor?*
-
-Prepareu-vos, perquè el nostre mecanisme hidràulic està perfectament preparat per a rebre l'element definitiu: un cervell electrònic i sensors de temperatura. Però això... ja és una altra història.
