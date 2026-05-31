@@ -1,6 +1,6 @@
 # BLOC 2: CONSTRUCCIÓ AL TALLER
 
-## Sessió 5 - 6 - 7 - 8 - 9
+## Sessions 5 - 6 - 7 - 8 - 9
 
 ### Mecanització de les canyes
 Hui inaugurem oficialment el Bloc 2 del nostre projecte i fem el salt definitiu: passem del paper i les maquetes de cartó a la construcció real. És el moment de posar-se l'equipament de treball i entrar al taller per començar a donar forma a l'esquelet del nostre hivernacle.
