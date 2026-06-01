@@ -112,9 +112,9 @@ Avaluem el que hem fet i reflexionem sobre el nostre impacte.
 
 ---
 
-## ⚖️ Avaluació i Qualificació
+## ⚖️ Evaluació i Qualificació
 
-L'avaluació d'esta SA no es farà mitjançant exàmens tradicionals, sinó mitjançant l'assoliment de les **Competències Específiques (CE)** de la matèria. La nota reflectirà la capacitat d'analitzar, dissenyar, construir i treballar amb seguretat.
+L'evaluació d'esta SA no es farà mitjançant exàmens tradicionals, sinó mitjançant l'assoliment de les **Competències Específiques (CE)** de la matèria. La nota reflectirà la capacitat d'analitzar, dissenyar, construir i treballar amb seguretat.
 
 ### Taula de Ponderació i Instruments d'Avaluació
 
