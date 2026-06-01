@@ -161,14 +161,7 @@ El projecte està dissenyat per ser flexible:
 
 ---
 
-## 🤝 Contribucions i Llicència
-
-Aquest material educatiu ha estat creat en el marc del Màster de Professorat (Didàctica II - UPV) i es distribueix sota llicència **Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)**, permetent la seua adaptació i ús a les aules.
-
----
-
 ## 📞 Contacte
 
 - **Matèria:** Tecnologia (4t ESO)
 - **Autors:** Equip Smart Hort (Andrea, Rocio, Jesús, Rubén, Víctor)
-- **Universitat:** Universitat Politècnica de València (UPV) - Màster en Professorat (MUPES)
