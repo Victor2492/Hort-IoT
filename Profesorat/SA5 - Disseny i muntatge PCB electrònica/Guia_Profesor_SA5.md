@@ -60,17 +60,6 @@ Per a dur a terme aquesta SA amb èxit, necessitareu el següent material al tal
 - **Sessió 12 i 13: Revisió i Ètica Tecnològica.** Si heu acabat, muntarem el sistema a l'hort. Farem una reflexió final sobre els residus electrònics (E-waste) i entregareu el Portfolio finalitzat.
 
 ---
-## 📊 Avaluació
-
-Com a docent, no avalueu només que "la placa funcione al final". Utilitzeu la rúbrica distribuïda de la següent manera:
-
-| Competència | Pes | Què s'avalua exactament? |
-| :--- | :---: | :--- |
-| **Saber** | 40% | Avalueu el Portfolio Digital. Han entès per què utilitzen un regulador? Estan bé els càlculs? |
-| **Saber Fer** | 30% | Avaluació de la placa. No només si funciona, sinó la qualitat de les soldadures (són brillants o fredes?), la neteja de la placa i la distribució coherent. |
-| **Saber Estar** | 30% | S'avalua de forma contínua i per observació directa al taller (Bloc 3). Es divideix en Seguretat (20%) i Actitud i treball en equip (10%). |
-
----
 
 ## 🔄 Connexió amb el següent pas
 
