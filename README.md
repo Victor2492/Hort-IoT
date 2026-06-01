@@ -29,34 +29,6 @@ Competències Específiques (CE) i sabers desenvolupats (LOMLOE):
 
 ---
 
-## 📦 Estructura del repositori
-
-```text
-📦 Projecte_Hort_IoT/
-├── 📄 README.md
-├── 📁 profesorado/
-│   ├── 📄 programacio_anual.md
-│   ├── 📄 auditoria_curricular.md
-│   ├── 📄 SA_Caixons.pdf
-│   ├── 📄 SA_Hort_IoT.pdf
-│   └── 📄 rubriques_avaluacio.xlsx
-├── 📁 alumnado/
-│   ├── 📄 guia_taller_fusta.pdf
-│   ├── 📁 disseny_3d/
-│   │   ├── 📄 carcassa_sensors.stl
-│   │   └── 📄 frontisses.stl
-│   ├── 📁 codi_arduino/
-│   │   └── 📄 hort_meteo.ino
-│   ├── 📁 web_dashboard/
-│   │   ├── 📄 index.html
-│   │   ├── 📄 server.js
-│   │   └── 📄 package.json
-│   └── 📄 plantilles_memoria_tecnica.md
-└── 📄 llista_materials.md
-```
-
----
-
 ## 🎓 Context educatiu
 
 - **Matèria:** Tecnologia
