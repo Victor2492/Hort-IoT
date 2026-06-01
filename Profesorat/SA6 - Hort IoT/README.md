@@ -174,25 +174,25 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 
 * **Bloc de Pràctiques i Simulació Electrònica (53% de la nota final):**
     * *Pràctica 1 (Potenciòmetre i monitor sèrie):* **4%**
-        * Solució a: https://www.tinkercad.com/things/kxOIRsf138A-practica-1-sensor-de-humitat-ambient-simulat-amb-potenciometre
+        * Solució a: https://www.tinkercad.com/things/kxOIRsf138A-practica-1-sensor-de-humitat-ambient-simulat-amb-potenciometre?sharecode=AKoaipvXjKtD6egPT_S_IQH2J4-cepFNwc2WhNmRTR0
     * *Pràctica 2 (Sensor TMP36 i alertes d'estat):* **4%**
-        * Solució a: https://www.tinkercad.com/things/3HOLFt8XVT9-practica-2-sensor-de-temperatura-tmp36
+        * Solució a: https://www.tinkercad.com/things/3HOLFt8XVT9-practica-2-sensor-de-temperatura-tmp36?sharecode=n55QYmJJASjW7hg63V1RDAcUmEnXIaBxb-h6THDjXkA
     * *Pràctica 3 (LDR i divisor de tensió de llum):* **4%**
-        * Solució a: https://www.tinkercad.com/things/i4agPVWuOeM-practica-3-irraciancia-solar-amb-ldr
+        * Solució a: https://www.tinkercad.com/things/i4agPVWuOeM-practica-3-irraciancia-solar-amb-ldr?sharecode=gpT3sheQsJ09O8v7EWbZ8Up3uvDqylPh6nK29bCBClA
     * *Pràctica 4 (Pluviòmetre, variables i rebots):* **5%**
         * Solucions a:
-            * https://www.tinkercad.com/things/7ftewX6VceU-practica-4-simulador-de-pluja-amb-comptador-de-polsacions-
-            * https://www.tinkercad.com/things/1ZRuAiGtbMm-practica-4-b-canvi-destat-flanc-de-pujada
+            * https://www.tinkercad.com/things/7ftewX6VceU-practica-4-simulador-de-pluja-amb-comptador-de-polsacions-?sharecode=MNujykfhIKZU20Z-chvLbY5xMkfLm2c5lCHEuRlvy7w
+            * https://www.tinkercad.com/things/1ZRuAiGtbMm-practica-4-b-canvi-destat-flanc-de-pujada?sharecode=-ww3hbrOSqQFByXKsdCpm0_BAkl0KSNeq7NJkWVt0vc
     * *Pràctica 5 (Control de reg manual temporitzat):* **5%**
-        * Solució a: https://www.tinkercad.com/things/6DBaQkwoOnQ-practica-5-reg-manual-temporitzat-per-introduir-el-bucle-for
+        * Solució a: https://www.tinkercad.com/things/6DBaQkwoOnQ-practica-5-reg-manual-temporitzat-per-introduir-el-bucle-for?sharecode=YDOSEhg31ErNU6Nimub9yWubHjbDwIEpqUozcBaPlqY
     * *Pràctica 6 (Histèresi en humitat de sòl):* **5%**
         * Solucions a:
-            * https://www.tinkercad.com/things/1v61EGlnn3m-practica-6-control-de-reg-en-funcio-de-la-himitat-del-sol
-            * https://www.tinkercad.com/things/hLpCV3B7SPl-practica-6b-control-de-reg-en-funcio-de-la-himitat-del-sol
+            * https://www.tinkercad.com/things/1v61EGlnn3m-practica-6-control-de-reg-en-funcio-de-la-himitat-del-sol?sharecode=v4bFSYIOeLYNT_PKFxHn7zKSeufJt76Vn4DJXVOtGkg
+            * https://www.tinkercad.com/things/hLpCV3B7SPl-practica-6b-control-de-reg-en-funcio-de-la-himitat-del-sol?sharecode=gnKZGwpOxE5feC2azwbTenO8SWE3kWCKbT-0nxsyeJI
     * *Pràctica 7 (Anemòmetre i escala Beaufort):* **6%**
-        * Solució a: https://www.tinkercad.com/things/fApAnFqYbjc-practica-7-mesura-de-vent-i-escala-de-beaufort-reg
+        * Solució a: https://www.tinkercad.com/things/fApAnFqYbjc-practica-7-mesura-de-vent-i-escala-de-beaufort-reg?sharecode=JvMNdsUi8pEq0Nh5dI7-7E5rHxpszfgS8Md8VjdUMuY
     * *Pràctica 8 (Estació integrada multivariable final):* **20%**
-        * Solució a: https://www.tinkercad.com/things/39YrzlJomhp-practica-8-estacio-integrada
+        * Solució a: https://www.tinkercad.com/things/39YrzlJomhp-practica-8-estacio-integrada?sharecode=gPWzFPG9djcqz0F299WB0gUZORcR29W0kxes2bpwx5Q
 * **Bloc de Proves Teòriques d'Evidència (28% de la nota final):**
     * *Prova Escrita Sistemes de Control (Sessió 5):* **28%**
 * **Bloc de Comunicació i Difusió (15% de la nota final):**
