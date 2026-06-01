@@ -47,16 +47,19 @@ Per a dur a terme aquesta SA amb èxit, necessitareu el següent material al tal
 - **Sessions 4-5 (Informàtica):** Tinkercad de vegades simula el *burnout* d'un component. Deixeu que l'alumnat creme components virtuals; és el moment d'equivocar-se.
 - **Sessió 6 (Informàtica/Aula):** Aquesta és l'etapa més crítica. Han de passar de l'esquema ideal de Tinkercad al dibuix real de com estaran disposats els components a la placa PCB foradada. Reviseu aquests dissenys abans de permetre'ls entrar al taller.
 
-### BLOC 3: Fabricació Real al Taller (Sessions 7-9)
-- **Sessió 7:** Exigiu el compliment estricte de la Guia de Seguretat (ulleres, ventilació, no cremar la taula). Comenceu pels components més xicotets (resistències, díodes).
-- **Sessió 8:** És probable que algunes parelles es queden enrere. Utilitzeu el rol de "Supervisor" perquè les parelles ràpides ajuden (sense fer la feina) a les lentes.
-- **Sessió 9 (La Prova de Foc):** **No connecteu cap microcontrolador** a les plaques fetes pels alumnes fins que no hàgeu comprovat amb ells, mitjançant el multímetre, que als pins d'alimentació arriben 5V exactes (i no els 12V de la placa solar).
+### BLOC 3: Fabricació Real i Control de Qualitat al Taller (Sessions 7-11)
+*Mans a l'obra. Treballarem en parelles alternant els rols de Muntador i Supervisor.*
 
-### BLOC 4: Tancament (Sessió 10)
-- **Sessió 10:** Si la placa no funciona, que és comú, la Sessió 10 es converteix en una sessió d'anàlisi de fallades (*debugging*). El valor educatiu d'entendre per què no va (un curtcircuit d'estany, un díode a l'inrevés) és altíssim.
+* **Sessió 7 i 8: Soldadura I (Perfil Baix).** Formació en seguretat i tècnica. Soldadura dels components que van més apegats a la placa (resistències, díodes i el sòcol del xip).
+* **Sessió 9 i 10: Soldadura II (Potència).** Soldadura dels components més alts (regulador, transistor, condensadors i bornes) i creació de les pistes d'estany a la part inferior.
+* **Sessió 11: Control de Qualitat (QC).** Inspecció visual, prova de continuïtat sonora amb el multímetre per a detectar curtcircuits i, finalment, la "Prova de Fum": alimentar la placa a 12V i mesurar exactament 5V a l'eixida abans de connectar el microcontrolador.
+
+### BLOC 4: Tancament i Posada en Servei (Aula / Hort) (Sessions 12-13)
+*Avaluem el que hem fet i reflexionem sobre el nostre impacte.*
+
+- **Sessió 12 i 13: Revisió i Ètica Tecnològica.** Si heu acabat, muntarem el sistema a l'hort. Farem una reflexió final sobre els residus electrònics (E-waste) i entregareu el Portfolio finalitzat.
 
 ---
-
 ## 📊 Avaluació
 
 Com a docent, no avalueu només que "la placa funcione al final". Utilitzeu la rúbrica distribuïda de la següent manera:
