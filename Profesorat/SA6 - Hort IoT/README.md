@@ -181,34 +181,16 @@ A continuació, es desplega la seqüència didàctica formalitzada a partir de l
 
 L'avaluació de la Situació d'Aprenentatge té un caràcter formatiu, continu, competencial i diversificat, d'acord amb les directrius de la LOMLOE i la Conselleria d'Educació de la GVA.
 
-### 4.1. Esquema de Ponderació Qualificativa Final
+### 4.1. Taula de Ponderació Qualificativa Final
 La qualificació global de la SA es calcula mitjançant l'aplicació estricta dels següents percentatges sobre les evidències recollides:
 
-* **Bloc de Pràctiques i Simulació Electrònica (53% de la nota final):**
-    * *Pràctica 1 (Potenciòmetre i monitor sèrie):* **4%**
-        * Solució a: https://www.tinkercad.com/things/kxOIRsf138A-practica-1-sensor-de-humitat-ambient-simulat-amb-potenciometre?sharecode=AKoaipvXjKtD6egPT_S_IQH2J4-cepFNwc2WhNmRTR0
-    * *Pràctica 2 (Sensor TMP36 i alertes d'estat):* **4%**
-        * Solució a: https://www.tinkercad.com/things/3HOLFt8XVT9-practica-2-sensor-de-temperatura-tmp36?sharecode=n55QYmJJASjW7hg63V1RDAcUmEnXIaBxb-h6THDjXkA
-    * *Pràctica 3 (LDR i divisor de tensió de llum):* **4%**
-        * Solució a: https://www.tinkercad.com/things/i4agPVWuOeM-practica-3-irraciancia-solar-amb-ldr?sharecode=gpT3sheQsJ09O8v7EWbZ8Up3uvDqylPh6nK29bCBClA
-    * *Pràctica 4 (Pluviòmetre, variables i rebots):* **5%**
-        * Solucions a:
-            * https://www.tinkercad.com/things/7ftewX6VceU-practica-4-simulador-de-pluja-amb-comptador-de-polsacions-?sharecode=MNujykfhIKZU20Z-chvLbY5xMkfLm2c5lCHEuRlvy7w
-            * https://www.tinkercad.com/things/1ZRuAiGtbMm-practica-4-b-canvi-destat-flanc-de-pujada?sharecode=-ww3hbrOSqQFByXKsdCpm0_BAkl0KSNeq7NJkWVt0vc
-    * *Pràctica 5 (Control de reg manual temporitzat):* **5%**
-        * Solució a: https://www.tinkercad.com/things/6DBaQkwoOnQ-practica-5-reg-manual-temporitzat-per-introduir-el-bucle-for?sharecode=YDOSEhg31ErNU6Nimub9yWubHjbDwIEpqUozcBaPlqY
-    * *Pràctica 6 (Histèresi en humitat de sòl):* **5%**
-        * Solucions a:
-            * https://www.tinkercad.com/things/1v61EGlnn3m-practica-6-control-de-reg-en-funcio-de-la-himitat-del-sol?sharecode=v4bFSYIOeLYNT_PKFxHn7zKSeufJt76Vn4DJXVOtGkg
-            * https://www.tinkercad.com/things/hLpCV3B7SPl-practica-6b-control-de-reg-en-funcio-de-la-himitat-del-sol?sharecode=gnKZGwpOxE5feC2azwbTenO8SWE3kWCKbT-0nxsyeJI
-    * *Pràctica 7 (Anemòmetre i escala Beaufort):* **6%**
-        * Solució a: https://www.tinkercad.com/things/fApAnFqYbjc-practica-7-mesura-de-vent-i-escala-de-beaufort-reg?sharecode=JvMNdsUi8pEq0Nh5dI7-7E5rHxpszfgS8Md8VjdUMuY
-    * *Pràctica 8 (Estació integrada multivariable final):* **20%**
-        * Solució a: https://www.tinkercad.com/things/39YrzlJomhp-practica-8-estacio-integrada?sharecode=gPWzFPG9djcqz0F299WB0gUZORcR29W0kxes2bpwx5Q
-* **Bloc de Proves Teòriques d'Evidència (28% de la nota final):**
-    * *Prova Escrita Sistemes de Control (Sessió 5):* **28%**
-* **Bloc de Comunicació i Difusió (15% de la nota final):**
-    * *Exposició Oral Individual i Defensa Tècnica (Sessions 26-27):* **19%**
+| Criteri | Percentatge |
+|---|---|
+| 4.1 | 15% |
+| 4.2 | 15% |
+| 4.3 | 40% |
+| 4.4 | 20% |
+| 4.5 | 10% |
 
 ---
 
@@ -221,16 +203,6 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 | **4.1 Disseny del sistema** | Dissenyar sistemes automàtics que resolguen problemes de manera autònoma | El disseny és precís, net i optimitzat. El cablejat és exemplar (colors correctes, traçat ordenat). S'aprecien decisions de disseny justificades (p.ex. elecció de pins, organització de la protoboard). | El disseny és correcte i cobreix tots els requisits. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El circuit és net i ordenat. | El disseny cobreix parcialment els requisits. Hi ha errors de connexió que limiten el funcionament. El cablejat és desordenat o no segueix les convencions de color. | El circuit no s'ajusta al disseny demanat. Falten components essencials o la connexió és incorrecta en la major part del circuit. | Treball no presentat. |
 | **4.2 Construcció del sistema automàtic** | Construir sistemes automàtics programables capaços de fer tasques de manera autònoma, aplicant coneixements d'electrònica i components de control | El circuit és complet, funcional i net. Els components estan ben triats i connectats correctament. El cablejat és exemplar (colors estàndard, traçat ordenat). El sistema opera de forma autònoma i robusta. | El circuit és correcte i funcional. Els components necessaris estan presents i ben connectats. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El sistema opera de manera autònoma. | El circuit és parcialment funcional. Alguns components estan mal connectats o falta algun element. El cablejat és desordenat o no respecta les convencions de color. | El circuit no funciona o té errors greus de connexió. Falten components essencials. No s'han aplicat les convencions de muntatge treballades a classe. | Treball no presentat. |
 | **4.5 Integració IoT i tecnologies emergents** | Integrar IoT, big data i tecnologies emergents amb sentit crític i ètic | L'alumnat fa una reflexió aprofundida: relaciona la pràctica amb la utilitat real de les dades (predicció del fruit, gestió de l'aigua), valora limitacions del sistema i proposa millores. | L'alumnat respon correctament les preguntes de reflexió i relaciona la pràctica amb el sistema IoT complet (sensors → Arduino → servidor → dashboard). | L'alumnat identifica superficialment la relació entre la pràctica i el sistema de l'hort, però la reflexió és escassa o poc precisa. | L'alumnat no relaciona la pràctica amb el context IoT del projecte ni reflexiona sobre les dades recollides. | Treball no presentat. |
-
-**Ponderació de Competència Específica 4 per criteris d'avaluació**
-
-| Criteri | Percentatge |
-|---|---|
-| 4.1 | 15% |
-| 4.2 | 15% |
-| 4.3 | 40% |
-| 4.4 | 20% |
-| 4.5 | 10% |
 
 ---
 
