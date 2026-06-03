@@ -354,13 +354,8 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 </p>
 
 
-* **Taula de Components:**
-    | Component | Quantitat | Descripció / Configuració |
-    | :--- | :--- | :--- |
-    | Placa Arduino UNO | 1 | Unitat controladora. |
-    | Sensor Humitat de Sòl | 1 | Terminal de senyal acoblat al pin analògic A3. |
-    | Díodes LED | 2 | Color Verd (Bomba, D7) i Roig (Alerta crítica, D8). |
-    | Resistències de LED | 2 | Valor: $220\,\Omega$. |
+* **Crea la taula de Components:**
+
 
 * **Preguntes de la sessió:**
     1. Si el valor de la variable d'humitat del sòl puja des de 30% fins a 50%, descriu quin serà l'estat elèctric del pin digital D7 en aquest moment. I si el valor baixa des de 80% fins a 50%? Justifica la teva resposta basant-te en la banda neutra de la histèresi.
@@ -384,13 +379,7 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 </p>
 
 
-* **Taula de Components:**
-    | Component | Quantitat | Descripció / Configuració |
-    | :--- | :--- | :--- |
-    | Placa Arduino UNO | 1 | Microcontrolador de la pràctica. |
-    | Potenciòmetre | 1 | Simulador d'anemòmetre acoblat al pin analògic A4. |
-    | Díode LED | 1 | Color Groc (Indicador d'avís de ràfegues de vent). |
-    | Resistència | 1 | Valor: $220\,\Omega$. |
+* **Crea la taula de Components:**
 
 * **Preguntes de la sessió:**
     1. Quina component de vent local d'alta velocitat és molt freqüent durant les vespres d'estiu a la Safor i per què afecta el disseny dels regs agrícoles?
