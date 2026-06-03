@@ -202,9 +202,6 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 
 ### 4.2. Rúbrica per a l'Avaluació de Pràctiques (TinkerCAD)
 
-**SA6 Hort Intel·ligent | Tecnologia 4t ESO**  
-Criteris avaluats: 1.2 · 4.1 · 4.3 · 4.4 · 4.5
-
 | Criteri | Descriptor | Nivell 4 · Excel·lent (9–10) | Nivell 3 · Assolit (6–8) | Nivell 2 · En procés (4–5) | Nivell 1 · Insuficient (1–3) | Nivell 0 · No presentat (0) |
 |---|---|---|---|---|---|---|
 | **4.3 Programació per blocs** | Programar per blocs l'algoritme de control que permet interactuar amb l'entorn | El codi és funcional, net i ben estructurat. Usa les estructures òptimes per a cada situació. Nomenclatura clarament descriptiva i comentaris explicatius en tots els blocs. | El codi funciona correctament i cobreix els requisits de la pràctica. S'usen les estructures adequades. La nomenclatura és descriptiva i hi ha alguns comentaris. | El codi s'executa amb errors menors. Les estructures bàsiques (`on start`, `forever`, `wait`) estan presents però mal aplicades. Nomenclatura poc descriptiva. | El codi és incomplet o no s'executa. Les estructures `on start` / `forever` no s'usen correctament. No hi ha comentaris ni noms descriptius. | Treball no presentat. |
@@ -213,15 +210,13 @@ Criteris avaluats: 1.2 · 4.1 · 4.3 · 4.4 · 4.5
 | **4.2 Construcció del sistema automàtic** | Construir sistemes automàtics programables capaços de fer tasques de manera autònoma, aplicant coneixements d'electrònica i components de control | El circuit és complet, funcional i net. Els components estan ben triats i connectats correctament. El cablejat és exemplar (colors estàndard, traçat ordenat). El sistema opera de forma autònoma i robusta. | El circuit és correcte i funcional. Els components necessaris estan presents i ben connectats. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El sistema opera de manera autònoma. | El circuit és parcialment funcional. Alguns components estan mal connectats o falta algun element. El cablejat és desordenat o no respecta les convencions de color. | El circuit no funciona o té errors greus de connexió. Falten components essencials. No s'han aplicat les convencions de muntatge treballades a classe. | Treball no presentat. |
 | **4.5 Integració IoT i tecnologies emergents** | Integrar IoT, big data i tecnologies emergents amb sentit crític i ètic | L'alumnat fa una reflexió aprofundida: relaciona la pràctica amb la utilitat real de les dades (predicció del fruit, gestió de l'aigua), valora limitacions del sistema i proposa millores. | L'alumnat respon correctament les preguntes de reflexió i relaciona la pràctica amb el sistema IoT complet (sensors → Arduino → servidor → dashboard). | L'alumnat identifica superficialment la relació entre la pràctica i el sistema de l'hort, però la reflexió és escassa o poc precisa. | L'alumnat no relaciona la pràctica amb el context IoT del projecte ni reflexiona sobre les dades recollides. | Treball no presentat. |
 
-
-Aquest instrument s'utilitza de manera sistemàtica per a corregir cadascuna de les 8 pràctiques d'estudi programades, adaptant els subcriteris de la GVA als requisits fixats.
-
-| Criteri de Qualitat de la Pràctica | Nivell 5 (65% - 80%) [Excel·lent] | Nivell 4 (50% - 65%) [Aconseguit] | Nivell 3 (25% - 45%) [En procés] | Nivell 2 (0% - 25%) [Iniciat] | Nivell 1 (0%) [No presentat] |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **Muntatge Físic i Ordre del Circuit** *(CA 2.2)* | El muntatge és excel·lent, completament net i ordenat. Segueix el codi de colors estipulat (Vermell=5V, Negre=GND). Els components es distribueixen de forma òptima. | El muntatge funciona i està endreçat, tot i que presenta algunes cruïlles menors de cables o algun descuit lleu en la coloració de les línies secundàries. | El circuit és funcional, però el traçat de cables és confús, està desordenat i no respecta el codi de colors corporatiu de forma generalitzada. | Mostra problemes greus d'ordre, cables mal connectats o encreuaments que dificulten seguir el circuit, malgrat funcionar parcialment. | |
-| **Lògica, Estructura i Resolució del Codi** *(CA 2.1, CA 3.2)* | L'algorisme resol de manera brillant l'enunciat. Aplica correctament les estructures, operadors i lògiques complexes (com histèresi o canvis de flanc). | El programa assoleix tots els objectius descrits. La lògica és correcta, encara que podria optimitzar-se el nombre de blocs utilitzats. | El codi resol la part principal de la pràctica, però falla en condicions secundàries, l'anidament o el control de retards. | El programa presenta errors en la seqüència lògica bàsica i requereix suport constant del docent per a poder funcionar. | |
-| **Nomenclatura, Variables i Comentaris** *(CA 2.3)* | Ocupa nomenclatures completament descriptives per a elements. Incorpora comentaris textuals rics que detallen amb claredat què fa cada seqüència. | Usa variables ben definides. S'inclouen comentaris estructurats en els blocs més significatius del programa. | Declara variables, però usa noms genèrics o poc descriptius. Els comentaris explicatius són escassos o molt superficials. | Manca de comentaris descriptius en el codi. Totes les variables i elements estan mal anomenats o generen confusió. | |
-| **Monitorització i Depuració Sèrie** *(CA 2.1)* | Gestiona el terminal de forma impecable. Mostra dades amb el format textual exacte demanat i intervals correctes de temps. | El monitor sèrie transmet la informació requerida per l'enunciat, tot i que el format de text presenta desajustos menors. | Imprimeix valors pel port sèrie, però s'observen pèrdues de dades per manca de newline o per no ajustar correctament els retards. | Mostra valors arbitraris o text sense processar que no aporta informació útil per a la depuració del circuit. | |
+| Ponderació de Competència Específica 4 per criteris d'avaluació |
+| Criteri | Percentatge |
+| 4.1 | 15% |
+| 4.2 | 15% |
+| 4.3 | 40% |
+| 4.4 | 20% |
+| 4.5 | 10% |
 
 ---
 
