@@ -404,23 +404,12 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 * **Explicació Teòrica:** Arribem a la fase de tancament ciberfísic. Al llarg d'aquestes sis sessions de taller individual hauràs d'integrar totes les pràctiques realitzades de forma aïllada en un únic circuit global harmonitzat. L'objectiu és programar condicions intel·ligents creuades utilitzant operadors lògics combinats de tipus **`AND`** (I) i **`OR`** (O). 
     
     A l'operador lògic `AND`, la condició final serà vertadera només si **totes** i cadascuna de les condicions individuals es compleixen alhora de manera simultània. A l'operador lògic `OR`, n'hi ha prou que **una sola** de les sentències es compleixi perquè el sistema actuï. També calcularem matemàticament el cabal i lliurament hídric acumulat basant-nos en els temps coneguts d'obertura del canal de l'electrobomba de l'hortalissa.
-* **Enunciat de l'activitat (Pràctica 8 - Oficial - Projecte d'Integració):** Dissenya un únic circuit integrat a TinkerCAD que realitzi de manera simultània la lectura de 6 variables ambientals: Temperatura (TMP36 a A2), Lluminositat (LDR a A3), Pluja (Polsador a D3), Humitat del sòl (Sensor a A0) i Velocitat de vent (Potenciòmetre a A4). Connecta un LED Verd de reg al pin D7, un LED Groc al pin D5 i un LED Roig d'alarmes al pin D8. Programa l'algorisme segons els següents requisits de disseny crítics:
-    1. **Condició de Reg Automàtic Estàndard (Operador lògic combinat `AND`):** El canal de reg (LED Verd D7) s'activarà de forma automàtica si, i només si, es compleixen de forma síncrona les següents 4 condicions ambientals: La humitat del sòl és inferior al 30%, **I** la irradiància de la LDR indica condició de nit o ennuvolat ($< 500$), **I** la força de vent és menor a 30 km/h, **I** la pluja acumulada en la variable del pluviòmetre és zero ($0\,\text{mm}$).
-    2. **Condició de Reg Crític per Supervivència:** Si la humitat del sòl cau per davall d'un llindar d'estrès extrem de **15%**, s'activarà immediatament el reg d'emergència (LED Verd encès), saltant-se per prioritat vital les restriccions anteriors de llum del sol, per protegir el cultiu de la mort tèrmica.
+* **Enunciat de l'activitat (Pràctica 8 - Oficial - Projecte d'Integració):** Dissenya un únic circuit integrat a TinkerCAD que realitzi de manera simultània la lectura de 6 variables ambientals: Temperatura, Lluminositat, Pluja, Humitat del sòl, Humitat ambient i Velocitat de vent. Encén un LED Blau quan s'hagi de regar. Programa l'algorisme segons els següents requisits de disseny crítics:
+    1. **Condició de Reg Automàtic Estàndard (Operador lògic combinat `AND`):** El canal de reg s'activarà de forma automàtica si, i només si, es compleixen les següents 4 condicions ambientals a la vegada: La humitat del sòl és inferior al 30%, **I** la irradiància detectada pel sensor de lluminositat és inferior al 15%, **I** la força de vent és menor a 6 en l'escala de Beaufort, **I** la pluja acumulada en la variable del pluviòmetre és zero ($5\,\text{mm}$).
+    2. **Condició de Reg Crític per Supervivència:** Si la humitat del sòl cau per davall d'un llindar d'estrès extrem de **15%**, s'activarà immediatament el reg, saltant-se per prioritat vital les restriccions anteriors de llum del sol, per protegir el cultiu de la mort tèrmica.
     3. **Modelització Matemàtica de Consum d'Aigua:** Sabent que la electrobomba de reg de l'hort lliura un cabal nominal de **10 litres d'aigua per minut** d'activitat, programa una seqüència lògica matemàtica que calcule i transmeta contínuament al monitor sèrie els litres totals d'aigua consumits pel sistema basant-se en els temps acumulats de reg actiu: $\text{litresTotals} = \text{minutsReg} \times 10$.
-    4. **Interrupcions Manuals:** Mantén operatius els botons d'encesa manual i parada instantània de seguretat definits a les pràctiques prèvies. Lliura la memòria tècnica detallada juntament amb l'enllaç del projecte final batejat com `Hort_NomCognom_P8_Final`.
-* **Taula de Components:**
-    | Component | Quantitat | Descripció / Configuració |
-    | :--- | :--- | :--- |
-    | Placa Arduino UNO | 1 | Cervell autòmat central de l'estació. |
-    | Placa de proves (Protoboard)| 1 | Gran format per allotjar el cablejat modular. |
-    | Sensor TMP36 | 1 | Entrada analògica de temperatura (A2). |
-    | Fotoresistència LDR | 1 | Sensor divisor de llum acoblat a A3. |
-    | Potenciòmetre | 1 | Sensor simulador d'anemòmetre connectat a A4. |
-    | Polsadors Mecànics | 3 | Pluviòmetre (D3), Activa manual (D2), Atura emergència (D4). |
-    | Resistències Fixes | 4 | 1 de $10\,\text{k}\Omega$ (LDR) i 3 de $1\,\text{k}\Omega$ (Polsadors Pull-Down). |
-    | Díodes LED | 3 | Verd (D7), Groc (D5), Roig (D8). |
-    | Resistències de LED | 3 | Valor: $220\,\Omega$. |
+    4. **Interrupcions Manuals:** Inclou els botons d'encesa manual i parada instantània de seguretat definits a les pràctiques prèvies. Lliura la memòria tècnica detallada juntament amb l'enllaç del projecte final batejat com `Hort_NomCognom_P8_Final`.
+* **Crea la taula de Components:**
 
 * **Preguntes de la secció de tancament del projecte:**
     1. Si es compleix que la terra està molt seca (Humitat 25%) i el vent està en calma, però l'LDR detecta que hi ha Sol Directe a causa del migdia, s'activarà el canal de reg automàtic estàndard? Quina estructura d'operador lògic ho impedeix i quin benefici ecològic té aquesta decisió de disseny?
