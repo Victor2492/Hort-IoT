@@ -211,7 +211,9 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 | **4.5 Integració IoT i tecnologies emergents** | Integrar IoT, big data i tecnologies emergents amb sentit crític i ètic | L'alumnat fa una reflexió aprofundida: relaciona la pràctica amb la utilitat real de les dades (predicció del fruit, gestió de l'aigua), valora limitacions del sistema i proposa millores. | L'alumnat respon correctament les preguntes de reflexió i relaciona la pràctica amb el sistema IoT complet (sensors → Arduino → servidor → dashboard). | L'alumnat identifica superficialment la relació entre la pràctica i el sistema de l'hort, però la reflexió és escassa o poc precisa. | L'alumnat no relaciona la pràctica amb el context IoT del projecte ni reflexiona sobre les dades recollides. | Treball no presentat. |
 
 | Ponderació de Competència Específica 4 per criteris d'avaluació |
+|---|
 | Criteri | Percentatge |
+|---|---|
 | 4.1 | 15% |
 | 4.2 | 15% |
 | 4.3 | 40% |
