@@ -142,6 +142,7 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 <p align="center">
 <img src="imatges/exemple1.png" alt="Esquema" width="600" height="500">
 </p>
+
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
@@ -168,6 +169,7 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 <p align="center">
 <img src="imatges/exemple2.png" alt="Esquema" width="600" height="500">
 </p>
+
 * **Taula de Components:**
     | Component | Quantitat | Descripció / Configuració |
     | :--- | :--- | :--- |
