@@ -210,8 +210,8 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 | **4.2 Construcció del sistema automàtic** | Construir sistemes automàtics programables capaços de fer tasques de manera autònoma, aplicant coneixements d'electrònica i components de control | El circuit és complet, funcional i net. Els components estan ben triats i connectats correctament. El cablejat és exemplar (colors estàndard, traçat ordenat). El sistema opera de forma autònoma i robusta. | El circuit és correcte i funcional. Els components necessaris estan presents i ben connectats. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El sistema opera de manera autònoma. | El circuit és parcialment funcional. Alguns components estan mal connectats o falta algun element. El cablejat és desordenat o no respecta les convencions de color. | El circuit no funciona o té errors greus de connexió. Falten components essencials. No s'han aplicat les convencions de muntatge treballades a classe. | Treball no presentat. |
 | **4.5 Integració IoT i tecnologies emergents** | Integrar IoT, big data i tecnologies emergents amb sentit crític i ètic | L'alumnat fa una reflexió aprofundida: relaciona la pràctica amb la utilitat real de les dades (predicció del fruit, gestió de l'aigua), valora limitacions del sistema i proposa millores. | L'alumnat respon correctament les preguntes de reflexió i relaciona la pràctica amb el sistema IoT complet (sensors → Arduino → servidor → dashboard). | L'alumnat identifica superficialment la relació entre la pràctica i el sistema de l'hort, però la reflexió és escassa o poc precisa. | L'alumnat no relaciona la pràctica amb el context IoT del projecte ni reflexiona sobre les dades recollides. | Treball no presentat. |
 
-| Ponderació de Competència Específica 4 per criteris d'avaluació |
-|---|
+**Ponderació de Competència Específica 4 per criteris d'avaluació**
+
 | Criteri | Percentatge |
 |---|---|
 | 4.1 | 15% |
