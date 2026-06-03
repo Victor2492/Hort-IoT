@@ -319,14 +319,8 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 </p>
 
 
-* **Taula de Components:**
-    | Component | Quantitat | Descripció / Configuració |
-    | :--- | :--- | :--- |
-    | Placa Arduino UNO | 1 | Microcontrolador de control. |
-    | Polsadors | 2 | Activació (D2) i Parada d'Emergència (D3). |
-    | Resistències de polsador | 2 | Valor: $1\,\text{k}\Omega$. |
-    | Díode LED | 1 | Color Verd (Simulador d'actuador electrobomba). |
-    | Resistència de LED | 1 | Valor: $220\,\Omega$. |
+* **Crea la taula de Components:**
+
 
 * **Preguntes de la sessió:**
     1. Si utilitzem un únic bloc simple de retard de tipus `wait 10 secs` per a controlar el reg, per què no podem detectar si l'usuari prem el botó d'emergència durant aquest lapse?
