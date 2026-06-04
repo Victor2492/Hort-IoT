@@ -183,53 +183,37 @@ L'avaluació de la Situació d'Aprenentatge té un caràcter formatiu, continu, 
 
 ### 4.1. Competències específiques i Taula de Ponderació Qualificativa per Criteris d'Avaluació
 
-| Competències específiques |
-|---|
-|CE1: identificar problemes tecnològics a partir de l’estudi de les necessitats presents en
-l’entorn pròxim, formular propostes per a abordar-los, i resoldre’ls de manera eficient i
-innovadora mitjançant processos de treball col·laboratiu i utilitzant estratègies pròpies del
-mètode de projectes. |
-|CE2: fabricar solucions tecnològiques utilitzant els coneixements interdisciplinaris, les
-tècniques i els recursos disponibles de manera apropiada i segura per a donar una resposta
-satisfactòria a les necessitats plantejades. |
-|CE3: expressar, difondre i interpretar idees, propostes o solucions tecnològiques de manera
-efectiva, emprant els recursos disponibles i participant en espais d’intercanvi d’informació. |
-|CE4: dissenyar i construir sistemes de control programables robòtics desenvolupant solucions
-automatitzades mitjançant la implementació d’algorismes i d’operadors tecnològics. |
-|CE5: aprofitar les possibilitats que ofereixen les eines digitals per a realitzar eficientment de
-tasques tecnològiques, configurant-les i aplicant els coneixements interdisciplinaris adequats |
-|CE6: contribuir al desenvolupament sostenible analitzant críticament l’ús d’objectes,
-materials, productes, instal·lacions i processos tecnològics, valorant-ne els impactes i les
-repercussions ambientals, socials i ètiques, i proposant alternatives realistes. |
+**CE1:** identificar problemes tecnològics a partir de l’estudi de les necessitats presents en l’entorn pròxim, formular propostes per a abordar-los, i resoldre’ls de manera eficient i
+innovadora mitjançant processos de treball col·laboratiu i utilitzant estratègies pròpies del mètode de projectes.
+
+**CE2:** fabricar solucions tecnològiques utilitzant els coneixements interdisciplinaris, les tècniques i els recursos disponibles de manera apropiada i segura per a donar una resposta
+satisfactòria a les necessitats plantejades. 
+
+**CE3:** expressar, difondre i interpretar idees, propostes o solucions tecnològiques de manera efectiva, emprant els recursos disponibles i participant en espais d’intercanvi d’informació.
+
+**CE4:** dissenyar i construir sistemes de control programables robòtics desenvolupant solucions automatitzades mitjançant la implementació d’algorismes i d’operadors tecnològics.
+
+**CE5:** aprofitar les possibilitats que ofereixen les eines digitals per a realitzar eficientment de tasques tecnològiques, configurant-les i aplicant els coneixements interdisciplinaris adequats
+
+**CE6:** contribuir al desenvolupament sostenible analitzant críticament l’ús d’objectes, materials, productes, instal·lacions i processos tecnològics, valorant-ne els impactes i les
+repercussions ambientals, socials i ètiques, i proposant alternatives realistes.
 
 
 La qualificació global de la SA es calcula mitjançant l'aplicació estricta dels següents percentatges sobre les evidències recollides:
 
 | Criteri | Descripció | Percentatge |
 |---|---|---|
-| 1.4 | Identificar problemes tecnològics de l'entorn | 2% |
-
-| Criteri | Descripció | Percentatge |
-|---|---|---|
+| 1.4 | Gestionar el desenvolupament d'un projecte | 2% |
 | 2.1 | Fabricar productes tecnològics amb eines digitals i tècniques adients | 2% |
 | 2.2 | Seleccionar materials i recursos electrònics adequats | 3% |
 | 2.3 | Desenvolupar destreses en tècniques de fabricació manual i digital | 2% |
-
-| Criteri | Descripció | Percentatge |
-|---|---|---|
 | 3.1 | Comunicar informació amb vocabulari i esquemes tècnics | 5% |
 | 3.3 | Presentar i difondre propostes tecnològiques efectivament | 4% |
-
-| Criteri | Descripció | Percentatge |
-|---|---|---|
 | 4.1 | Dissenyar sistemes automàtics que resolguen problemes autònomament | 12% |
 | 4.2 | Construir sistemes automàtics programables | 12% |
 | 4.3 | Programar per blocs o amb codi l'algoritme de control | 32% |
 | 4.4 | Controlar i/o simular sistemes automàtics | 16% |
 | 4.5 |  Integrar IoT, big data i IA amb sentit crític | 5% |
-
-| Criteri | Descripció | Percentatge |
-|---|---|---|
 | 5.1 | Configurar aplicacions i eines digitals | 2% |
 | 5.2 | Fer tasques tecnològiques eficientment amb eines digitals | 3% |
 
