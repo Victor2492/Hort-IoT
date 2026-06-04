@@ -214,7 +214,6 @@ La qualificació global de la SA es calcula mitjançant l'aplicació dels següe
 | 5.1 | Configurar aplicacions i eines digitals | 2% |
 | 5.2 | Fer tasques tecnològiques eficientment amb eines digitals | 3% |
 
-
 ---
 
 ### 4.2. Rúbrica de nivells de desenvolupament per criteri
@@ -237,5 +236,6 @@ La qualificació global de la SA es calcula mitjançant l'aplicació dels següe
 
 ---
 
-### 4.3. Criteris de la rúbrica associats per evidències
+
+
 
