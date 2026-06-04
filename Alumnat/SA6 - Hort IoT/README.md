@@ -345,11 +345,6 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 * **Explicació Teòrica:** Per a mesurar l'estat de la terra utilitzarem un sensor d'humitat de sòl virtual. Aquest element mesura la resistivitat elèctrica de l'entorn. Mitjançant el bloc verd de matemàtiques **`map` (mapejar)**, transformarem les lectures directes de l'ADC analògic cap a una escala lògica percentual que resulti entenedora per al productor de l'hort (on 0% representa aire sec total i 100% equival a saturació total d'aigua en un vas).
 * **Enunciat de l'activitat (Pràctica 6 - Oficial):** Connecta un sensor d'humitat de sòl virtual (`Soil Moisture Sensor`) de la biblioteca de components a l'entrada analògica A3 d'Arduino. Acobla un LED Verd al pin digital D7 (simulador de bomba) i un LED Roig d'alerta hídrica al pin digital D8. Programa en blocs l'etapa inicial de mapat de dades i implementa l'algorisme complet de control per histèresi descrit en la secció teòrica prèvia sobre el LED Verd (D7). Incorpora la següent mesura d'emergència: si el valor percentual d'humitat de la terra cau per davall d'un llindar de perill extrem de **20%**, el LED Roig (D8) ha d'executar un parpelleig d'alta velocitat (200ms encès / 200ms apagat) per alertar visualment de risc imminent de pèrdua de la plantació per sequera. Transmet les dades amb l'estructura de text: `Humitat: XX% | Reg: ACTIU/ATURAT`. Guarda el projecte com `Hort_NomCognom_P6`.
 
-<p align="center">
-<img src="imatges/practica6.png" alt="Esquema" width="600" height="620">
-</p>
-
-
 * **Crea la taula de Components:**
 
 
@@ -369,11 +364,6 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     * De **21 a 40 km/h** $\rightarrow$ Vent moderat (presència de vent de Garbí o de Llevant).
     * **Superior a 40 km/h** $\rightarrow$ Vent de caràcter fort. Activa un bloqueig total immediat per seguretat.
 * **Enunciat de l'activitat (Pràctica 7 - Oficial - Parelles):** Amplia el teu circuit acoblant un potenciòmetre calibrat que representarà l'anemòmetre a l'entrada analògica A4, i col·loca un LED Groc d'avís de vent fort en una eixida digital lliure. Programa un algorisme amb operadors lògics matemàtics per a realitzar la conversió de dades i classificar els estats imprimint per terminal el text exactament configurat com: `Vent: XX.X km/h | Força: BRISA`. Si la velocitat real mesurada de manera contínua supera el llindar crític establit en els **30 km/h**, s'ha d'encendre immediatament el LED Groc de l'eixida i executar una ordre prioritària que apague per complet el canal del reg automàtic (LED Verd), independentment de les peticions o percentatges actuals d'humitat del sòl de l'hort. Guarda el fitxer cooperatiu com `Hort_NomsCognoms_P7`.
-
-<p align="center">
-<img src="imatges/practica7.png" alt="Esquema" width="600" height="700">
-</p>
-
 
 * **Crea la taula de Components:**
 
