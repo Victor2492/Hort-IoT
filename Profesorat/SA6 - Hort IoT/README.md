@@ -181,28 +181,62 @@ A continuació, es desplega la seqüència didàctica formalitzada a partir de l
 
 L'avaluació de la Situació d'Aprenentatge té un caràcter formatiu, continu, competencial i diversificat, d'acord amb les directrius de la LOMLOE i la Conselleria d'Educació de la GVA.
 
-### 4.1. Taula de Ponderació Qualificativa Final
+### 4.1. Competències específiques i Taula de Ponderació Qualificativa per Criteris d'Avaluació
+
+| Competències específiques |
+|---|
+|CE1: identificar problemes tecnològics a partir de l’estudi de les necessitats presents en
+l’entorn pròxim, formular propostes per a abordar-los, i resoldre’ls de manera eficient i
+innovadora mitjançant processos de treball col·laboratiu i utilitzant estratègies pròpies del
+mètode de projectes. |
+|CE2: fabricar solucions tecnològiques utilitzant els coneixements interdisciplinaris, les
+tècniques i els recursos disponibles de manera apropiada i segura per a donar una resposta
+satisfactòria a les necessitats plantejades. |
+|CE3: expressar, difondre i interpretar idees, propostes o solucions tecnològiques de manera
+efectiva, emprant els recursos disponibles i participant en espais d’intercanvi d’informació. |
+|CE4: dissenyar i construir sistemes de control programables robòtics desenvolupant solucions
+automatitzades mitjançant la implementació d’algorismes i d’operadors tecnològics. |
+|CE5: aprofitar les possibilitats que ofereixen les eines digitals per a realitzar eficientment de
+tasques tecnològiques, configurant-les i aplicant els coneixements interdisciplinaris adequats |
+|CE6: contribuir al desenvolupament sostenible analitzant críticament l’ús d’objectes,
+materials, productes, instal·lacions i processos tecnològics, valorant-ne els impactes i les
+repercussions ambientals, socials i ètiques, i proposant alternatives realistes. |
+
+
 La qualificació global de la SA es calcula mitjançant l'aplicació estricta dels següents percentatges sobre les evidències recollides:
 
-| Criteri | Percentatge |
-|---|---|
-| 4.1 | 15% |
-| 4.2 | 15% |
-| 4.3 | 40% |
-| 4.4 | 20% |
-| 4.5 | 10% |
+| Criteri | Descripció | Percentatge |
+|---|---|---|
+| 1.4 | Identificar problemes tecnològics de l'entorn | 2% |
+
+| Criteri | Descripció | Percentatge |
+|---|---|---|
+| 2.1 | Fabricar productes tecnològics amb eines digitals i tècniques adients | 2% |
+| 2.2 | Seleccionar materials i recursos electrònics adequats | 3% |
+| 2.3 | Desenvolupar destreses en tècniques de fabricació manual i digital | 2% |
+
+| Criteri | Descripció | Percentatge |
+|---|---|---|
+| 3.1 | Comunicar informació amb vocabulari i esquemes tècnics | 5% |
+| 3.3 | Presentar i difondre propostes tecnològiques efectivament | 4% |
+
+| Criteri | Descripció | Percentatge |
+|---|---|---|
+| 4.1 | Dissenyar sistemes automàtics que resolguen problemes autònomament | 12% |
+| 4.2 | Construir sistemes automàtics programables | 12% |
+| 4.3 | Programar per blocs o amb codi l'algoritme de control | 32% |
+| 4.4 | Controlar i/o simular sistemes automàtics | 16% |
+| 4.5 |  Integrar IoT, big data i IA amb sentit crític | 5% |
+
+| Criteri | Descripció | Percentatge |
+|---|---|---|
+| 5.1 | Configurar aplicacions i eines digitals | 2% |
+| 5.2 | Fer tasques tecnològiques eficientment amb eines digitals | 3% |
+
 
 ---
 
 ### 4.2. Rúbriques per a l'Avaluació de Pràctiques (TinkerCAD)
-
-| Criteri | Descriptor | Nivell 4 · Excel·lent (9–10) | Nivell 3 · Assolit (6–8) | Nivell 2 · En procés (4–5) | Nivell 1 · Insuficient (1–3) | Nivell 0 · No presentat (0) |
-|---|---|---|---|---|---|---|
-| **4.3 Programació per blocs** | Programar per blocs l'algoritme de control que permet interactuar amb l'entorn | El codi és funcional, net i ben estructurat. Usa les estructures òptimes per a cada situació. Nomenclatura clarament descriptiva i comentaris explicatius en tots els blocs. | El codi funciona correctament i cobreix els requisits de la pràctica. S'usen les estructures adequades. La nomenclatura és descriptiva i hi ha alguns comentaris. | El codi s'executa amb errors menors. Les estructures bàsiques (`on start`, `forever`, `wait`) estan presents però mal aplicades. Nomenclatura poc descriptiva. | El codi és incomplet o no s'executa. Les estructures `on start` / `forever` no s'usen correctament. No hi ha comentaris ni noms descriptius. | Treball no presentat. |
-| **4.4 Simulació i control** | Controlar i/o simular sistemes automàtics amb TinkerCAD | La simulació és totalment funcional i s'han fet proves amb valors extrems i casos límit. El comportament és robust i el monitor sèrie mostra informació clara i completa. | La simulació funciona correctament. El sistema respon als inputs (sensors, polsadors) i produeix els outputs esperats (LEDs, monitor sèrie). | La simulació s'inicia però el comportament és incorrecte o parcialment inesperat. Alguns components funcionen, d'altres no. | La simulació no s'inicia o es produeixen errors greus. El circuit no respon als inputs simulats. | Treball no presentat. |
-| **4.1 Disseny del sistema** | Dissenyar sistemes automàtics que resolguen problemes de manera autònoma | El disseny és precís, net i optimitzat. El cablejat és exemplar (colors correctes, traçat ordenat). S'aprecien decisions de disseny justificades (p.ex. elecció de pins, organització de la protoboard). | El disseny és correcte i cobreix tots els requisits. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El circuit és net i ordenat. | El disseny cobreix parcialment els requisits. Hi ha errors de connexió que limiten el funcionament. El cablejat és desordenat o no segueix les convencions de color. | El circuit no s'ajusta al disseny demanat. Falten components essencials o la connexió és incorrecta en la major part del circuit. | Treball no presentat. |
-| **4.2 Construcció del sistema automàtic** | Construir sistemes automàtics programables capaços de fer tasques de manera autònoma, aplicant coneixements d'electrònica i components de control | El circuit és complet, funcional i net. Els components estan ben triats i connectats correctament. El cablejat és exemplar (colors estàndard, traçat ordenat). El sistema opera de forma autònoma i robusta. | El circuit és correcte i funcional. Els components necessaris estan presents i ben connectats. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El sistema opera de manera autònoma. | El circuit és parcialment funcional. Alguns components estan mal connectats o falta algun element. El cablejat és desordenat o no respecta les convencions de color. | El circuit no funciona o té errors greus de connexió. Falten components essencials. No s'han aplicat les convencions de muntatge treballades a classe. | Treball no presentat. |
-| **4.5 Integració IoT i tecnologies emergents** | Integrar IoT, big data i tecnologies emergents amb sentit crític i ètic | L'alumnat fa una reflexió aprofundida: relaciona la pràctica amb la utilitat real de les dades (predicció del fruit, gestió de l'aigua), valora limitacions del sistema i proposa millores. | L'alumnat respon correctament les preguntes de reflexió i relaciona la pràctica amb el sistema IoT complet (sensors → Arduino → servidor → dashboard). | L'alumnat identifica superficialment la relació entre la pràctica i el sistema de l'hort, però la reflexió és escassa o poc precisa. | L'alumnat no relaciona la pràctica amb el context IoT del projecte ni reflexiona sobre les dades recollides. | Treball no presentat. |
 
 | Criteri | Descriptor | Nivell 4 · Excel·lent (9–10) | Nivell 3 · Assolit (6–8) | Nivell 2 · En procés (4–5) | Nivell 1 · Insuficient (1–3) | Nivell 0 · No presentat (0) |
 |---|---|---|---|---|---|---|
@@ -213,6 +247,14 @@ La qualificació global de la SA es calcula mitjançant l'aplicació estricta de
 | **2.1 Fabricació amb eines digitals** | Fabricar solucions tecnològiques aplicant eines de disseny assistit i recursos electrònics i digitals adients | L'alumnat utilitza TinkerCAD amb destresa per construir el circuit i programar el sistema. El producte final és completament funcional, respon a la necessitat plantejada i va més enllà dels requisits mínims. | L'alumnat utilitza TinkerCAD correctament per construir el circuit i programar el sistema. El producte final és funcional i respon a la necessitat plantejada. | L'alumnat utilitza TinkerCAD amb errors puntuals. El circuit o el codi presenten limitacions que redueixen la funcionalitat del sistema, però la solució és parcialment vàlida. | L'alumnat presenta dificultats importants en l'ús de TinkerCAD. El circuit o el codi no funcionen o no responen a la necessitat plantejada. | Treball no presentat. |
 | **2.2 Selecció de components** | Seleccionar els materials i recursos electrònics i digitals adequats per crear solucions tecnològiques | L'alumnat selecciona i justifica cada component (sensors, resistències, LEDs, pins) de forma precisa i raonada, aplicant correctament la Llei d'Ohm i les especificacions tècniques dels components. | L'alumnat selecciona els components adequats per a la pràctica i aplica correctament els valors de resistència i la configuració de pins. Hi ha algun error menor sense impacte en el funcionament. | L'alumnat selecciona la majoria de components correctament però comet errors en els valors (p.ex. resistència inadequada) o en la configuració de pins que afecten parcialment el funcionament. | L'alumnat selecciona components incorrectes o inadequats per a la pràctica. Els errors en la selecció impedeixen el funcionament correcte del sistema. | Treball no presentat. |
 | **2.3 Destreses de fabricació** | Desenvolupar les destreses necessàries per construir solucions tecnològiques amb tècniques de fabricació digital | L'alumnat munta el circuit amb total precisió: cablejat net amb colors estàndard (vermell = 5V, negre = GND), components ben posicionats a la protoboard i traçat ordenat. El resultat és exemplar i reproduïble. | L'alumnat munta el circuit correctament seguint les convencions de color i posicionant bé els components. El cablejat és net i ordenat. Algun detall menor no afecta el funcionament. | L'alumnat munta el circuit amb errors puntuals de connexió o de cablejat (colors no estàndard, components mal posicionats) que requereixen correccions per al funcionament complet. | El muntatge presenta errors greus: connexions incorrectes, absència de convencions de color o components mal posicionats que impedeixen el funcionament del circuit. | Treball no presentat. |
+
+| Criteri | Descriptor | Nivell 4 · Excel·lent (9–10) | Nivell 3 · Assolit (6–8) | Nivell 2 · En procés (4–5) | Nivell 1 · Insuficient (1–3) | Nivell 0 · No presentat (0) |
+|---|---|---|---|---|---|---|
+| **4.3 Programació per blocs** | Programar per blocs l'algoritme de control que permet interactuar amb l'entorn | El codi és funcional, net i ben estructurat. Usa les estructures òptimes per a cada situació. Nomenclatura clarament descriptiva i comentaris explicatius en tots els blocs. | El codi funciona correctament i cobreix els requisits de la pràctica. S'usen les estructures adequades. La nomenclatura és descriptiva i hi ha alguns comentaris. | El codi s'executa amb errors menors. Les estructures bàsiques (`on start`, `forever`, `wait`) estan presents però mal aplicades. Nomenclatura poc descriptiva. | El codi és incomplet o no s'executa. Les estructures `on start` / `forever` no s'usen correctament. No hi ha comentaris ni noms descriptius. | Treball no presentat. |
+| **4.4 Simulació i control** | Controlar i/o simular sistemes automàtics amb TinkerCAD | La simulació és totalment funcional i s'han fet proves amb valors extrems i casos límit. El comportament és robust i el monitor sèrie mostra informació clara i completa. | La simulació funciona correctament. El sistema respon als inputs (sensors, polsadors) i produeix els outputs esperats (LEDs, monitor sèrie). | La simulació s'inicia però el comportament és incorrecte o parcialment inesperat. Alguns components funcionen, d'altres no. | La simulació no s'inicia o es produeixen errors greus. El circuit no respon als inputs simulats. | Treball no presentat. |
+| **4.1 Disseny del sistema** | Dissenyar sistemes automàtics que resolguen problemes de manera autònoma | El disseny és precís, net i optimitzat. El cablejat és exemplar (colors correctes, traçat ordenat). S'aprecien decisions de disseny justificades (p.ex. elecció de pins, organització de la protoboard). | El disseny és correcte i cobreix tots els requisits. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El circuit és net i ordenat. | El disseny cobreix parcialment els requisits. Hi ha errors de connexió que limiten el funcionament. El cablejat és desordenat o no segueix les convencions de color. | El circuit no s'ajusta al disseny demanat. Falten components essencials o la connexió és incorrecta en la major part del circuit. | Treball no presentat. |
+| **4.2 Construcció del sistema automàtic** | Construir sistemes automàtics programables capaços de fer tasques de manera autònoma, aplicant coneixements d'electrònica i components de control | El circuit és complet, funcional i net. Els components estan ben triats i connectats correctament. El cablejat és exemplar (colors estàndard, traçat ordenat). El sistema opera de forma autònoma i robusta. | El circuit és correcte i funcional. Els components necessaris estan presents i ben connectats. El cablejat segueix les convencions de color (vermell = 5V, negre = GND). El sistema opera de manera autònoma. | El circuit és parcialment funcional. Alguns components estan mal connectats o falta algun element. El cablejat és desordenat o no respecta les convencions de color. | El circuit no funciona o té errors greus de connexió. Falten components essencials. No s'han aplicat les convencions de muntatge treballades a classe. | Treball no presentat. |
+| **4.5 Integració IoT i tecnologies emergents** | Integrar IoT, big data i tecnologies emergents amb sentit crític i ètic | L'alumnat fa una reflexió aprofundida: relaciona la pràctica amb la utilitat real de les dades (predicció del fruit, gestió de l'aigua), valora limitacions del sistema i proposa millores. | L'alumnat respon correctament les preguntes de reflexió i relaciona la pràctica amb el sistema IoT complet (sensors → Arduino → servidor → dashboard). | L'alumnat identifica superficialment la relació entre la pràctica i el sistema de l'hort, però la reflexió és escassa o poc precisa. | L'alumnat no relaciona la pràctica amb el context IoT del projecte ni reflexiona sobre les dades recollides. | Treball no presentat. |
 
 | Criteri | Descriptor | Nivell 4 · Excel·lent (9–10) | Nivell 3 · Assolit (6–8) | Nivell 2 · En procés (4–5) | Nivell 1 · Insuficient (1–3) | Nivell 0 · No presentat (0) |
 |---|---|---|---|---|---|---|
