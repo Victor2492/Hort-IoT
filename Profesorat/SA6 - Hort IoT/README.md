@@ -196,8 +196,6 @@ satisfactòria a les necessitats plantejades.
 **CE5:** Aprofitar les possibilitats que ofereixen les eines digitals per a realitzar eficientment de tasques tecnològiques, configurant-les i aplicant els coneixements interdisciplinaris adequats.
 
 
-La qualificació global de la SA es calcula mitjançant l'aplicació dels següents percentatges sobre les evidències recollides:
-
 | Criteri | Descripció | Percentatge |
 |---|---|---|
 | 1.4 | Gestionar el desenvolupament d'un projecte | 2% |
