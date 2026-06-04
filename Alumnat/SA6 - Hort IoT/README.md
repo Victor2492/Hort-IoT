@@ -359,22 +359,18 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
 #### S16: Anemòmetre i Escala de Beaufort
 * **Explicació Teòrica:** El vent és un altre factor crític que afecta directament la distribució de l'aigua en els aspersors d'un camp agrícola. Un vent de caràcter fort desvia les gotes en reg per aspersor i evapora l'aigua, provocant un desbaratament inútil del recurs. Els anemòmetres són els sensors encarregats de mesurar la velocitat del vent. Al nostre laboratori virtual en TinkerCAD, simularem un anemòmetre calibrat emprant un potenciòmetre analògic adaptat mitjançant una relació d'escala directa programada sobre el codi.
     Aquesta fórmula ens permet obtenir una escala d'assaig precisa de 0 a 70 km/h. Aplicarem un model basat en la classificació internacional de l'**Escala de Beaufort** per coordinar les interrupcions dels regadors per ràfegues:
-    * De **0 a 5 km/h** $\rightarrow$ Calma total / Vent inapreciable.
-    * De **6 a 20 km/h** $\rightarrow$ Brisa marina normal típica de la costa de la Safor.
-    * De **21 a 40 km/h** $\rightarrow$ Vent moderat (presència de vent de Garbí o de Llevant).
-    * **Superior a 40 km/h** $\rightarrow$ Vent de caràcter fort. Activa un bloqueig total immediat per seguretat.
 
-| Grau | Denominació |	km/h |
-|---|---|---|
-| 0 | Calma | 0 – 5 |
-| 1 | Brisa marina | 6 – 20 |
-| 4 | Garbí | 21 – 29 |
-| 5 | Garbí fort | 30 – 39 |
-| 6 | Garbí molt fort |	40 – 50 |
-| 7 | Temporal| 51 – 61 |
+    | Grau | Denominació |	km/h |
+    |---|---|---|
+    | 0 | Calma | 0 – 5 |
+    | 1 | Brisa marina | 6 – 20 |
+    | 4 | Garbí | 21 – 29 |
+    | 5 | Garbí fort | 30 – 39 |
+    | 6 | Garbí molt fort |	40 – 50 |
+    | 7 | Temporal| 51 – 70 |
 
 
-* **Enunciat de l'activitat (Pràctica 7 - Oficial - Parelles):** Amplia el teu circuit de la pràctica 6 acoblant un potenciòmetre calibrat que representarà l'anemòmetre, i col·loca un LED Groc d'avís de vent fort. Programa un algorisme amb operadors lògics matemàtics per a realitzar la conversió de dades i classificar els estats imprimint per terminal el text exactament configurat com: `Vent: XX.X km/h | Força: BRISA`. Si la velocitat del vent mesurada de manera contínua supera el llindar crític establert en 6 segons l'escala de Beaufort, s'ha d'encendre immediatament el LED Groc i executar una ordre prioritària que apague per complet el canal del reg automàtic (LED Verd), independentment de les peticions o percentatges actuals d'humitat del sòl de l'hort. Guarda el fitxer cooperatiu com `Hort_NomsCognoms_P7`.
+* **Enunciat de l'activitat (Pràctica 7 - Oficial - Parelles):** Amplia el teu circuit de la pràctica 6 acoblant un potenciòmetre calibrat que representarà l'anemòmetre, i col·loca un LED Groc d'avís de vent fort. Programa un algorisme amb operadors lògics matemàtics per a realitzar la conversió de dades i classificar els estats imprimint per terminal el text exactament configurat com: `Vent: XX.X km/h | Força: BRISA`. Si la velocitat del vent mesurada de manera contínua supera el Garbí, s'ha d'encendre immediatament el LED Groc i executar una ordre prioritària que apague per complet el canal del reg automàtic (LED Verd), independentment de les peticions o percentatges actuals d'humitat del sòl de l'hort. Guarda el fitxer cooperatiu com `Hort_NomsCognoms_P7`.
 
 * **Crea la taula de Components:**
 
