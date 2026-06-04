@@ -370,7 +370,7 @@ Aquest miniordinador comptarà amb una **base de dades** on es guardarà tot l'h
     | 7 | Temporal| 51 – 70 |
 
 
-* **Enunciat de l'activitat (Pràctica 7 - Oficial - Parelles):** Amplia el teu circuit de la pràctica 6 acoblant un potenciòmetre calibrat que representarà l'anemòmetre, i col·loca un LED Groc d'avís de vent fort. Programa un algorisme amb operadors lògics matemàtics per a realitzar la conversió de dades i classificar els estats imprimint per terminal el text exactament configurat com: `Vent: XX.X km/h | Força: BRISA`. Si la velocitat del vent mesurada de manera contínua supera el Garbí, s'ha d'encendre immediatament el LED Groc i executar una ordre prioritària que apague per complet el canal del reg automàtic (LED Verd), independentment de les peticions o percentatges actuals d'humitat del sòl de l'hort. Guarda el fitxer cooperatiu com `Hort_NomsCognoms_P7`.
+* **Enunciat de l'activitat (Pràctica 7 - Oficial - Parelles):** Amplia el teu circuit de la pràctica 6 acoblant un potenciòmetre calibrat que representarà l'anemòmetre, i col·loca un LED Groc d'avís de vent fort. Programa un algorisme amb operadors lògics matemàtics per a realitzar la conversió de dades i classificar els estats imprimint per terminal el text exactament configurat com: `Vent: XX.X km/h | Força: BRISA`. Si la velocitat del vent mesurada de manera contínua supera el Garbí molt fort, s'ha d'encendre immediatament el LED Groc i executar una ordre prioritària que apague per complet el canal del reg automàtic (LED Verd), independentment de les peticions o percentatges actuals d'humitat del sòl de l'hort. Guarda el fitxer cooperatiu com `Hort_NomsCognoms_P7`.
 
 * **Crea la taula de Components:**
 
