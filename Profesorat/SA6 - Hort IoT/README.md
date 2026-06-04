@@ -214,6 +214,7 @@ La qualificació global de la SA es calcula mitjançant l'aplicació dels següe
 | 5.1 | Configurar aplicacions i eines digitals | 2% |
 | 5.2 | Fer tasques tecnològiques eficientment amb eines digitals | 3% |
 
+
 ---
 
 ### 4.2. Rúbrica de nivells de desenvolupament per criteri
@@ -235,6 +236,22 @@ La qualificació global de la SA es calcula mitjançant l'aplicació dels següe
 | **5.2 Eficiència amb eines digitals** | Fer tasques tecnològiques de manera eficient mitjançant l'ús d'eines digitals, aplicant coneixements interdisciplinaris amb autonomia | L'alumnat treballa amb total autonomia i eficiència: aprofita la simulació per detectar i corregir errors abans de finalitzar, gestiona bé el temps i aplica coneixements d'altres àrees (matemàtiques, física) de forma integrada i fluida. | L'alumnat treballa amb autonomia i eficiència raonables. Usa la simulació per verificar el funcionament i aplica coneixements interdisciplinaris (Llei d'Ohm, senyals analògics/digitals) de forma correcta. | L'alumnat usa TinkerCAD però de forma poc eficient: no aprofita la simulació per depurar errors, necessita suport freqüent o aplica els coneixements interdisciplinaris amb errors. | L'alumnat no treballa de forma eficient ni autònoma amb TinkerCAD. Depèn constantment de l'ajuda del docent i no aplica els coneixements interdisciplinaris necessaris. | Treball no presentat. |
 
 ---
+
+### 4.3. Criteris de la rúbrica associats als instruments
+
+| Instruments | Criteris |
+|---|---|
+|Pràctica 1
+Pràctica 2
+Pràctica 3
+Pràctica 4
+Pràctica 5| **4.1**, **4.2**,**4.3**,**4.4**,**4.5**,**5.1**,**5.2**|
+|Pràctica 6
+Pràctica 7
+Pràctica 8| **1.4**, **2.1**, **2.2**, **2.3**, **4.1**, **4.2**,**4.3**,**4.4**,**4.5**,**5.1**,**5.2**|
+|-Observació diaria a classe
+- Presentacions finals| **3.1**, **3.3**|
+
 
 
 
