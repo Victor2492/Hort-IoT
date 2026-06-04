@@ -241,16 +241,9 @@ La qualificació global de la SA es calcula mitjançant l'aplicació dels següe
 
 | Instruments | Criteris |
 |---|---|
-|Pràctica 1
-Pràctica 2
-Pràctica 3
-Pràctica 4
-Pràctica 5| **4.1**, **4.2**,**4.3**,**4.4**,**4.5**,**5.1**,**5.2**|
-|Pràctica 6
-Pràctica 7
-Pràctica 8| **1.4**, **2.1**, **2.2**, **2.3**, **4.1**, **4.2**,**4.3**,**4.4**,**4.5**,**5.1**,**5.2**|
-|-Observació diaria a classe
-- Presentacions finals| **3.1**, **3.3**|
+|Pràctica 1, Pràctica 2, Pràctica 3, Pràctica 4, Pràctica 5| **4.1**, **4.2**, **4.3**, **4.4**, **4.5**, **5.1**, **5.2**|
+|Pràctica 6, Pràctica 7, Pràctica 8| **1.4**, **2.1**, **2.2**, **2.3**, **4.1**, **4.2**, **4.3**, **4.4**, **4.5**, **5.1**, **5.2**|
+|Observació diaria a classe i Presentacions finals| **3.1**, **3.3**|
 
 
 
