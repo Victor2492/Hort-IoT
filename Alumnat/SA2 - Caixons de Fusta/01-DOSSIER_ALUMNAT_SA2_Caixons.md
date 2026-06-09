@@ -6,7 +6,7 @@
 ![Comunitat](https://img.shields.io/badge/CV-LOMLOE-5D4037?style=flat-square)
 ![Llengua](https://img.shields.io/badge/Llengua-Valencian%C3%A0-CE3A2C?style=flat-square)
 
-> **Situació d'Aprenentatge:** *Hort Escolar Tecnològic*
+> **Situació d'Aprenentatge:** *Caixons de fusta reciclada*
 > Construirem caixons de cultiu amb fusta reciclada, preparats per a sensors IoT i reg automatitzat.
 
 ---
