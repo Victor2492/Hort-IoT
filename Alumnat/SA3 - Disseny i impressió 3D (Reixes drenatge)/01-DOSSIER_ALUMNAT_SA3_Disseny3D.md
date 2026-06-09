@@ -323,7 +323,7 @@ Abans d'exportar, comprova:
 Exportació:
 1. Botó "Export" (taronja, dalt a la dreta)
 2. Selecciona ".STL"
-3. Desa com: Reixa_4BESO_Grup1.stl
+3. Guarda com: Reixa_4BESO_Grup1.stl
 4. Entrega al/a la docent via Classroom / email
 ```
 
@@ -414,10 +414,10 @@ Protocol d'enviament:
 
 | Problema | Símptoma | Solució |
 |---------|----------|---------|
-| **Warping** | Els cantons s'aixequen del llit | Augmentar temperatura llit +5°C. Activar Brim. |
+| **Warping** | Els cantons s'alcen del llit | Augmentar temperatura llit +5°C. Activar Brim. |
 | **Stringing** | Fils de plàstic entre forats | Augmentar retracció a Cura (+0,5 mm) |
 | **Capa no adherida** | Buit entre capes | Netejar broqueta. Revisar temperatura. |
-| **Bloqueig (clog)** | Impressora para, no surt filament | Atura. Avisa al/a la docent. |
+| **Bloqueig (clog)** | Impressora para, no ix filament | Atura. Avisa al/a la docent. |
 
 #### 7.3 Post-processament
 
@@ -463,8 +463,8 @@ Instal·la la reixa al caixó de la SA2 i verifica:
 Problema detectat → Identificar causa → Actualitzar model TinkerCAD → Reimprimir
 
 Exemples comuns:
-  Connector no encaixa → Augmentar tolerància a 0,3 mm → Reimprimir connector
-  Forats massa petits   → Augmentar Ø a 11 mm → Reimprimir mòdul
+  Connector no encaixa  → Augmentar tolerància a 0,3 mm → Reimprimir connector
+  Forats massa menuts   → Augmentar Ø a 11 mm → Reimprimir mòdul
   Base es dobla         → Augmentar gruix a 5 mm → Reimprimir
 ```
 
@@ -489,7 +489,7 @@ Exemples comuns:
 │  Àrea de drenatge:    ≥ 42% de la superfície               │
 │  Paret mínima:        2 mm entre forats                     │
 │                                                             │
-│  Tab connector:       5 × 3 × 2 mm (sòlid)                │
+│  Tap connector:       5 × 3 × 2 mm (sòlid)                │
 │  Ranura connector:    5,2 × 3 × 2,2 mm (tolerància +0,2)  │
 │  Canal sensor:        3,5 × 90 × 4 mm (ranura lateral)    │
 └─────────────────────────────────────────────────────────────┘
