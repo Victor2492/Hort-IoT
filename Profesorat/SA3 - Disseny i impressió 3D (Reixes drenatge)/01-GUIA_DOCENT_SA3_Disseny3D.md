@@ -93,10 +93,10 @@ Projecte tecnològic           →  Disseny → prototip → prova → iteració
 ### Visió general per blocs
 
 ```
-BLOC 1 (S1–S3):   Introducció, anàlisi i disseny a mà    ← Oct/Nov
-BLOC 2 (S4–S8):   Disseny 3D amb TinkerCAD              ← Nov/Des
-BLOC 3 (S9–S11):  Laminat i impressió                   ← Gen
-BLOC 4 (S12–S14): Validació, iteració i avaluació       ← Feb
+BLOC 1 (S1–S3):   Introducció, anàlisi i disseny a mà   
+BLOC 2 (S4–S8):   Disseny 3D amb TinkerCAD              
+BLOC 3 (S9–S11):  Laminat i impressió                   
+BLOC 4 (S12–S14): Validació, iteració i avaluació       
 ```
 
 ### Taula de sessions detallada
