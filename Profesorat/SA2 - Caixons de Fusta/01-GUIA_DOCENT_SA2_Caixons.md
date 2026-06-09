@@ -441,8 +441,7 @@ Alternativa C: Rols alternatius: documentació fotogràfica de la resta de grups
 SA2-Caixons/
 ├── DOSSIER_ALUMNAT_SA2_Caixons.md     ← Dossier de l'alumnat (aquest repositori)
 ├── GUIA_DOCENT_SA2_Caixons.md         ← Aquesta guia
-├── SA_Hort_Caixons_Fusta_Reciclada.docx   ← SA completa (35 sessions)
-├── SA_Condensada_12Sessions.docx          ← SA condensada (12 sessions)
+├── Dossier de planificació docent.docx    ← SA Caixons de fusta reciclada (12 sessions)
 ├── Fitxa_Tecnica_Construccio_Caix.docx    ← Fitxa tècnica per a l'alumnat
 ├── Hort_Caixons_Presentacio.pptx          ← PowerPoint de classe
 ├── Infografia_Tecnica_Caixo_Hort.html     ← Infografia imprimible A3
@@ -458,13 +457,6 @@ SA2-Caixons/
 | Economia circular (vídeo) | youtube.com – Ellen MacArthur | Alumnat |
 | Guia compostatge domèstic | residus.cat | Alumnat + Biologia |
 | Wallapop "Regale" | wallapop.com | Docent (aprovisionament) |
-
-### Historial de versions
-
-| Versió | Data | Canvis |
-|--------|------|--------|
-| 1.0 | Set. 2024 | Versió inicial (35 sessions) |
-| 2.0 | Oct. 2024 | Versió condensada (12 sessions). Afegida SA2 i SA3. |
 
 ---
 
