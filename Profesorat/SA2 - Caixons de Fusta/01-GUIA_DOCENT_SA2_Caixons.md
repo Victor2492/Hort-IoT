@@ -35,10 +35,10 @@
 | **Assignatura** | Tecnologia — 4t ESO |
 | **Marc normatiu** | Decret 107/2022, DOGV 5/8/2022 (LOMLOE, CV) |
 | **Nre. de sessions** | 12 sessions × 55 min |
-| **Temporalització** | 1r–2n trimestre (flexible) |
+| **Temporalització** | 1r trimestre |
 | **Agrupament** | Grups de 3–4 alumnes (1 caixó per grup) |
 | **Espai** | Aula de Tecnologia / Taller |
-| **SA relacionades** | SA3 (Reixes 3D) · SA4 (Automatització Arduino) |
+| **SA relacionades** | SA3 (Reixes 3D) · SA5 i SA6 (Automatització Arduino) |
 | **Cost aproximat** | 19–22 € per caixó (fusta gratuïta) |
 
 ### Producte final esperat
