@@ -35,10 +35,10 @@
 | **Assignatura** | Tecnologia — 4t ESO |
 | **Marc normatiu** | Decret 107/2022, DOGV 5/8/2022 (LOMLOE, CV) |
 | **Nre. de sessions** | 14 sessions × 55 min |
-| **Temporalització** | 2n trimestre (flexible, paral·lel a SA4) |
+| **Temporalització** | 1r trimestre  |
 | **Agrupament** | Individual per al disseny CAD · Parelles per al laminat · Grup per a la validació |
 | **Espai** | Aula d'informàtica + Taller (impressores) |
-| **SA relacionades** | SA2 (Caixons de fusta) · SA4 (Automatització Arduino) |
+| **SA relacionades** | SA2 (Caixons de fusta) · SA5 i SA6 (Automatització Arduino) |
 | **Cost aproximat** | 5–6 € per caixó complet (4 mòduls de PLA) |
 | **Prerequisit** | SA2 completada (caixons construïts amb passacables) |
 
