@@ -529,7 +529,7 @@ Repte D: Sostenibilitat
 
 | Problema | Causa més probable | Solució |
 |---------|-------------------|---------|
-| **Warping** (cantons s'aixequen) | Temperatura llit massa baixa | Augmentar llit +5°C. Activar Brim a Cura. Netejar llit amb IPA. |
+| **Warping** (cantons s'alcen) | Temperatura llit massa baixa | Augmentar llit +5°C. Activar Brim a Cura. Netejar llit amb IPA. |
 | **Stringing** (fils entre forats) | Temperatura broqueta alta + retracció insuficient | Baixar temperatura -5°C. Augmentar retracció 0,5 mm a Cura. |
 | **Under-extrusion** (línies febles) | Broqueta parcialment obstruïda | Fer un "cold pull". Purgar 10 cm de filament. |
 | **Layer shifting** (capes desplaçades) | Corretges fluixes o velocitat massa alta | Tensar corretges. Reduir velocitat a 40 mm/s. |
@@ -541,7 +541,7 @@ Repte D: Sostenibilitat
 
 ```
 Si la impressora fa sorolls anormals o fum:
-  1. Premer el botó d'emergència (o desconnectar l'alimentació)
+  1. Prémer el botó d'emergència (o desconnectar l'alimentació)
   2. NO intentar retirar la peça calenta amb les mans
   3. Esperar 5 minuts que refredi
   4. Avisar el/la docent
@@ -605,49 +605,6 @@ SA3-Disseny3D/
     └── PLA_Reixa_0.20mm_20infill.curaprofile
 ```
 
-### Estructura recomanada del repositori GitHub del centre
-
-```
-hort-escolar-tecnologic/
-├── README.md                    ← Presentació general del projecte
-├── SA2-Caixons/
-│   ├── DOSSIER_ALUMNAT_SA2_Caixons.md
-│   ├── GUIA_DOCENT_SA2_Caixons.md
-│   └── recursos/
-├── SA3-Disseny3D/
-│   ├── DOSSIER_ALUMNAT_SA3_Disseny3D.md
-│   ├── GUIA_DOCENT_SA3_Disseny3D.md
-│   └── recursos/
-├── SA3-Automatitzacio/          ← Pendent
-│   └── ...
-└── docs/
-    └── fotos-hort/
-```
-
-### README.md recomanat per al repositori
-
-```markdown
-# 🌱 Hort Escolar Tecnològic — IES [Nom del centre]
-
-Projecte interdisciplinari de Tecnologia 4t ESO.
-Comunitat Valenciana | LOMLOE | Curs 2025-2026
-
-## Situacions d'Aprenentatge
-
-| SA | Títol | Sessions | Estat |
-|----|-------|:---:|:---:|
-| SA2 | Caixons de Fusta Reciclada | 12 | ✅ Activa |
-| SA3 | Disseny i Impressió 3D | 14 | ✅ Activa |
-| SA3 | Automatització amb Arduino | TBD | 🔄 En desenvolupament |
-
-## Connexió entre SA
-
-SA2 (caixó físic) → SA3 (reixa de drenatge 3D) → SA4 (sensors + reg automàtic)
-
-## Llicència
-CC BY-SA 4.0 — Ús lliure amb atribució per a fins educatius.
-```
-
 ### Recursos externs
 
 | Recurs | URL | Per a qui |
@@ -663,7 +620,7 @@ CC BY-SA 4.0 — Ús lliure amb atribució per a fins educatius.
 
 | Versió | Data | Canvis |
 |--------|------|--------|
-| 1.0 | Nov. 2024 | Versió inicial. 14 sessions. |
+| 1.0 | Set. 2025 | Versió inicial. 14 sessions. |
 
 ---
 
