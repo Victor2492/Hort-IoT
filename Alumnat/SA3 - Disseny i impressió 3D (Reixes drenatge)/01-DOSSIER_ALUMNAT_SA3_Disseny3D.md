@@ -721,8 +721,8 @@ Adhesió:           Skirt (3 línies)
 
 <div align="center">
 
-**🖨️ Departament de Tecnologia · IES · Comunitat Valenciana · Curs 2025-2026**
+**🖨️ Departament de Tecnologia · IES Tirant lo Blanc · Gandia · Comunitat Valenciana · Curs 2025-2026**
 
-*Situació d'Aprenentatge: Disseny i Impressió 3D – SA2*
+*Situació d'Aprenentatge: Disseny i Impressió 3D – SA3*
 
 </div>
