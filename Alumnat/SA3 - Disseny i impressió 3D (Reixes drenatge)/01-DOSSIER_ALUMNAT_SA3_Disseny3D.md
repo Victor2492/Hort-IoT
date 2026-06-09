@@ -55,9 +55,9 @@ Dissenyarem una REIXA MODULAR de drenatge impresa en 3D (PLA):
 ### Connexió entre SA
 
 ```
-SA2: Caixó de fusta  ──►  SA3: Reixa 3D  ──►  SA4: Automatització
+SA2: Caixó de fusta  ──►  SA3: Reixa 3D  ──►  SA5 i SA 6: Automatització
   (parets, base)         (drenatge precís)       (sensors, reg)
-                              ↑ AQUÍ ESTEM
+                              ↑ ACÍ ESTEM
 ```
 
 ---
