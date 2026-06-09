@@ -97,9 +97,9 @@ CA7 → Col·labora activament en el treball d'equip
 ### Visió general
 
 ```
-BLOC 1 (S1–S3):  Investigació, disseny i aprovisionament  ← Oct/Nov
-BLOC 2 (S4–S8):  Fabricació del caixó                    ← Nov/Febr
-BLOC 3 (S9–S12): Integració, compost i avaluació          ← Febr/Mar
+BLOC 1 (S1–S3):  Investigació, disseny i aprovisionament  
+BLOC 2 (S4–S8):  Fabricació del caixó                   
+BLOC 3 (S9–S12): Integració, compost i avaluació        
 ```
 
 ### Taula de sessions detallada
