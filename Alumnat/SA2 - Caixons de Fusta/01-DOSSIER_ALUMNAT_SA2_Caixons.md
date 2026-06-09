@@ -579,8 +579,8 @@ Format del marcatge:
 
 <div align="center">
 
-**🌱 Departament de Tecnologia · IES · Comunitat Valenciana · Curs 2025-2026**
+**🌱 Departament de Tecnologia · IES Tirant Lo Blanc · Gandia · Comunitat Valenciana · Curs 2025-2026**
 
-*Situació d'Aprenentatge: Hort Escolar Tecnològic*
+*Situació d'Aprenentatge: Caixons de fusta reciclada*
 
 </div>
