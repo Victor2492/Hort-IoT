@@ -481,17 +481,17 @@ Exemples comuns:
 │  Longitud exterior:     190 mm                              │
 │  Amplada exterior:       90 mm                              │
 │  Gruix base:              4 mm                              │
-│  Alçada potes (standoffs): 5 mm  (4 × Ø8 mm als cantons)  │
+│  Alçada potes (standoffs): 5 mm  (4 × Ø8 mm als cantons)    │
 │  Alçada total:            9 mm                              │
 │                                                             │
-│  Patró de forats:     Hexagonal, Ø10 mm                    │
-│  Separació centres:   13 mm (horitzontal), 11,25 mm (vert.)│
-│  Àrea de drenatge:    ≥ 42% de la superfície               │
+│  Patró de forats:     Hexagonal, Ø10 mm                     │
+│  Separació centres:   13 mm (horitzontal), 11,25 mm (vert.) │
+│  Àrea de drenatge:    ≥ 42% de la superfície                │
 │  Paret mínima:        2 mm entre forats                     │
 │                                                             │
-│  Tap connector:       5 × 3 × 2 mm (sòlid)                │
-│  Ranura connector:    5,2 × 3 × 2,2 mm (tolerància +0,2)  │
-│  Canal sensor:        3,5 × 90 × 4 mm (ranura lateral)    │
+│  Tap connector:       5 × 3 × 2 mm (sòlid)                  │
+│  Ranura connector:    5,2 × 3 × 2,2 mm (tolerància +0,2)    │
+│  Canal sensor:        3,5 × 90 × 4 mm (ranura lateral)      │
 └─────────────────────────────────────────────────────────────┘
 ```
 
