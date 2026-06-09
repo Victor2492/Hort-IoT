@@ -49,8 +49,8 @@ Problema real → Solució tecnològica → Impacte al centre
 ### Connexió amb altres SA
 
 ```
-SA2: Caixons de fusta  →  SA3: Reixes de drenatge 3D  →  SA4: Automatització (Arduino/ESP32)
-       (aquest dossier)
+SA2: Caixons de fusta  →  SA3: Reixes de drenatge 3D  →  SA5 i SA6: Automatització (Arduino/ESP32)
+       
 ```
 
 ---
