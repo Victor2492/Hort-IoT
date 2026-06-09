@@ -375,9 +375,9 @@ Sessió: ___  Data: ___  Grup: ___
 ### Si un grup no acaba a temps
 
 ```
-Plan A: Impressió 3D (SA2) proporciona la reixa de drenatge ← independent
-Plan B: El docent té peces de base prefabricades per als passacables
-Plan C: Rols alternatius: documentació fotogràfica de la resta de grups
+Alternativa A: Impressió 3D (SA2) proporciona la reixa de drenatge ← independent
+Alternativa B: El docent té peces de base prefabricades per als passacables
+Alternativa C: Rols alternatius: documentació fotogràfica de la resta de grups
 ```
 
 ---
