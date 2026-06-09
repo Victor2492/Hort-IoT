@@ -228,14 +228,14 @@ Alternativa C: STL de referència pre-imprès
 ```
 ┌────────────────────────────────────────────────────────────┐
 │  AULA D'INFORMÀTICA                                        │
-│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐        │
-│  │  Grups 1-2  │  │  Grups 3-4  │  │  Grups 5-6  │        │
-│  │  TinkerCAD  │  │  TinkerCAD  │  │  TinkerCAD  │        │
-│  └─────────────┘  └─────────────┘  └─────────────┘        │
+│  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐         │
+│  │  Grups 1-2  │  │  Grups 3-4  │  │  Grups 5-6  │         │
+│  │  TinkerCAD  │  │  TinkerCAD  │  │  TinkerCAD  │         │
+│  └─────────────┘  └─────────────┘  └─────────────┘         │
 │                                                            │
 │  ZONA IMPRESSORA (taller o racó de l'aula):                │
 │  ┌──────────┐                                              │
-│  │Impressora│  ← Torn de grups. 1 alumne/a de guardia.    │
+│  │Impressora│  ← Torn de grups. 1 alumne/a de guardia.     │
 │  └──────────┘                                              │
 └────────────────────────────────────────────────────────────┘
 ```
