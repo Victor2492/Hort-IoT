@@ -327,7 +327,7 @@ void loop() {
 }
 ```
 
-> 💡 El codi complet d'automatització forma part de la SA4 (Arduino/ESP32). Aquí només provem el funcionament manual.
+> 💡 El codi complet d'automatització forma part de les següents SA. Ací només provem el funcionament manual.
 
 ---
 
