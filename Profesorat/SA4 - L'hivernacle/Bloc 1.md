@@ -47,7 +47,7 @@ Si arribes de nou a aquesta classe, ací tens els 3 conceptes teòrics que has d
 
 ### 📊 Avaluació del bloc 1 (rúbrica del professorat)
 
-Aquest primer bloc representa un 20% de la nota final del projecte. S'avalua principalment la planificació, la comprensió teòrica i el treball en l'estudi d'enginyeria (no la construcció encara).
+En aquest primer bloc s'avalua principalment la planificació, la comprensió teòrica i el treball en l'estudi d'enginyeria (no la construcció encara).
 
 Aquesta rúbrica s'ha d'aplicar a nivell grupal analitzant el que han pujat al portfolio al final de la sessió 4 i observant el seu treball a l'aula. Cada fila vincula el treball amb els criteris d'avaluació oficials del currículum.
 
