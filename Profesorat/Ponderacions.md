@@ -62,14 +62,14 @@
 
 <table>
   <thead>
-    <tr style="background-color: #d4edda;" bgcolor="#d4edda">
-      <th colspan="3">🟩 COMPETÈNCIA ESPECÍFICA 2</th>
+    <tr style="background-color: #cce5ff;" bgcolor="#cce5ff">
+      <th colspan="3">🟦 COMPETÈNCIA ESPECÍFICA 2</th>
       <th colspan="3">EVIDÈNCIES SA 1</th>
       <th colspan="8">EVIDÈNCIES SA 2</th>
       <th colspan="8">EVIDÈNCIES SA 3</th>
       <th colspan="1">EV. SA4</th>
     </tr>
-    <tr style="background-color: #d4edda;" bgcolor="#d4edda">
+    <tr style="background-color: #cce5ff;" bgcolor="#cce5ff">
       <th>CRITERI AVALUACIÓ</th>
       <th>% DE LA NOTA</th>
       <th>Aconseguit</th>
@@ -98,19 +98,19 @@
       <td><strong>2.3</strong></td>
       <td>20%</td>
       <td>X/n</td>
-      <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td><td></td>
-      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
     </tr>
     <tr>
       <td><strong>2.4</strong></td>
       <td>20%</td>
       <td>X/n</td>
-      <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td><td></td>
-      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
     </tr>
     <tr>
       <td><strong>2.5</strong></td>
       <td>20%</td>
       <td>X/n</td>
-      <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td></td>
-      <td></td><td></td>
+      <td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>
