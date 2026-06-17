@@ -1,135 +1,79 @@
-# 🌱💻 De la llavor al núvol: Sostenibilitat, automatització i IoT a l'hort escolar
+# 🌿 L'Hort IoT: Un viatge tecnològic de la llavor al núvol
 
-## 📋 Descripció del projecte
+Benvinguts i benvingudes al repositori central del projecte **L'Hort IoT**. Aquest curs no és una assignatura teòrica convencional; l'aula es converteix en un estudi d'enginyeria on l'alumnat s'enfrontarà a un repte real, pràctic i escalable durant tot l'any escolar.
 
-Aquest repositori conté la programació didàctica anual i els recursos d'un projecte educatiu per competències dissenyat per a l'assignatura de Tecnologia de 4t d'ESO.
-
-El projecte s'articula al voltant d'un eix vertebrador: **la creació i gestió d'un Hort Escolar Intel·ligent (Hort IoT)**. A través d'un escenari educatiu real i aplicat al mateix institut, l'alumnat dissenya i implementa una infraestructura que permet:
-
-- Construcció física sostenible amb materials reciclats (economia circular).
-- Disseny i impressió 3D de components a mida.
-- Automatització intel·ligent del reg mitjançant sensors i microcontroladors.
-- Monitoratge remot de dades mediambientals mitjançant un Dashboard web.
-- Alimentació energètica autònoma amb instal·lacions fotovoltaiques.
+El nostre objectiu final és dissenyar, construir, automatitzar i connectar a Internet un hivernacle intel·ligent. Per a aconseguir-ho, treballarem sota la metodologia d'Aprenentatge Basat en Projectes (ABP), avançant a través de **6 Situacions d'Aprenentatge (SA)** estretament connectades. Cada repte superat serà la base de l'esglaó següent, integrant totes les disciplines STEAM (Ciència, Tecnologia, Enginyeria, Art i Matemàtiques).
 
 ---
 
-## 🎯 Objectius d'aprenentatge
+## 🚀 El nostre full de ruta: Les 6 Fases del Projecte
 
-Competències Específiques (CE) i sabers desenvolupats (LOMLOE):
+### ♻️ SA 1 - Ecohackers
+El punt de partida. Abans de construir, cal entendre l'impacte de la tecnologia en el nostre entorn. En aquesta fase inicial, l'alumnat adopta la mentalitat *"ecohacker"*: analitzar problemes mediambientals, repensar el cicle de vida dels materials i planificar com el nostre projecte pot ser 100% sostenible. Es defineixen els equips de treball, els rols i s'inicia el Portfolio digital.
 
-| CE | Descripció | Continguts associats |
-| :---: | :--- | :--- |
-| **CE1** | Resolució de problemes tecnològics | Mètode de projectes, memòria tècnica, treball col·laboratiu |
-| **CE2** | Disseny, materials i fabricació | Eines de fusteria, tractament de palets, disseny CAD, impressió 3D |
-| **CE3** | Pensament computacional i robòtica | C/C++, Arduino/ESP32, sensors (humitat, temp), actuadors (relés) |
-| **CE4** | Eines digitals i comunicació d'idees | Xarxes (IP/WLAN), servidor Raspberry Pi, Dashboard HTML/JS |
-| **CE5** | Tecnologia sostenible i eficiència | Instal·lació de Kit Solar, inversors, bateries, eficiència energètica |
-| **CE6** | Ètica i impacte ambiental | Economia circular (marcatge HT fusta), petjada hídrica, ODS |
+### 🪵 SA 2 - Caixons de fusta reciclada
+Ens posem la roba de feina i entrem al taller. Aprofitant fusta de palets i materials recuperats, l'alumnat aprendrà fusteria bàsica, presa de mesures, ús segur d'eines de tall i tècniques d'acoblament. El resultat físic serà el caixó de cultiu, uns fonaments robustos sobre els quals creixerà la resta del projecte.
 
----
+### 🧊 SA 3 - Disseny i impressió 3D (Reixa de drenatge)
+Com evitem que les arrels es podrisquen per l'excés d'aigua? La solució està en el món digital. Farem el salt al disseny assistit per ordinador (CAD) utilitzant Tinkercad i aprendrem els paràmetres de laminació (Ultimaker Cura) per a imprimir en 3D unes reixes de drenatge a mida que s'ajustaran perfectament al fons dels nostres caixons de fusta.
 
-## 🎓 Context educatiu
+### 🏗️ SA 4 - L'hivernacle (Estructures i hidràulica)
+El projecte creix en alçada i es tanca. Explorarem l'arquitectura bioclimàtica construint una coberta de canyes i plàstic que encaixe al caixó. El gran repte mecànic consistirà a aplicar la *Llei de Pascal* per a crear un sistema hidràulic amb xeringues de fluids incompressibles, capaç d'obrir i tancar una finestra de ventilació per a evacuar la calor acumulada de forma passiva.
 
-- **Matèria:** Tecnologia
-- **Nivell:** 4t d'ESO
-- **Normativa:** Decret 107/2022, d'1 d'agost (Comunitat Valenciana) - LOMLOE
-- **Durada:** Anual (105 sessions, 3h/setmana aprox.)
-- **Metodologia:** Aprenentatge Basat en Projectes (ABP) i Aprenentatge Servei (ApS)
+### 🔌 SA 5 - Disseny i muntatge PCB
+El nostre hort necessita començar a pensar. Entrarem en l'apassionant món de l'electrònica i el disseny de plaques de circuit imprés (PCB). L'alumnat aprendrà a dissenyar pistes, interpretar esquemes electrònics i utilitzar el soldador d'estany amb precisió per a muntar la seua pròpia placa de control *hardware*.
+
+### 🌐 SA 6 - Hort IoT (El cervell connectat)
+La culminació absoluta del projecte. Substituirem la força manual per servomotors i programarem un cervell electrònic capaç de prendre decisions basant-se en les dades dels sensors de temperatura i humitat. Finalment, connectarem el nostre hivernacle al "Núvol" (*Internet of Things*), permetent-nos monitorar i controlar l'estat de les plantes en temps real des de qualsevol pantalla del món.
 
 ---
 
-## 🛠️ Tecnologies i eines
+## ⚙️ Connexió Curricular: Treball de les Competències Específiques
 
-### Maquinari requerit (Hardware):
-- **Taller:** Fusta de palets (marcatge HT), serres, trepants, polidores.
-- **Control i IoT:** Placa ESP32 o Arduino UNO amb mòdul WiFi.
-- **Sensors:** Humitat de sòl, Temperatura/Humitat (DHT11/DHT22), Llum (LDR).
-- **Servidor local:** Raspberry Pi 4 (o similar).
-- **Energia:** Kit placa solar 12V, controlador de càrrega, bateria, bomba d'aigua 12V.
-- **Fabricació digital:** Impressora 3D (PLA/PETG).
+La naturalesa transversal d'aquest projecte garanteix que, al llarg de les 6 Situacions d'Aprenentatge, l'alumnat desenvolupe de forma profunda i progressiva **totes les Competències Específiques (CE)** del currículum oficial de Tecnologia:
 
-### Programari principal (Software):
-- **Disseny 3D:** Tinkercad / FreeCAD.
-- **Programació microcontroladors:** Arduino IDE (C++).
-- **Desenvolupament Web:** HTML5, CSS, Vanilla JS, Node.js (Backend).
+* **CE 1. Idear i dissenyar solucions eficients i sostenibles:** Present des de la recerca inicial d'Ecohackers fins al disseny geomètric de l'hivernacle i el traçat dels circuits de la PCB, buscant sempre optimitzar recursos i minimitzar l'impacte ambiental.
+* **CE 2. Prototipar, testar i validar sistemes tecnològics:** Es treballa mitjançant l'assaig-error amb models de cartó per a la cinemàtica de la finestra, la purga del circuit de fluids (Llei de Pascal) i l'anàlisi de toleràncies en enllaçar l'estructura de canyes amb la fusta.
+* **CE 3. Comunicació i documentació digital tècnica:** L'alumnat ha de registrar, estructurar i publicar tot el procés en un entorn digital professional (el Portfolio de l'equip), a més de defensar públicament el seu projecte davant dels companys utilitzant un vocabulari tècnic rigorós (*Pitch* tècnic).
+* **CE 4. Fabricació segura i gestió de materials al taller:** Aquesta competència es desenvolupa intensament al taller de fusteria i en les fases de muntatge. Implica mecanitzar canyes i fusta, utilitzar correctament les eines de tall, realitzar soldadura d'estany i complir estrictament les normes de prevenció de riscos i ús d'EPIs.
+* **CE 5. Treball en equip, cooperació i lideratge inclusiu:** L'estructura de treball simula un estudi d'enginyeria real on cada membre assumeix un rol fix i indispensable (coordinació, documentació, gestió de materials, o seguretat i qualitat), aprenent a organitzar-se i a resoldre conflictes de manera autònoma.
+* **CE 6. Pensament computacional, automatització i robòtica:** Es posa en pràctica en la recta final del projecte (SA 5 i SA 6) en dissenyar els algorismes condicionals necessaris perquè la placa controladora llija les dades dels sensors, controle els servomotors i connecte l'hort a la xarxa IoT.
 
 ---
 
-## 🚀 Fases del projecte (Temporalització Anual)
+## 🌍 Referències curriculars i ODS
 
-### Fase 1: Investigación, materiales y proyecto (1r Trimestre - 35 sessions)
-- Economía circular. Materiales y sostenibilidad en el entorno próximo.
-- Reciclatge de fusta, construcció de caixons i estudi de l'economia circular.
-- Disseny CAD i impressió 3D.
+Aquest projecte està dissenyat i fonamentat sota el marc normatiu actual per a garantir la seua aplicació directa a l'aula:
 
-### Fase 2: Màquines i Fonaments de Robòtica (2n Trimestre - 35 sessions)
-- Estudi de mecanismes i pneumàtica/hidràulica aplicats al reg.
-- Iniciació a l'electrònica i programació (Arduino/C++).
-- Connexió bàsica de sensors i actuadors a l'aula.
-
-### Fase 3: Instal·lacions i Integració IoT (3r Trimestre - 35 sessions)
-- Instal·lacions d'habitatges aplicades al Kit Solar de l'hort.
-- Muntatge final: integració del codi de reg automàtic.
-- Connexió WiFi, configuració del Dashboard i presentació a l'institut.
+* **Marc Estatal:** Basat en la normativa educativa espanyola vigent (LOMLOE).
+* **Marc Autonòmic:** Decret 107/2022 de la Generalitat Valenciana, pel qual s'estableix l'ordenació i el currículum d'Educació Secundària Obligatòria, aplicat específicament a la matèria de Tecnologia i Digitalització (i especialment enfocat a 4t d'ESO).
+* **Agenda 2030 (ODS):** El projecte transcendeix l'aspecte purament tècnic per a treballar de manera directa els Objectius de Desenvolupament Sostenible:
+  * **ODS 4 (Educació de qualitat):** Mitjançant un aprenentatge STEAM competencial i basat en projectes reals.
+  * **ODS 5 (Igualtat de gènere):** Fomentant les vocacions tecnològiques i científiques, i assegurant la paritat i la rotació equitativa en els rols de lideratge i ús d'eines al taller.
+  * **ODS 7 (Energia neta i assequible):** A través de l'estudi de l'arquitectura bioclimàtica passiva.
+  * **ODS 9 (Indústria, innovació i infraestructura):** Introduint l'alumnat en el disseny 3D, la fabricació de PCB i l'Internet de les Coses (IoT).
+  * **ODS 11 (Ciutats i comunitats sostenibles):** Promovent la creació d'horts urbans.
+  * **ODS 12 (Producció i consum responsables):** Fent de l'economia circular, el reciclatge de palets i la reutilització de materials la base de la construcció.
+  * **ODS 13 (Acció pel clima):** Utilitzant la tecnologia i els sensors per a comprendre i adaptar-nos als factors climàtics.
 
 ---
 
-## 📊 Avaluació
+## 📖 Guies d'ús del Repositori
 
-El projecte utilitza avaluació contínua i formativa mitjançant:
+Per a facilitar la navegació, la planificació i l'aplicació pràctica d'aquest projecte a l'aula, hem estructurat el contingut amb dues guies diferenciades:
 
-- Rúbriques específiques per a les diferents fases (taller, codi, disseny 3D).
-- Avaluació de la Memòria Tècnica del projecte.
-- Funcionament real del producte (Hort regant correctament).
-- Autoavaluació, coavaluació entre iguals i presentació final (Fira de la Ciència / Hall del centre).
+* **👨‍🏫 Guia per al professorat:** Pensada per a l'equip docent. Inclou el guió d'explicacions clau sessió a sessió, les rúbriques d'avaluació detallades per blocs, consells per a gestionar la dinàmica d'aula i solucions als problemes tècnics més habituals.
+* **👩‍🎓 Guia per a l'alumnat:** El manual d'instruccions de l'estudi d'enginyeria. Conté els passos exactes a seguir en cada sessió, els materials necessaris, el repartiment de les tasques per rols i les indicacions sobre què han de pujar al seu Portfolio digital.
 
 ---
 
-## 📖 Guia d'ús
+## 🎯 Metodologia de Treball i Avaluació
 
-### Per al professorat:
-- Revisar l'`auditoria_curricular.md` per justificar la cobertura de sabers bàsics.
-- Adaptar les Situacions d'Aprenentatge (SAs) segons l'equipament disponible al taller.
-- Consultar els esquemes de connexió abans de muntar l'ESP32.
+Durant aquest viatge, l'alumnat no només serà avaluat pel prototip físic final. Es donarà la mateixa importància al **Procés**, la **Documentació** i la **Dinàmica cooperativa**. 
 
-### Per a l'alumnat:
-- Començar per la carpeta `/alumnado/` i les guies de seguretat del taller.
-- Seguir l'estructura de la memòria tècnica des del primer dia.
-- Utilitzar els codis base d'Arduino i HTML per anar modificant-los.
+A través de la coavaluació entre iguals, les llistes de control de qualitat al taller i el seguiment de les tasques del diari de sessions, el projecte pretén fomentar valors com la resiliència davant les errades (*troubleshooting*), l'esperit crític i la capacitat de treballar de manera interdisciplinària per a trobar solucions en el món real.
 
----
-
-## 🎯 Competències desenvolupades
-
-### Competències tècniques:
-- Ús segur d'eines de fabricació manual i digital (3D).
-- Lògica de programació i estructures de control.
-- Muntatge de circuits elèctrics i hidràulics.
-- Tractament i visualització de dades digitals.
-
-### Competències transversals:
-- Treball col·laboratiu i assumpció de rols.
-- Consciència ecosocial, sostenibilitat i disseny ètic.
-- Resolució de problemes i *troubleshooting*.
-
----
-
-## 🔄 Adaptabilitat
-
-El projecte està dissenyat per ser flexible:
-
-- Es pot realitzar sense la part IoT (només reg amb temporitzador clàssic).
-- S'hi pot afegir complexitat mecànica (tendals motoritzats per a hivernacles).
-- El Dashboard pot allotjar-se en la Raspberry o en serveis gratuïts d'Internet (ThingSpeak, Blynk).
-
----
-
-## 📚 Referències curriculars
-
-- Basat en la normativa educativa espanyola (LOMLOE).
-- Decret 107/2022 de la Generalitat Valenciana (Currículum de 4t ESO - Tecnologia).
-- Integració amb els Objectius de Desenvolupament Sostenible (ODS 7, 11, 12, 13).
+**Preparats per a transformar materials reciclats en tecnologia connectada al món? Comencem!**
 
 ---
 
