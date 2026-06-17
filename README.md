@@ -4,9 +4,9 @@ Benvinguts i benvingudes al repositori central del projecte **L'Hort IoT**. Aque
 
 El nostre objectiu final és dissenyar, construir, automatitzar i connectar a Internet un hort intel·ligent. Per a aconseguir-ho, treballarem sota la metodologia d'Aprenentatge Basat en Projectes (ABP), avançant a través de **6 Situacions d'Aprenentatge (SA)** estretament connectades. Cada repte superat serà la base de l'esglaó següent, integrant totes les disciplines STEAM (Ciència, Tecnologia, Enginyeria, Art i Matemàtiques).
 
----
+## 📊 Visió global del projecte
 
-![Título o descripción de tu infografía](Infografia general Hort.png)
+![Infografia general del projecte L'Hort IoT](img/Infografia_general_Hort.png)
 
 ---
 
