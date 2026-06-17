@@ -6,7 +6,7 @@ El nostre objectiu final és dissenyar, construir, automatitzar i connectar a In
 
 ## 📊 Visió global del projecte
 
-![Infografia general del projecte L'Hort IoT](img/Infografia_general_Hort.png)
+![Infografia general del projecte L'Hort IoT](Infografia_general_Hort.png)
 
 ---
 
