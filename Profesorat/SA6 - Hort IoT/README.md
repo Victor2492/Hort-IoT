@@ -177,11 +177,11 @@ A continuació, es desplega la seqüència didàctica formalitzada a partir de l
 
 ---
 
-## 4. PONDERACIÓ I INSTRUMENTS D'AVALUACIÓ
+## 4. COMPETÈNCIES ESPECÍFIQUES I INSTRUMENTS D'AVALUACIÓ
 
 L'avaluació de la Situació d'Aprenentatge té un caràcter formatiu, continu, competencial i diversificat, d'acord amb les directrius de la LOMLOE i la Conselleria d'Educació de la GVA.
 
-### 4.1. Competències Específiques i Taula de Ponderació Quantitativa per a cada Criteri d'Avaluació
+### 4.1. Competències Específiques <!--i Taula de Ponderació Quantitativa per a cada Criteri d'Avaluació-->
 
 **CE1:** Identificar problemes tecnològics a partir de l’estudi de les necessitats presents en l’entorn pròxim, formular propostes per a abordar-los, i resoldre’ls de manera eficient i
 innovadora mitjançant processos de treball col·laboratiu i utilitzant estratègies pròpies del mètode de projectes.
