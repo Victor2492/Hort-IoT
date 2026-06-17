@@ -195,7 +195,7 @@ satisfactòria a les necessitats plantejades.
 
 **CE5:** Aprofitar les possibilitats que ofereixen les eines digitals per a realitzar eficientment de tasques tecnològiques, configurant-les i aplicant els coneixements interdisciplinaris adequats.
 
-
+<!--
 | Criteri | Descripció | Percentatge |
 |---|---|---|
 | 1.4 | Gestionar el desenvolupament d'un projecte | 2% |
@@ -212,7 +212,7 @@ satisfactòria a les necessitats plantejades.
 | 5.1 | Configurar aplicacions i eines digitals | 2% |
 | 5.2 | Fer tasques tecnològiques eficientment amb eines digitals | 3% |
 
-
+-->
 ---
 
 ### 4.2. Rúbrica de nivells de desenvolupament per criteri
