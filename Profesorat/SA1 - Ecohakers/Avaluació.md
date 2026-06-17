@@ -64,18 +64,7 @@
 
 ---
 
-# 2. Ponderació de la Situació d'Aprenentatge
-
-| Competència | Pes |
-|------------|------:|
-| CE1 | 40% |
-| CE3 | 20% |
-| CE5 | 15% |
-| CE6 | 25% |
-
----
-
-# 3. Relació entre instruments i competències
+# 2. Relació entre instruments i competències
 
 | Instrument | CE1 | CE3 | CE5 | CE6 |
 |------------|:---:|:---:|:---:|:---:|
@@ -89,20 +78,20 @@
 
 ---
 
-# 4. Instruments d'evaluació
+# 3. Instruments d'evaluació
 
-| Instrument | Pes |
-|------------|------:|
-| Dossier de treball | 25% |
-| Comparativa de materials | 10% |
-| Activitat SCAMPER | 10% |
-| Infografia de les 7R | 15% |
-| Informe final d'ecodisseny | 25% |
-| Presentació oral | 15% |
+| Instrument 
+|------------
+| Dossier de treball
+| Comparativa de materials
+| Activitat SCAMPER
+| Infografia de les 7R
+| Informe final d'ecodisseny
+| Presentació oral
 
 ---
 
-# 5. Rúbrica de l'Informe d'Ecodisseny
+# 4. Rúbrica de l'Informe d'Ecodisseny
 
 | Criteri | Excel·lent (9-10) | Assolit (7-8) | En procés (5-6) | No assolit (<5) |
 |----------|----------|----------|----------|----------|
@@ -114,7 +103,7 @@
 
 ---
 
-# 6. Rúbrica de la Presentació Oral
+# 5. Rúbrica de la Presentació Oral
 
 | Criteri | Excel·lent (9-10) | Assolit (7-8) | En procés (5-6) | No assolit (<5) |
 |----------|----------|----------|----------|----------|
@@ -126,7 +115,7 @@
 
 ---
 
-# 7. Rúbrica de la Infografia de les 7R
+# 6. Rúbrica de la Infografia de les 7R
 
 | Criteri | Excel·lent (9-10) | Assolit (7-8) | En procés (5-6) | No assolit (<5) |
 |----------|----------|----------|----------|----------|
@@ -138,7 +127,7 @@
 
 ---
 
-# 8. Llista de Coteig del Treball Cooperatiu
+# 7. Llista de Coteig del Treball Cooperatiu
 
 ## Alumne/a: ______________________________
 
@@ -159,7 +148,7 @@
 
 ---
 
-# 9. Autoavaluació
+# 8. Autoavaluació
 
 ## Reflexiona sobre el teu treball
 
@@ -181,7 +170,7 @@ _____________________________________________________
 
 ---
 
-# 10. Coavaluació
+# 9. Coavaluació
 
 ## Avalua el funcionament del teu equip
 
@@ -192,25 +181,6 @@ _____________________________________________________
 | Hem resolt conflictes adequadament | ☐ | ☐ | ☐ | ☐ |
 | Hem respectat els terminis | ☐ | ☐ | ☐ | ☐ |
 | Estem satisfets amb el resultat final | ☐ | ☐ | ☐ | ☐ |
-
----
-
-# 11. Càlcul de la qualificació final
-
-## Distribució per competències
-
-| Competència | Pes |
-|------------|------:|
-| CE1 | 40% |
-| CE3 | 20% |
-| CE5 | 15% |
-| CE6 | 25% |
-
-### Fórmula de càlcul
-
-**Nota Final SA =**
-
-(CE1 × 0,40) + (CE3 × 0,20) + (CE5 × 0,15) + (CE6 × 0,25)
 
 ---
 
