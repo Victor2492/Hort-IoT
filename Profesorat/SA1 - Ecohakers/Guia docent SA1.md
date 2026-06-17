@@ -435,25 +435,16 @@ Valorar especialment la capacitat d'argumentació i defensa de les propostes.
 
 # 12. Avaluació
 
-## Ponderació per competències
-
-| Competència | Pes |
-|------------|------:|
-| CE1 | 40% |
-| CE3 | 20% |
-| CE5 | 15% |
-| CE6 | 25% |
-
 ### Instruments d'avaluació
 
-| Instrument | Pes |
-|------------|------:|
-| Dossier de treball | 25% |
-| Comparativa de materials | 10% |
-| Infografia de les 7R | 15% |
-| Activitat SCAMPER | 10% |
-| Informe d'ecodisseny | 25% |
-| Presentació oral | 15% |
+| Instrument 
+|------------
+| Dossier de treball
+| Comparativa de materials
+| Infografia de les 7R 
+| Activitat SCAMPER
+| Informe d'ecodisseny
+| Presentació oral 
 
 ---
 
