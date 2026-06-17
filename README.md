@@ -11,19 +11,19 @@ El nostre objectiu final és dissenyar, construir, automatitzar i connectar a In
 ### ♻️ SA 1 - Ecohackers
 El punt de partida. Abans de construir, cal entendre l'impacte de la tecnologia en el nostre entorn. En aquesta fase inicial, l'alumnat adopta la mentalitat *"ecohacker"*: analitzar problemes mediambientals, repensar el cicle de vida dels materials i planificar com el nostre projecte pot ser 100% sostenible. Es defineixen els equips de treball, els rols i s'inicia el Portfolio digital.
 
-### 🪵 SA 2 - Caixons de fusta reciclada
+### 🧰 SA 2 - Caixons de fusta reciclada
 Ens posem la roba de feina i entrem al taller. Aprofitant fusta de palets i materials recuperats, l'alumnat aprendrà fusteria bàsica, presa de mesures, ús segur d'eines de tall i tècniques d'acoblament. El resultat físic serà el caixó de cultiu, uns fonaments robustos sobre els quals creixerà la resta del projecte.
 
-### 🧊 SA 3 - Disseny i impressió 3D (Reixa de drenatge)
+### 💧 SA 3 - Disseny i impressió 3D 
 Com evitem que les arrels es podrisquen per l'excés d'aigua? La solució està en el món digital. Farem el salt al disseny assistit per ordinador (CAD) utilitzant Tinkercad i aprendrem els paràmetres de laminació (Ultimaker Cura) per a imprimir en 3D unes reixes de drenatge a mida que s'ajustaran perfectament al fons dels nostres caixons de fusta.
 
-### 🏗️ SA 4 - L'hivernacle (Estructures i hidràulica)
+### 🏡 SA 4 - L'hivernacle
 El projecte creix en alçada i es tanca. Explorarem l'arquitectura bioclimàtica construint una coberta de canyes i plàstic que encaixe al caixó. El gran repte mecànic consistirà a aplicar la *Llei de Pascal* per a crear un sistema hidràulic amb xeringues de fluids incompressibles, capaç d'obrir i tancar una finestra de ventilació per a evacuar la calor acumulada de forma passiva.
 
 ### 🔌 SA 5 - Disseny i muntatge PCB
 El nostre hort necessita començar a pensar. Entrarem en l'apassionant món de l'electrònica i el disseny de plaques de circuit imprés (PCB). L'alumnat aprendrà a dissenyar pistes, interpretar esquemes electrònics i utilitzar el soldador d'estany amb precisió per a muntar la seua pròpia placa de control *hardware*.
 
-### 🌐 SA 6 - Hort IoT (El cervell connectat)
+### 🌐 SA 6 - Hort IoT 
 La culminació absoluta del projecte. Substituirem la força manual per servomotors i programarem un cervell electrònic capaç de prendre decisions basant-se en les dades dels sensors de temperatura i humitat. Finalment, connectarem el nostre hivernacle al "Núvol" (*Internet of Things*), permetent-nos monitorar i controlar l'estat de les plantes en temps real des de qualsevol pantalla del món.
 
 ---
