@@ -313,16 +313,14 @@ L’informe haurà d’incloure:
 
 # 14. Avaluació i autoavaluació
 
-## Distribució de la nota
-
-| Aspecte | Pes |
+| Aspecte 
 |----------|------|
-| Investigació inicial | 15% |
-| Cicle de vida | 20% |
-| Estudi de materials | 20% |
-| Proposta d’ecodisseny | 25% |
-| Informe final | 10% |
-| Presentació oral | 10% |
+| Investigació inicial
+| Cicle de vida
+| Estudi de materials
+| Proposta d’ecodisseny
+| Informe final 
+| Presentació oral
 
 ## Autoavaluació
 
@@ -355,22 +353,6 @@ Què has après durant aquest projecte?
 - 🌐 Tinkercad
 - 🌐 Genially
 - 🌐 Google Presentacions
-
----
-
-# Notes de l’equip
-
-| Sessió | Data | Notes |
-|---------|------|--------|
-| S1 | | |
-| S2 | | |
-| S3 | | |
-| S4 | | |
-| S5 | | |
-| S6 | | |
-| S7 | | |
-| S8 | | |
-| S9 | | |
 
 ---
 
