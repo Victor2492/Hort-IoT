@@ -1,6 +1,6 @@
 # 🌿 L'Hort IoT: Un viatge tecnològic de la llavor al núvol
 
-Benvinguts i benvingudes al repositori central del projecte **L'Hort IoT**. Aquest curs no és una assignatura teòrica convencional; l'aula es converteix en un estudi d'enginyeria on l'alumnat s'enfrontarà a un repte real, pràctic i escalable durant tot l'any escolar.
+Benvinguts i benvingudes al repositori central del projecte **L'Hort IoT**. Aquest curs en el Tirant lo Blanc no és una assignatura teòrica convencional; l'aula es converteix en un estudi d'enginyeria on l'alumnat s'enfrontarà a un repte real, pràctic i escalable durant tot l'any escolar.
 
 El nostre objectiu final és dissenyar, construir, automatitzar i connectar a Internet un hort intel·ligent. Per a aconseguir-ho, treballarem sota la metodologia d'Aprenentatge Basat en Projectes (ABP), avançant a través de **6 Situacions d'Aprenentatge (SA)** estretament connectades. Cada repte superat serà la base de l'esglaó següent, integrant totes les disciplines STEAM (Ciència, Tecnologia, Enginyeria, Art i Matemàtiques).
 
